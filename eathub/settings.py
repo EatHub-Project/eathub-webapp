@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_engine',
-        'NAME': 'test',
+        'NAME': 'eathub',
         'USER': '',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
