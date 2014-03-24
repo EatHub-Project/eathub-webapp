@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from django.test import TestCase
-from webapp.models import Author, Recipe, Time, Picture, Ingredient, Savour
+from webapp.models import Author, Recipe, Time, Picture, Savour
 
 
 class RecipesTestCase(TestCase):
@@ -10,8 +10,6 @@ class RecipesTestCase(TestCase):
 
         # Las entidades embebidas se pueden crear antes, o directamente cuando se crea la receta
         a = Author(displayName="Rafa Vázquez", userName="sloydev")
-        iUno = Ingredient(quantity=1, unit="litros", name="ingredient1")
-        iDos = Ingredient(quantity=2, unit="gramos", name="ingredient2")
         s = Savour(salty = 1, sour = 1, bitter = 1, sweet = 1, spicy = 1)
         r = Recipe(title="Cosas ricas de prueba",
                    description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
@@ -35,7 +33,7 @@ class RecipesTestCase(TestCase):
                              Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
                                      isMain=True)],
                    time=Time(prepTime=20, cookTime=0),
-				   ingredients=[iUno, iDos],
+				   ingredients="lo que sea",
 				   #savours=None,
 				   savours=s,
                    author=a)
