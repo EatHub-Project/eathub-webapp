@@ -10,7 +10,7 @@ class RecipesTestCase(TestCase):
 
         # Las entidades embebidas se pueden crear antes, o directamente cuando se crea la receta
         a = Author(displayName="Rafa Vázquez", userName="sloydev")
-        s = Savour(salty = 1, sour = 1, bitter = 1, sweet = 1, spicy = 1)
+        s = Savour(salty = -1, sour = 1, bitter = 1, sweet = 1, spicy = 1)
         r = Recipe(title="Cosas ricas de prueba",
                    description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
                    steps=["Paso uno", "Paso dos", "Paso tres"],
@@ -23,7 +23,7 @@ class RecipesTestCase(TestCase):
 				   nationality='spain',
 				   specialConditions=["glutenfree"],
 				   notes="ola k ase",
-				   #dificult=1,
+				   difficult=4,
 				   foodType="cangrejo a la carbonara",
 				   tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba"],
                    pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
@@ -37,6 +37,7 @@ class RecipesTestCase(TestCase):
 				   #savours=None,
 				   savours=s,
                    author=a)
+        r.clean_fields()
         r.save()
 
     def test_recipe_well_created(self):
@@ -52,7 +53,7 @@ class RecipesTestCase(TestCase):
         print str(r.nationality)
         print str(r.specialConditions)
         print str(r.notes)
-        #print str(r.dificult)
+        print str(r.difficult)
         print str(r.foodType)
         print str(r.tags)
         print str(r.ingredients)
