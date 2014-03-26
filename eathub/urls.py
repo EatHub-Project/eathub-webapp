@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
 
     url(r'^', include('webapp.urls')),
+    url(r'^modificar/', 'webapp.views.modificar', name='modificar'),
 )

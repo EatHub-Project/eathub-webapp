@@ -14,3 +14,30 @@ def lista_recetas(request):
         'recetas': recetas
     })
     return HttpResponse(template.render(context))
+
+# Create your views here.
+from django.shortcuts import render_to_response
+from webapp.models import Profile
+from forms import ProfileForm
+from django.http import HttpResponseRedirect
+from django.core.context_processors import csrf
+
+
+
+
+def modificar(request):
+    if request.POST:
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect('/')
+    else:
+        form = ProfileForm()
+
+    args = {}
+    args.update(csrf(request))
+
+    args['form'] = form
+
+    return render_to_response('modificar_usuario.html', args)
