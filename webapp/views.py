@@ -64,4 +64,4 @@ def main(request):
     global user
     if user is None:
         return render_to_response('login.html', context_instance=RequestContext(request))
-    return render_to_response('main.html', {'username':user.username, 'password':user.password})
+    return render_to_response('index.html', {'username':user.username, 'password':user.password})
