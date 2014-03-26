@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="image/favicon.ico">
+
+    <title>EatHub</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+    <link href="css/starter-template.css" rel="stylesheet">
+
+    <body>
+      <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container">
+            <nav class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="http://getbootstrap.com/examples/starter-template/#"><img class="navbar-logo" src="image/logo_big.png" /></a>
+            </nav>
+            <nav class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active">
+                  <a href="http://getbootstrap.com/examples/starter-template/#">Home</a>
+                </li>
+                <li>
+                  <a href="http://getbootstrap.com/examples/starter-template/#about">Explore</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <div class="input-group" id="fifteenMargin">
+                    <form class="navbar-form navbar-right">
+                      <input type="text" class="form-control" placeholder="Search..." name="srch-term" id="srch-term">
+                      <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                          <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="btn-group">
+                  <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="#"><img src="image/profile.jpg"/></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a data-toggle="modal" data-target="#profile">Profile</a>
+                    </li>
+                    <li>
+                      <a href="#">My recipes</a>
+                    </li>
+                    <li>
+                      <a href="#">Friends</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#">Logout</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <button type="button" class="plus btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span>Add
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </nav><!--/.nav-collapse -->
+      </header>
+      <main class="container">
+        <h1>Profile</h1>
+        <form role="form well well-lg">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <div class="row">
+                <label for="avatar">Avatar</label>
+              </div>
+              <div class="row">
+                <img class="img-thumbnail" src="image/profile-big.jpg" />
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="file" class="form-control" id="avatar">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username">
+              </div>
+              <div class="row">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+              </div>
+              <div class="row">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="row">
+                <label for="name">Display name</label>
+                <input type="text" class="form-control" id="name" placeholder="Display name">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="languaje">Main languaje</label>
+                  <select class="form-control">
+                    <option>Spanish</option>
+                    <option>English</option>
+                  </select>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="">Additional languaje</label>
+                  <select multiple class="form-control">
+                    <option>Spanish</option>
+                    <option>English</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="country">Country</label>
+                  <select class="form-control">
+                    <option>Spain</option>
+                    <option>England</option>
+                    <option>France</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" placeholder="City">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <label for="website">Website</label>
+                <input type="url" class="form-control" id="website" placeholder="Website">
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="">Gender</label>
+                  <select class="form-control">
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="birth">Birth date</label>
+                  <input type="date" class="form-control" id=""birth placeholder="Born date">
+                </div>
+              </div>
+              <div class="row">
+                <fieldset>
+                  <legend>
+                    Savours
+                  </legend>
+                  <div class="col-md-12">
+                    <label for="salty">Salty</label>
+                    <input id="salty" type="text" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-selection="after" data-slider-tooltip="show">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="sour">Sour</label>
+                    <input id="sour" type="text" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-selection="after" data-slider-tooltip="show">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="bitter">Bitter</label>
+                    <input id="bitter" type="text" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-selection="after" data-slider-tooltip="show">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="sweet">Sweet</label>
+                    <input id="sweet" type="text" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-selection="after" data-slider-tooltip="show">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="spicy">Spicy</label>
+                    <input id="spicy" type="text" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-selection="after" data-slider-tooltip="show">
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="row">
+              <input type="submit" class="btn btn-primary btn-lg"/>
+            </div>
+        </form>
+        </div><!-- /.container -->
+      </main>
+      <footer>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-slider.js"></script>
+        <script>
+          $("#salty").slider();
+          $("#sour").slider();
+          $("#bitter").slider();
+          $("#sweet").slider();
+          $("#spicy").slider();
+        </script>
+      </footer>
+    </body>
+</html>
