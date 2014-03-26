@@ -1,27 +1,29 @@
-from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from django.db.models import IntegerField, ForeignKey
 from djangotoolbox.fields import EmbeddedModelField, ListField
 from django.core.exceptions import ValidationError
 from datetime import datetime
 
-# SOLO FALTARIA ANADIR LAS RESTRICCIONES QUE FALTEN 
-# EN EL MODELO 
 
+# --- Profile ---
 
-def validate_country(self, country):  # Prueba numero 28
+# Validators
+
+def validate_country(self, country):
     if country is None:
         raise ValidationError(u'Country field cannot be empty')
     if self.countries_list.count(country) == 0:
         raise ValidationError(u'%s is not in countries list' % country)
 
 
-def validate_city(self, city):  # Prueba numero 29
+def validate_city(self, city):
     if city is not None:
         if city == '':
             raise ValidationError(u'if city is set it cannot be empty')
 
 
-def validate_main_language(self, main_language):  # Prueba numero 31
+def validate_main_language(self, main_language):
     if main_language is None:
         raise ValidationError(u'Main language cannot be empty')
     else:
@@ -29,39 +31,39 @@ def validate_main_language(self, main_language):  # Prueba numero 31
             raise ValidationError(u'%s is not in languages list' % main_language)
 
 
-def validate_additional_languages(self, additional_languages):  # Prueba numero 32
+def validate_additional_languages(self, additional_languages):
     if additional_languages is not None:
         for a in additional_languages:
             if self.languages_list().count(a) == 0:
                 raise ValidationError(u'%s is not in languages list' % additional_languages)
 
 
-def validate_gender(self, gender):  # Prueba numero 35
+def validate_gender(self, gender):
     if not (gender.male == 1 or gender.female == 1 or gender.other == 1):
         raise ValidationError(u'%s is not a valid gender' % gender)
 
 
-def validate_modification_date(self, modification_date):  # Prueba numero 37
+def validate_modification_date(self, modification_date):
     if type(modification_date) is not datetime:  # si no funciona probar con datetime
         raise ValidationError(u'%s is not a date object' % modification_date)
 
 
-def validate_first_name(self, first_name):  # Prueba numero 39
+def validate_first_name(self, first_name):
     if first_name is None:
         raise ValidationError(u'the first name cannot be None')
 
 
-def validate_password(self, password): # Prueba numero 40
+def validate_password(self, password):
     if password.length < 8:
         raise ValidationError(u'the password must be at least 8 characters')
 
 
-def validate_email(self, email): # Prueba numero 41
+def validate_email(self, email):
     if len(email) > 50 or email is None:
         raise ValidationError(u'Email must be at most 50 characters')
 
 
-def validate_last_login(self, last_login):  # Prueba numero 43
+def validate_last_login(self, last_login):
     if type(last_login) is not datetime:
         raise ValidationError(u'last login type must be date')
     if last_login is None:
@@ -70,12 +72,13 @@ def validate_last_login(self, last_login):  # Prueba numero 43
     if last_login > fecha:
         raise ValidationError(u'last_login date cannot be after current date')
 
+
 class Location(models.Model):
     country = models.TextField(max_length=50, validators=[validate_country])
     city = models.TextField(max_length=50, null=True, validators=[validate_city])
 
     def __str__(self):
-        return "Location:<br/>" + "->Country: " + self.country + "<br/>->City: " + self.city
+        return "{}: {}".format(self.country, self.city)
 
 
 class Tastes(models.Model):
@@ -86,9 +89,7 @@ class Tastes(models.Model):
     spicy = models.IntegerField()
 
     def __str__(self):
-        return "Tastes:<br/>->Salty: " + self.salty.__str__() + "<br/>->Sour: " + self.sour.__str__() + \
-               "<br/>->Bitter: " + self.bitter.__str__() + "<br/>->Sweet: " + self.sweet.__str__() + \
-               "<br/>->Spicy: " + self.spicy.__str__()
+        return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
 
 
 class Gender(models.Model):
@@ -103,13 +104,96 @@ class Profile(models.Model):
     main_language = models.TextField(max_length=50, validators=[validate_main_language])
     additional_languages = ListField(validators=[validate_additional_languages])
     website = models.TextField(max_length=50, null=True)
-    # el atributo genero hay que terminar de definirlo: clase aparte, enumerado,...
     gender = EmbeddedModelField('Gender', validators=[validate_gender])
     birthDate = models.DateField(null=True)
     location = EmbeddedModelField('Location')
     tastes = EmbeddedModelField('Tastes')
-
     user = models.ForeignKey(User, unique=True)
 
     def __str__(self):
-        return "Profile:<br/>" + "->Main language: " + self.main_language + "<br/>" + self.location.__str__() + "<br/>" + self.tastes.__str__()
+        return str(self.display_name)
+
+
+# --- Recipe ---
+
+# Validators
+
+def validate_savour(value):
+    if value < 0 or value > 99:
+        raise ValidationError("Value is not in range 0 to 99")
+
+
+def validate_tags(value):
+    if len(value) > 10:
+        raise ValidationError("Max number of tags is 10")
+
+
+def validate_difficult(value):
+    if value <= 0 or value >= 4:
+        raise ValidationError("Difficult must be in range 1 to 3")
+
+
+# Models
+
+class Author(models.Model):
+    displayName = models.TextField()
+    userName = models.TextField()
+    user = ForeignKey(Profile, unique=True)
+
+    def __str__(self):
+        return self.displayName
+
+
+class Picture(models.Model):
+    url = models.TextField(null=False, blank=False)
+    isMain = models.NullBooleanField()  # BooleanField no acepta valor nulo
+    step = IntegerField(null=True)
+
+    def __str__(self):
+        return self.url
+
+
+class Time(models.Model):
+    prepTime = models.IntegerField()
+    cookTime = models.IntegerField()
+
+    def __str__(self):
+        return "{}+{}".format(self.prepTime, self.cookTime)
+
+
+class Savour(models.Model):
+    salty = models.IntegerField(validators=[validate_savour])
+    sour = models.IntegerField(validators=[validate_savour])
+    bitter = models.IntegerField(validators=[validate_savour])
+    sweet = models.IntegerField(validators=[validate_savour])
+    spicy = models.IntegerField(validators=[validate_savour])
+
+    def __str__(self):
+        return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
+
+
+class Recipe(Model):
+    title = CharField(max_length=50, null=False, blank=False)
+    description = TextField(null=False, blank=False)
+    steps = ListField(null=False, blank=False)
+    serves = CharField(max_length=50, null=False, blank=False)
+    language = CharField(max_length=50)
+    creationDate = DateTimeField(auto_now_add=True, null=False)
+    isPublished = BooleanField()
+    parent = ForeignKey('self', null=True, blank=True)
+    temporality = ListField()
+    nationality = TextField()
+    specialConditions = ListField()
+    notes = TextField()
+    difficult = IntegerField(validators=[validate_difficult])
+    foodType = TextField()
+    tags = ListField(validators=[validate_tags])
+    #embedded
+    author = EmbeddedModelField('Author')
+    pictures = ListField(EmbeddedModelField('Picture'), null=False)
+    time = EmbeddedModelField('Time')
+    ingredients = TextField(null=False)
+    savours = EmbeddedModelField('Savour', null=True)
+
+    def __str__(self):
+        return self.title
