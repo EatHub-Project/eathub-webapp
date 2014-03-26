@@ -1,6 +1,7 @@
+from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.db.models import IntegerField, ForeignKey
+from django.db.models import IntegerField, ForeignKey, CharField, TextField, DateTimeField, BooleanField
 from djangotoolbox.fields import EmbeddedModelField, ListField
 from django.core.exceptions import ValidationError
 from datetime import datetime
@@ -172,7 +173,7 @@ class Savour(models.Model):
         return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
 
 
-class Recipe(Model):
+class Recipe(models.Model):
     title = CharField(max_length=50, null=False, blank=False)
     description = TextField(null=False, blank=False)
     steps = ListField(null=False, blank=False)
