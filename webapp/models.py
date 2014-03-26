@@ -136,8 +136,8 @@ def validate_difficult(value):
 # Models
 
 class Author(models.Model):
-    displayName = models.TextField()
-    userName = models.TextField()
+    display_name = models.TextField()
+    user_name = models.TextField()
     user = ForeignKey(Profile, unique=True)
 
     def __str__(self):
@@ -146,7 +146,7 @@ class Author(models.Model):
 
 class Picture(models.Model):
     url = models.TextField(null=False, blank=False)
-    isMain = models.NullBooleanField()  # BooleanField no acepta valor nulo
+    is_main = models.NullBooleanField()  # BooleanField no acepta valor nulo
     step = IntegerField(null=True)
 
     def __str__(self):
@@ -154,8 +154,8 @@ class Picture(models.Model):
 
 
 class Time(models.Model):
-    prepTime = models.IntegerField()
-    cookTime = models.IntegerField()
+    prep_time = models.IntegerField()
+    cook_time = models.IntegerField()
 
     def __str__(self):
         return "{}+{}".format(self.prepTime, self.cookTime)
@@ -178,15 +178,15 @@ class Recipe(Model):
     steps = ListField(null=False, blank=False)
     serves = CharField(max_length=50, null=False, blank=False)
     language = CharField(max_length=50)
-    creationDate = DateTimeField(auto_now_add=True, null=False)
-    isPublished = BooleanField()
+    creation_date = DateTimeField(auto_now_add=True, null=False)
+    is_published = BooleanField()
     parent = ForeignKey('self', null=True, blank=True)
     temporality = ListField()
     nationality = TextField()
-    specialConditions = ListField()
+    special_conditions = ListField()
     notes = TextField()
     difficult = IntegerField(validators=[validate_difficult])
-    foodType = TextField()
+    food_type = TextField()
     tags = ListField(validators=[validate_tags])
     #embedded
     author = EmbeddedModelField('Author')
