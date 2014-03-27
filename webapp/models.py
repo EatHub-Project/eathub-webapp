@@ -5,6 +5,8 @@ from django.db.models import IntegerField, ForeignKey, CharField, TextField, Dat
 from djangotoolbox.fields import EmbeddedModelField, ListField
 from django.core.exceptions import ValidationError
 from datetime import datetime
+from djangotoolbox.fields import ListField
+
 
 
 # --- Profile ---
@@ -97,6 +99,9 @@ class Gender(models.Model):
     male = models.IntegerField(max_length=1)
     female = models.IntegerField(max_length=1)
     other = models.IntegerField(max_length=1)
+
+
+
 
 
 class Profile(models.Model):
