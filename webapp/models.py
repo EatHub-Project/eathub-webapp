@@ -40,7 +40,8 @@ def validate_additional_languages(self, additional_languages):
 
 
 def validate_gender(self, gender):
-    if not (gender.male == 1 or gender.female == 1 or gender.other == 1):
+    #if not (gender.male == 1 or gender.female == 1 or gender.other == 1):
+    if not (gender.male == 1 or gender.female == 1):
         raise ValidationError(u'%s is not a valid gender' % gender)
 
 
@@ -69,8 +70,8 @@ def validate_last_login(self, last_login):
         raise ValidationError(u'last login type must be date')
     if last_login is None:
         raise ValidationError(u'last login cannot be None')
-    fecha = datetime.today()
-    if last_login > fecha:
+    date = datetime.today()
+    if last_login > date:
         raise ValidationError(u'last_login date cannot be after current date')
 
 
@@ -96,19 +97,20 @@ class Tastes(models.Model):
 class Gender(models.Model):
     male = models.IntegerField(max_length=1)
     female = models.IntegerField(max_length=1)
-    other = models.IntegerField(max_length=1)
+    #other = models.IntegerField(max_length=1)
 
 
 class Profile(models.Model):
-    display_name = models.TextField(max_length=50)
+    display_name = models.CharField(max_length=50, blank=False)
     modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
-    main_language = models.TextField(max_length=50, validators=[validate_main_language])
-    additional_languages = ListField(validators=[validate_additional_languages])
-    website = models.TextField(max_length=50, null=True)
+    main_language = models.CharField(max_length=50, validators=[validate_main_language])
+    additional_languages = ListField(validators=[validate_additional_languages], null=True, blank=False)
+    website = models.URLField(null=True)
     gender = EmbeddedModelField('Gender', validators=[validate_gender])
     birthDate = models.DateField(null=True)
-    location = EmbeddedModelField('Location')
-    tastes = EmbeddedModelField('Tastes')
+    location = EmbeddedModelField('Location', null=True)
+    tastes = EmbeddedModelField('Tastes', null=True)
+    avatar = models.URLField(null=True)
     user = models.ForeignKey(User, unique=True)
 
     def __str__(self):
@@ -137,22 +139,20 @@ def validate_difficult(value):
 # Models
 
 class Author(models.Model):
-    display_name = models.TextField()
-    user_name = models.TextField()
+    display_name = models.CharField(max_length=50, blank=False)
+    user_name = models.CharField(max_length=50, blank=False)
     user = ForeignKey(Profile, unique=True)
 
     def __str__(self):
         return self.displayName
 
-
 class Picture(models.Model):
-    url = models.TextField(null=False, blank=False)
+    url = models.URLField()
     is_main = models.NullBooleanField()  # BooleanField no acepta valor nulo
     step = IntegerField(null=True)
 
     def __str__(self):
         return self.url
-
 
 class Time(models.Model):
     prep_time = models.IntegerField()
@@ -160,7 +160,6 @@ class Time(models.Model):
 
     def __str__(self):
         return "{}+{}".format(self.prepTime, self.cookTime)
-
 
 class Savour(models.Model):
     salty = models.IntegerField(validators=[validate_savour])
@@ -172,29 +171,44 @@ class Savour(models.Model):
     def __str__(self):
         return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
 
-
 class Recipe(models.Model):
-    title = CharField(max_length=50, null=False, blank=False)
-    description = TextField(null=False, blank=False)
-    steps = ListField(null=False, blank=False)
-    serves = CharField(max_length=50, null=False, blank=False)
-    language = CharField(max_length=50)
-    creation_date = DateTimeField(auto_now_add=True, null=False)
-    is_published = BooleanField()
-    parent = ForeignKey('self', null=True, blank=True)
+    title = CharField(max_length=50, blank=False)
+    description = TextField(blank=False)
+    creation_date = DateTimeField(auto_now_add=True)
+    modification_date = DateTimeField(auto_now_add=True, null=True)
+    ingredients = ListField(blank=False)
+    serves = CharField(max_length=50, blank=False)
+    language = CharField(max_length=50, blank=False)
     temporality = ListField()
-    nationality = TextField()
+    nationality = CharField(max_length=50)
     special_conditions = ListField()
     notes = TextField()
     difficult = IntegerField(validators=[validate_difficult])
-    food_type = TextField()
+    food_type = CharField(max_length=50)
     tags = ListField(validators=[validate_tags])
+    steps = ListField(blank=False)
+
+    is_published = BooleanField()
+    parent = ForeignKey('self', null=True, blank=True)
     #embedded
     author = EmbeddedModelField('Author')
-    pictures = ListField(EmbeddedModelField('Picture'), null=False)
+    pictures = ListField(EmbeddedModelField('Picture'), blank=False)
     time = EmbeddedModelField('Time')
-    ingredients = TextField(null=False)
-    savours = EmbeddedModelField('Savour', null=True)
+    savours = EmbeddedModelField('Savour')
 
     def __str__(self):
         return self.title
+
+#enum to entity
+
+class Temporality(models.Model):
+    name = CharField(max_length=50, blank=False)
+
+class Language(models.Model):
+    name = CharField(max_length=50, blank=False)
+
+class Food_Type(models.Model):
+    name = CharField(max_length=50, blank=False)
+
+class Special_Condition(models.Model):
+    name = CharField(max_length=50, blank=False)
