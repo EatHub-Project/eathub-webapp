@@ -29,17 +29,14 @@ def lista_recetas(request):
     return HttpResponse(template.render(context))
 
 
-user = None
-
-
 def login_user(request):
-    global user
     logout(request)
     username = password = ''
 
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
+        user = authenticate(username=username, password=password)
         if user is None:
             #args = {}
             #args.update(csrf(request))
@@ -48,21 +45,22 @@ def login_user(request):
 
             #return render_to_response('login.html', args)
 
-    user = authenticate(username=username, password=password)
-
-    if user is not None:
-        if user.is_active:
-            login(request, user)
-            #request.session['username'] = username
-            #request.session['password'] = password
-            #return HttpResponseRedirect('/main/')
-            return HttpResponseRedirect(reverse('main'))
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                #request.session['username'] = username
+                #request.session['password'] = password
+                #return HttpResponseRedirect('/main/')
+                return HttpResponseRedirect(reverse('main'))
+            else:
+                errormessage = gettext("Check your credentials")
+                messages.error(request, errormessage)
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 
 @login_required(login_url='/login/')
 def main(request):
-    global user
+    user = request.user
     if user is None:
         return render_to_response('login.html', context_instance=RequestContext(request))
     return render_to_response('main.html', {'username':user.username, 'password':user.password})
