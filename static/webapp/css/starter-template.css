@@ -1,0 +1,290 @@
+body {
+  padding-top: 90px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: 41px;
+}
+
+.navbar .container .navbar-brand {
+  margin-left: 25px;
+  padding: 5px 10px 0 0;
+}
+
+header .container {
+  width: 100%;
+}
+
+.navbar-form .form-control {
+  width: 188px;
+}
+
+.profile {
+  float: right;
+  clear: both;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  width: 250px;
+}
+
+.navbar .profile-image {
+  padding: 5px;
+}
+
+.profile-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.plus {
+  margin: 8px;
+  color: #CC3E27;
+}
+
+.plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
+  color: #fff;
+  background-color: #CC3E27;
+  border-color: #D66552;
+}
+
+.divider-vertical {
+  height: 40px;
+  margin: 5px 9px;
+  border-left: 1px solid #D66552;
+  border-right: 1px solid #D66552;
+}
+
+.input-group-btn > .btn {
+  color: #CC3E27;
+  border-left-width: 0;
+  left: -2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-group-btn > .btn:hover {
+  color: #fff;
+  background-color: #CC3E27;
+  border-color: #D66552;
+}
+
+.input-group .form-control:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-color: #cccccc;
+}
+
+.form {
+  margin: 0 auto;
+  float: none;
+}
+
+.recipe-head {
+  border-bottom: 1px solid #CC3E27;
+}
+
+.recipe-time {
+  float: left;
+}
+
+.recipe-time span{
+  color: #CC3E27;
+  font-size: 20px;
+}
+
+.recipe-time p {
+  display: inline;
+  font-size: 20px;
+}
+
+.recipe-name {
+  color: #CC3E27;
+}
+
+.recipe-author {
+  float: right;
+}
+
+.recipe-author h5 {
+  display: inline;
+  color: #CC3E27;
+  font-weight: bold;
+}
+
+.recipe-image {
+  padding: 30px;
+  text-align: center;
+}
+
+.recipe-image img {
+  width: 400px;
+}
+
+.recipe-description {
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #FFF;
+}
+
+.recipe-subhead {
+
+}
+
+.recipe-ingredients {
+  width: 500px;
+  border-right: 1px solid #CC3E27;
+}
+
+.recipe-ingredients h3 {
+  color: #CC3E27;
+}
+
+.recipe-ingredients li {
+  padding: 5px;
+  list-style: none;
+}
+
+.recipe-album ul {
+  padding-left: 0;
+  text-align: center;
+}
+
+.recipe-album li {
+  display: inline;
+  list-style: none;
+}
+
+.recipe-album img {
+  width: 120px;
+}
+
+.recipe-tags {
+
+}
+
+.recipe-tags-list {
+
+}
+
+.recipe-tag {
+  display: inline-block;
+  background-color: #FFF;
+  color: #CC3E27;
+  border: 1px solid #e3e3e3;
+  border-radius: 10%;
+  padding: 4px 5px;
+  margin: 3px;
+  text-align: center;
+}
+
+.recipe-tag:hover {
+  background-color: #CC3E27;
+  color: #FFF;
+  text-decoration: none;
+  border-color: #FFF;
+}
+
+.recipe-taste h5 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.recipe-taste .progress {
+  height: 10px;
+}
+
+.recipe-taste .progress .progress-bar {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.recipe-info {
+  background-color: #FFF;
+  padding: 5px;
+  margin: 0 20px;
+  border-radius: 10px;
+}
+
+.recipe-info-data {
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.recipe-info-data h5 {
+  display: inline;
+  font-weight: bold;
+}
+
+.recipe-info-data span {
+  float: right;
+}
+
+.recipe-info-data span .recipe-tag {
+  margin-right: -7px;
+  margin-top: -5px;
+}
+
+.recipe-steps-list h1{
+  color: #CC3E27;
+}
+
+.recipe-step {
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+  background-color: #FFF;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.recipe-step h5 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.recipe-step span {
+  display: block;
+  padding: 10px;
+}
+
+.recipe-step-image {
+  text-align: center;
+  width: 100%;
+}
+
+.recipe-step-image img {
+  width: 400px;
+  background-color: #CC3E27;
+}
+
+.recipe-note {
+  
+}
+
+.recipe-note h1 {
+  color: #CC3E27;
+}
+
+.recipe-note span{
+  border: 1px solid #e3e3e3;
+  padding: 15px;
+  background-color: #FFF;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: justify;
+  text-align-last: left;
+}
