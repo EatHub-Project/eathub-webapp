@@ -11,8 +11,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'webapp/css/bootstrap.min.css' %}" rel="stylesheet">
-
     <link href="{% static 'webapp/css/starter-template.css' %}" rel="stylesheet">
+
+    {% block custom_css %}{% endblock %}
 
 <body>
 <header>
@@ -123,8 +124,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ STATIC_URL }}webapp/js/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}webapp/js/bootstrap.min.js"></script>
+    <script src="{% static 'webapp/js/jquery.min.js' %}"></script>
+    <script src="{% static 'webapp/js/bootstrap.min.js' %}"></script>
+    {% block custom_js %} {% endblock %}
 </footer>
 </body>
 </html>

@@ -1,98 +1,287 @@
 {% extends "webapp/index.html" %}
-
+{% load staticfiles %}
 {% load i18n %}
 
+
+{% block custom_css %}
+    <link href="{% static 'webapp/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/slider.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block custom_js %}
+    <script src="{% static 'webapp/js/bootstrap-slider.js' %}"></script>
+    <script src="{% static 'webapp/js/bootstrap-select.min.js' %}"></script>
+    <script type="text/javascript">
+        $().ready(function () {
+            $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
+            $('.slider').slider();
+        })
+    </script>
+{% endblock %}
+
+
 {% block container %}
-
     <h1>New Account</h1>
-    <form role="form well well-lg" class="form-horizontal" method="post">
-        {% csrf_token %}
-        <legend>Account information</legend>
-        <fieldset class="well">
-            <div class="form-group">
-                <label for="id_{{ form.username.name }}"
-                       class="col-sm-2 control-label">{{ form.username.label }}</label>
 
-                <div class="col-sm-3">
-                    {% comment %}
+    <form role="form well well-lg" class="form-horizontal" method="post">
+    {% csrf_token %}
+    <legend>Account information</legend>
+    <fieldset class="well">
+
+        <!-- Username -->
+        <div class="form-group">
+            <label for="id_{{ form.username.name }}"
+                   class="col-sm-2 control-label">{{ form.username.label }}</label>
+
+            <div class="col-sm-3">
+                {% comment %}
                     Utilizo esta técnica en vez de poncer {{ form.username }} para permitir estilos personalizados.
                     Se pueden añadir estilos en la clase NewAccountForm, pero de esta forma es más flexible y deja la
                     visualización como responsabilidad de la plantilla.
                     Visto en: http://stackoverflow.com/questions/18805999/how-to-style-a-django-form-bootstrap
                     {% endcomment %}
-                    <input type="text" class="form-control" placeholder="Username"
-                           name="{{ form.username.name }}" id="id_{{ form.username.name }}"
-                           value="{{ form.username.value | default_if_none:'' }}">
-                </div>
+                <input type="text" class="form-control" placeholder="Username"
+                       name="{{ form.username.name }}" id="id_{{ form.username.name }}"
+                       value="{{ form.username.value | default_if_none:'' }}">
             </div>
+            <span class="help-block">Required</span>
+        </div>
 
-            <div class="form-group">
-                <label for="id_{{ form.email.name }}" class="col-sm-2 control-label">{{ form.email.label }}</label>
 
-                <div class="col-sm-3">
-                    <input type="email" class="form-control" placeholder="youremail@example.com"
-                           name="{{ form.email.name }}" id="id_{{ form.email.name }}"
-                           value="{{ form.email.value | default_if_none:'' }}">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="id_{{ form.password.name }}"
-                       class="col-sm-2 control-label">{{ form.password.label }}</label>
-
-                <div class="col-sm-3">
-                    <input type="password" class="form-control" placeholder="Your password"
-                           name="{{ form.password.name }}" id="id_{{ form.password_repeat.name }}"
-                           value="{{ form.password.value | default_if_none:'' }}">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="id_{{ form.password_repeat.name }}"
-                       class="col-sm-2 control-label">{{ form.password_repeat.label }}</label>
-
-                <div class="col-sm-3">
-                    <input type="password" class="form-control" placeholder="Repeat your password"
-                           name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
-                           value="{{ form.password_repeat.value | default_if_none:'' }}">
-                </div>
-            </div>
-        </fieldset>
-
-        <legend>Profile information</legend>
-        <fieldset class="well">
-            <div class="form-group">
-                <label for="id_{{ form.display_name.name }}"
-                       class="col-sm-2 control-label">{{ form.display_name.label }}</label>
-
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" placeholder="Your public name"
-                           name="{{ form.display_name.name }}" id="id_{{ form.display_name.name }}"
-                           value="{{ form.display_name.value | default_if_none:'' }}">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="id_{{ form.main_language.name }}"
-                       class="col-sm-2 control-label">{{ form.main_language.label }}</label>
-
-                <div class="col-sm-3">
-                    <select class="form-control"
-                            id="id_{{ form.main_language.name }}" name="{{ form.main_language.name }}">
-                        {% for choice in form.main_language.field.choices %}
-                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-        </fieldset>
-
+        <!-- Email -->
         <div class="form-group">
-            <label for="inputDisplayName" class="col-sm-2 control-label"></label>
+            <label for="id_{{ form.email.name }}" class="col-sm-2 control-label">{{ form.email.label }}</label>
 
             <div class="col-sm-3">
-                <input type="submit" class="btn btn-success" value="Create account"/>
+                <input type="email" class="form-control" placeholder="youremail@example.com"
+                       name="{{ form.email.name }}" id="id_{{ form.email.name }}"
+                       value="{{ form.email.value | default_if_none:'' }}">
+            </div>
+            <span class="help-block">Required</span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="id_{{ form.password.name }}"
+                   class="col-sm-2 control-label">{{ form.password.label }}</label>
+
+            <div class="col-sm-3">
+                <input type="password" class="form-control" placeholder="Your password"
+                       name="{{ form.password.name }}" id="id_{{ form.password_repeat.name }}"
+                       value="{{ form.password.value | default_if_none:'' }}">
+            </div>
+            <span class="help-block">Required</span>
+        </div>
+
+        <!-- Password repeat -->
+        <div class="form-group">
+            <label for="id_{{ form.password_repeat.name }}"
+                   class="col-sm-2 control-label">{{ form.password_repeat.label }}</label>
+
+            <div class="col-sm-3">
+                <input type="password" class="form-control" placeholder="Repeat your password"
+                       name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
+                       value="{{ form.password_repeat.value | default_if_none:'' }}">
+            </div>
+            <span class="help-block">Required</span>
+        </div>
+    </fieldset>
+
+    <legend>Profile information</legend>
+    <fieldset class="well">
+        <!-- Display Name -->
+        <div class="form-group">
+            <label for="id_{{ form.display_name.name }}"
+                   class="col-sm-2 control-label">{{ form.display_name.label }}</label>
+
+            <div class="col-sm-3">
+                <input type="text" class="form-control" placeholder="Your public name"
+                       name="{{ form.display_name.name }}" id="id_{{ form.display_name.name }}"
+                       value="{{ form.display_name.value | default_if_none:'' }}">
+            </div>
+            <span class="help-block">Required</span>
+        </div>
+
+        <!-- Main Language -->
+        <div class="form-group">
+            <label for="id_{{ form.main_language.name }}"
+                   class="col-sm-2 control-label">{{ form.main_language.label }}</label>
+
+            <div class="col-sm-3">
+                <select class="form-control show-tick"
+                        id="id_{{ form.main_language.name }}" name="{{ form.main_language.name }}">
+                    {% for choice in form.main_language.field.choices %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <span class="help-block">Required</span>
+        </div>
+
+        <!-- Additional languages -->
+        <div class="form-group">
+            <label for="id_" class="col-sm-2 control-label">Additional languages</label>
+
+            <!-- TODO: Esto se debería cambiar más adelante por un algo de autocompletar -->
+            <div class="col-sm-3">
+                <select class="form-control show-tick" multiple data-live-search="true">
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>Catalá</option>
+                    <option>Russian</option>
+                </select>
             </div>
         </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label for="id_" class="col-sm-2 control-label">Gender</label>
+
+            <div class="col-sm-3">
+                <select class="form-control show-tick">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option selected>Unspecified</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <!-- Country -->
+        <div class="form-group">
+            <label for="id_" class="col-sm-2 control-label">Country</label>
+
+            <div class="col-sm-3">
+                <select class="form-control show-tick">
+                    <option>--</option>
+                    <option>Spain</option>
+                    <option>France</option>
+                    <option>Ducherlans</option>
+                    <option>Mother Russia</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- City -->
+        <div class="form-group">
+            <label for="id_"
+                   class="col-sm-2 control-label">City</label>
+
+            <div class="col-sm-3">
+                <input type="text" class="form-control" placeholder="Your city or reference location"
+                       name="city" id="id_" value="">
+            </div>
+        </div>
+
+        <!-- Website -->
+        <div class="form-group">
+            <label for="id_"
+                   class="col-sm-2 control-label">Website</label>
+
+            <div class="col-sm-3">
+                <input type="text" class="form-control" placeholder="Your page's URL"
+                       name="city" id="id_" value="">
+            </div>
+        </div>
+
+        <!-- Birth Date -->
+        <div class="form-group">
+            <label for="id_"
+                   class="col-sm-2 control-label">Birth date</label>
+
+            <div class="col-sm-3">
+                <input type="date" class="form-control" name="birth_date" id="id_" value="">
+            </div>
+        </div>
+
+        <!-- Avatar -->
+        <div class="form-group">
+            <label for="id_" class="col-sm-2 control-label">Profile picture</label>
+
+            <!-- TODO alternativas para el estilo:
+                http://gregpike.net/demos/bootstrap-file-input/demo.html
+                http://markusslima.github.io/bootstrap-filestyle/
+                -->
+            <div class="col-sm-3">
+                <input type="file" accept="image/*" class="form-control" name="avatar" id="id_" value="">
+            </div>
+        </div>
+
+    </fieldset>
+
+    <legend>Consumer preferences</legend>
+    <fieldset class="well">
+        <!-- Special conditions -->
+
+        <!-- Tastes -->
+        <div class="col-sm-5">
+            <h3>Tastes</h3>
+            <label for="id_" class="slider-label">Salty</label>
+
+            <div class="control-group">
+                <input type="text" class="form-control slider" name="" id="id_" value=""
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="49"
+                       data-slider-tooltip="hide"
+                       data-slider-id="salty"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_" class="slider-label">Sour</label>
+                <input type="text" class="form-control slider" name="" id="id_" value=""
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="49"
+                       data-slider-tooltip="hide"
+                       data-slider-id="sour"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_" class="slider-label">Bitter</label>
+                <input type="text" class="form-control slider" name="" id="id_" value=""
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="49"
+                       data-slider-tooltip="hide"
+                       data-slider-id="bitter"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_" class="slider-label">Sweet</label>
+                <input type="text" class="form-control slider" name="" id="id_" value=""
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="49"
+                       data-slider-tooltip="hide"
+                       data-slider-id="sweet"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_" class="slider-label">Spicy</label>
+                <input type="text" class="form-control slider" name="" id="id_" value=""
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="49"
+                       data-slider-tooltip="hide"
+                       data-slider-id="spicy"
+                        >
+            </div>
+        </div>
+    </fieldset>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+        <label for="inputDisplayName" class="col-sm-1 control-label"></label>
+
+        <div class="col-sm-3">
+            <input type="submit" class="btn btn-success" value="Create account"/>
+        </div>
+    </div>
     </form>
 {% endblock %}
