@@ -105,12 +105,13 @@ class Profile(models.Model):
     modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
     main_language = models.CharField(max_length=50, validators=[validate_main_language])
     additional_languages = ListField(validators=[validate_additional_languages], null=True, blank=False)
+    avatar = models.URLField(null=True)
     website = models.URLField(null=True)
     gender = EmbeddedModelField('Gender', validators=[validate_gender])
     birthDate = models.DateField(null=True)
+    #embedded
     location = EmbeddedModelField('Location', null=True)
     tastes = EmbeddedModelField('Tastes', null=True)
-    avatar = models.URLField(null=True)
     user = models.ForeignKey(User, unique=True)
 
     def __str__(self):
