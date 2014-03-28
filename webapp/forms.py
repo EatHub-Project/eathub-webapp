@@ -1,4 +1,3 @@
-
 from django import forms
 
 
@@ -9,3 +8,5 @@ class NewAccountForm(forms.Form):
     password_repeat = forms.CharField(widget=forms.PasswordInput)
 
     display_name = forms.CharField(max_length=50)
+    main_language = forms.ChoiceField(choices=[("en", "English"), ("es", "Spanish")], label="Preferred language")
+    

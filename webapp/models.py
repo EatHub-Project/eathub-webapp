@@ -100,15 +100,15 @@ class Gender(models.Model):
 
 
 class Profile(models.Model):
-    display_name = models.TextField(max_length=50)
+    display_name = models.TextField(max_length=50, blank=False)
     modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
     main_language = models.TextField(max_length=50, validators=[validate_main_language])
-    additional_languages = ListField(validators=[validate_additional_languages])
+    additional_languages = ListField(validators=[validate_additional_languages], null=True)
     website = models.TextField(max_length=50, null=True)
-    gender = EmbeddedModelField('Gender', validators=[validate_gender])
+    gender = EmbeddedModelField('Gender', validators=[validate_gender], null=True)
     birthDate = models.DateField(null=True)
-    location = EmbeddedModelField('Location')
-    tastes = EmbeddedModelField('Tastes')
+    location = EmbeddedModelField('Location', null=True)
+    tastes = EmbeddedModelField('Tastes', null=True)
     user = models.ForeignKey(User, unique=True)
 
     def __str__(self):
