@@ -10,13 +10,8 @@ from webapp.forms import NewAccountForm
 from webapp.models import Recipe, Profile
 
 
-def lista_recetas(request):
-    recetas = Recipe.objects.all()
-    template = loader.get_template('webapp/recipe_list_template.html')
-    context = RequestContext(request, {
-        'recetas': recetas
-    })
-    return HttpResponse(template.render(context))
+def main(request):
+    return HttpResponse("welcome")
 
 
 def new_account(request):
