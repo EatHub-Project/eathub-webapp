@@ -16,8 +16,8 @@ from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.contrib import messages
 from django.utils.translation import gettext
-
-
+from django.core.urlresolvers import reverse
+from django.conf import settings
 
 
 def lista_recetas(request):
@@ -55,7 +55,8 @@ def login_user(request):
             login(request, user)
             #request.session['username'] = username
             #request.session['password'] = password
-            return HttpResponseRedirect('/main/')
+            #return HttpResponseRedirect('/main/')
+            return HttpResponseRedirect(reverse('main'))
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 
