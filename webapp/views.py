@@ -1,16 +1,28 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, render_to_response
-
-from django.template import loader, RequestContext
-from django.views.generic.edit import CreateView
-
-from webapp.models import Recipe
+# coding=utf-8
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views
+from django.core.urlresolvers import reverse
 
 
-def lista_recetas(request):
-    recetas = Recipe.objects.all()
-    template = loader.get_template('webapp/recipe_list_template.html')
-    context = RequestContext(request, {
-        'recetas': recetas
-    })
-    return HttpResponse(template.render(context))
+def login_user(request):
+    # Usa la Authentication View:
+    # https://docs.djangoproject.com/en/1.5/topics/auth/default/#module-django.contrib.auth.views
+    return views.login(request, 'webapp/login.html')
+
+
+def logout_user(request):
+    # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
+    return views.logout(request, next_page=reverse('main'))
+
+
+def main(request):
+    if request.user.is_authenticated():
+        return HttpResponse("Welcome, " + request.user.username)
+    else:
+        return HttpResponse("Welcome to EatHub, guest")
+
+
+@login_required
+def test_login_required(request):
+    return HttpResponse("Secret, " + request.user.username)
