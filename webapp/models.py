@@ -39,12 +39,6 @@ def validate_additional_languages(self, additional_languages):
                 raise ValidationError(u'%s is not in languages list' % additional_languages)
 
 
-def validate_gender(self, gender):
-    #if not (gender.male == 1 or gender.female == 1 or gender.other == 1):
-    if not (gender.male == 1 or gender.female == 1):
-        raise ValidationError(u'%s is not a valid gender' % gender)
-
-
 def validate_modification_date(self, modification_date):
     if type(modification_date) is not datetime:  # si no funciona probar con datetime
         raise ValidationError(u'%s is not a date object' % modification_date)
