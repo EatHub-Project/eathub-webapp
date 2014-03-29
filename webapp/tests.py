@@ -16,11 +16,9 @@ class ProfileTest(TestCase):
         # Crea las entidades
         loc = Location(country="Spain", city="Huerba")
         t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
-        p = Profile(main_language="Spanish", additional_languages=["English"], website="sloydev.com", gender="m", location=loc, tastes=t, user=u,
-                    modification_date=datetime(2012, 10, 10))
-
         # Guarda SÓLO la entidad profile, que es la que debe ir en la colección de la bbdd. El resto son entidades embebidas.
-        p.save()
+        Profile.objects.create(main_language="Spanish", additional_languages=["English"], website="sloydev.com",
+                               gender="m", location=loc, tastes=t, user=u, modification_date=datetime(2012, 10, 10))
 
     def test_recipe_well_created(self):
         # Prueba MUY básica para obtener el objeto y mostrar algunos campos. Se deberían hacer otro tipo de pruebas unitarias
@@ -97,8 +95,8 @@ class RecipesTestCase(TestCase):
                     modification_date=datetime(2012, 10, 10))
 
         a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
-        s = Savour(salty=-1, sour=1, bitter=1, sweet=1, spicy=1)
-        r = Recipe(title="Cosas ricas de prueba",
+        s = Savour(salty=10, sour=1, bitter=1, sweet=1, spicy=1)
+        Recipe.objects.create(title="Cosas ricas de prueba",
                    description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
                    steps=["Paso uno", "Paso dos", "Paso tres"],
                    serves="Siete personas",
@@ -113,7 +111,7 @@ class RecipesTestCase(TestCase):
                    notes="ola k ase",
                    difficult=3,
                    food_type="cangrejo a la carbonara",
-                   tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba"],
+                   tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba", "asd", "asdfa", "asdasdf", "ñklja"],
                    pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
                                      step=1),
                              Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
@@ -124,8 +122,7 @@ class RecipesTestCase(TestCase):
                    ingredients=["lo que sea"],
                    savours=s,
                    author=a)
-        r.clean_fields()
-        r.save()
+        #r.clean_fields()
 
     def test_recipe_well_created(self):
         # Prueba MUY básica para obtener el objeto y mostrar algunos campos. Se deberían hacer otro tipo de pruebas unitarias
@@ -145,3 +142,9 @@ class RecipesTestCase(TestCase):
         print str(r.tags)
         print str(r.ingredients)
         print str(r.savours)
+        savours_test = Recipe.objects.get(title="Cosas ricas de prueba").savours
+        #self.assertIs(savours_test.salty <= -1 or savours_test.salty >= 100, True, "Savour value is not in range 0, 99")
+        #self.assertIs(savours_test.sour <= -1 or savours_test.sour >= 100, True, "Savour value is not in range 0, 99")
+        #self.assertIs(savours_test.bitter <= -1 or savours_test.bitter >= 100, True, "Savour value is not in range 0, 99")
+        #self.assertIs(savours_test.sweet <= -1 or savours_test.sweet >= 100, True, "Savour value is not in range 0, 99")
+        #self.assertIs(savours_test.spicy <= -1 or savours_test.spicy >= 100, True, "Savour value is not in range 0, 99")

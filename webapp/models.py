@@ -120,18 +120,18 @@ class Profile(models.Model):
 
 # Validators
 
-def validate_savour(value):
-    if value < 0 or value > 99:
+def validate_savour(self, savour):
+    if savour <= -1 or savour >= 100:
         raise ValidationError("Value is not in range 0 to 99")
 
 
-def validate_tags(value):
-    if len(value) > 10:
+def validate_tags(self, tags):
+    if len(tags) > 10:
         raise ValidationError("Max number of tags is 10")
 
 
-def validate_difficult(value):
-    if value <= 0 or value >= 4:
+def validate_difficult(self, difficult):
+    if difficult <= 0 or difficult >= 4:
         raise ValidationError("Difficult must be in range 1 to 3")
 
 
