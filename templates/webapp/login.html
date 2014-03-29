@@ -1,0 +1,52 @@
+{% extends "webapp/index.html" %}
+
+{% load i18n %}
+
+{% block container %}
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form class="well" role="form" action="{% url 'login' %}" method="post">
+            {% for message in messages %}
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <li class="{{ message.tags }}">
+                        {% if 'safe' in message.tags %}
+                            {{ message|safe }}
+                        {% else %}
+                            <strong>Error</strong>
+                            {{ message }}
+                        {% endif %}
+                    </li>
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                {% csrf_token %}
+                {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                {% endif %}
+                <h2 class="form-signin-heading">{% trans "Please sign in" %}</h2>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" id="username" name="username" placeholder="Username" required
+                       autofocus>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                       required>
+            </div>
+            <div class="form-group">
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me">
+                    {% trans "Remember me" %} </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                {% trans "Sign in" %}
+            </button>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+{% endblock %}
