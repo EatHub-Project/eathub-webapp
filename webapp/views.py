@@ -41,3 +41,14 @@ def modificar(request):
     args['form'] = form
 
     return render_to_response('modificar_usuario.html', args)
+
+def receta(request):
+    recipe_id = request.GET.get('id','')
+    recipe = Recipe.objects.get(id=recipe_id)
+
+    template = loader.get_template('webapp/recipe_template.html')
+    context = RequestContext(request, {
+        'receta': recipe
+    })
+
+    return HttpResponse(template.render(context))
