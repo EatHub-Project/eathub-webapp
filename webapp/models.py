@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.db.models import IntegerField, ForeignKey, CharField, TextField, DateTimeField, BooleanField
+from django.db.models import IntegerField, ForeignKey, CharField, TextField, DateTimeField, BooleanField, ImageField
 from djangotoolbox.fields import EmbeddedModelField, ListField
 from django.core.exceptions import ValidationError
 from datetime import datetime
@@ -97,7 +97,7 @@ class Profile(models.Model):
     modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
     main_language = models.CharField(max_length=50, validators=[validate_main_language])
     additional_languages = ListField(validators=[validate_additional_languages], null=True, blank=False)
-    avatar = models.URLField(null=True)
+    avatar = models.ImageField(upload_to='images/', default = 'images/no-img.jpg', null=True)
     website = models.URLField(null=True)
     gender = CharField(max_length=1, validators=[validate_gender], null=True)
     birthDate = models.DateField(null=True)
