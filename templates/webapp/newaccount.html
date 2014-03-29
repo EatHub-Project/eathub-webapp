@@ -26,6 +26,16 @@
 
     <form role="form well well-lg" class="form-horizontal" method="post">
     {% csrf_token %}
+
+    {% comment %}TODO: poner cada error en su campo {% endcomment %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">{{ error|escape }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form.non_field_errors }}
+
     <legend>Account information</legend>
     <fieldset class="well">
 
@@ -36,7 +46,7 @@
 
             <div class="col-sm-3">
                 {% comment %}
-                    Utilizo esta técnica en vez de poncer {{ form.username }} para permitir estilos personalizados.
+                    Utilizo esta técnica en vez de poner {{ form.username }} para permitir estilos personalizados.
                     Se pueden añadir estilos en la clase NewAccountForm, pero de esta forma es más flexible y deja la
                     visualización como responsabilidad de la plantilla.
                     Visto en: http://stackoverflow.com/questions/18805999/how-to-style-a-django-form-bootstrap
@@ -109,9 +119,11 @@
                    class="col-sm-2 control-label">{{ form.main_language.label }}</label>
 
             <div class="col-sm-3">
+
                 <select class="form-control show-tick"
                         id="id_{{ form.main_language.name }}" name="{{ form.main_language.name }}">
                     {% for choice in form.main_language.field.choices %}
+                        {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
                         <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                     {% endfor %}
                 </select>
@@ -121,28 +133,30 @@
 
         <!-- Additional languages -->
         <div class="form-group">
-            <label for="id_" class="col-sm-2 control-label">Additional languages</label>
+            <label for="id_{{ form.additional_languages.name }}"
+                   class="col-sm-2 control-label">{{ form.additional_languages.label }}</label>
 
-            <!-- TODO: Esto se debería cambiar más adelante por un algo de autocompletar -->
             <div class="col-sm-3">
-                <select class="form-control show-tick" multiple data-live-search="true">
-                    <option>English</option>
-                    <option>Spanish</option>
-                    <option>Catalá</option>
-                    <option>Russian</option>
+                <select class="form-control show-tick" multiple data-live-search="true"
+                        id="id_{{ form.additional_languages.name }}" name="{{ form.additional_languages.name }}">
+                    {% for choice in form.additional_languages.field.choices %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
 
         <!-- Gender -->
         <div class="form-group">
-            <label for="id_" class="col-sm-2 control-label">Gender</label>
+            <label for="id_{{ form.gender.name }}"
+                   class="col-sm-2 control-label">{{ form.gender.label }}</label>
 
             <div class="col-sm-3">
-                <select class="form-control show-tick">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option selected>Unspecified</option>
+                <select class="form-control show-tick"
+                        id="id_{{ form.gender.name }}" name="{{ form.gender.name }}">
+                    {% for choice in form.gender.field.choices %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -150,48 +164,52 @@
         <!-- Location -->
         <!-- Country -->
         <div class="form-group">
-            <label for="id_" class="col-sm-2 control-label">Country</label>
+            <label for="id_{{ form.country.name }}"
+                   class="col-sm-2 control-label">{{ form.country.label }}</label>
 
             <div class="col-sm-3">
-                <select class="form-control show-tick">
-                    <option>--</option>
-                    <option>Spain</option>
-                    <option>France</option>
-                    <option>Ducherlans</option>
-                    <option>Mother Russia</option>
+                <select class="form-control show-tick"
+                        id="id_{{ form.country.name }}" name="{{ form.country.name }}">
+                    {% for choice in form.country.field.choices %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
 
         <!-- City -->
         <div class="form-group">
-            <label for="id_"
-                   class="col-sm-2 control-label">City</label>
+            <label for="id_{{ form.city.name }}"
+                   class="col-sm-2 control-label">{{ form.city.label }}</label>
 
             <div class="col-sm-3">
                 <input type="text" class="form-control" placeholder="Your city or reference location"
-                       name="city" id="id_" value="">
+                       name="{{ form.city.name }}" id="id_{{ form.city.name }}"
+                       value="{{ form.city.value | default_if_none:'' }}">
             </div>
         </div>
 
         <!-- Website -->
         <div class="form-group">
-            <label for="id_"
-                   class="col-sm-2 control-label">Website</label>
+            <label for="id_{{ form.website.name }}"
+                   class="col-sm-2 control-label">{{ form.website.label }}</label>
 
             <div class="col-sm-3">
                 <input type="text" class="form-control" placeholder="Your page's URL"
-                       name="city" id="id_" value="">
+                       name="{{ form.website.name }}" id="id_{{ form.website.name }}"
+                       value="{{ form.website.value | default_if_none:'' }}">
             </div>
         </div>
 
         <!-- Birth Date -->
         <div class="form-group">
-            <label for="id_"
-                   class="col-sm-2 control-label">Birth date</label>
+            <label for="id_{{ form.birth_date.name }}"
+                   class="col-sm-2 control-label">{{ form.birth_date.label }}</label>
 
             <div class="col-sm-3">
-                <input type="date" class="form-control" name="birth_date" id="id_" value="">
+                <input type="date" class="form-control"
+                       name="{{ form.birth_date.name }}" id="id_{{ form.birth_date.name }}"
+                       value="{{ form.birth_date.value | default_if_none:'' }}">
             </div>
         </div>
 

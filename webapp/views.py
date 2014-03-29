@@ -2,12 +2,15 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 
 from django.template import loader, RequestContext
 from webapp.forms import NewAccountForm
+from django.forms.util import ErrorList
 
-from webapp.models import Recipe, Profile
+from webapp.models import Profile, Location
+
+from django.core.urlresolvers import reverse
 
 
 def main(request):
@@ -31,12 +34,32 @@ def new_account(request):
             display_name = data['display_name']
             main_language = data['main_language']
 
-            u = User.objects.create_user(username, email, password)
-            p = Profile(display_name=display_name, main_language=main_language, user=u)
-            p.save()  # TODO borrar el User si falla al guardar el perfil
+            additional_languages = data['additional_languages']
+            gender = data['gender']
+            country = data['country']
+            city = data['city']
+            website = data['website']
+            birth_date = data['birth_date']
 
-            login(request, u)
-            return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+            if not password == password_repeat:
+                errors = form._errors.setdefault("password_repeat", ErrorList())
+                errors.append(u"Passwords don't match")
+
+            elif User.objects.filter(username=username).count():
+                errors = form._errors.setdefault("username", ErrorList())
+                errors.append(u"Username alerady taken")
+            else:
+                u = User.objects.create_user(username, email, password)
+                p = Profile(display_name=display_name, main_language=main_language, user=u,
+                            additional_languages=additional_languages, gender=gender,
+                            location=Location(country=country, city=city), website=website,
+                            birthDate=birth_date)
+                #TODO capturar cualquier error de validación y meterlo como error en el formulario
+                p.clean()
+                p.save()  # TODO borrar el User si falla al guardar el perfil
+                u = authenticate(username=username, password=password)
+                login(request, u)
+                return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
         form = NewAccountForm()

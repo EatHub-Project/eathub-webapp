@@ -40,7 +40,7 @@ def validate_additional_languages(self, additional_languages):
 
 
 def validate_gender(self, gender):
-    if not (gender.male == 1 or gender.female == 1 or gender.other == 1):
+    if not (gender == "u" or gender == "m" or gender == "f"):
         raise ValidationError(u'%s is not a valid gender' % gender)
 
 
@@ -105,7 +105,7 @@ class Profile(models.Model):
     main_language = models.TextField(max_length=50, validators=[validate_main_language])
     additional_languages = ListField(validators=[validate_additional_languages], null=True)
     website = models.TextField(max_length=50, null=True)
-    gender = EmbeddedModelField('Gender', validators=[validate_gender], null=True)
+    gender = models.CharField(max_length=1, validators=[validate_gender], null=True)
     birthDate = models.DateField(null=True)
     location = EmbeddedModelField('Location', null=True)
     tastes = EmbeddedModelField('Tastes', null=True)
