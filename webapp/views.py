@@ -1,66 +1,28 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, render_to_response
-
-from django.template import loader
-from django.views.generic.edit import CreateView
-
-from webapp.models import Recipe
-
-from django.http import *
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+# coding=utf-8
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
-from webapp.models import User
-from django.http import HttpResponseRedirect
-from django.core.context_processors import csrf
-from django.contrib import messages
-from django.utils.translation import gettext
+from django.contrib.auth import views
 from django.core.urlresolvers import reverse
-from django.conf import settings
-
-
-def lista_recetas(request):
-    recetas = Recipe.objects.all()
-    template = loader.get_template('webapp/recipe_list_template.html')
-    context = RequestContext(request, {
-        'recetas': recetas
-    })
-    return HttpResponse(template.render(context))
 
 
 def login_user(request):
-    logout(request)
-    username = password = ''
-
-    if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is None:
-            #args = {}
-            #args.update(csrf(request))
-            errormessage = gettext("Check your credentials")
-            messages.error(request, errormessage)
-
-            #return render_to_response('login.html', args)
-
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                #request.session['username'] = username
-                #request.session['password'] = password
-                #return HttpResponseRedirect('/main/')
-                return HttpResponseRedirect(reverse('main'))
-            else:
-                errormessage = gettext("Check your credentials")
-                messages.error(request, errormessage)
-    return render_to_response('login.html', context_instance=RequestContext(request))
+    # Usa la Authentication View:
+    # https://docs.djangoproject.com/en/1.5/topics/auth/default/#module-django.contrib.auth.views
+    return views.login(request, 'webapp/login.html')
 
 
-@login_required(login_url='/login/')
+def logout_user(request):
+    # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
+    return views.logout(request, next_page=reverse('main'))
+
+
 def main(request):
-    user = request.user
-    if user is None:
-        return render_to_response('login.html', context_instance=RequestContext(request))
-    return render_to_response('main.html', {'username':user.username, 'password':user.password})
+    if request.user.is_authenticated():
+        return HttpResponse("Welcome, " + request.user.username)
+    else:
+        return HttpResponse("Welcome to EatHub, guest")
+
+
+@login_required
+def test_login_required(request):
+    return HttpResponse("Secret, " + request.user.username)

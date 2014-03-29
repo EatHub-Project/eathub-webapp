@@ -161,3 +161,7 @@ LOGGING = {
         },
     }
 }
+
+from django.core.urlresolvers import reverse
+LOGIN_REDIRECT_URL = reverse('main')
+LOGIN_URL = reverse('login')
