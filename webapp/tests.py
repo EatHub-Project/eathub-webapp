@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from django.contrib.auth.models import User
-from webapp.models import Location, Tastes, Profile, Gender
+from webapp.models import Location, Tastes, Profile
 from webapp.models import Author, Recipe, Time, Picture, Savour
 from django.test import TestCase
 from datetime import datetime
@@ -16,8 +16,7 @@ class ProfileTest(TestCase):
         # Crea las entidades
         loc = Location(country="Spain", city="Huerba")
         t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
-        gen = Gender(male=1, female=0, other=0)
-        p = Profile(main_language="Spanish", website="sloydev.com", gender=gen, location=loc, tastes=t, user=u,
+        p = Profile(main_language="Spanish", additional_languages=["English"], website="sloydev.com", gender="m", location=loc, tastes=t, user=u,
                     modification_date=datetime(2012, 10, 10))
 
         # Guarda SÓLO la entidad profile, que es la que debe ir en la colección de la bbdd. El resto son entidades embebidas.
@@ -42,7 +41,7 @@ class ProfileTest(TestCase):
                                                     "avaible in additional languages.")
 
         # Prueba numero 35
-        self.assertIs(p.gender.male == 1 or p.gender.female == 1 or p.gender.other == 1, True,
+        self.assertIs(p.gender == "u" or p.gender == "m" or p.gender == "f", True,
                       "The gender must be specified.")
 
         # Prueba numero 37
@@ -91,31 +90,38 @@ class RecipesTestCase(TestCase):
         # Aquí se prepara la base de datos con los datos de prueba.
 
         # Las entidades embebidas se pueden crear antes, o directamente cuando se crea la receta
-        a = Author(displayName="Rafa Vázquez", userName="sloydev")
+        u = User.objects.create_user('bruce', 'bruce@harddie.com', 'brucepassword')
+        loc = Location(country="Spain", city="Huerba")
+        t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
+        p = Profile(main_language="Spanish", additional_languages=["English"], website="sloydev.com", gender="m", location=loc, tastes=t, user=u,
+                    modification_date=datetime(2012, 10, 10))
+
+        a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
         s = Savour(salty=-1, sour=1, bitter=1, sweet=1, spicy=1)
         r = Recipe(title="Cosas ricas de prueba",
                    description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
                    steps=["Paso uno", "Paso dos", "Paso tres"],
                    serves="Siete personas",
                    language="spanish",
-                   creationDate='2014-03-24',
-                   isPublished=True,
+                   creation_date='2014-03-24',
+                   modification_date=None,
+                   is_published=True,
                    parent=None,
                    temporality=["christmas", "summer"],
                    nationality='spain',
-                   specialConditions=["glutenfree"],
+                   special_conditions=["glutenfree"],
                    notes="ola k ase",
-                   difficult=4,
-                   foodType="cangrejo a la carbonara",
+                   difficult=3,
+                   food_type="cangrejo a la carbonara",
                    tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba"],
                    pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
                                      step=1),
                              Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
                                      step=2),
                              Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
-                                     isMain=True)],
-                   time=Time(prepTime=20, cookTime=0),
-                   ingredients="lo que sea",  #savours=None,
+                                     is_main=True)],
+                   time=Time(prep_time=20, cook_time=0),
+                   ingredients=["lo que sea"],
                    savours=s,
                    author=a)
         r.clean_fields()
@@ -128,14 +134,14 @@ class RecipesTestCase(TestCase):
         print str(r)
         print str(r.pictures)
         print str(r.time)
-        print str(r.creationDate)
-        print str(r.isPublished)
+        print str(r.creation_date)
+        print str(r.is_published)
         #Falta probar el atributo reflexivo
         print str(r.nationality)
-        print str(r.specialConditions)
+        print str(r.special_conditions)
         print str(r.notes)
         print str(r.difficult)
-        print str(r.foodType)
+        print str(r.food_type)
         print str(r.tags)
         print str(r.ingredients)
         print str(r.savours)

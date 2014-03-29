@@ -74,6 +74,10 @@ def validate_last_login(self, last_login):
     if last_login > date:
         raise ValidationError(u'last_login date cannot be after current date')
 
+def validate_gender(self, gender):
+    if not (gender == "u" or gender == "m" or gender == "f"):
+        raise ValidationError(u'%s is not a valid gender' % gender)
+
 
 class Location(models.Model):
     country = models.TextField(max_length=50, validators=[validate_country])
@@ -94,12 +98,6 @@ class Tastes(models.Model):
         return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
 
 
-class Gender(models.Model):
-    male = models.IntegerField(max_length=1)
-    female = models.IntegerField(max_length=1)
-    #other = models.IntegerField(max_length=1)
-
-
 class Profile(models.Model):
     display_name = models.CharField(max_length=50, blank=False)
     modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
@@ -107,7 +105,7 @@ class Profile(models.Model):
     additional_languages = ListField(validators=[validate_additional_languages], null=True, blank=False)
     avatar = models.URLField(null=True)
     website = models.URLField(null=True)
-    gender = EmbeddedModelField('Gender', validators=[validate_gender])
+    gender = CharField(max_length=1, validators=[validate_gender], null=True)
     birthDate = models.DateField(null=True)
     #embedded
     location = EmbeddedModelField('Location', null=True)
@@ -160,7 +158,7 @@ class Time(models.Model):
     cook_time = models.IntegerField()
 
     def __str__(self):
-        return "{}+{}".format(self.prepTime, self.cookTime)
+        return "{}+{}".format(self.prep_time, self.cook_time)
 
 class Savour(models.Model):
     salty = models.IntegerField(validators=[validate_savour])
@@ -203,13 +201,13 @@ class Recipe(models.Model):
 #enum to entity
 
 class Temporality(models.Model):
-    name = CharField(max_length=50, blank=False)
+    name = CharField(max_length=50, blank=False, unique=True)
 
 class Language(models.Model):
-    name = CharField(max_length=50, blank=False)
+    name = CharField(max_length=50, blank=False, unique=True)
 
 class Food_Type(models.Model):
-    name = CharField(max_length=50, blank=False)
+    name = CharField(max_length=50, blank=False, unique=True)
 
 class Special_Condition(models.Model):
-    name = CharField(max_length=50, blank=False)
+    name = CharField(max_length=50, blank=False, unique=True)
