@@ -21,3 +21,9 @@ class NewAccountForm(forms.Form):
     website = forms.URLField(required=False)
     birth_date = forms.DateField(required=False)
     #todo avatar
+
+    salty = forms.IntegerField(max_value=99, min_value=0, required=False)
+    sour = forms.IntegerField(max_value=99, min_value=0, required=False)
+    bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
+    sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
+    spicy = forms.IntegerField(max_value=99, min_value=0, required=False)

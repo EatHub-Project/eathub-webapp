@@ -235,57 +235,62 @@
         <!-- Tastes -->
         <div class="col-sm-5">
             <h3>Tastes</h3>
-            <label for="id_" class="slider-label">Salty</label>
+            <label for="id_{{ form.salty.name }}" class="slider-label">{{ form.salty.label }}</label>
 
             <div class="control-group">
-                <input type="text" class="form-control slider" name="" id="id_" value=""
+                <input type="number" class="form-control slider"
+                       name="{{ form.salty.name }}" id="id_{{ form.salty.name }}"
                        data-slider-min="0"
                        data-slider-max="99"
-                       data-slider-value="49"
+                       data-slider-value="{{ form.salty.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="salty"
                         >
             </div>
 
             <div class="control-group">
-                <label for="id_" class="slider-label">Sour</label>
-                <input type="text" class="form-control slider" name="" id="id_" value=""
+                <label for="id_{{ form.sour.name }}" class="slider-label">{{ form.sour.label }}</label>
+                <input type="number" class="form-control slider"
+                       name="{{ form.sour.name }}" id="id_{{ form.sour.name }}"
                        data-slider-min="0"
                        data-slider-max="99"
-                       data-slider-value="49"
+                       data-slider-value="{{ form.sour.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="sour"
                         >
             </div>
 
             <div class="control-group">
-                <label for="id_" class="slider-label">Bitter</label>
-                <input type="text" class="form-control slider" name="" id="id_" value=""
+                <label for="id_{{ form.bitter.name }}" class="slider-label">{{ form.bitter.label }}</label>
+                <input type="number" class="form-control slider"
+                       name="{{ form.bitter.name }}" id="id_{{ form.bitter.name }}"
                        data-slider-min="0"
                        data-slider-max="99"
-                       data-slider-value="49"
+                       data-slider-value="{{ form.bitter.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="bitter"
                         >
             </div>
 
             <div class="control-group">
-                <label for="id_" class="slider-label">Sweet</label>
-                <input type="text" class="form-control slider" name="" id="id_" value=""
+                <label for="id_{{ form.sweet.name }}" class="slider-label">{{ form.sweet.label }}</label>
+                <input type="number" class="form-control slider"
+                       name="{{ form.sweet.name }}" id="id_{{ form.sweet.name }}"
                        data-slider-min="0"
                        data-slider-max="99"
-                       data-slider-value="49"
+                       data-slider-value="{{ form.sweet.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="sweet"
                         >
             </div>
 
             <div class="control-group">
-                <label for="id_" class="slider-label">Spicy</label>
-                <input type="text" class="form-control slider" name="" id="id_" value=""
+                <label for="id_{{ form.spicy.name }}" class="slider-label">{{ form.spicy.label }}</label>
+                <input type="number" class="form-control slider"
+                       name="{{ form.spicy.name }}" id="id_{{ form.spicy.name }}"
                        data-slider-min="0"
                        data-slider-max="99"
-                       data-slider-value="49"
+                       data-slider-value="{{ form.spicy.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="spicy"
                         >

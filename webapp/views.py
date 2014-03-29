@@ -8,7 +8,7 @@ from django.template import loader, RequestContext
 from webapp.forms import NewAccountForm
 from django.forms.util import ErrorList
 
-from webapp.models import Profile, Location
+from webapp.models import Profile, Location, Tastes
 
 from django.core.urlresolvers import reverse
 
@@ -48,12 +48,18 @@ def new_account(request):
             elif User.objects.filter(username=username).count():
                 errors = form._errors.setdefault("username", ErrorList())
                 errors.append(u"Username alerady taken")
+            #todo: validar email único también
             else:
                 u = User.objects.create_user(username, email, password)
+                t = Tastes(salty=data['salty'],
+                           sour=data['sour'],
+                           bitter=data['bitter'],
+                           sweet=data['sweet'],
+                           spicy=data['spicy'])
                 p = Profile(display_name=display_name, main_language=main_language, user=u,
                             additional_languages=additional_languages, gender=gender,
                             location=Location(country=country, city=city), website=website,
-                            birthDate=birth_date)
+                            birthDate=birth_date, tastes=t)
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
