@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.db.models import IntegerField, ForeignKey, CharField, TextField, DateTimeField, BooleanField
-from djangotoolbox.fields import EmbeddedModelField, ListField
+from djangotoolbox.fields import EmbeddedModelField, ListField, DictField
 from django.core.exceptions import ValidationError
 from datetime import datetime
 
@@ -16,32 +16,12 @@ def validate_savour(savour):
         raise ValidationError("Value is not in range 0 to 99")
 
 #TODO: decidir que hacemos con la validacion de idiomas, si aqui o si en las vistas
-"""def validate_main_language(main_language):
-    l = list()
-    l.append('Spanish')
-    l.append('English')
-    l.append('French')
-    if main_language is None:
-        raise ValidationError(u'Main language cannot be empty')
-    else:
-        if l.count(main_language) == 0:
-            raise ValidationError(u'%s is not in languages list' % main_language)"""
+def validate_main_language(main_language):
+    pass
 
 
-"""def validate_additional_languages(additional_languages):
-    l = list()
-    l.append('Spanish')
-    l.append('English')
-    l.append('French')
-    if additional_languages is not None:
-        for a in additional_languages:
-            if l.count(a) == 0:
-                raise ValidationError(u'%s is not in languages list' % additional_languages)"""
-
-
-def validate_modification_date(modification_date):
-    if type(modification_date) is not datetime:  # si no funciona probar con datetime
-        raise ValidationError(u'%s is not a date object' % modification_date)
+def validate_additional_languages(additional_languages):
+    pass
 
 
 def validate_last_login(last_login):
@@ -72,7 +52,7 @@ class Tastes(models.Model):
 
 class Profile(models.Model):
     display_name = models.CharField(max_length=50, blank=False)
-    modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
+    modification_date = models.DateTimeField(null=True) #TODO: debe ser pasado, falta meter esta restriccion
     main_language = models.CharField(max_length=50, validators=["""validate_main_language"""])
     additional_languages = ListField(validators=["""validate_additional_languages"""], null=True, blank=False)
     avatar = models.URLField(null=True)
@@ -114,7 +94,7 @@ class Author(models.Model):
 
 
 class Picture(models.Model):
-    url = models.URLField()
+    url = models.URLField(blank=False)
     is_main = models.NullBooleanField()  # BooleanField no acepta valor nulo
     step = IntegerField(null=True)
 
@@ -149,13 +129,13 @@ class Recipe(models.Model):
     ingredients = ListField(blank=False)
     serves = CharField(max_length=50, blank=False)
     language = CharField(max_length=50, blank=False)
-    temporality = ListField()
-    nationality = CharField(max_length=50)
-    special_conditions = ListField()
-    notes = TextField()
-    difficult = IntegerField(validators=[validate_difficult])
-    food_type = CharField(max_length=50)
-    tags = ListField(validators=[validate_tags])
+    temporality = ListField(null=True)
+    nationality = CharField(max_length=50, null=True)
+    special_conditions = ListField(null=True)
+    notes = TextField(null=True)
+    difficult = IntegerField(null=True, validators=[validate_difficult])
+    food_type = CharField(max_length=50, null=True)
+    tags = ListField(null=True, validators=[validate_tags])
     steps = ListField(blank=False)
 
     is_published = BooleanField()
@@ -173,15 +153,19 @@ class Recipe(models.Model):
 
 
 class Temporality(models.Model):
-    name = CharField(max_length=50, blank=False, unique=True)
+    code = CharField(max_length=50, blank=False)
+    name_dict = DictField()
 
 class Language(models.Model):
-    name = CharField(max_length=50, blank=False, unique=True)
+    code = CharField(max_length=50, blank=False)
+    name_dict = DictField()
 
 
 class Food_Type(models.Model):
-    name = CharField(max_length=50, blank=False, unique=True)
+    code = CharField(max_length=50, blank=False)
+    name_dict = DictField()
 
 
 class Special_Condition(models.Model):
-    name = CharField(max_length=50, blank=False, unique=True)
+    code = CharField(max_length=50, blank=False)
+    name_dict = DictField()
