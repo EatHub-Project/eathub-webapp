@@ -1,4 +1,4 @@
-from webapp.models import Tastes, Location, Profile, Author, Time, Savour, Recipe
+from webapp.models import Tastes, Location, Profile, Author, Time, Savour, Recipe, Picture
 from django.contrib.auth.models import User
 
 location = Location(country="spain", city="seville")
@@ -10,5 +10,7 @@ profile.save()
 author = Author(display_name="prueba_author", user_name="prueba", user=profile)
 time = Time(prep_time="10",cook_time="5")
 savour = Savour(salty=0, sour=10, bitter=30, sweet=50, spicy=90)
-recipe = Recipe(author=author, creation_date="2014-03-29 20:11", description="description", difficult="2", food_type="food", is_published=False, ingredients=["a lot of"], language="spanish", nationality="spanish", notes="none note", parent=None, pictures=[], savours=savour, serves="hundred people",special_conditions=[], steps=["cook","eat"],tags=["food","test"], temporality=["everytime","anytime"], time=time,title="test recipe")
+step_image = Picture(url="http://4.bp.blogspot.com/-3YJ4xPQZ7ms/T_sv-9Us0SI/AAAAAAAAArE/sC931JFhyVk/s1600/IMG_7216.JPG", is_main=False, step=1)
+ppal_image = Picture(url="http://1.bp.blogspot.com/-Qteyr637LYw/TqCasRVlB3I/AAAAAAAAAbw/1f5tCQHfonY/s1600/Calavera+3.jpg", is_main=True, step=None)
+recipe = Recipe(author=author, creation_date="2014-03-29 20:11", description="description", difficult="2", food_type="food", is_published=False, ingredients=["a lot of"], language="spanish", nationality="spanish", notes="none note", parent=None, pictures=[step_image, ppal_image], savours=savour, serves="hundred people",special_conditions=[], steps=["cook","eat"],tags=["food","test"], temporality=["everytime","anytime"], time=time,title="test recipe")
 recipe.save()
