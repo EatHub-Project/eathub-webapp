@@ -18,7 +18,7 @@ def validate_country(self, country):
         raise ValidationError(u'%s is not in countries list' % country)
 
 
-def validate_city(self, city):
+def validate_city(city):
     if city is not None:
         if city == '':
             raise ValidationError(u'if city is set it cannot be empty')
@@ -39,27 +39,27 @@ def validate_additional_languages(self, additional_languages):
                 raise ValidationError(u'%s is not in languages list' % additional_languages)
 
 
-def validate_modification_date(self, modification_date):
+def validate_modification_date(modification_date):
     if type(modification_date) is not datetime:  # si no funciona probar con datetime
         raise ValidationError(u'%s is not a date object' % modification_date)
 
 
-def validate_first_name(self, first_name):
+def validate_first_name(first_name):
     if first_name is None:
         raise ValidationError(u'the first name cannot be None')
 
 
-def validate_password(self, password):
+def validate_password(password):
     if password.length < 8:
         raise ValidationError(u'the password must be at least 8 characters')
 
 
-def validate_email(self, email):
+def validate_email(email):
     if len(email) > 50 or email is None:
         raise ValidationError(u'Email must be at most 50 characters')
 
 
-def validate_last_login(self, last_login):
+def validate_last_login(last_login):
     if type(last_login) is not datetime:
         raise ValidationError(u'last login type must be date')
     if last_login is None:
@@ -68,7 +68,7 @@ def validate_last_login(self, last_login):
     if last_login > date:
         raise ValidationError(u'last_login date cannot be after current date')
 
-def validate_gender(self, gender):
+def validate_gender(gender):
     if not (gender == "u" or gender == "m" or gender == "f"):
         raise ValidationError(u'%s is not a valid gender' % gender)
 
@@ -114,17 +114,17 @@ class Profile(models.Model):
 
 # Validators
 
-def validate_savour(self, savour):
+def validate_savour(savour):
     if savour <= -1 or savour >= 100:
         raise ValidationError("Value is not in range 0 to 99")
 
 
-def validate_tags(self, tags):
+def validate_tags(tags):
     if len(tags) > 10:
         raise ValidationError("Max number of tags is 10")
 
 
-def validate_difficult(self, difficult):
+def validate_difficult(difficult):
     if difficult <= 0 or difficult >= 4:
         raise ValidationError("Difficult must be in range 1 to 3")
 
@@ -139,6 +139,7 @@ class Author(models.Model):
     def __str__(self):
         return self.displayName
 
+
 class Picture(models.Model):
     url = models.URLField()
     is_main = models.NullBooleanField()  # BooleanField no acepta valor nulo
@@ -147,12 +148,14 @@ class Picture(models.Model):
     def __str__(self):
         return self.url
 
+
 class Time(models.Model):
     prep_time = models.IntegerField()
     cook_time = models.IntegerField()
 
     def __str__(self):
         return "{}+{}".format(self.prep_time, self.cook_time)
+
 
 class Savour(models.Model):
     salty = models.IntegerField(validators=[validate_savour])
@@ -163,6 +166,7 @@ class Savour(models.Model):
 
     def __str__(self):
         return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
+
 
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
@@ -194,14 +198,17 @@ class Recipe(models.Model):
 
 #enum to entity
 
+
 class Temporality(models.Model):
     name = CharField(max_length=50, blank=False, unique=True)
 
 class Language(models.Model):
     name = CharField(max_length=50, blank=False, unique=True)
 
+
 class Food_Type(models.Model):
     name = CharField(max_length=50, blank=False, unique=True)
+
 
 class Special_Condition(models.Model):
     name = CharField(max_length=50, blank=False, unique=True)

@@ -6,6 +6,11 @@ from webapp.models import Author, Recipe, Time, Picture, Savour
 from django.test import TestCase
 from datetime import datetime
 
+"""
+    Para ejecutar las pruebas hay que proceder de la siguiente forma: debemos descomentar la prueba que queramos
+    ejecutar ya que, tal y como estan implementadas, si se eleva algun ValidatorError no se ejecutara el siguiente
+    test.
+"""
 
 class ProfileTest(TestCase):
     def setUp(self):
@@ -17,10 +22,12 @@ class ProfileTest(TestCase):
         loc = Location(country="Spain", city="Huerba")
         t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
         # Guarda SÓLO la entidad profile, que es la que debe ir en la colección de la bbdd. El resto son entidades embebidas.
-        Profile.objects.create(main_language="Spanish", additional_languages=["English"], website="sloydev.com",
+        p = Profile.objects.create(main_language="Spanish", additional_languages=["English"], website="sloydev.com",
                                gender="m", location=loc, tastes=t, user=u, modification_date=datetime(2012, 10, 10))
 
-    def test_recipe_well_created(self):
+        p.save()
+
+    def test_profile_well_created(self):
         # Prueba MUY básica para obtener el objeto y mostrar algunos campos. Se deberían hacer otro tipo de pruebas unitarias
         p = Profile.objects.get()
         self.assertEqual(p.user.username, "john")
@@ -96,7 +103,7 @@ class RecipesTestCase(TestCase):
 
         a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
         s = Savour(salty=10, sour=1, bitter=1, sweet=1, spicy=1)
-        Recipe.objects.create(title="Cosas ricas de prueba",
+        r = Recipe.objects.create(title="Cosas ricas de prueba",
                    description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
                    steps=["Paso uno", "Paso dos", "Paso tres"],
                    serves="Siete personas",
@@ -122,11 +129,12 @@ class RecipesTestCase(TestCase):
                    ingredients=["lo que sea"],
                    savours=s,
                    author=a)
+        r.save()
         #r.clean_fields()
-
+    """
     def test_recipe_well_created(self):
         # Prueba MUY básica para obtener el objeto y mostrar algunos campos. Se deberían hacer otro tipo de pruebas unitarias
-        r = Recipe.objects.get()
+        r = Recipe.objects.all()[0]
         self.assertEqual(r.title, "Cosas ricas de prueba")
         print str(r)
         print str(r.pictures)
@@ -147,4 +155,158 @@ class RecipesTestCase(TestCase):
         #self.assertIs(savours_test.sour <= -1 or savours_test.sour >= 100, True, "Savour value is not in range 0, 99")
         #self.assertIs(savours_test.bitter <= -1 or savours_test.bitter >= 100, True, "Savour value is not in range 0, 99")
         #self.assertIs(savours_test.sweet <= -1 or savours_test.sweet >= 100, True, "Savour value is not in range 0, 99")
-        #self.assertIs(savours_test.spicy <= -1 or savours_test.spicy >= 100, True, "Savour value is not in range 0, 99")
+        #self.assertIs(savours_test.spicy <= -1 or savours_test.spicy >= 100, True, "Savour value is not in range 0, 99")"""
+
+    """
+    def test_title_larger_than_50(self):
+        u = User.objects.create_user('usuario1', 'usuario1@harddie.com', 'password1')
+        loc = Location(country="Spain", city="Sevilla")
+        t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
+        p = Profile(main_language="Spanish", additional_languages=["English"], website="dev.com", gender="m", location=loc, tastes=t, user=u,
+                    modification_date=datetime(2012, 10, 10))
+        a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
+        s = Savour(salty=10, sour=1, bitter=1, sweet=1, spicy=1)
+        r = Recipe.objects.create(title="Recetaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                   description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
+                   steps=["Paso uno", "Paso dos", "Paso tres"],
+                   serves="Siete personas",
+                   language="spanish",
+                   creation_date='2014-03-24',
+                   modification_date=None,
+                   is_published=True,
+                   parent=None,
+                   temporality=["christmas", "summer"],
+                   nationality='spain',
+                   special_conditions=["glutenfree"],
+                   notes="ola k ase",
+                   difficult=3,
+                   food_type="cangrejo a la carbonara",
+                   tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba", "asd", "asdfa", "asdasdf"],
+                   pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
+                                     step=1),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
+                                     step=2),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
+                                     is_main=True)],
+                   time=Time(prep_time=20, cook_time=0),
+                   ingredients=["lo que sea"],
+                   savours=s,
+                   author=a)
+        r.clean_fields(None)
+        r.save()
+    """
+    """
+    def test_savour_higher_than_100(self):
+        u = User.objects.create_user('usuario1', 'usuario1@harddie.com', 'password1')
+        loc = Location(country="Spain", city="Sevilla")
+        t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
+        p = Profile(main_language="Spanish", additional_languages=["English"], website="dev.com", gender="m", location=loc, tastes=t, user=u,
+                    modification_date=datetime(2012, 10, 10))
+        a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
+        s = Savour(salty=101, sour=1, bitter=1, sweet=1, spicy=1)
+        r = Recipe.objects.create(title="Receta",
+                   description="Una receta muy rica para probar que el modelo funciona correctamente en la base de datos y tal.",
+                   steps=["Paso uno", "Paso dos", "Paso tres"],
+                   serves="Siete personas",
+                   language="spanish",
+                   creation_date='2014-03-24',
+                   modification_date=None,
+                   is_published=True,
+                   parent=None,
+                   temporality=["christmas", "summer"],
+                   nationality='spain',
+                   special_conditions=["glutenfree"],
+                   notes="ola k ase",
+                   difficult=3,
+                   food_type="cangrejo a la carbonara",
+                   tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba", "asd", "asdfa", "asdasdf"],
+                   pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
+                                     step=1),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
+                                     step=2),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
+                                     is_main=True)],
+                   time=Time(prep_time=20, cook_time=0),
+                   ingredients=["lo que sea"],
+                   savours=s,
+                   author=a)
+        s.clean_fields(None)
+        r.save()
+    """
+    """
+    def test_description_blank(self):
+        u = User.objects.create_user('usuario1', 'usuario1@harddie.com', 'password1')
+        loc = Location(country="Spain", city="Sevilla")
+        t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
+        p = Profile(main_language="Spanish", additional_languages=["English"], website="dev.com", gender="m", location=loc, tastes=t, user=u,
+                    modification_date=datetime(2012, 10, 10))
+        a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
+        s = Savour(salty=1, sour=1, bitter=1, sweet=1, spicy=1)
+        r = Recipe.objects.create(title="Receta",
+                   description="",
+                   steps=["Paso uno", "Paso dos", "Paso tres"],
+                   serves="Siete personas",
+                   language="spanish",
+                   creation_date='2014-03-24',
+                   modification_date=None,
+                   is_published=True,
+                   parent=None,
+                   temporality=["christmas", "summer"],
+                   nationality='spain',
+                   special_conditions=["glutenfree"],
+                   notes="ola k ase",
+                   difficult=3,
+                   food_type="cangrejo a la carbonara",
+                   tags=["glutenfree", "summer", "christmas", "spain", "ricas", "cosas", "prueba", "asd", "asdfa", "asdasdf"],
+                   pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
+                                     step=1),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
+                                     step=2),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
+                                     is_main=True)],
+                   time=Time(prep_time=20, cook_time=0),
+                   ingredients=["lo que sea"],
+                   savours=s,
+                   author=a)
+        r.clean_fields(None)
+        r.save()
+    """
+    """
+    def test_steps_empty(self):   #Esta prueba no funciona. No pasa por el validate_steps
+        u = User.objects.create_user('usuario1', 'usuario1@harddie.com', 'password1')
+        loc = Location(country="Spain", city="Cadiz")
+        t = Tastes(salty="5", sour="6", bitter="7", sweet="8", spicy="8")
+        p = Profile(main_language="Spanish", additional_languages=["English"], website="dev.com", gender="m", location=loc, tastes=t, user=u,
+                    modification_date=datetime(2012, 10, 10))
+        a = Author(display_name="Rafa Vázquez", user_name="sloydev", user=p)
+        s = Savour(salty=1, sour=1, bitter=1, sweet=1, spicy=1)
+        r = Recipe.objects.create(title="Receta",
+                   description="descripcion",
+                   steps=[],
+                   serves="Siete personas",
+                   language="spanish",
+                   creation_date='2014-03-24',
+                   modification_date=None,
+                   is_published=True,
+                   parent=None,
+                   temporality=["christmas", "summer"],
+                   nationality='spain',
+                   special_conditions=["glutenfree"],
+                   notes="ola k ase",
+                   difficult=3,
+                   food_type="cangrejo a la carbonara",
+                   tags=["tag1"],
+                   pictures=[Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
+                                     step=1),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
+                                     step=2),
+                             Picture(url="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
+                                     is_main=True)],
+                   time=Time(prep_time=20, cook_time=0),
+                   ingredients=["lo que sea"],
+                   savours=s,
+                   author=a)
+        r.clean_fields(None)
+        r.save()
+    """
+
