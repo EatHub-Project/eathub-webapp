@@ -11,7 +11,12 @@ from datetime import datetime
 
 # Validators
 
-def validate_main_language(main_language):
+def validate_savour(savour):
+    if savour <= -1 or savour >= 100:
+        raise ValidationError("Value is not in range 0 to 99")
+
+#TODO: decidir que hacemos con la validacion de idiomas, si aqui o si en las vistas
+"""def validate_main_language(main_language):
     l = list()
     l.append('Spanish')
     l.append('English')
@@ -20,10 +25,10 @@ def validate_main_language(main_language):
         raise ValidationError(u'Main language cannot be empty')
     else:
         if l.count(main_language) == 0:
-            raise ValidationError(u'%s is not in languages list' % main_language)
+            raise ValidationError(u'%s is not in languages list' % main_language)"""
 
 
-def validate_additional_languages(additional_languages):
+"""def validate_additional_languages(additional_languages):
     l = list()
     l.append('Spanish')
     l.append('English')
@@ -31,27 +36,12 @@ def validate_additional_languages(additional_languages):
     if additional_languages is not None:
         for a in additional_languages:
             if l.count(a) == 0:
-                raise ValidationError(u'%s is not in languages list' % additional_languages)
+                raise ValidationError(u'%s is not in languages list' % additional_languages)"""
 
 
 def validate_modification_date(modification_date):
     if type(modification_date) is not datetime:  # si no funciona probar con datetime
         raise ValidationError(u'%s is not a date object' % modification_date)
-
-
-def validate_first_name(first_name):
-    if first_name is None:
-        raise ValidationError(u'the first name cannot be None')
-
-
-def validate_password(password):
-    if password.length < 8:
-        raise ValidationError(u'the password must be at least 8 characters')
-
-
-def validate_email(email):
-    if len(email) > 50 or email is None:
-        raise ValidationError(u'Email must be at most 50 characters')
 
 
 def validate_last_login(last_login):
@@ -69,22 +59,12 @@ def validate_gender(gender):
         raise ValidationError(u'%s is not a valid gender' % gender)
 
 
-"""
-class Location(models.Model):
-    country = models.TextField(max_length=50, validators=[validate_country])
-    city = models.TextField(max_length=50, null=True, validators=[validate_city])
-
-    def __str__(self):
-        return "{}: {}".format(self.country, self.city)
-"""
-
-
 class Tastes(models.Model):
-    salty = models.IntegerField()
-    sour = models.IntegerField()
-    bitter = models.IntegerField()
-    sweet = models.IntegerField()
-    spicy = models.IntegerField()
+    salty = models.IntegerField(validators=[validate_savour])
+    sour = models.IntegerField(validators=[validate_savour])
+    bitter = models.IntegerField(validators=[validate_savour])
+    sweet = models.IntegerField(validators=[validate_savour])
+    spicy = models.IntegerField(validators=[validate_savour])
 
     def __str__(self):
         return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
@@ -93,39 +73,24 @@ class Tastes(models.Model):
 class Profile(models.Model):
     display_name = models.CharField(max_length=50, blank=False)
     modification_date = models.DateTimeField(null=True, validators=[validate_modification_date])
-    main_language = models.CharField(max_length=50, validators=[validate_main_language])
-    additional_languages = ListField(validators=[validate_additional_languages], null=True, blank=False)
+    main_language = models.CharField(max_length=50, validators=["""validate_main_language"""])
+    additional_languages = ListField(validators=["""validate_additional_languages"""], null=True, blank=False)
     avatar = models.URLField(null=True)
     website = models.URLField(null=True)
     gender = CharField(max_length=1, validators=[validate_gender], null=True)
     birth_date = models.DateField(null=True)
     #embedded
-    """location = EmbeddedModelField('Location', null=True)"""
-    location = models.TextField(max_length=50, blank=False)
+    location = models.CharField(max_length=50, blank=False)
     tastes = EmbeddedModelField('Tastes', null=True)
     user = models.ForeignKey(User, unique=True)
 
     def __str__(self):
         return str(self.display_name)
 
-    def validate_password(self): # Este metodo es provisional hasta que se consiga validar correctamente el password
-        print("Password: " + str(self.user.password))
-        if len(self.user.password) < 8:
-            raise ValidationError(u'the password must be at least 8 characters')
-
-    def validate_email(self):
-        if len(self.user.email) > 50 or self.user.email is None:
-            raise ValidationError(u'Email must be at most 50 characters')
-
 
 # --- Recipe ---
 
 # Validators
-
-def validate_savour(savour):
-    if savour <= -1 or savour >= 100:
-        raise ValidationError("Value is not in range 0 to 99")
-
 
 def validate_tags(tags):
     if len(tags) > 10:
