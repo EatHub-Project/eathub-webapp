@@ -29,7 +29,7 @@
         {% endif %}
     <h1>{{ title }}</h1>
 
-    <form role="form well well-lg" class="form-horizontal" method="post">
+    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {% comment %}TODO: poner cada error en su campo {% endcomment %}
@@ -206,17 +206,16 @@
         </div>
 
         <!-- Avatar -->
-        {% comment %}<div class="form-group">
-            <label for="id_" class="col-sm-2 control-label">Profile picture</label>
-
+        <div class="form-group">
+            <label for="id_{{ form.avatar.name }}" class="col-sm-2 control-label">Profile picture</label>
             <!-- TODO alternativas para el estilo:
                 http://gregpike.net/demos/bootstrap-file-input/demo.html
                 http://markusslima.github.io/bootstrap-filestyle/
                 -->
             <div class="col-sm-3">
-                <input type="file" accept="image/*" class="form-control" name="avatar" id="id_" value="">
+                <input type="file" accept="image/*" class="form-control" name="{{ form.avatar.name }}" id="id_{{ form.avatar.name }}" value="">
             </div>
-        </div>{% endcomment %}
+        </div>
 
     </fieldset>
 

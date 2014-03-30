@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm, EditAccountForm
+from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm
 from django.forms.util import ErrorList
 
 
@@ -24,7 +24,7 @@ def main(request):
 def new_account(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
-        form = NewAccountForm(request.POST)
+        form = NewAccountForm(request.POST, request.FILES)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
             # TODO validar que el nombre de usuario sea único
@@ -42,6 +42,7 @@ def new_account(request):
             location = data['location']
             website = data['website']
             birth_date = data['birth_date']
+            avatar = request.FILES['avatar']
 
             if not password == password_repeat:
                 errors = form._errors.setdefault("password_repeat", ErrorList())
@@ -65,6 +66,9 @@ def new_account(request):
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
+                avatar.name=str(p.id) + '.png'
+                p.avatar=avatar
+                p.save()
                 u = authenticate(username=username, password=password)
                 login(request, u)
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
@@ -73,6 +77,35 @@ def new_account(request):
         form = NewAccountForm()
 
     return render(request, 'webapp/newaccount.html', {'form': form})
+
+
+def new_recipe(request):
+    #TODO if user is authenticated redirect to main
+    if request.method == 'POST':
+        form = NewAccountForm(request.POST, request.FILES)
+        if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
+            # Extract the data from the form and create the User and Profile instance
+            # TODO validar que el nombre de usuario sea único
+            data = form.cleaned_data
+            title = data['title']
+            description = data['description']
+            ingredients = data['ingredients']
+            serves = data['serves']
+            language = data['language']
+            temporality = data['temporality']
+            nationality = data['nationality']
+            special_conditions = data['special_conditions']
+            notes = data['notes']
+            difficult = data['difficult']
+            food_type = data['food_type']
+            tags = data['tags']
+
+            return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+
+    else:
+        form = NewRecipeForm()
+
+    return render(request, 'webapp/newrecipe.html', {'form': form})
 
 
 @login_required
