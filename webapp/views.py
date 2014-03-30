@@ -39,8 +39,7 @@ def new_account(request):
 
             additional_languages = data['additional_languages']
             gender = data['gender']
-            country = data['country']
-            city = data['city']
+            location = data['location']
             website = data['website']
             birth_date = data['birth_date']
 
@@ -61,7 +60,7 @@ def new_account(request):
                            spicy=data['spicy'])
                 p = Profile(display_name=display_name, main_language=main_language, user=u,
                             additional_languages=additional_languages, gender=gender,
-                            location=Location(country=country, city=city), website=website,
+                            location=location, website=website,
                             birth_date=birth_date, tastes=t)
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
                 p.clean()
