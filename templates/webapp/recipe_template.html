@@ -97,7 +97,11 @@
               <span><a href="#">{{ receta.author.display_name }}</a></span>
             </div>
             <div class="recipe-image">
-              <img class="img-thumbnail" src="image/front-front.jpg" alt="Guinness Corned Beef with Cabbage">
+               {% for picture in receta.pictures %}
+                    {% if picture.is_main %}
+                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
+                    {% endif %}
+               {% endfor %}
             </div>
             <div class="recipe-name">
               <h1>{{ receta.title }}</h1>
@@ -137,11 +141,16 @@
                 {% if step %}
                     <!-- Start Step -->
                     <div class="recipe-step">
-                    <h5>Step {{ forloop.counter }}</h5>
-                    <span>{{ step }}</span>
-                    <div class="recipe-step-image">
-                        <img class="img-thumbnail" src="image/step{{ forloop.counter }}.jpg"/>
-                      </div>
+                        <h5>Step {{ forloop.counter }}</h5>
+                        <span>{{ step }}</span>
+
+                        {% for image in receta.pictures %}
+                            {% if image.step == forloop.parentloop.counter %}
+                                <div class="recipe-step-image">
+                                    <img class="img-thumbnail" src="{{ image.url }}"/>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     <!-- End Step -->
                 {% endif %}
@@ -167,6 +176,8 @@
                   <li><img class="img-thumbnail" src="{{ picture.url }}"/></li>
                   {% endfor %}
                 </ul>
+            {% else %}
+                No pictures
             {% endif %}
           </div>
           <!-- End Mini Image -->
@@ -191,7 +202,13 @@
             </div>
             <div class="recipe-info-data">
               <h5>Temporality</h5>
-              <span><a class="recipe-tag" href="#">{{ receta.temporality }}</a></span>
+              {% if receta.temporality %}
+                  {% for season in receta.temporality %}
+                    <span><a class="recipe-tag" href="#">{{ season }}</a></span>
+                  {% endfor %}
+              {% else %}
+                Not specified
+              {% endif %}
             </div>
             <div class="recipe-info-data">
               <h5>Nationality</h5>
@@ -203,11 +220,15 @@
             </div>
             <div class="recipe-info-data">
               <h5>Special Conditions</h5>
-              {% for condition in receta.special_conditions %}
-                {% if condition %}
-                    <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
-                {% endif %}
-              {% endfor %}
+              {% if receta.special_conditions %}
+                {% for condition in receta.special_conditions %}
+                    {% if condition %}
+                        <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
+                    {% endif %}
+                {% endfor %}
+              {% else %}
+                No special conditions
+              {% endif %}
             </div>
           </div>
           <!-- End Time Recipe -->
@@ -265,11 +286,15 @@
               <a class="recipe-tag" href="/recipes?allowedCuisine=cuisine^cuisine-irish">Irish</a>
               <a class="recipe-tag" href="/recipes?allowedHoliday=holiday^holiday-st-patricks-day">St. Patrick's Day</a>
               -->
-              {% for tag in receta.tags %}
-                  {% if tag %}
-                    <a class="recipe-tag" href="#">{{ tag }}</a>
-                  {% endif %}
-              {% endfor %}
+              {% if receta.tags %}
+                {% for tag in receta.tags %}
+                    {% if tag %}
+                        <a class="recipe-tag" href="#">{{ tag }}</a>
+                    {% endif %}
+                {% endfor %}
+              {% else %}
+                This is strange... this recipe has no tags!
+              {% endif %}
             </div>
           </div><!-- End Tags -->
         </div>
