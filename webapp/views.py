@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Location, Tastes
+from webapp.models import Profile, Tastes
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
@@ -62,7 +62,7 @@ def new_account(request):
                 p = Profile(display_name=display_name, main_language=main_language, user=u,
                             additional_languages=additional_languages, gender=gender,
                             location=Location(country=country, city=city), website=website,
-                            birthDate=birth_date, tastes=t)
+                            birth_date=birth_date, tastes=t)
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
@@ -97,8 +97,7 @@ def modification_account(request):
 
             additional_languages = data['additional_languages']
             gender = data['gender']
-            country = data['country']
-            city = data['city']
+            location = data['location']
             website = data['website']
             birth_date = data['birth_date']
 
@@ -122,8 +121,8 @@ def modification_account(request):
             p.additional_languages = additional_languages
             p.gender = gender
             p.website = website
-            p.location = Location(country=country, city=city)
-            p.birthDate = birth_date
+            p.location = location
+            p.birth_date = birth_date
             p.tastes = t
 
             if password:
@@ -147,10 +146,9 @@ def modification_account(request):
             'main_language': p.main_language,
             'additional_languages': p.additional_languages,
             'gender': p.gender,
-            'country': p.location.country,
-            'city': p.location.city,
+            'location': p.location,
             'website': p.website,
-            'birth_date': p.birthDate,
+            'birth_date': p.birth_date,
             'salty': p.tastes.salty,
             'sour': p.tastes.sour,
             'bitter': p.tastes.bitter,

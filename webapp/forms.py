@@ -16,8 +16,7 @@ class NewAccountForm(forms.Form):
 
     additional_languages = forms.MultipleChoiceField(choices=LANGUAGES, required=False)
     gender = forms.ChoiceField(choices=GENDERS, required=False)
-    country = forms.ChoiceField(choices=COUNTRY, required=False)
-    city = forms.CharField(max_length=50, required=False)
+    location = forms.CharField(max_length=50, required=False)
     website = forms.URLField(required=False)
     birth_date = forms.DateField(required=False)
     #todo avatar
@@ -32,5 +31,7 @@ class NewAccountForm(forms.Form):
 class EditAccountForm(NewAccountForm):
     def __init__(self, *args, **kwargs):
         super(EditAccountForm, self).__init__(*args, **kwargs)
+        self.fields['username'].required = False
+        self.fields['email'].required = False
         self.fields['password'].required = False
         self.fields['password_repeat'].required = False

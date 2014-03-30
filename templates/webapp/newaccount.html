@@ -39,6 +39,9 @@
         {% endfor %}
     {% endfor %}
 
+
+    {{ form.errors }}
+
     {{ form.non_field_errors }}
 
     <legend>Account information</legend>
@@ -167,30 +170,14 @@
         </div>
 
         <!-- Location -->
-        <!-- Country -->
         <div class="form-group">
-            <label for="id_{{ form.country.name }}"
-                   class="col-sm-2 control-label">{{ form.country.label }}</label>
+            <label for="id_{{ form.location.name }}"
+                   class="col-sm-2 control-label">{{ form.location.label }}</label>
 
             <div class="col-sm-3">
-                <select class="form-control show-tick"
-                        id="id_{{ form.country.name }}" name="{{ form.country.name }}">
-                    {% for choice in form.country.field.choices %}
-                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-        </div>
-
-        <!-- City -->
-        <div class="form-group">
-            <label for="id_{{ form.city.name }}"
-                   class="col-sm-2 control-label">{{ form.city.label }}</label>
-
-            <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="Your city or reference location"
-                       name="{{ form.city.name }}" id="id_{{ form.city.name }}"
-                       value="{{ form.city.value | default_if_none:'' }}">
+                <input type="text" class="form-control" placeholder="Your city, country or reference location"
+                       name="{{ form.location.name }}" id="id_{{ form.location.name }}"
+                       value="{{ form.location.value | default_if_none:'' }}">
             </div>
         </div>
 
