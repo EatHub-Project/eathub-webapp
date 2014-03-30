@@ -1,5 +1,5 @@
 from django import forms
-
+from models import Recipe
 
 class NewAccountForm(forms.Form):
     LANGUAGES = [("en", "English"), ("es", "Spanish")]
@@ -21,6 +21,35 @@ class NewAccountForm(forms.Form):
     website = forms.URLField(required=False)
     birth_date = forms.DateField(required=False)
     avatar = forms.ImageField(required=False)
+
+    salty = forms.IntegerField(max_value=99, min_value=0, required=False)
+    sour = forms.IntegerField(max_value=99, min_value=0, required=False)
+    bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
+    sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
+    spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
+
+
+class NewRecipeForm(forms.Form):
+    LANGUAGES = [("en", "English"), ("es", "Spanish")]
+    COUNTRY = [("", "--"), ("ES", "Spain"), ("FR", "France"), ("EN", "England"), ("US", "USA")]
+    TEMPORALITY = [("summer", "Summer"), ("autumn", "Autumn"), ("spring", "Spring"), ("winter", "Winter")]
+    FOOD_TYPE = [("dinner","Dinner"),("lunch","Lunch"),("breakfast","Breakfast"),("picnic","Picnic"),("snack","Snack"),("drink","Drink"),("dessert","Dessert")]
+    SPECIAL_CONDITIONS = [("diabetic", "Diabetic"), ("celiac", "Celiac"), ("vegetarian", "Vegetarian")]
+    DIFFICULT = [("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")]
+
+    title = forms.CharField(max_length=50, required=True)
+    description = forms.CharField(required=True)
+    ingredients = forms.CharField(required=True)
+    serves = forms.CharField(max_length=50, required=True)
+    language = forms.ChoiceField(choices=LANGUAGES)
+    temporality = forms.MultipleChoiceField(choices=TEMPORALITY)
+    nationality = forms.ChoiceField(choices=COUNTRY, required=False)
+    special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS)
+    notes = forms.CharField(widget=forms.Textarea, required=True)
+    difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
+    food_type = forms.ChoiceField(choices=FOOD_TYPE, required=False)
+    tags = forms.CharField()
+    main_image = forms.ImageField(required=True)
 
     salty = forms.IntegerField(max_value=99, min_value=0, required=False)
     sour = forms.IntegerField(max_value=99, min_value=0, required=False)

@@ -129,7 +129,6 @@ INSTALLED_APPS = (
     'eathub',
     'webapp',
     'djangotoolbox',
-    'django_gravatar',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

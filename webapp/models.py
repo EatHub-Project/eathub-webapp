@@ -167,8 +167,6 @@ class Savour(models.Model):
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
     description = TextField(blank=False)
-    creation_date = DateTimeField(auto_now_add=True)
-    modification_date = DateTimeField(auto_now_add=True, null=True)
     ingredients = ListField(blank=False)
     serves = CharField(max_length=50, blank=False)
     language = CharField(max_length=50, blank=False)
@@ -205,3 +203,4 @@ class Food_Type(models.Model):
 
 class Special_Condition(models.Model):
     name = CharField(max_length=50, blank=False, unique=True)
+
