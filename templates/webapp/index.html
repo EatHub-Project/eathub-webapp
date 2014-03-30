@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load staticfiles %}
+{% load gravatar %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +61,7 @@
                                 {% trans "Hello" %}, {{ username }}.
                             </p>
                             <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="#"><img
-                                    src="{{ STATIC_URL }}webapp/image/profile.jpg"/></a>
+                                    src="{% gravatar_url user.email 150 %}"/></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="#">Profile</a>

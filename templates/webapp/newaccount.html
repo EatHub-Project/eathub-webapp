@@ -214,8 +214,13 @@
         </div>
 
         <!-- Avatar -->
+<<<<<<< HEAD
         <div class="form-group">
             <label for="id_{{ form.avatar.name }}" class="col-sm-2 control-label">Profile picture</label>
+=======
+        {% comment %}<div class="form-group">
+            <label for="id_" class="col-sm-2 control-label">Profile picture</label>
+>>>>>>> develop
 
             <!-- TODO alternativas para el estilo:
                 http://gregpike.net/demos/bootstrap-file-input/demo.html
@@ -224,7 +229,7 @@
             <div class="col-sm-3">
                 <input type="file" accept="image/*" class="form-control" name="{{ form.avatar.name }}" id="id_{{ form.avatar.name }}" value="">
             </div>
-        </div>
+        </div>{% endcomment %}
 
     </fieldset>
 

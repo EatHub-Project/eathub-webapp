@@ -101,6 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -128,6 +129,7 @@ INSTALLED_APPS = (
     'eathub',
     'webapp',
     'djangotoolbox',
+    'django_gravatar',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -160,3 +162,7 @@ LOGGING = {
         },
     }
 }
+
+from django.core.urlresolvers import reverse
+LOGIN_REDIRECT_URL = reverse('main')
+LOGIN_URL = reverse('login')

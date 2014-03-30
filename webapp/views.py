@@ -1,20 +1,24 @@
 # coding=utf-8
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
 from django.contrib.auth import login, authenticate
+from webapp.models import Profile, Location, Tastes
 
-from django.template import loader, RequestContext
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views
+
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
+
 from webapp.forms import NewAccountForm
 from django.forms.util import ErrorList
 
-from webapp.models import Profile, Location, Tastes
-
-from django.core.urlresolvers import reverse
-
 
 def main(request):
-    return HttpResponse("welcome")
+    if request.user.is_authenticated():
+        return HttpResponse("Welcome, " + request.user.username)
+    else:
+        return HttpResponse("Welcome to EatHub, guest")
 
 
 def new_account(request):
@@ -77,3 +81,17 @@ def new_account(request):
     return render(request, 'webapp/newaccount.html', {'form': form})
 
 
+def login_user(request):
+    # Usa la Authentication View:
+    # https://docs.djangoproject.com/en/1.5/topics/auth/default/#module-django.contrib.auth.views
+    return views.login(request, 'webapp/login.html')
+
+
+def logout_user(request):
+    # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
+    return views.logout(request, next_page=reverse('main'))
+
+
+@login_required
+def test_login_required(request):
+    return HttpResponse("Secret, " + request.user.username)
