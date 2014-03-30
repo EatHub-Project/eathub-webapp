@@ -1,8 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, render_to_response
 
 from django.template import loader, RequestContext
-from django.views.generic.edit import CreateView
 
 from webapp.models import Recipe
 
@@ -16,35 +14,21 @@ def lista_recetas(request):
     return HttpResponse(template.render(context))
 
 # Create your views here.
-from django.shortcuts import render_to_response
-from webapp.models import Profile
-from forms import ProfileForm
-from django.http import HttpResponseRedirect
-from django.core.context_processors import csrf
-
-
-
-
-def modificar(request):
-    if request.POST:
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-
-            return HttpResponseRedirect('/')
-    else:
-        form = ProfileForm()
-
-    args = {}
-    args.update(csrf(request))
-
-    args['form'] = form
-
-    return render_to_response('modificar_usuario.html', args)
-
 def receta(request):
     recipe_id = request.GET.get('id','')
     recipe = Recipe.objects.get(id=recipe_id)
+
+    #check if list fields are lists and if they are not transform them into a list
+    aux = recipe.pictures
+    recipe.pictures = __makeListField(aux)
+    aux = recipe.special_conditions
+    recipe.special_conditions = __makeListField(aux)
+    aux = recipe.steps
+    recipe.steps = __makeListField(aux)
+    aux = recipe.tags
+    recipe.tags = __makeListField(aux)
+    aux = recipe.temporality
+    recipe.temporality = __makeListField(aux)
 
     template = loader.get_template('webapp/recipe_template.html')
     context = RequestContext(request, {
@@ -52,3 +36,16 @@ def receta(request):
     })
 
     return HttpResponse(template.render(context))
+
+# Ancillary methods ------------------------------------------------------------------------------------------
+def __makeListField(field):
+    '''
+     Checks if field is a list and if it isn't transform it into a list.
+    '''
+
+    if type(field) is str:
+        field=[field,'']
+
+    field=''
+
+    return field

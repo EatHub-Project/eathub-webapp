@@ -117,9 +117,11 @@
                 <h3>Ingredients</h3>
                 <ul>
                   {% for ingredient in receta.ingredients %}
-                  <li>
-                    {{ ingredient }}
-                  </li>
+                      {% if ingredient %}
+                        <li>
+                            {{ ingredient }}
+                        </li>
+                      {% endif %}
                   {% endfor %}
                 </ul>
               </div>
@@ -132,15 +134,17 @@
           <div class="recipe-steps-list">
             <h1>Steps</h1>
             {% for step in receta.steps %}
-            <!-- Start Step -->
-            <div class="recipe-step">
-              <h5>Step {{ forloop.counter }}</h5>
-              <span>{{ step }}</span>
-              <div class="recipe-step-image">
-                <img class="img-thumbnail" src="image/step{{ forloop.counter }}.jpg"/>
-              </div>
-            </div>
-            <!-- End Step -->
+                {% if step %}
+                    <!-- Start Step -->
+                    <div class="recipe-step">
+                    <h5>Step {{ forloop.counter }}</h5>
+                    <span>{{ step }}</span>
+                    <div class="recipe-step-image">
+                        <img class="img-thumbnail" src="image/step{{ forloop.counter }}.jpg"/>
+                      </div>
+                    </div>
+                    <!-- End Step -->
+                {% endif %}
             {% endfor %}
           </div>
           <!-- End Directions -->
@@ -205,7 +209,9 @@
             <div class="recipe-info-data">
               <h5>Special Conditions</h5>
               {% for condition in receta.special_conditions %}
-                <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
+                {% if condition %}
+                    <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
+                {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -265,7 +271,9 @@
               <a class="recipe-tag" href="/recipes?allowedHoliday=holiday^holiday-st-patricks-day">St. Patrick's Day</a>
               -->
               {% for tag in receta.tags %}
-                  <a class="recipe-tag" href="#">{{ tag }}</a>
+                  {% if tag %}
+                    <a class="recipe-tag" href="#">{{ tag }}</a>
+                  {% endif %}
               {% endfor %}
             </div>
           </div><!-- End Tags -->
