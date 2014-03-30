@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes
+from webapp.models import Profile, Tastes, Recipe
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
@@ -174,3 +174,8 @@ def logout_user(request):
 @login_required
 def test_login_required(request):
     return HttpResponse("Secret, " + request.user.username)
+
+
+def receta(request, recipe_id):
+    recipe = Recipe.objects.get(id=recipe_id)
+    return render(request, 'webapp/recipe_template.html', {'receta': recipe})
