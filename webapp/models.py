@@ -109,7 +109,7 @@ class Profile(models.Model):
     birthDate = models.DateField(null=True)
     location = EmbeddedModelField('Location', null=True)
     tastes = EmbeddedModelField('Tastes', null=True)
-    user = models.ForeignKey(User, unique=True)
+    user = models.ForeignKey(User, related_name="profile", unique=True)
 
     def __str__(self):
         return str(self.display_name)

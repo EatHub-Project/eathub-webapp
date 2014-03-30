@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm
+from webapp.forms import NewAccountForm, EditAccountForm
 from django.forms.util import ErrorList
 
 
@@ -33,7 +33,6 @@ def new_account(request):
             email = data['email']
             password = data['password']
             password_repeat = data['password_repeat']
-            # TODO comparar las contraseñas y dar error si no son iguales
 
             display_name = data['display_name']
             main_language = data['main_language']
@@ -75,6 +74,92 @@ def new_account(request):
         form = NewAccountForm()
 
     return render(request, 'webapp/newaccount.html', {'form': form})
+
+
+@login_required
+def modification_account(request):
+    # todo: hay mucho código repetido con respecto a la vista new_account. ¿Se pueden simplificar?
+    if request.method == 'POST':
+        form = EditAccountForm(request.POST)
+        if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
+            valid = True
+            # Extract the data from the form, validate, and update the current user
+            # TODO validar que el nombre de usuario sea único
+            data = form.cleaned_data
+            #username = data['username']
+            #email = data['email']
+            password = data['password']
+            password_repeat = data['password_repeat']
+            # TODO comparar las contraseñas y dar error si no son iguales
+
+            display_name = data['display_name']
+            main_language = data['main_language']
+
+            additional_languages = data['additional_languages']
+            gender = data['gender']
+            country = data['country']
+            city = data['city']
+            website = data['website']
+            birth_date = data['birth_date']
+
+            if password:  # todo comprobar también que sea válida en cuanto a caracteres y tal
+                if not password == password_repeat:
+                    errors = form._errors.setdefault("password_repeat", ErrorList())
+                    errors.append(u"Passwords don't match")
+                    valid = False
+
+            u = request.user
+            p = u.profile.get()
+
+            t = Tastes(salty=data['salty'],
+                       sour=data['sour'],
+                       bitter=data['bitter'],
+                       sweet=data['sweet'],
+                       spicy=data['spicy'])
+
+            p.display_name = display_name
+            p.main_language = main_language
+            p.additional_languages = additional_languages
+            p.gender = gender
+            p.website = website
+            p.location = Location(country=country, city=city)
+            p.birthDate = birth_date
+            p.tastes = t
+
+            if password:
+                u.set_password(password)
+
+            # TODO capturar cualquier error de validación y meterlo como error en el formulario
+            p.clean()
+            if valid:
+                p.save()
+                u.save()
+                # TODO mandar a la misma página y mostrar un mensaje de éxito
+                return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+
+    else:
+        u = request.user
+        p = u.profile.get()
+        data = {
+            'username': u.username,
+            'email': u.email,
+            'display_name': p.display_name,
+            'main_language': p.main_language,
+            'additional_languages': p.additional_languages,
+            'gender': p.gender,
+            'country': p.location.country,
+            'city': p.location.city,
+            'website': p.website,
+            'birth_date': p.birthDate,
+            'salty': p.tastes.salty,
+            'sour': p.tastes.sour,
+            'bitter': p.tastes.bitter,
+            'sweet': p.tastes.sweet,
+            'spicy': p.tastes.spicy,
+        }
+        form = EditAccountForm(initial=data)
+
+    return render(request, 'webapp/newaccount.html', {'form': form, 'edit': True})
 
 
 def login_user(request):

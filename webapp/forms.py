@@ -27,3 +27,10 @@ class NewAccountForm(forms.Form):
     bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
     sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
+
+
+class EditAccountForm(NewAccountForm):
+    def __init__(self, *args, **kwargs):
+        super(EditAccountForm, self).__init__(*args, **kwargs)
+        self.fields['password'].required = False
+        self.fields['password_repeat'].required = False
