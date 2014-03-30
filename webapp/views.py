@@ -41,11 +41,18 @@ def receta(request):
 def __makeListField(field):
     '''
      Checks if field is a list and if it isn't transform it into a list.
+
+     Since none of the ListFields used in our model is expected to be a list of elements
+     with length 1 if the first element of the ListField has that length the list
+     is considered to be a decomposed string
     '''
 
-    if type(field) is str:
-        field=[field,'']
+    res = ""
 
-    field=''
+    if len(field)>0 and len(field[0])==1:
+        for char in field:
+            res+=char
+    else:
+        res = field
 
-    return field
+    return res

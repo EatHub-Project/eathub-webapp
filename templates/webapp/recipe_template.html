@@ -161,18 +161,13 @@
           <!-- Start Mini Image -->
           <div class="recipe-album">
             <h3>Pictures</h3>
-            <ul>
-              <li><img class="img-thumbnail" src="image/step1-mini.jpg"/>
-              </li>
-              <li><img  class="img-thumbnail" src="image/step2-mini.jpg"/>
-              </li>
-              <li><img  class="img-thumbnail" src="image/step3-mini.jpg"/>
-              </li>
-              <li><img  class="img-thumbnail" src="image/step4-mini.jpg"/>
-              </li>
-              <li><img  class="img-thumbnail" src="image/step5-mini.jpg"/>
-              </li>
-            </ul>
+            {% if receta.pictures %}
+                <ul>
+                  {% for picture in receta.pictures %}
+                  <li><img class="img-thumbnail" src="{{ picture.url }}"/></li>
+                  {% endfor %}
+                </ul>
+            {% endif %}
           </div>
           <!-- End Mini Image -->
           <!-- Start Time Recipe -->
