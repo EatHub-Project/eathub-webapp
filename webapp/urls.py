@@ -4,6 +4,5 @@ from webapp import views
 
 urlpatterns = patterns('',
 
-    url(r'^$', views.lista_recetas, name='index'),
-    url(r'^recipe/', views.receta, name='recipe'),
+    url(r'^recipe/(?P<recipe_id>\w+)/$' , views.receta, name='recipe'),
 )
