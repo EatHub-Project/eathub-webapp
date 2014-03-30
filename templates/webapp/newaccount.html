@@ -22,7 +22,12 @@
 
 
 {% block container %}
-    <h1>New Account</h1>
+        {% if edit %}
+            {% trans "Edit profile" as title %}
+        {% else %}
+            {% trans "Create account" as title %}
+        {% endif %}
+    <h1>{{ title }}</h1>
 
     <form role="form well well-lg" class="form-horizontal" method="post">
     {% csrf_token %}
@@ -53,7 +58,7 @@
                     {% endcomment %}
                 <input type="text" class="form-control" placeholder="Username"
                        name="{{ form.username.name }}" id="id_{{ form.username.name }}"
-                       value="{{ form.username.value | default_if_none:'' }}">
+                       value="{{ form.username.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
             <span class="help-block">Required</span>
         </div>
@@ -66,7 +71,7 @@
             <div class="col-sm-3">
                 <input type="email" class="form-control" placeholder="youremail@example.com"
                        name="{{ form.email.name }}" id="id_{{ form.email.name }}"
-                       value="{{ form.email.value | default_if_none:'' }}">
+                       value="{{ form.email.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
             <span class="help-block">Required</span>
         </div>
@@ -302,8 +307,13 @@
     <div class="form-group">
         <label for="inputDisplayName" class="col-sm-1 control-label"></label>
 
+        {% if edit %}
+            {% trans "Save changes" as submit_text %}
+        {% else %}
+            {% trans "Create account" as submit_text %}
+        {% endif %}
         <div class="col-sm-3">
-            <input type="submit" class="btn btn-success" value="Create account"/>
+            <input type="submit" class="btn btn-success" value="{{ submit_text }}"/>
         </div>
     </div>
     </form>
