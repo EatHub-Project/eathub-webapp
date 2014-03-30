@@ -1,12 +1,11 @@
-from webapp.models import Gender, Tastes, Location, Profile, Author, Time, Savour, Recipe
+from webapp.models import Tastes, Location, Profile, Author, Time, Savour, Recipe
 from django.contrib.auth.models import User
 
-gender = Gender(male=1,female=0,other=0)
 location = Location(country="spain", city="seville")
 tastes = Tastes(salty=5, sour=10, bitter=15, sweet=20, spicy=25)
 user = User(username="userName", password="password", is_staff=False, is_active=True, is_superuser=False)
 user.save()
-profile = Profile(display_name="prueba_profile", modification_date="2014-03-29 00:00", main_language="spanish", additional_languages=[], website="www.google.es", gender=gender, birthDate="1990-03-29", location=location, tastes=tastes, user=user)
+profile = Profile(display_name="prueba_profile", modification_date="2014-03-29 00:00", main_language="spanish", additional_languages=[], website="www.google.es", gender='M', birthDate="1990-03-29", location=location, tastes=tastes, user=user)
 profile.save()
 author = Author(display_name="prueba_author", user_name="prueba", user=profile)
 time = Time(prep_time="10",cook_time="5")
