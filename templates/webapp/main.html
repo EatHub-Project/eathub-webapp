@@ -2,19 +2,137 @@
 
 {% load i18n %}
 {% load staticfiles %}
-
 {% block container %}
-    <div class="starter-template">
-        {% if user.is_authenticated %}
-            <h1>Welcome, {{ user.profile.get.display_name }}</h1>
-        {% else %}
-            <h1>Welcome, guest</h1>
-        {% endif %}
-        <p class="lead">
-            Esta es una página de inicio provisional.
-            <br>
-            En construcción and stuff.
-        </p>
-        <img src="{% static 'webapp/image/anim.gif' %}" style="height: 300px; width: auto"/>
+    <!-- Start Recipe -->
+    <!-- Column Left -->
+    <div class="col-md-8 col-md-offset-2 well">
+        <!-- Start Head Recipe -->
+        <div class="recipe-head">
+            <!-- End Title and Image Recipe -->
+            <div class="recipe-time">
+                <span class="glyphicon glyphicon-time"></span>
+
+                <p>
+                    <!-- {{ receta.time.prep_time }} -->
+                </p>
+            </div>
+            <div class="recipe-author">
+                <h5>RECIPE BY</h5>
+                <span><a href="#">{{ receta.author.display_name }}</a></span>
+            </div>
+            <div class="recipe-image">
+                <!--{% for picture in receta.pictures %}
+                    {% if picture.is_main %}
+                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
+                    {% endif %}
+                {% endfor %}-->
+            </div>
+            <div class="recipe-name">
+                <!-- h1>{{ receta.title }}</h1> -->
+				<h1>Receta de ejemplo</h1>
+            </div>
+            <!-- Start Description -->
+            <div class="recipe-description">
+                <p>
+                    <!-- {{ receta.description }} -->
+					Descripci&oacute;n de ejemplo.
+                </p>
+            </div>
+            <!-- Start Description -->
+            <!-- End Title and Image Recipe -->
+            <!-- End SubHead Recipe -->
+
+        </div>
+        <!-- End SubHead Recipe -->
+        <!-- End Head Recipe -->
+		<span><a class="recipe-tag" href="#">ver m&aacute;s</a></span>
+	</div>
+	<div class="col-md-8 col-md-offset-2 well">
+		<div class="recipe-head">
+            <!-- End Title and Image Recipe -->
+            <div class="recipe-time">
+                <span class="glyphicon glyphicon-time"></span>
+
+                <p>
+                    <!-- {{ receta.time.prep_time }} -->
+                </p>
+            </div>
+            <div class="recipe-author">
+                <h5>RECIPE BY</h5>
+                <span><a href="#">{{ receta.author.display_name }}</a></span>
+            </div>
+            <div class="recipe-image">
+                <!--{% for picture in receta.pictures %}
+                    {% if picture.is_main %}
+                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
+                    {% endif %}
+                {% endfor %}-->
+            </div>
+            <div class="recipe-name">
+                <!-- h1>{{ receta.title }}</h1> -->
+				<h1>Receta de ejemplo</h1>
+            </div>
+            <!-- Start Description -->
+            <div class="recipe-description">
+                <p>
+                    <!-- {{ receta.description }} -->
+					Descripci&oacute;n de ejemplo.
+                </p>
+            </div>
+            <!-- Start Description -->
+            <!-- End Title and Image Recipe -->
+            <!-- End SubHead Recipe -->
+
+        </div>
+		<span><a class="recipe-tag" href="#">ver m&aacute;s</a></span>
+	</div>
+	<div class="col-md-8 col-md-offset-2 well">
+		<div class="recipe-head">
+            <!-- End Title and Image Recipe -->
+            <div class="recipe-time">
+                <span class="glyphicon glyphicon-time"></span>
+
+                <p>
+                    <!-- {{ receta.time.prep_time }} -->
+                </p>
+            </div>
+            <div class="recipe-author">
+                <h5>RECIPE BY</h5>
+                <span><a href="#">{{ receta.author.display_name }}</a></span>
+            </div>
+            <div class="recipe-image">
+                <!--{% for picture in receta.pictures %}
+                    {% if picture.is_main %}
+                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
+                    {% endif %}
+                {% endfor %}-->
+            </div>
+            <div class="recipe-name">
+                <!-- h1>{{ receta.title }}</h1> -->
+				<h1>Receta de ejemplo</h1>
+            </div>
+            <!-- Start Description -->
+            <div class="recipe-description">
+                <p>
+                    <!-- {{ receta.description }} -->
+					Descripci&oacute;n de ejemplo.
+                </p>
+            </div>
+            <!-- Start Description -->
+            <!-- End Title and Image Recipe -->
+            <!-- End SubHead Recipe -->
+
+        </div>
+		<span><a class="recipe-tag" href="#">ver m&aacute;s</a></span>
+	</div>
+	
     </div>
+
+    <!-- Colum Right -->
+    <!-- <div class="col-md-3 col-md-offset-1 well"> -->
+        <!-- Start Mini Image -->
+        
+        <!-- End Tags -->
+    <!-- </div> -->
+    <!-- End Recipe -->
 {% endblock %}
