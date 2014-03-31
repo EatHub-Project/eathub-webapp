@@ -15,10 +15,7 @@ from django.forms.util import ErrorList
 
 
 def main(request):
-    if request.user.is_authenticated():
-        return HttpResponse("Welcome, " + request.user.username)
-    else:
-        return HttpResponse("Welcome to EatHub, guest")
+    return render(request, 'webapp/main.html')
 
 
 def new_account(request):

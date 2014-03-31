@@ -1,0 +1,20 @@
+{% extends "webapp/base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block container %}
+    <div class="starter-template">
+        {% if user.is_authenticated %}
+            <h1>Welcome, {{ user.profile.get.display_name }}</h1>
+        {% else %}
+            <h1>Welcome, guest</h1>
+        {% endif %}
+        <p class="lead">
+            Esta es una página de inicio provisional.
+            <br>
+            En construcción and stuff.
+        </p>
+        <img src="{% static 'webapp/image/anim.gif' %}" style="height: 300px; width: auto"/>
+    </div>
+{% endblock %}
