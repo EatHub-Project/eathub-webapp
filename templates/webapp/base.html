@@ -28,14 +28,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{% url 'main' %}">
                         <img class="navbar-logo" src="{% static 'webapp/image/logo_big.png' %}"/>
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="{% url 'main' %}">Home</a></li>
                         <li><a href="#">Explore</a></li>
                         <li class="divider-vertical"></li>
                         <div class="input-group">
@@ -60,23 +60,21 @@
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="{% url 'profile_edit' %}">Profile</a></li>
                                     <li><a href="#">My recipes</a></li>
                                     <li><a href="#">Friends</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <button type="button" class="plus btn btn-default">
-                                    <span class="glyphicon glyphicon-plus"></span>Add
+                                <button type="button" class="plus btn btn-default"><span
+                                        class="glyphicon glyphicon-plus"></span>Add
                                 </button>
                             </li>
                         {% else %}
-                            <li>
-                                <button type="button" class="plus btn btn-default">Log in</button>
-                                <button type="button" class="plus btn btn-default">Sign-up</button>
-                            </li>
+                            <a class="plus btn btn-default" href="{% url 'login' %}" role="button">Log in</a>
+                            <a class="plus btn btn-default" href="{% url 'newaccount' %}">Sign-up</a>
                         {% endif %}
                     </ul>
                 </div>
