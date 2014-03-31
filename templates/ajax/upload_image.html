@@ -1,0 +1,93 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #dragandrophandler {
+            border: 2px dotted #0B85A1;
+            width: 400px;
+            height: 100px;
+            color: #92AAB0;
+            text-align: left;
+            vertical-align: middle;
+            padding: 10px 10px 10px 10px;
+            margin-bottom: 10px;
+            font-size: 200%;
+        }
+    </style>
+</head>
+<body>
+
+<form action="{% url 'upload' %}" method="post" enctype="multipart/form-data" id="MyUploadForm" style="display: none">
+    {% csrf_token %}
+    {{ form.image }}
+</form>
+
+<div id="dragandrophandler">Drag & Drop Files Here</div>
+
+<div>
+    <img id="result" src="">
+</div>
+
+<script src="{% static 'webapp/js/jquery.min.js' %}"></script>
+<script src=""></script>
+<script type="text/javascript">
+    // Gracias a http://hayageek.com/drag-and-drop-file-upload-jquery/
+    // Y a http://digipiph.com/blog/submitting-multipartform-data-using-jquery-and-ajax
+    var obj = $("#dragandrophandler");
+    obj.on('dragenter', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).css('border', '2px solid #0B85A1');
+    });
+    obj.on('dragover', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    obj.on('drop', function (e) {
+
+        $(this).css('border', '2px dotted #0B85A1');
+        e.preventDefault();
+        var files = e.originalEvent.dataTransfer.files;
+
+        //We need to send dropped files to Server
+        handleFileUpload(files, obj);
+    });
+
+    function handleFileUpload(files, obj) {
+        var fd = new FormData($('form')[0]);
+        fd.append('image', files[0]);
+
+        $.ajax({
+            url: '{% url 'upload' %}',
+            type: 'POST',
+            data: fd,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                var response = $.parseJSON(returndata);
+                $("#result").attr("src", response.url);
+            }
+        });
+    }
+
+    $(document).on('dragenter', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    $(document).on('dragover', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        obj.css('border', '2px dotted #0B85A1');
+    });
+    $(document).on('drop', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>
