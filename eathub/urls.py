@@ -1,7 +1,10 @@
+# coding=utf-8
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.conf import settings
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -16,4 +19,12 @@ urlpatterns = patterns('',
     #url(r'^admin/', include(admin.site.urls)),
 
     url(r'^', include('webapp.urls')),
+
 )
+
+
+# Solución a los estáticos en Heroku
+# Mil gracias: http://stackoverflow.com/questions/9047054/heroku-handling-static-files-in-django-app
+urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )

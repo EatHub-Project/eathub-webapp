@@ -1,5 +1,7 @@
 # Django settings for eathub project.
+from urlparse import urlparse
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
@@ -11,14 +13,22 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+MONGO_DEFAULT = 'mongodb://127.0.0.1/eathub'
+MONGO_URL = urlparse(os.getenv('MONGOHQ_URL', MONGO_DEFAULT))
+MONGO_DB = MONGO_URL.path[1:]
+MONGO_HOST = MONGO_URL.hostname
+MONGO_PORT = MONGO_URL.port
+MONGO_USER = MONGO_URL.username
+MONGO_PASS = MONGO_URL.password
+
 DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_engine',
-        'NAME': 'eathub',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': 27017,
+        'NAME': MONGO_DB,
+        'USER': MONGO_USER,
+        'PASSWORD': MONGO_PASS,
+        'HOST': MONGO_HOST,
+        'PORT': MONGO_PORT,
         'SUPPORTS_TRANSACTIONS': False,
     }
 }
@@ -63,7 +73,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
