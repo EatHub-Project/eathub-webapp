@@ -288,3 +288,15 @@ header .container {
   text-align: justify;
   text-align-last: left;
 }
+
+.drag-and-drop {
+    border: 2px dotted #0B85A1;
+    height: 100%;
+    min-height: 100px;
+    color: #92AAB0;
+    text-align: left;
+    vertical-align: middle;
+    /*padding: 10px 10px 10px 10px;*/
+    margin-bottom: 10px;
+    font-size: 175%;
+}

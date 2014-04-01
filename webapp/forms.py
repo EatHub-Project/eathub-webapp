@@ -1,6 +1,7 @@
 from django import forms
 from models import Recipe
 
+
 class NewAccountForm(forms.Form):
     LANGUAGES = [("en", "English"), ("es", "Spanish")]
     GENDERS = [("unknown", "Unspecified"), ("m", "Male"), ("f", "Female")]
@@ -19,7 +20,8 @@ class NewAccountForm(forms.Form):
     location = forms.CharField(max_length=50, required=False)
     website = forms.URLField(required=False)
     birth_date = forms.DateField(required=False)
-    avatar = forms.ImageField(required=False)
+    avatar_url = forms.URLField(required=False)
+    avatar_id = forms.CharField(max_length=200, required=False)
 
     salty = forms.IntegerField(max_value=99, min_value=0, required=False)
     sour = forms.IntegerField(max_value=99, min_value=0, required=False)
