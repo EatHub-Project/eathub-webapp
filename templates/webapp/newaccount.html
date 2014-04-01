@@ -303,7 +303,7 @@
                 -->
             <div class="col-sm-3">
                 <div id="drop-target" class="drag-and-drop avatar-drop">
-                    <img id="avatar-target" class="img-rounded img-responsive" src="">
+                    <img id="avatar-target" class="img-rounded img-responsive" src="{{ form.avatar_url.value|default_if_none:'' }}">
                     <input type="hidden" id="id_{{ form.avatar_url.name }}" name="{{ form.avatar_url.name }}">
                     <input type="hidden" id="id_{{ form.avatar_id.name }}" name="{{ form.avatar_id.name }}">
                 </div>

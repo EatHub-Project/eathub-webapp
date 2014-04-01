@@ -139,6 +139,8 @@ def modification_account(request):
             website = data['website']
             birth_date = data['birth_date']
 
+            avatar_id = data['avatar_id']
+
             if password:  # todo comprobar también que sea válida en cuanto a caracteres y tal
                 if not password == password_repeat:
                     errors = form._errors.setdefault("password_repeat", ErrorList())
@@ -166,11 +168,21 @@ def modification_account(request):
             if password:
                 u.set_password(password)
 
+            avatar = None
+            if avatar_id:
+                avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
+                if avatar.image:
+                    p.avatar = avatar.image
             # TODO capturar cualquier error de validación y meterlo como error en el formulario
-            p.clean()
+
             if valid:
-                p.save()
-                u.save()
+                p.clean()
+                p.save()  # TODO borrar el User si falla al guardar el perfil
+
+                #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
+                if avatar:
+                    avatar.persist = True
+                    avatar.save()
                 # TODO mandar a la misma página y mostrar un mensaje de éxito
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
@@ -187,6 +199,7 @@ def modification_account(request):
             'location': p.location,
             'website': p.website,
             'birth_date': p.birth_date,
+            'avatar_url': p.avatar.url,
             'salty': p.tastes.salty,
             'sour': p.tastes.sour,
             'bitter': p.tastes.bitter,
