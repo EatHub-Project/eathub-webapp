@@ -13,6 +13,9 @@ html {
 body {
   margin: 0;
 }
+
+.description-recipe-main{height: 80px;text-overflow:ellipsis;overflow:hidden;}
+
 article,
 aside,
 details,

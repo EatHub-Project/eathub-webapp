@@ -288,3 +288,9 @@ header .container {
   text-align: justify;
   text-align-last: left;
 }
+
+.description-recipe-main{
+	height: 80px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}

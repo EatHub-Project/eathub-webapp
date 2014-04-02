@@ -5,134 +5,52 @@
 {% block container %}
     <!-- Start Recipe -->
     <!-- Column Left -->
-    <div class="col-md-8 col-md-offset-2 well">
-        <!-- Start Head Recipe -->
-        <div class="recipe-head">
-            <!-- End Title and Image Recipe -->
-            <div class="recipe-time">
-                <span class="glyphicon glyphicon-time"></span>
-
-                <p>
-                    <!-- {{ receta.time.prep_time }} -->
-                </p>
-            </div>
-            <div class="recipe-author">
-                <h5>RECIPE BY</h5>
-                <span><a href="#">{{ receta.author.display_name }}</a></span>
-            </div>
-            <div class="recipe-image">
-                <!--{% for picture in receta.pictures %}
-                    {% if picture.is_main %}
-                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
-                    {% endif %}
-                {% endfor %}-->
-            </div>
-            <div class="recipe-name">
-                <!-- h1>{{ receta.title }}</h1> -->
-				<h1>Receta de ejemplo</h1>
-            </div>
-            <!-- Start Description -->
-            <div class="recipe-description">
-                <p>
-                    <!-- {{ receta.description }} -->
-					Descripci&oacute;n de ejemplo.
-                </p>
-            </div>
-            <!-- Start Description -->
-            <!-- End Title and Image Recipe -->
-            <!-- End SubHead Recipe -->
-
-        </div>
-        <!-- End SubHead Recipe -->
-        <!-- End Head Recipe -->
-		<span><a class="recipe-tag" href="#">ver m&aacute;s</a></span>
-	</div>
-	<div class="col-md-8 col-md-offset-2 well">
-		<div class="recipe-head">
-            <!-- End Title and Image Recipe -->
-            <div class="recipe-time">
-                <span class="glyphicon glyphicon-time"></span>
-
-                <p>
-                    <!-- {{ receta.time.prep_time }} -->
-                </p>
-            </div>
-            <div class="recipe-author">
-                <h5>RECIPE BY</h5>
-                <span><a href="#">{{ receta.author.display_name }}</a></span>
-            </div>
-            <div class="recipe-image">
-                <!--{% for picture in receta.pictures %}
-                    {% if picture.is_main %}
-                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
-                    {% endif %}
-                {% endfor %}-->
-            </div>
-            <div class="recipe-name">
-                <!-- h1>{{ receta.title }}</h1> -->
-				<h1>Receta de ejemplo</h1>
-            </div>
-            <!-- Start Description -->
-            <div class="recipe-description">
-                <p>
-                    <!-- {{ receta.description }} -->
-					Descripci&oacute;n de ejemplo.
-                </p>
-            </div>
-            <!-- Start Description -->
-            <!-- End Title and Image Recipe -->
-            <!-- End SubHead Recipe -->
-
-        </div>
-		<span><a class="recipe-tag" href="#">ver m&aacute;s</a></span>
-	</div>
-	<div class="col-md-8 col-md-offset-2 well">
-		<div class="recipe-head">
-            <!-- End Title and Image Recipe -->
-            <div class="recipe-time">
-                <span class="glyphicon glyphicon-time"></span>
-
-                <p>
-                    <!-- {{ receta.time.prep_time }} -->
-                </p>
-            </div>
-            <div class="recipe-author">
-                <h5>RECIPE BY</h5>
-                <span><a href="#">{{ receta.author.display_name }}</a></span>
-            </div>
-            <div class="recipe-image">
-                <!--{% for picture in receta.pictures %}
-                    {% if picture.is_main %}
-                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
-                    {% endif %}
-                {% endfor %}-->
-            </div>
-            <div class="recipe-name">
-                <!-- h1>{{ receta.title }}</h1> -->
-				<h1>Receta de ejemplo</h1>
-            </div>
-            <!-- Start Description -->
-            <div class="recipe-description">
-                <p>
-                    <!-- {{ receta.description }} -->
-					Descripci&oacute;n de ejemplo.
-                </p>
-            </div>
-            <!-- Start Description -->
-            <!-- End Title and Image Recipe -->
-            <!-- End SubHead Recipe -->
-
-        </div>
-		<span><a class="recipe-tag" href="#">ver m&aacute;s</a></span>
-	</div>
 	
-    </div>
+	<div class="row">
+		{% for recipe in recipes %}
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+			<br />
+          <img data-src="holder.js/300x200" alt="300x200" src="http://eladerezo.hola.com/wp-content/uploads/2008/03/Receta-de-espaguetis-con-gambas1.jpg" style="width: 300px; height: 200px;">
+          <div class="caption">
+            <div class="recipe-name">
+                <!-- h1>{{ receta.title }}</h1> -->
+				<h1>{{ recipe.title }}</h1>
+            </div>
+			<div class="description-recipe-main">
+				<p>{{ recipe.desciption }}</p>
+			</div>
+			<div class="caption">
+				<div class="recipe-time">
+					<span class="glyphicon glyphicon-time"></span>
 
-    <!-- Colum Right -->
-    <!-- <div class="col-md-3 col-md-offset-1 well"> -->
-        <!-- Start Mini Image -->
-        
-        <!-- End Tags -->
-    <!-- </div> -->
-    <!-- End Recipe -->
+					<p>
+						{{ receta.time.prep_time }}
+					</p>
+				</div>
+				<div class="recipe-author">
+					<h5>RECIPE BY</h5>
+					<span><a href="#">{{ recipe.author.display_name }}</a></span>
+				</div>
+			</div>
+			<br />
+			<br />
+			<p><button type="button" class="btn btn-danger btn-block">Ver m&aacute;s</button></p>
+          </div>
+        </div>
+      </div>
+	  {% endfor %}
+	</div>
+	<div class="col-sm-6 col-md-4"></div>
+	<div class="col-sm-6 col-md-4">
+		<button type="button" class="btn btn-danger btn-block">Cargar m&aacute;s recetas</button>
+	</div>
+	<div class="col-sm-6 col-md-4"></div>
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 {% endblock %}
