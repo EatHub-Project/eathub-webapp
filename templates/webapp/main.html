@@ -32,7 +32,12 @@
 			</div>
 			<br />
 			<br />
-			<p><button type="button" class="btn btn-danger btn-block">Ver m&aacute;s</button></p>
+			<p>
+			{% url 'recipe' recipe.id as the_url %}
+			{% if the_url %}
+			<a type="button" class="btn btn-danger btn-block" href="{{ the_url }}">Ver m&aacute;s</a>
+			{% endif %}
+			</p>
           </div>
         </div>
       </div>
