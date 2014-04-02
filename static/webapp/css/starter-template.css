@@ -404,3 +404,6 @@ header .container {
     padding: 20px;
 }
 
+.ingredient-item span.repeatable-add{
+    color: #ababab;
+}

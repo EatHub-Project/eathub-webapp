@@ -16,12 +16,28 @@
     <script src="{% static 'webapp/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
     <script src="{% static 'webapp/js/ajax-image-upload.js' %}"></script>
     <script type="text/javascript">
+        var settings;
         $().ready(function () {
             $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
             $('.slider').slider();
             jQuery(function () {
                 jQuery('.repeat').each(function () {
-                    jQuery(this).repeatable_fields();
+                    settings = jQuery(this).repeatable_fields({
+                        wrapper: '.repeatable-wrapper',
+                        container: '.repeatable-container',
+                        row: '.repeatable-row',
+                        add: '.repeatable-add',
+                        remove: '.repeatable-remove',
+                        move: '.repeatable-move',
+                        template: '.repeatable-template',
+                        is_sortable: true,
+                        before_add: null,
+                        before_remove: null,
+                        after_remove: null,
+                        after_add: function (container, new_row) {
+                            new_row.find(".ingredient-input").focus();
+                        }
+                    });
                 });
             });
         });
@@ -103,7 +119,7 @@
                         <img class="img-rounded"
                              src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg">
                     </div>{% endcomment %}
-                     <div id="gallery-indicator">
+                    <div id="gallery-indicator">
                         <p>Add more pictures</p>
                         <span class="glyphicon glyphicon-plus"></span>
                     </div>
@@ -128,69 +144,36 @@
     <span class="clearfix"></span>
 
     <h3 class="col-lg-offset-1">Ingredients and procedure</h3>
-    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
+    <fieldset class="well col-sm-10 col-sm-offset-1 repeat" style="padding: 20px 100px">
         <!-- Ingredients -->
         <h5>Ingredients list</h5>
 
-        <div class="form-group well">
-            <div class="col-sm-12">
-                <div class="row form-group">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Add another ingredient"
-                               value="100g de azúcar moreno">
-                    </div>
-                    <div class="col-sm-1">
-                        <a class="btn btn-default">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Add another ingredient"
-                               value="50ml de agua">
-                    </div>
-                    <div class="col-sm-1">
-                        <a class="btn btn-default">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
+        <div class="form-group well repeatable-wrapper">
+            <div class="repeatable-container">
+                <!-- ingredient-item -->
+                <div class="form-group ingredient-item repeatable-row repeatable-template">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon repeatable-move"><span
+                                    class="glyphicon glyphicon-sort"></span> </span>
+                            <input type="text" class="form-control ingredient-input"
+                            {% verbatim %} name="an-input-field[{{row-count-placeholder}}]" {% endverbatim %}
+                            >
+                            <span class="input-group-btn ingredient-remove">
+                                <button class="btn btn-default repeatable-remove" type="button"><span
+                                        class="glyphicon glyphicon-remove"></span></button>
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Add another ingredient">
-                    </div>
-                </div>
+                <!-- /ingredient-item -->
 
             </div>
-
-            {% comment %}<div class="col-sm-8">
-            <div class="repeat">
-                {% verbatim %}
-
-                <table class="wrapper table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <td width="10%" colspan="4"><span class="add btn btn-success">Add</span></td>
-                    </tr>
-                    </thead>
-                    <tbody class="container ui-sortable">
-                    <tr class="template row">
-                        <td width="10%"><span class="move btn btn-info">Move</span></td>
-
-                        <td width="80%">
-                            <dl>
-                                <dd><input type="text" name="ingredient[{{row-count-placeholder}}]"
-                                           class="form-control"></dd>
-                            </dl>
-                        </td>
-                        <td width="10%"><span class="remove btn btn-danger">Remove</span></td>
-                    </tr>
-                    </tbody>
-                </table>
-                {% endverbatim %}
+            <div class="form-group ingredient-item ">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <span class="form-control repeatable-add">Add an ingredient…</span>
+                </div>
             </div>
-        </div>{% endcomment %}
         </div>
 
         <h5>Step by step</h5>
