@@ -68,9 +68,11 @@
                                 </ul>
                             </li>
                             <li>
-                                <button type="button" class="plus btn btn-default"><span
-                                        class="glyphicon glyphicon-plus"></span>Add
-                                </button>
+                                <div>
+                                    <a type="button" class="plus btn btn-default" href="{% url 'newrecipe' %}">
+                                        <span class="glyphicon glyphicon-plus"></span>Add recipe
+                                    </a>
+                                </div>
                             </li>
                         {% else %}
                             <a class="plus btn btn-default" href="{% url 'login' %}" role="button">Log in</a>
