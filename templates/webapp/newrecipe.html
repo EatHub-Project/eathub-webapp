@@ -66,16 +66,13 @@
                 //TODO mostrar un modal
                 var $modal = $("#modal-picture");
                 $modal.modal("show");
-                var $gallery = $modal.find(".gallery");
+                var $gallery = $modal.find("#gallery-modal");
                 $gallery.empty();
 
-                var urls = ["http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg",
-                    "http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08368-1600x1200.jpg",
-                    "http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08369-1600x1200.jpg",
-                    "http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg",
-                    "http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08372-1600x1200.jpg",
-                    "http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08373-1600x1200.jpg"
-                ];
+                var urls = [];
+                $("#gallery").find(".gallery-item").each(function(index, Element) {
+                    urls.push($(Element).find("img").attr("src"))
+                });
 
                 for (var i = 0; i < urls.length; i++) {
                     $gallery.append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + urls[i] + '"></div>');
@@ -265,7 +262,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="col-sm-12">
-                            <div class="row gallery" id="gallery">
+                            <div class="row gallery" id="gallery-modal">
                                 <!-- Gallery item -->
                                 {% comment %}<div class="col-sm-3 gallery-item">
                                     <img class="img-rounded"
