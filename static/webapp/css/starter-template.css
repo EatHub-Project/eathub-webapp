@@ -305,23 +305,12 @@ header .container {
     height: 400px;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover ;
+    background-size: cover;
     overflow: hidden;
     position: relative;
 
-    border: dashed 2px #cc7466;
     font-size: 175%;
-    color: #cc7466;
     text-align: center;
-}
-
-.drop-target{
-    border: dashed 2px #cc7466;
-    color: #cc7466;
-}
-
-.drop-target.dropping{
-    border: solid 2px #cc7466;
 }
 
 #main-picture-indicator {
@@ -335,19 +324,54 @@ header .container {
     margin-right: auto
 }
 
+#main-picture-indicator span.glyphicon {
+    font-size: 300%;
+}
+
+.drop-target {
+    border: dashed 2px #cc7466;
+    color: #cc7466;
+    border-radius: 6px;
+}
+
+.drop-target.dropping {
+    border: solid 2px #cc7466;
+}
+
 .gallery {
-    height: 150px;
-    background: #FFFFFF;
-}
+    min-height: 150px;
+    margin-left: 0;
+    margin-right: 0;
 
-.gallery p {
+    font-size: 150%;
     text-align: center;
-    font-size: 250%;
-    color: #aeaeae
 }
 
-.gallery .drag-and-drop {
-    background-color: #f4f4f4;
+#gallery-indicator {
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gallery-indicator span.glyphicon {
+    font-size: 200%;
+}
+
+
+.gallery .gallery-item {
+    height: 100%;
+    padding: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
 }
 
 .input-xlg {

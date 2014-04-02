@@ -27,16 +27,28 @@
         });
     </script>
     <script>
-        // Drag&Drop for main picture
-        var obj = $("#main-picture");
-        activateDragAndDrop(obj, "{% url 'upload' %}", function (returndata) {
-            var response = $.parseJSON(returndata);
-            //TODO validar y tal
-            $("#main-picture").css('background-image', 'url(' + response.url + ')');
-            $("#main-picture-indicator").hide()
-            //TODO guardar la info somewhere
-        })
+        $().ready(function () {
+            // Drag&Drop for main picture
+            var obj = $("#main-picture");
+            activateDragAndDrop(obj, "{% url 'upload' %}", function (returndata) {
+                var response = $.parseJSON(returndata);
+                //TODO validar y tal
+                $("#main-picture").css('background-image', 'url(' + response.url + ')');
+                $("#main-picture-indicator").hide()
+                //TODO guardar la info somewhere
+            });
 
+            // Drag&Drop for gallery
+            var gallery = $("#gallery");
+            activateDragAndDrop(gallery, "{% url 'upload' %}", function (returndata) {
+                var response = $.parseJSON(returndata);
+                addPicture(response.url)
+            });
+        });
+        function addPicture(url) {
+            var $gallery = $("#gallery");
+            $gallery.append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
+        }
     </script>
 {% endblock %}
 
@@ -82,13 +94,19 @@
         </div>
 
         <!-- Gallery -->
+        <!-- TODO con ciertos tamaños de imagen se buggea y la cuadrícula se va a tomar viento -->
         <div class="form-group">
             <div class="col-sm-12">
-                <div class="row gallery well ">
-                    <div class="col-sm-2 drag-and-drop">
-                        <span>Add</span>
+                <div class="row gallery drop-target" id="gallery">
+                    <!-- Gallery item -->
+                    {% comment %}<div class="col-sm-3 gallery-item">
+                        <img class="img-rounded"
+                             src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg">
+                    </div>{% endcomment %}
+                     <div id="gallery-indicator">
+                        <p>Add more pictures</p>
+                        <span class="glyphicon glyphicon-plus"></span>
                     </div>
-                    <p class="col-sm-10">Add more pictures</p>
                 </div>
             </div>
         </div>
@@ -99,7 +117,7 @@
                 <!-- <label for="id_{{ form.description.name }}"
                class="col-sm-2 ">{{ form.description.label }}</label> -->
                 <textarea class="form-control input-lg"
-                          placeholder="Write a short description. ¿What is your recipe about?"
+                          placeholder="Write a short description. What is your recipe about?"
                           rows="4"
                           name="{{ form.description.name }}" id="id_{{ form.description.name }}"
                         >{{ form.description.value | default_if_none:'' }}</textarea>
