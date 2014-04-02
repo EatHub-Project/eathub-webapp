@@ -28,7 +28,6 @@
 {% endblock %}
 
 {% block container %}
-    <h1>New Recipe</h1>
 
     <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -43,237 +42,322 @@
 
     {{ form.non_field_errors }}
 
-    <legend>General information</legend>
-    <fieldset class="well">
+    <h3 class="col-lg-offset-1">Basic information</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
 
-    <!-- Title -->
-    <div class="form-group">
-        <label for="id_{{ form.title.name }}"
-               class="col-sm-2 control-label">{{ form.title.label }}</label>
-
-        <div class="col-sm-3">
-            {% comment %}
-                    Utilizo esta técnica en vez de poner {{ form.username }} para permitir estilos personalizados.
-                    Se pueden añadir estilos en la clase NewAccountForm, pero de esta forma es más flexible y deja la
-                    visualización como responsabilidad de la plantilla.
-                    Visto en: http://stackoverflow.com/questions/18805999/how-to-style-a-django-form-bootstrap
-                    {% endcomment %}
-            <input type="text" class="form-control" placeholder="Username"
-                   name="{{ form.title.name }}" id="id_{{ form.title.name }}"
-                   value="{{ form.title.value | default_if_none:'' }}">
+        <!-- Title -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-xlg" placeholder="Name your recipe"
+                       name="{{ form.title.name }}" id="id_{{ form.title.name }}"
+                       value="{{ form.title.value | default_if_none:'' }}">
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
 
-    <!-- Main Image -->
-    <div class="form-group">
-        <label for="id_{{ form.main_image.name }}"
-               class="col-sm-2 control-label">{{ form.main_image.label }}</label>
-
-        <div class="col-sm-3">
-            <input type="file" class="form-control" placeholder="Username"
-                   name="{{ form.main_image.name }}" id="id_{{ form.main_image.name }}">
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-
-    <!-- Description -->
-    <div class="form-group">
-        <label for="id_{{ form.description.name }}"
-               class="col-sm-2 control-label">{{ form.description.label }}</label>
-
-        <div class="col-sm-3">
-            <textarea class="form-control"
-                      name="{{ form.description.name }}" id="id_{{ form.description.name }}"
-                      value="{{ form.description.value | default_if_none:'' }}"></textarea>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Ingredients -->
-    <div class="form-group">
-        <label for="id_{{ form.ingredients.name }}"
-               class="col-sm-2 control-label">{{ form.ingredients.label }}</label>
-
-        <div class="col-sm-8">
-                <div class="repeat">
-                    {% verbatim %}
-                    <table class="wrapper table table-striped table-bordered">
-                        <thead>
-                        <tr>
-                            <td width="10%" colspan="4"><span class="add btn btn-success">Add</span></td>
-                        </tr>
-                        </thead>
-                        <tbody class="container ui-sortable">
-                        <tr class="template row">
-                            <td width="10%"><span class="move btn btn-info">Move</span></td>
-
-                            <td width="80%">
-                                <dl>
-                                    <dd><input type="text" name="ingredient[{{row-count-placeholder}}]"
-                                               class="form-control"></dd>
-                                </dl>
-                            </td>
-                            <td width="10%"><span class="remove btn btn-danger">Remove</span></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    {% endverbatim %}
+        <!-- Main Image -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="drag-and-drop main-picture">
+                    <p>Add main picture</p>
                 </div>
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
 
-    <!-- Serves -->
-    <div class="form-group">
-        <label for="id_{{ form.serves.name }}"
-               class="col-sm-2 control-label">{{ form.serves.label }}</label>
-
-        <div class="col-sm-3">
-            <input type="password" class="form-control" placeholder="Repeat your password"
-                   name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
-                   value="{{ form.serves.value | default_if_none:'' }}">
+        <!-- Gallery -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="row gallery well ">
+                    <div class="col-sm-2 drag-and-drop">
+                        <span>Add</span>
+                    </div>
+                    <p class="col-sm-10">Add more pictures</p>
+                </div>
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
 
-    <!-- Difficult -->
-    <div class="form-group">
-        <label for="id_{{ form.difficult.name }}"
-               class="col-sm-2 control-label">{{ form.difficult.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.difficult.name }}" name="{{ form.difficult.name }}">
-                {% for choice in form.difficult.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
+        <!-- Description -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <!-- <label for="id_{{ form.description.name }}"
+               class="col-sm-2 ">{{ form.description.label }}</label> -->
+                <textarea class="form-control input-lg"
+                          placeholder="Write a short description. ¿What is your recipe about?"
+                          rows="4"
+                          name="{{ form.description.name }}" id="id_{{ form.description.name }}"
+                        >{{ form.description.value | default_if_none:'' }}</textarea>
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Food type -->
-    <div class="form-group">
-        <label for="id_{{ form.food_type.name }}"
-               class="col-sm-2 control-label">{{ form.food_type.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.food_type.name }}" name="{{ form.food_type.name }}">
-                {% for choice in form.food_type.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Language -->
-    <div class="form-group">
-        <label for="id_{{ form.language.name }}"
-               class="col-sm-2 control-label">{{ form.language.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.language.name }}" name="{{ form.language.name }}">
-                {% for choice in form.language.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Nationality -->
-    <div class="form-group">
-        <label for="id_{{ form.nationality.name }}"
-               class="col-sm-2 control-label">{{ form.nationality.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.nationality.name }}" name="{{ form.nationality.name }}">
-                {% for choice in form.nationality.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Temporality -->
-    <div class="form-group">
-        <label for="id_{{ form.temporality.name }}"
-               class="col-sm-2 control-label">{{ form.temporality.label }}</label>
-
-        <div class="col-sm-3">
-            <select class="form-control show-tick" multiple data-live-search="true"
-                    id="id_{{ form.temporality.name }}" name="{{ form.temporality.name }}">
-                {% for choice in form.temporality.field.choices %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
-
-    <!-- Special Conditions -->
-    <div class="form-group">
-        <label for="id_{{ form.special_conditions.name }}"
-               class="col-sm-2 control-label">{{ form.special_conditions.label }}</label>
-
-        <div class="col-sm-3">
-            <select class="form-control show-tick" multiple data-live-search="true"
-                    id="id_{{ form.special_conditions.name }}" name="{{ form.special_conditions.name }}">
-                {% for choice in form.special_conditions.field.choices %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
-
-    <!-- Tags -->
-    <div class="form-group">
-        <label for="id_{{ form.tags.name }}"
-               class="col-sm-2 control-label">{{ form.tags.label }}</label>
-
-        <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="Your public name"
-                   name="{{ form.tags.name }}" id="id_{{ form.tags.name }}"
-                   value="{{ form.tags.value | default_if_none:'' }}">
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Notes -->
-    <div class="form-group">
-        <label for="id_{{ form.notes.name }}"
-               class="col-sm-2 control-label">{{ form.notes.label }}</label>
-
-        <div class="col-sm-3">
-            <textarea class="form-control"
-                      name="{{ form.notes.name }}" id="id_{{ form.notes.name }}"
-                      value="{{ form.notes.value | default_if_none:'' }}"></textarea>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
     </fieldset>
 
-    <legend>Consumer preferences</legend>
-    <fieldset class="well">
-        <!-- Special conditions -->
+    <span class="clearfix"></span>
 
-        <!-- Tastes -->
-        <div class="col-sm-5">
-            <h3>Tastes</h3>
+    <h3 class="col-lg-offset-1">Ingredients and procedure</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
+        <!-- Ingredients -->
+        <h5>Ingredients list</h5>
+
+        <div class="form-group well">
+            <div class="col-sm-12">
+                <div class="row form-group">
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Add another ingredient"
+                               value="100g de azúcar moreno">
+                    </div>
+                    <div class="col-sm-1">
+                        <a class="btn btn-default">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Add another ingredient"
+                               value="50ml de agua">
+                    </div>
+                    <div class="col-sm-1">
+                        <a class="btn btn-default">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Add another ingredient">
+                    </div>
+                </div>
+
+            </div>
+
+            {% comment %}<div class="col-sm-8">
+            <div class="repeat">
+                {% verbatim %}
+
+                <table class="wrapper table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <td width="10%" colspan="4"><span class="add btn btn-success">Add</span></td>
+                    </tr>
+                    </thead>
+                    <tbody class="container ui-sortable">
+                    <tr class="template row">
+                        <td width="10%"><span class="move btn btn-info">Move</span></td>
+
+                        <td width="80%">
+                            <dl>
+                                <dd><input type="text" name="ingredient[{{row-count-placeholder}}]"
+                                           class="form-control"></dd>
+                            </dl>
+                        </td>
+                        <td width="10%"><span class="remove btn btn-danger">Remove</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% endverbatim %}
+            </div>
+        </div>{% endcomment %}
+        </div>
+
+        <h5>Step by step</h5>
+
+        <div class="form-group well">
+            <div class="col-sm-12">
+                <div class="row form-group step">
+                    <div class="col-sm-1">
+                        <span>1</span>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea class="form-control input-lg"
+                                  placeholder="What is the first step?…"
+                                  rows="4"
+                                  name="step" id="id_step"
+                                ></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                        <img src="http://www.cocinillas.es/wp-content/uploads/2014/03/ensalada-aguacate-gambas-4-680x453.jpg">
+                    </div>
+                </div>
+                <hr>
+                <div class="row form-group step">
+                    <div class="col-sm-1">
+                        <span>2</span>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea class="form-control input-lg"
+                                  placeholder="And the next one?…"
+                                  rows="4"
+                                  name="step" id="id_step"
+                                ></textarea>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-default"><span class="glyphicon glyphicon-camera"></span></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row form-group step next">
+                    <div class="col-sm-1">
+                        <span>3</span>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea class="form-control input-lg"
+                                  placeholder="Add next step"
+                                  rows="2"
+                                  name="step" id="id_step"
+                                ></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5>Additional notes</h5>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <textarea class="form-control input-lg"
+                          placeholder="Anything else you want to point out about your recipe?"
+                          rows="3"
+                          name="step" id="id_step"
+                        ></textarea>
+            </div>
+        </div>
+    </fieldset>
+
+    <span class="clearfix"></span>
+
+    <h3 class="col-lg-offset-1">Extra information</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Preparation time</label>
+
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" placeholder="minutes">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Cooking time</label>
+
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" placeholder="minutes">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Serves</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Difficulty</label>
+
+                    <div class="col-sm-6">
+                        <select class="form-control">
+                            <option>Easy</option>
+                            <option>Medium</option>
+                            <option>Hard</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Temporality</label>
+
+                    <div class="col-sm-8">
+                        <select class="form-control show-tick" data-live-search="true" multiple>
+                            <option>Christmas</option>
+                            <option>Summer</option>
+                            <option>St. Valentine's</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Food type</label>
+
+                    <div class="col-sm-6">
+                        <select class="form-control show-tick">
+                            <option>Breakfast</option>
+                            <option>Desert</option>
+                            <option>Drink</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Special conditions</label>
+
+                    <div class="col-sm-8">
+                        <select class="form-control show-tick" data-live-search="true" multiple>
+                            <option>Celiac</option>
+                            <option>Vegetarian</option>
+                            <option>Diabetic</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Language</label>
+
+                    <div class="col-sm-6">
+                        <select class="form-control show-tick">
+                            <option>Spanish</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Free tags</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Comma separated tags">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Nationality</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="If any">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <span class="clearfix"></span>
+
+    <h3 class="col-lg-offset-1">Savours</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+        <!-- Savours-->
+        <div class="col-sm-6">
             <label for="id_{{ form.salty.name }}" class="slider-label">{{ form.salty.label }}</label>
 
             <div class="control-group">
@@ -339,48 +423,25 @@
                 <textarea id="steps" style="display:none" name="steps"></textarea>
             </div>
         </div>
-    </fieldset>
 
-    <legend>Steps</legend>
-    <fieldset class="well">
-        <div class="repeat">
-            {% verbatim %}
-            <table class="wrapper table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <td width="10%" colspan="4"><span class="add btn btn-success">Add</span></td>
-                </tr>
-                </thead>
-                <tbody class="container ui-sortable">
-                <tr class="template row">
-                    <td width="10%"><span class="move btn btn-info">Move</span></td>
-
-                    <td width="80%">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd><textarea name="step[{{row-count-placeholder}}][description]"
-                                          class="form-control"></textarea></dd>
-
-                            <dt>Image</dt>
-                            <dd><input type="file" name="step[{{row-count-placeholder}}][image]"
-                                       class="form-control"></dd>
-                        </dl>
-                    </td>
-                    <td width="10%"><span class="remove btn btn-danger">Remove</span></td>
-                </tr>
-                </tbody>
-            </table>
-            {% endverbatim %}
+        <div class="col-sm-6">
+            <p class="savours-help">Savour values defines the savour of your recipe and stuff. This way we can better
+                recommend people your recipe based on ther personal tastes and so on, you know. Savours are measured in
+                a relative way, of course. For more information, check Wikipedia or something, dude.</p>
         </div>
     </fieldset>
 
     <!-- Submit Button -->
-    <div class="form-group">
-        <label for="inputDisplayName" class="col-sm-1 control-label"></label>
+    <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+        <div class="form-group">
+            <label for="inputDisplayName" class="col-sm-1 control-label"></label>
 
-        <div class="col-sm-3">
-            <input type="submit" class="btn btn-success" value="Create account"/>
+            <div class="col-sm-3">
+                <input type="submit" class="btn btn-success" value="Publish recipe"/>
+            </div><div class="col-sm-3">
+                <a class="btn btn-info">Save as draft</a>
+            </div>
         </div>
-    </div>
+    </fieldset>
     </form>
 {% endblock %}
