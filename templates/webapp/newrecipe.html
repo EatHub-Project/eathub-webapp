@@ -14,6 +14,7 @@
     <script src="{% static 'webapp/js/bootstrap-select.min.js' %}"></script>
     <script src="{% static 'webapp/js/repeatable-fields.js' %}"></script>
     <script src="{% static 'webapp/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
+    <script src="{% static 'webapp/js/ajax-image-upload.js' %}"></script>
     <script type="text/javascript">
         $().ready(function () {
             $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
@@ -24,6 +25,18 @@
                 });
             });
         });
+    </script>
+    <script>
+        // Drag&Drop for main picture
+        var obj = $("#main-picture");
+        activateDragAndDrop(obj, "{% url 'upload' %}", function (returndata) {
+            var response = $.parseJSON(returndata);
+            //TODO validar y tal
+            $("#main-picture").css('background-image', 'url(' + response.url + ')');
+            $("#main-picture-indicator").hide()
+            //TODO guardar la info somewhere
+        })
+
     </script>
 {% endblock %}
 
@@ -57,8 +70,13 @@
         <!-- Main Image -->
         <div class="form-group">
             <div class="col-sm-12">
-                <div class="drag-and-drop main-picture">
-                    <p>Add main picture</p>
+                <div class="main-picture drop-target" id="main-picture">
+                    <div id="main-picture-indicator">
+                        <p>Add main picture</p>
+                        <span class="glyphicon glyphicon-camera"></span>
+
+                        <p>Drag and drop an image here</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,10 +456,17 @@
 
             <div class="col-sm-3">
                 <input type="submit" class="btn btn-success" value="Publish recipe"/>
-            </div><div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
                 <a class="btn btn-info">Save as draft</a>
             </div>
         </div>
     </fieldset>
+    </form>
+
+    <!-- Ajax uploads -->
+    <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data" id="upload-form"
+          style="display: none">
+        {% csrf_token %}
     </form>
 {% endblock %}

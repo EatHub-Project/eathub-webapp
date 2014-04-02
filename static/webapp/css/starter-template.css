@@ -302,7 +302,37 @@ header .container {
 }
 
 .main-picture {
-    height: 300px;
+    height: 400px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    overflow: hidden;
+    position: relative;
+
+    border: dashed 2px #cc7466;
+    font-size: 175%;
+    color: #cc7466;
+    text-align: center;
+}
+
+.drop-target{
+    border: dashed 2px #cc7466;
+    color: #cc7466;
+}
+
+.drop-target.dropping{
+    border: solid 2px #cc7466;
+}
+
+#main-picture-indicator {
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    margin-top: -75px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto
 }
 
 .gallery {
@@ -343,7 +373,7 @@ header .container {
     width: 100%;
 }
 
-.savours-help{
+.savours-help {
     font-size: 18px;
     font-style: italic;
     color: #9f9f9f;
