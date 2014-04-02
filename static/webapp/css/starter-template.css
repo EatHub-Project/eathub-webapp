@@ -110,6 +110,9 @@ header .container {
 }
 
 .recipe-name {
+  height: 120px;
+  text-overflow:ellipsis;
+  overflow:hidden;
   color: #CC3E27;
 }
 

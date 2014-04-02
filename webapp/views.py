@@ -15,8 +15,9 @@ from django.forms.util import ErrorList
 
 
 def main(request):
-    recipes = Recipe.objects
-    return render(request, 'webapp/main.html', {'recetas': recipes})
+    recipes = Recipe.objects.all()
+    print(str(recipes))
+    return render(request, 'webapp/main.html', {'recipes': recipes})
 
 
 def new_account(request):
