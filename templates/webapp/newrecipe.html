@@ -70,7 +70,7 @@
                 $gallery.empty();
 
                 var urls = [];
-                $("#gallery").find(".gallery-item").each(function(index, Element) {
+                $("#gallery").find(".gallery-item").each(function (index, Element) {
                     urls.push($(Element).find("img").attr("src"))
                 });
 
@@ -301,8 +301,12 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Preparation time</label>
 
-                    <div class="col-sm-4">
-                        <input type="number" class="form-control" placeholder="minutes">
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="minutes">
+                            <span class="input-group-addon"><span
+                                class="glyphicon glyphicon-time"></span> </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -310,8 +314,12 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Cooking time</label>
 
-                    <div class="col-sm-4">
-                        <input type="number" class="form-control" placeholder="minutes">
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="minutes">
+                            <span class="input-group-addon"><span
+                                class="glyphicon glyphicon-time"></span> </span>
+                        </div>
                     </div>
                 </div>
             </div>
