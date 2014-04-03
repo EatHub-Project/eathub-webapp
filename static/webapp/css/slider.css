@@ -201,7 +201,8 @@
     background: #c52323;
 }
 
-#spicy .slider-handle {
+#spicy .slider-handle ,
+{
     background: #c52323;
 }
 
@@ -209,4 +210,6 @@
     margin-bottom: 0px;
     margin-top: 8px;
 }
+
+
 

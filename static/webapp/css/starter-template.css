@@ -425,3 +425,23 @@ header .container {
 	text-overflow:ellipsis;
 	overflow:hidden;
 }
+
+#salty.progress-bar {
+    background: #0480be;
+}
+
+#sour.progress-bar {
+    background: #d4ab2e;
+}
+
+#bitter.progress-bar {
+    background: #22b42d;
+}
+
+#sweet.progress-bar {
+    background: #b472a8;
+}
+
+#spicy.progress-bar {
+    background: #c52323;
+}
