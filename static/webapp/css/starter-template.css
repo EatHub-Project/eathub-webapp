@@ -362,7 +362,6 @@ header .container {
     font-size: 200%;
 }
 
-
 .gallery .gallery-item {
     height: 100%;
     padding: 10px;
@@ -404,6 +403,11 @@ header .container {
     padding: 20px;
 }
 
-.ingredient-item span.repeatable-add{
+.ingredient-item span.repeatable-add {
     color: #ababab;
+}
+
+.path {
+    stroke-dasharray: 2257;
+    stroke-dashoffset: 2257;
 }
