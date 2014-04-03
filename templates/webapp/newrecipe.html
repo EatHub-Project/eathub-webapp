@@ -14,21 +14,93 @@
     <script src="{% static 'webapp/js/bootstrap-select.min.js' %}"></script>
     <script src="{% static 'webapp/js/repeatable-fields.js' %}"></script>
     <script src="{% static 'webapp/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
+    <script src="{% static 'webapp/js/ajax-image-upload.js' %}"></script>
     <script type="text/javascript">
+        var settings;
         $().ready(function () {
             $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
             $('.slider').slider();
             jQuery(function () {
                 jQuery('.repeat').each(function () {
-                    jQuery(this).repeatable_fields();
+                    settings = jQuery(this).repeatable_fields({
+                        wrapper: '.repeatable-wrapper',
+                        container: '.repeatable-container',
+                        row: '.repeatable-row',
+                        add: '.repeatable-add',
+                        remove: '.repeatable-remove',
+                        move: '.repeatable-move',
+                        template: '.repeatable-template',
+                        is_sortable: true,
+                        before_add: null,
+                        before_remove: null,
+                        after_remove: null,
+                        after_add: function (container, new_row) {
+                            new_row.find(".ingredient-input").focus();
+                        }
+                    });
                 });
             });
         });
     </script>
+    <script>
+        $().ready(function () {
+            // Drag&Drop for main picture
+            var obj = $("#main-picture");
+            activateDragAndDrop(obj, "{% url 'upload' %}", function (returndata) {
+                var response = $.parseJSON(returndata);
+                //TODO validar y tal
+                $("#main-picture").css('background-image', 'url(' + response.url + ')');
+                $("#main-picture-indicator").hide()
+                //TODO guardar la info somewhere
+            });
+
+            // Drag&Drop for gallery
+            var gallery = $("#gallery");
+            activateDragAndDrop(gallery, "{% url 'upload' %}", function (returndata) {
+                var response = $.parseJSON(returndata);
+                addPicture(response.url)
+            });
+
+            $(".step-list").on("click", ".step-picture", function (event) {
+                var stepPicture = $(this);
+                //TODO mostrar un modal
+                var $modal = $("#modal-picture");
+                $modal.modal("show");
+                var $gallery = $modal.find("#gallery-modal");
+                $gallery.empty();
+
+                var urls = [];
+                $("#gallery").find(".gallery-item").each(function (index, Element) {
+                    urls.push($(Element).find("img").attr("src"))
+                });
+
+                for (var i = 0; i < urls.length; i++) {
+                    $gallery.append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + urls[i] + '"></div>');
+                }
+
+                $gallery.find(".gallery-item").click(function (e) {
+                    var url = $(this).find("img").attr("src")
+
+                    var $control = stepPicture.children(".step-picture-add");
+                    var $pic = stepPicture.children("img");
+
+                    $pic.attr("src", url);
+                    $pic.show();
+                    $control.hide();
+
+                    $modal.modal("hide");
+                });
+            });
+
+        });
+        function addPicture(url) {
+            var $gallery = $("#gallery");
+            $gallery.append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
+        }
+    </script>
 {% endblock %}
 
 {% block container %}
-    <h1>New Recipe</h1>
 
     <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -43,237 +115,327 @@
 
     {{ form.non_field_errors }}
 
-    <legend>General information</legend>
-    <fieldset class="well">
+    <h3 class="col-lg-offset-1">Basic information</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
 
-    <!-- Title -->
-    <div class="form-group">
-        <label for="id_{{ form.title.name }}"
-               class="col-sm-2 control-label">{{ form.title.label }}</label>
-
-        <div class="col-sm-3">
-            {% comment %}
-                    Utilizo esta técnica en vez de poner {{ form.username }} para permitir estilos personalizados.
-                    Se pueden añadir estilos en la clase NewAccountForm, pero de esta forma es más flexible y deja la
-                    visualización como responsabilidad de la plantilla.
-                    Visto en: http://stackoverflow.com/questions/18805999/how-to-style-a-django-form-bootstrap
-                    {% endcomment %}
-            <input type="text" class="form-control" placeholder="Username"
-                   name="{{ form.title.name }}" id="id_{{ form.title.name }}"
-                   value="{{ form.title.value | default_if_none:'' }}">
+        <!-- Title -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-xlg" placeholder="Name your recipe"
+                       name="{{ form.title.name }}" id="id_{{ form.title.name }}"
+                       value="{{ form.title.value | default_if_none:'' }}">
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
 
-    <!-- Main Image -->
-    <div class="form-group">
-        <label for="id_{{ form.main_image.name }}"
-               class="col-sm-2 control-label">{{ form.main_image.label }}</label>
+        <!-- Main Image -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="main-picture drop-target" id="main-picture">
+                    <div id="main-picture-indicator">
+                        <p>Add main picture</p>
+                        <span class="glyphicon glyphicon-camera"></span>
 
-        <div class="col-sm-3">
-            <input type="file" class="form-control" placeholder="Username"
-                   name="{{ form.main_image.name }}" id="id_{{ form.main_image.name }}">
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-
-    <!-- Description -->
-    <div class="form-group">
-        <label for="id_{{ form.description.name }}"
-               class="col-sm-2 control-label">{{ form.description.label }}</label>
-
-        <div class="col-sm-3">
-            <textarea class="form-control"
-                      name="{{ form.description.name }}" id="id_{{ form.description.name }}"
-                      value="{{ form.description.value | default_if_none:'' }}"></textarea>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Ingredients -->
-    <div class="form-group">
-        <label for="id_{{ form.ingredients.name }}"
-               class="col-sm-2 control-label">{{ form.ingredients.label }}</label>
-
-        <div class="col-sm-8">
-                <div class="repeat">
-                    {% verbatim %}
-                    <table class="wrapper table table-striped table-bordered">
-                        <thead>
-                        <tr>
-                            <td width="10%" colspan="4"><span class="add btn btn-success">Add</span></td>
-                        </tr>
-                        </thead>
-                        <tbody class="container ui-sortable">
-                        <tr class="template row">
-                            <td width="10%"><span class="move btn btn-info">Move</span></td>
-
-                            <td width="80%">
-                                <dl>
-                                    <dd><input type="text" name="ingredient[{{row-count-placeholder}}]"
-                                               class="form-control"></dd>
-                                </dl>
-                            </td>
-                            <td width="10%"><span class="remove btn btn-danger">Remove</span></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    {% endverbatim %}
+                        <p>Drag and drop an image here</p>
+                    </div>
                 </div>
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
 
-    <!-- Serves -->
-    <div class="form-group">
-        <label for="id_{{ form.serves.name }}"
-               class="col-sm-2 control-label">{{ form.serves.label }}</label>
-
-        <div class="col-sm-3">
-            <input type="password" class="form-control" placeholder="Repeat your password"
-                   name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
-                   value="{{ form.serves.value | default_if_none:'' }}">
+        <!-- Gallery -->
+        <!-- TODO con ciertos tamaños de imagen se buggea y la cuadrícula se va a tomar viento -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="row gallery drop-target" id="gallery">
+                    <!-- Gallery item -->
+                    {% comment %}<div class="col-sm-3 gallery-item">
+                        <img class="img-rounded"
+                             src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg">
+                    </div>{% endcomment %}
+                    <div id="gallery-indicator">
+                        <p>Add more pictures</p>
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
 
-    <!-- Difficult -->
-    <div class="form-group">
-        <label for="id_{{ form.difficult.name }}"
-               class="col-sm-2 control-label">{{ form.difficult.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.difficult.name }}" name="{{ form.difficult.name }}">
-                {% for choice in form.difficult.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
+        <!-- Description -->
+        <div class="form-group">
+            <div class="col-sm-12">
+                <!-- <label for="id_{{ form.description.name }}"
+               class="col-sm-2 ">{{ form.description.label }}</label> -->
+                <textarea class="form-control input-lg"
+                          placeholder="Write a short description. What is your recipe about?"
+                          rows="4"
+                          name="{{ form.description.name }}" id="id_{{ form.description.name }}"
+                        >{{ form.description.value | default_if_none:'' }}</textarea>
+            </div>
         </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Food type -->
-    <div class="form-group">
-        <label for="id_{{ form.food_type.name }}"
-               class="col-sm-2 control-label">{{ form.food_type.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.food_type.name }}" name="{{ form.food_type.name }}">
-                {% for choice in form.food_type.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Language -->
-    <div class="form-group">
-        <label for="id_{{ form.language.name }}"
-               class="col-sm-2 control-label">{{ form.language.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.language.name }}" name="{{ form.language.name }}">
-                {% for choice in form.language.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Nationality -->
-    <div class="form-group">
-        <label for="id_{{ form.nationality.name }}"
-               class="col-sm-2 control-label">{{ form.nationality.label }}</label>
-
-        <div class="col-sm-3">
-
-            <select class="form-control show-tick"
-                    id="id_{{ form.nationality.name }}" name="{{ form.nationality.name }}">
-                {% for choice in form.nationality.field.choices %}
-                    {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Temporality -->
-    <div class="form-group">
-        <label for="id_{{ form.temporality.name }}"
-               class="col-sm-2 control-label">{{ form.temporality.label }}</label>
-
-        <div class="col-sm-3">
-            <select class="form-control show-tick" multiple data-live-search="true"
-                    id="id_{{ form.temporality.name }}" name="{{ form.temporality.name }}">
-                {% for choice in form.temporality.field.choices %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
-
-    <!-- Special Conditions -->
-    <div class="form-group">
-        <label for="id_{{ form.special_conditions.name }}"
-               class="col-sm-2 control-label">{{ form.special_conditions.label }}</label>
-
-        <div class="col-sm-3">
-            <select class="form-control show-tick" multiple data-live-search="true"
-                    id="id_{{ form.special_conditions.name }}" name="{{ form.special_conditions.name }}">
-                {% for choice in form.special_conditions.field.choices %}
-                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
-
-    <!-- Tags -->
-    <div class="form-group">
-        <label for="id_{{ form.tags.name }}"
-               class="col-sm-2 control-label">{{ form.tags.label }}</label>
-
-        <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="Your public name"
-                   name="{{ form.tags.name }}" id="id_{{ form.tags.name }}"
-                   value="{{ form.tags.value | default_if_none:'' }}">
-        </div>
-        <span class="help-block">Required</span>
-    </div>
-
-    <!-- Notes -->
-    <div class="form-group">
-        <label for="id_{{ form.notes.name }}"
-               class="col-sm-2 control-label">{{ form.notes.label }}</label>
-
-        <div class="col-sm-3">
-            <textarea class="form-control"
-                      name="{{ form.notes.name }}" id="id_{{ form.notes.name }}"
-                      value="{{ form.notes.value | default_if_none:'' }}"></textarea>
-        </div>
-        <span class="help-block">Required</span>
-    </div>
     </fieldset>
 
-    <legend>Consumer preferences</legend>
-    <fieldset class="well">
-        <!-- Special conditions -->
+    <span class="clearfix"></span>
 
-        <!-- Tastes -->
-        <div class="col-sm-5">
-            <h3>Tastes</h3>
+    <h3 class="col-lg-offset-1">How to make it</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
+        <!-- Ingredients -->
+        <h4>Ingredients list</h4>
+
+        <div class="repeat">
+            <div class="form-group well repeatable-wrapper">
+                <div class="repeatable-container">
+                    <!-- ingredient-item -->
+                    <div class="form-group ingredient-item repeatable-row repeatable-template">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="input-group">
+                            <span class="input-group-addon repeatable-move"><span
+                                    class="glyphicon glyphicon-sort"></span> </span>
+                                <input type="text" class="form-control ingredient-input"
+                                       name="ingredient[{row-count-placeholder}]"
+                                        >
+                            <span class="input-group-btn ingredient-remove">
+                                <button class="btn btn-default repeatable-remove" type="button"><span
+                                        class="glyphicon glyphicon-remove"></span></button>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ingredient-item -->
+
+                </div>
+                <div class="form-group ingredient-item ">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <span class="form-control repeatable-add">Add an ingredient…</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Step by step</h4>
+
+        <div class="repeat">
+            <div class="form-group well repeatable-wrapper step-list">
+                <div class="repeatable-container">
+                    <div class="repeatable-row repeatable-template">
+                        <div class="form-group step">
+                            <div class="col-sm-1">
+                                <span>{row-number-placeholder}</span>
+                            </div>
+                            <div class="col-sm-9">
+                                <textarea class="form-control input-lg"
+                                          placeholder="What is the first step?…"
+                                          rows="4"
+                                          name="step" id="id_step"
+                                        ></textarea>
+                            </div>
+                            <div class="col-sm-2 step-picture">
+                                <a class="btn btn-default step-picture-add"><span
+                                        class="glyphicon glyphicon-camera"></span></a>
+                                <img class="img-rounded"
+                                     src="" style="display: none">
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="form-group step">
+                    <div class="col-sm-1">
+                        <span>+</span>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea class="form-control input-lg repeatable-add"
+                                  placeholder="What is the first step?…"
+                                  rows="4"
+                                  name="step" id="id_step"
+                                ></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-picture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Pick a picture</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-sm-12">
+                            <div class="row gallery" id="gallery-modal">
+                                <!-- Gallery item -->
+                                {% comment %}<div class="col-sm-3 gallery-item">
+                                    <img class="img-rounded"
+                                         src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg">
+                                </div>{% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5>Additional notes</h5>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <textarea class="form-control input-lg"
+                          placeholder="Anything else you want to point out about your recipe?"
+                          rows="3"
+                          name="step" id="id_step"
+                        ></textarea>
+            </div>
+        </div>
+    </fieldset>
+
+    <span class="clearfix"></span>
+
+    <h3 class="col-lg-offset-1">Extra information</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Preparation time</label>
+
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="minutes">
+                            <span class="input-group-addon"><span
+                                class="glyphicon glyphicon-time"></span> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Cooking time</label>
+
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="minutes">
+                            <span class="input-group-addon"><span
+                                class="glyphicon glyphicon-time"></span> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Serves</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Difficulty</label>
+
+                    <div class="col-sm-6">
+                        <select class="form-control">
+                            <option>Easy</option>
+                            <option>Medium</option>
+                            <option>Hard</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Temporality</label>
+
+                    <div class="col-sm-8">
+                        <select class="form-control show-tick" data-live-search="true" multiple>
+                            <option>Christmas</option>
+                            <option>Summer</option>
+                            <option>St. Valentine's</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Food type</label>
+
+                    <div class="col-sm-6">
+                        <select class="form-control show-tick">
+                            <option>Breakfast</option>
+                            <option>Desert</option>
+                            <option>Drink</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Special conditions</label>
+
+                    <div class="col-sm-8">
+                        <select class="form-control show-tick" data-live-search="true" multiple>
+                            <option>Celiac</option>
+                            <option>Vegetarian</option>
+                            <option>Diabetic</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Language</label>
+
+                    <div class="col-sm-6">
+                        <select class="form-control show-tick">
+                            <option>Spanish</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Free tags</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Comma separated tags">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Nationality</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="If any">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <span class="clearfix"></span>
+
+    <h3 class="col-lg-offset-1">Savours</h3>
+    <fieldset class="well col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+        <!-- Savours-->
+        <div class="col-sm-6">
             <label for="id_{{ form.salty.name }}" class="slider-label">{{ form.salty.label }}</label>
 
             <div class="control-group">
@@ -339,48 +501,32 @@
                 <textarea id="steps" style="display:none" name="steps"></textarea>
             </div>
         </div>
-    </fieldset>
 
-    <legend>Steps</legend>
-    <fieldset class="well">
-        <div class="repeat">
-            {% verbatim %}
-            <table class="wrapper table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <td width="10%" colspan="4"><span class="add btn btn-success">Add</span></td>
-                </tr>
-                </thead>
-                <tbody class="container ui-sortable">
-                <tr class="template row">
-                    <td width="10%"><span class="move btn btn-info">Move</span></td>
-
-                    <td width="80%">
-                        <dl>
-                            <dt>Description</dt>
-                            <dd><textarea name="step[{{row-count-placeholder}}][description]"
-                                          class="form-control"></textarea></dd>
-
-                            <dt>Image</dt>
-                            <dd><input type="file" name="step[{{row-count-placeholder}}][image]"
-                                       class="form-control"></dd>
-                        </dl>
-                    </td>
-                    <td width="10%"><span class="remove btn btn-danger">Remove</span></td>
-                </tr>
-                </tbody>
-            </table>
-            {% endverbatim %}
+        <div class="col-sm-6">
+            <p class="savours-help">Savour values defines the savour of your recipe and stuff. This way we can better
+                recommend people your recipe based on ther personal tastes and so on, you know. Savours are measured in
+                a relative way, of course. For more information, check Wikipedia or something, dude.</p>
         </div>
     </fieldset>
 
     <!-- Submit Button -->
-    <div class="form-group">
-        <label for="inputDisplayName" class="col-sm-1 control-label"></label>
+    <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+        <div class="form-group">
+            <label for="inputDisplayName" class="col-sm-1 control-label"></label>
 
-        <div class="col-sm-3">
-            <input type="submit" class="btn btn-success" value="Create account"/>
+            <div class="col-sm-3">
+                <input type="submit" class="btn btn-success" value="Publish recipe"/>
+            </div>
+            <div class="col-sm-3">
+                <a class="btn btn-info">Save as draft</a>
+            </div>
         </div>
-    </div>
+    </fieldset>
+    </form>
+
+    <!-- Ajax uploads -->
+    <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data" id="upload-form"
+          style="display: none">
+        {% csrf_token %}
     </form>
 {% endblock %}

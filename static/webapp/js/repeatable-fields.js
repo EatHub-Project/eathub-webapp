@@ -59,6 +59,7 @@
 					if(typeof settings.after_add === 'function') {
 						settings.after_add(container, new_row);
 					}
+                    after_add(container, new_row)
 
 					// The new row might have it's own repeatable field wrappers so initialize them too
 					initialize(new_row);
@@ -96,9 +97,11 @@
 			}).length;
 
 			$('*', new_row).each(function() {
-				$.each(this.attributes, function(index, element) {
+				/*$.each(this.attributes, function(index, element) {
 					this.value = this.value.replace(/{{row-count-placeholder}}/, row_count - 1);
-				});
+				});*/
+                new_row.html(new_row.html().replace(/{row-count-placeholder}/, row_count - 1))
+                new_row.html(new_row.html().replace(/{row-number-placeholder}/, row_count))
 			});
 		}
 	}

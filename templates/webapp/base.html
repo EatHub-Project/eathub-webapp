@@ -61,7 +61,7 @@
                             </li>
                             <li class="dropdown">
                                 <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="{% if user.profile.image.url %}{{ user.profile.image.url }}
+                                    <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -73,9 +73,11 @@
                                 </ul>
                             </li>
                             <li>
-                                <button type="button" class="plus btn btn-default"><span
-                                        class="glyphicon glyphicon-plus"></span>Add
-                                </button>
+                                <div>
+                                    <a type="button" class="plus btn btn-default" href="{% url 'newrecipe' %}">
+                                        <span class="glyphicon glyphicon-plus"></span>Add recipe
+                                    </a>
+                                </div>
                             </li>
                         {% else %}
                             <a class="plus btn btn-default" href="{% url 'login' %}" role="button">Log in</a>

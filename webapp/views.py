@@ -1,4 +1,5 @@
 # coding=utf-8
+from ajax import models as models_ajax
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from webapp.models import Profile, Tastes, Recipe
@@ -23,7 +24,7 @@ def main(request):
 def new_account(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
-        form = NewAccountForm(request.POST, request.FILES)
+        form = NewAccountForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
             # TODO validar que el nombre de usuario sea único
@@ -41,7 +42,9 @@ def new_account(request):
             location = data['location']
             website = data['website']
             birth_date = data['birth_date']
-            avatar = request.FILES['avatar']
+
+            avatar_id = data['avatar_id']
+            avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
 
             if not password == password_repeat:
                 errors = form._errors.setdefault("password_repeat", ErrorList())
@@ -63,11 +66,17 @@ def new_account(request):
                             location=location, website=website,
                             birth_date=birth_date, tastes=t)
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
+
+                #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
+                p.avatar = avatar.image
+
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
-                avatar.name=str(p.id) + '.png'
-                p.avatar=avatar
-                p.save()
+
+                #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
+                avatar.persist = True
+                avatar.save()
+
                 u = authenticate(username=username, password=password)
                 login(request, u)
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
@@ -132,6 +141,8 @@ def modification_account(request):
             website = data['website']
             birth_date = data['birth_date']
 
+            avatar_id = data['avatar_id']
+
             if password:  # todo comprobar también que sea válida en cuanto a caracteres y tal
                 if not password == password_repeat:
                     errors = form._errors.setdefault("password_repeat", ErrorList())
@@ -159,11 +170,21 @@ def modification_account(request):
             if password:
                 u.set_password(password)
 
+            avatar = None
+            if avatar_id:
+                avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
+                if avatar.image:
+                    p.avatar = avatar.image
             # TODO capturar cualquier error de validación y meterlo como error en el formulario
-            p.clean()
+
             if valid:
-                p.save()
-                u.save()
+                p.clean()
+                p.save()  # TODO borrar el User si falla al guardar el perfil
+
+                #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
+                if avatar:
+                    avatar.persist = True
+                    avatar.save()
                 # TODO mandar a la misma página y mostrar un mensaje de éxito
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
@@ -180,6 +201,7 @@ def modification_account(request):
             'location': p.location,
             'website': p.website,
             'birth_date': p.birth_date,
+            'avatar_url': p.avatar.url,
             'salty': p.tastes.salty,
             'sour': p.tastes.sour,
             'bitter': p.tastes.bitter,
