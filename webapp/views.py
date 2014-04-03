@@ -234,5 +234,6 @@ def receta(request, recipe_id):
 
 	
 def profile(request, username):
-    profile = User.objects.get(username=username)
-    return render(request, 'webapp/profile.html', {'profile', profile})
+    user = User.objects.get(username=username)
+    profile = Profile.objects.get(user=user)
+    return render(request, 'webapp/profile.html', {'profile': profile})

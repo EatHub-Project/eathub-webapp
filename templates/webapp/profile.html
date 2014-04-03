@@ -4,6 +4,140 @@
 
 {% block container %}
 	
-	<button >prueba</button>
+	<div class="container demo">
+		
+		<div class="row show-grid">
+			<div class="col-md-4">
+				<!-- Thumbnails -->
+				<div class="thumbnail">
+					<img alt="" src="http://eladerezo.hola.com/wp-content/uploads/2008/03/Receta-de-espaguetis-con-gambas1.jpg">
+					<br />
+					<ul class="list-group custom-set">
+						<li class="list-group-item"><span class="badge">10</span>Recipes</li>
+						<li class="list-group-item"><span class="badge">11</span>Friendas</li>
+					</ul>
+				</div><!-- /Thumbnails -->		
+			</div>
+			<div class="col-md-8 left-block">
+				<div class="info-block">
+					<div class="recipe-name">
+						<h1>{{ profile.user.username}}</h1>
+					</div>
+					<legend>Informaci&oacute;n b&aacute;sica</legend>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<h4>Email</h4>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<h4>Idioma</h4>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<p>{{profile.user.email}}</p>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<p>{{profile.main_language}}<p>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+					</div>
+					<legend>Informaci&oacute;n del usuario</legend>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<h4>Sitio web</h4>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<h4>G&eacute;nero</h4>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<p disabled>¿Quieres compartir tu email?</p>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<p disabled>¿Quieres compartir tu genero?</p>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+					</div>
+					<legend>Informaci&oacute;n personal</legend>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<h4>Fecha de nacimiento</h4>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<h4></h4>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<p>{{profile.birth_date}}</p>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-10">
+								<p><p>
+							</div>
+							<div class="col-md-10">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+						
+			</div>
+		</div>
+	</div>
 	
 {% endblock %}
