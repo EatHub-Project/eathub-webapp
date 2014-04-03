@@ -98,14 +98,15 @@ def new_account(request):
 def new_recipe(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
-        form = NewAccountForm(request.POST, request.FILES)
+        form = NewRecipeForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
             # TODO validar que el nombre de usuario sea único
             data = form.cleaned_data
             title = data['title']
             description = data['description']
-            ingredients = data['ingredients']
+            ingredients = data['ingredients_list'].split(";")
+
             serves = data['serves']
             language = data['language']
             temporality = data['temporality']

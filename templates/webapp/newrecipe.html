@@ -98,12 +98,28 @@
             $gallery.append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
         }
     </script>
+    <script>
+        $().ready(function () {
+            $("#recipe-form").submit(function (e) {
+                var ingredients= [];
+                $(".ingredient-input").each(function (index, Element) {
+                    var ingredient = $(Element).val();
+                    if(ingredient){
+                        ingredients.push(ingredient);
+                    }
+                });
+                var string = ingredients.join(";");
+                var list_id = "#id_{{ form.ingredients_list.name }}";
+                $(list_id).val(string);
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block container %}
 <div class="panel panel-default">
 <div class="panel-body">
-    <form role="form well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
+    <form role="form well well-lg" id="recipe-form" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {% comment %}TODO: poner cada error en su campo
@@ -181,6 +197,7 @@
         <!-- Ingredients -->
         <h4>Ingredients list</h4>
 
+        <input type="hidden" id="id_{{ form.ingredients_list.name }}" name="{{ form.ingredients_list.name }}">
         <div class="repeat">
             <div class="form-group repeatable-wrapper">
                 <div class="repeatable-container">
@@ -306,7 +323,7 @@
                         <div class="input-group">
                             <input type="number" class="form-control" placeholder="minutes">
                             <span class="input-group-addon"><span
-                                class="glyphicon glyphicon-time"></span> </span>
+                                    class="glyphicon glyphicon-time"></span> </span>
                         </div>
                     </div>
                 </div>
@@ -319,7 +336,7 @@
                         <div class="input-group">
                             <input type="number" class="form-control" placeholder="minutes">
                             <span class="input-group-addon"><span
-                                class="glyphicon glyphicon-time"></span> </span>
+                                    class="glyphicon glyphicon-time"></span> </span>
                         </div>
                     </div>
                 </div>
