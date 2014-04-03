@@ -65,7 +65,7 @@
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{% url 'profile_edit' %}">Profile</a></li>
+                                    <li><a href="{% url 'profile' user.username %}">Profile</a></li>
                                     <li><a href="#">My recipes</a></li>
                                     <li><a href="#">Friends</a></li>
                                     <li class="divider"></li>

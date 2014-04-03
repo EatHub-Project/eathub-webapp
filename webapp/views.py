@@ -17,7 +17,6 @@ from django.forms.util import ErrorList
 
 def main(request):
     recipes = Recipe.objects.all()
-    print(str(recipes))
     return render(request, 'webapp/main.html', {'recipes': recipes})
 
 
@@ -232,3 +231,8 @@ def test_login_required(request):
 def receta(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
     return render(request, 'webapp/recipe_template.html', {'receta': recipe})
+
+	
+def profile(request, username):
+    profile = User.objects.get(username=username)
+    return render(request, 'webapp/profile.html', {'profile', profile})
