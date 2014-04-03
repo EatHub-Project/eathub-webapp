@@ -21,10 +21,13 @@ header .container {
   width: 100%;
 }
 
-.navbar-form .form-control {
-  width: 188px;
+.navbar-input-group {
+    display: inline;
 }
 
+.navbar-input-group-btn{
+    float: left;
+}
 .profile {
   float: right;
   clear: both;
@@ -110,6 +113,9 @@ header .container {
 }
 
 .recipe-name {
+  height: 120px;
+  text-overflow:ellipsis;
+  overflow:hidden;
   color: #CC3E27;
 }
 
@@ -287,4 +293,10 @@ header .container {
   border-radius: 10px;
   text-align: justify;
   text-align-last: left;
+}
+
+.description-recipe-main{
+	height: 80px;
+	text-overflow:ellipsis;
+	overflow:hidden;
 }

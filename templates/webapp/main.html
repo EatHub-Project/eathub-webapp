@@ -1,20 +1,58 @@
 {% extends "webapp/base.html" %}
-
-{% load i18n %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block container %}
-    <div class="starter-template">
-        {% if user.is_authenticated %}
-            <h1>Welcome, {{ user.profile.get.display_name }}</h1>
-        {% else %}
-            <h1>Welcome, guest</h1>
-        {% endif %}
-        <p class="lead">
-            Esta es una página de inicio provisional.
-            <br>
-            En construcción and stuff.
-        </p>
-        <img src="{% static 'webapp/image/anim.gif' %}" style="height: 300px; width: auto"/>
-    </div>
+	
+	<div class="row">
+		{% for recipe in recipes %}
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+			<br />
+          <img data-src="holder.js/300x200" alt="300x200" src="http://eladerezo.hola.com/wp-content/uploads/2008/03/Receta-de-espaguetis-con-gambas1.jpg" style="width: 300px; height: 200px;">
+          <div class="caption">
+            <div class="recipe-name">
+				<h1>{{ recipe.title }}</h1>
+            </div>
+			<div class="description-recipe-main">
+				<p>{{ recipe.desciption }}</p>
+			</div>
+			<div class="caption">
+				<div class="recipe-time">
+					<span class="glyphicon glyphicon-time"></span>
+
+					<p>
+						{{ recipe.time.prep_time }}
+					</p>
+				</div>
+				<div class="recipe-author">
+					<h5>RECIPE BY</h5>
+					<span><a href="#">{{ recipe.author.display_name }}</a></span>
+				</div>
+			</div>
+			<br />
+			<br />
+			<p>
+			{% url 'recipe' recipe.id as the_url %}
+			{% if the_url %}
+			<a type="button" class="btn btn-danger btn-block" href="{{ the_url }}">Ver m&aacute;s</a>
+			{% endif %}
+			</p>
+          </div>
+        </div>
+      </div>
+	  {% endfor %}
+	</div>
+	<div class="col-sm-6 col-md-4"></div>
+	<div class="col-sm-6 col-md-4">
+		<button type="button" class="btn btn-danger btn-block">Cargar m&aacute;s recetas</button>
+	</div>
+	<div class="col-sm-6 col-md-4"></div>
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 {% endblock %}
