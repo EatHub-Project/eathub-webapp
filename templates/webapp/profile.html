@@ -34,7 +34,9 @@
                 <strong>Done!</strong> <span></span></div>
         </div>
         <!-- /Thumbnails -->
-        <a href="{% url 'profile_edit' user.username %}">Editar perfil</a>
+        {% if profile.user.id == user.id %}
+            <a href="{% url 'profile_edit' user.username %}">Editar perfil</a>
+        {% endif %}
     </div>
     <div class="col-md-8 left-block">
     <div class="info-block">
