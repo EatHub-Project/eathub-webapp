@@ -37,7 +37,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{% url 'main' %}">Home</a></li>
                         <li><a href="#">My Recipes</a></li>
-                        <li><a href="#">Friends</a></li>
+                        <li><a href="{% url 'friends' user.username %}">Friends</a></li>
                         <li><a href="#">Recipes</a></li>
                         <li><a href="#">Explore</a></li>
                         <li class="divider-vertical"></li>
