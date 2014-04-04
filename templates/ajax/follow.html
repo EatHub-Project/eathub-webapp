@@ -8,11 +8,9 @@
 </head>
 <body>
 
-<form action="{% url 'follow' %}" method="post" enctype="multipart/form-data" id="follow-form">
-    {% csrf_token %}
-    <input type="text" name="username" id="id_username" placeholder="Username">
-    <button type="submit">Go!</button>
-</form>
+<input type="text" name="username" id="id_username" placeholder="Username">
+<button type="button" id="follow">Follow</button>
+<button type="button" id="unfollow">Unfollow</button>
 
 
 <div id="result">
@@ -31,8 +29,7 @@
     });
 
     $().ready(function () {
-        $("#follow-form").submit(function (e) {
-            e.preventDefault();
+        $("#follow").click(function (e) {
             var data = {"username": $("#id_username").val()}
             $.ajax({
                 type: "POST",
@@ -48,6 +45,23 @@
                 }
             })
         });
+
+        $("#unfollow").click(function(e) {
+            var data = {"username": $("#id_username").val()}
+            $.ajax({
+                type: "POST",
+                url: '{% url 'unfollow' %}',
+                data: data,
+                dataType: "json",
+                success: function (jqXHR, textStatus, errorThrown) {
+                    $("#result").html("Yey! :D");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    var result = $.parseJSON(jqXHR.responseText);
+                    $("#result").html(result.message);
+                }
+            })
+        })
     });
 
     function getCookie(name) {
