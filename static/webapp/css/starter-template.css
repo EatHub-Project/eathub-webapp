@@ -445,3 +445,13 @@ header .container {
 #spicy.progress-bar {
     background: #c52323;
 }
+
+.plus-profile {
+color: #CC3E27;
+}
+
+.plus-profile:hover{
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #D66552;
+}
