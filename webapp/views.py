@@ -239,7 +239,7 @@ def profile(request, username):
 
     # Compruebo si está en mi lista de seguidos
     following = False
-    if request.user and user.id != request.user.id:
+    if request.user.is_authenticated() and user.id != request.user.id:
         my_profile = request.user.profile.get()
         #TODO: INEFICIENTE, habría que hacer una búsqueda de verdad en la bbdd, pero ahora mismo no sé cómo se haría
         following_now = my_profile.following
