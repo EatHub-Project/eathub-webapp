@@ -10,7 +10,7 @@
     <div class="col-md-4">
         <!-- Thumbnails -->
         <div class="thumbnail">
-            <img alt="" src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
+            <img alt="" src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
             <br/>
             <ul class="list-group custom-set">
