@@ -292,7 +292,7 @@
             <div class="col-sm-3">
                 <input type="date" class="form-control"
                        name="{{ form.birth_date.name }}" id="id_{{ form.birth_date.name }}"
-                       value="{{ form.birth_date.value | default_if_none:'' }}">
+                       value="{{ form.birth_date.value.year }}-{% if form.birth_date.value.month < 10 %}0{% endif %}{{ form.birth_date.value.month }}-{% if form.birth_date.value.day < 10 %}0{% endif %}{{ form.birth_date.value.day }}">
             </div>
         </div>
 
