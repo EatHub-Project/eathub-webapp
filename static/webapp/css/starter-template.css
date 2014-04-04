@@ -447,11 +447,45 @@ header .container {
 }
 
 .plus-profile {
-color: #CC3E27;
+    color: #CC3E27;
 }
 
 .plus-profile:hover{
     color: #fff;
     background-color: #CC3E27;
     border-color: #D66552;
+}
+
+.btn-follow{
+    color: #CC3E27;
+}
+
+.btn-follow:hover{
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #D66552;
+}
+
+.btn-unfollow{
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #D66552;
+}
+
+.btn-unfollow[disabled]{
+    color: #CC3E27;
+    opacity: .65;
+}
+
+.btn-unfollow:hover{
+    color: #CC3E27;
+    background-color: #eaaea4;
+}
+
+.alert-follow {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 8px;
+    display: none;
+
 }

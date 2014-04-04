@@ -1,0 +1,89 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<body>
+
+<input type="text" name="username" id="id_username" placeholder="Username">
+<button type="button" id="follow">Follow</button>
+<button type="button" id="unfollow">Unfollow</button>
+
+
+<div id="result">
+</div>
+
+<script src="{% static 'webapp/js/jquery.min.js' %}"></script>
+<script>
+    var csrftoken = getCookie('csrftoken');
+    $.ajaxSetup({
+        crossDomain: false, // obviates need for sameOrigin test
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type)) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    $().ready(function () {
+        $("#follow").click(function (e) {
+            var data = {"username": $("#id_username").val()}
+            $.ajax({
+                type: "POST",
+                url: '{% url 'follow' %}',
+                data: data,
+                dataType: "json",
+                success: function (jqXHR, textStatus, errorThrown) {
+                    $("#result").html("Yey! :D");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    var result = $.parseJSON(jqXHR.responseText);
+                    $("#result").html(result.message);
+                }
+            })
+        });
+
+        $("#unfollow").click(function(e) {
+            var data = {"username": $("#id_username").val()}
+            $.ajax({
+                type: "POST",
+                url: '{% url 'unfollow' %}',
+                data: data,
+                dataType: "json",
+                success: function (jqXHR, textStatus, errorThrown) {
+                    $("#result").html("Yey! :D");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    var result = $.parseJSON(jqXHR.responseText);
+                    $("#result").html(result.message);
+                }
+            })
+        })
+    });
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+</script>
+</body>
+</html>
