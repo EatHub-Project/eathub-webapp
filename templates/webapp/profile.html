@@ -18,9 +18,14 @@
 						<li class="list-group-item"><span class="badge">11</span>Friendas</li>
 					</ul>
 					<br />
-					<!--<a type="button" class="btn btn-default btn-danger btn-block  "><span class="glyphicon glyphicon-ok"></span> Siguiendo</a>-->
-					<a type="button" class="btn btn-default plus-profile btn-block btn-cargarmas" disabled>Seguir</a>
-				</div><!-- /Thumbnails -->		
+                    {% if profile.user.id == user.id %}
+                        <a id="btn-follow" class="btn btn-default btn-block btn-follow disabled">This is you!</a>
+                    {% elif following %}
+					    <a class="btn btn-default btn-block btn-unfollow">Unfollow</a>
+                    {% else %}
+					    <a id="btn-follow" class="btn btn-default btn-block btn-follow">Follow</a>
+                    {% endif %}
+				</div><!-- /Thumbnails -->
 			</div>
 			<div class="col-md-8 left-block">
 				<div class="info-block">

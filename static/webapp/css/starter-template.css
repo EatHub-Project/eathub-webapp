@@ -447,11 +447,32 @@ header .container {
 }
 
 .plus-profile {
-color: #CC3E27;
+    color: #CC3E27;
 }
 
 .plus-profile:hover{
     color: #fff;
     background-color: #CC3E27;
     border-color: #D66552;
+}
+
+.btn-follow{
+    color: #CC3E27;
+}
+
+.btn-follow:hover{
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #D66552;
+}
+
+.btn-unfollow{
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #D66552;
+}
+
+.btn-unfollow:hover{
+    color: #CC3E27;
+    background-color: #eaaea4;
 }

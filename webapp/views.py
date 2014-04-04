@@ -232,8 +232,19 @@ def receta(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
     return render(request, 'webapp/recipe_template.html', {'receta': recipe})
 
-	
+
 def profile(request, username):
     user = User.objects.get(username=username)
-    profile = Profile.objects.get(user=user)
-    return render(request, 'webapp/profile.html', {'profile': profile})
+    user_profile = Profile.objects.get(user=user)
+
+    # Compruebo si está en mi lista de seguidos
+    following = False
+    if request.user and user.id != request.user.id:
+        my_profile = request.user.profile.get()
+        #TODO: INEFICIENTE, habría que hacer una búsqueda de verdad en la bbdd, pero ahora mismo no sé cómo se haría
+        following_now = my_profile.following
+        for f in following_now:
+            if f.user.id == user.id:
+                following = True
+
+    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following})
