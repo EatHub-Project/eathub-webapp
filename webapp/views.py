@@ -116,7 +116,7 @@ def new_recipe(request):
 
 
 @login_required
-def modification_account(request):
+def modification_account(request, username):
     # todo: hay mucho código repetido con respecto a la vista new_account. ¿Se pueden simplificar?
     if request.method == 'POST':
         form = EditAccountForm(request.POST)
