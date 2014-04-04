@@ -63,10 +63,20 @@ class Profile(models.Model):
     location = models.CharField(max_length=50, blank=False)
     tastes = EmbeddedModelField('Tastes', null=True)
     user = models.ForeignKey(User, related_name="profile", unique=True)
+    following = ListField(EmbeddedModelField('Following'))
 
     def __str__(self):
         return str(self.display_name)
 
+
+class Following(models.Model):
+    display_name = models.CharField(max_length=50, blank=False)
+    username = models.CharField(max_length=50, blank=False)
+    user = models.ForeignKey(User)
+
+    @staticmethod
+    def create_following(user):
+        return Following(display_name=user.profile.get().display_name, username=user.username, user=user)
 
 # --- Recipe ---
 
