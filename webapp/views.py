@@ -250,7 +250,7 @@ def profile(request, username):
     return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following})
 
 
-def friends(request, username):
-    return render(request, 'webapp/friends.html')
-    #recipes = Recipe.objects.all()
-    #return render(request, 'webapp/main.html', {'recipes': recipes})
+def following(request, username):
+    user = User.objects.get(username=username)
+    profile = Profile.objects.get(user=user)
+    return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile})
