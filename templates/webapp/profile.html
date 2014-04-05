@@ -14,8 +14,9 @@
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
             <br/>
             <ul class="list-group custom-set">
-                <li class="list-group-item"><span class="badge">10</span>Recipes</li>
-                <li class="list-group-item"><span class="badge">11</span>Friendas</li>
+                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>Recipes</li>
+                <li class="list-group-item"><span class="badge"><!--{{ followers|length }}--></span>Seguidores</li>
+                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a href="{% url 'following' user.username %}">Seguiendo</a></li>
             </ul>
             <br/>
             {% if profile.user.id == user.id %}

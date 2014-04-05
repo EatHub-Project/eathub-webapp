@@ -8,11 +8,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm
 from django.forms.util import ErrorList
+
 
 
 def main(request):
@@ -234,8 +235,16 @@ def receta(request, recipe_id):
 
 
 def profile(request, username):
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
     user_profile = Profile.objects.get(user=user)
+    recipes = Recipe.objects.raw_query({'author.user.id': user_profile.user_id})
+    #followers = Profile.objects({'following.conatins': user_profile})
+
+    if user == None:
+        return
 
     # Compruebo si está en mi lista de seguidos
     following = False
@@ -247,7 +256,8 @@ def profile(request, username):
             if f.user.id == user.id:
                 following = True
 
-    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following})
+
+    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following, 'recipes': recipes, 'followers': None})
 
 
 def following(request, username):

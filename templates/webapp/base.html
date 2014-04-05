@@ -37,9 +37,6 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{% url 'main' %}">Home</a></li>
                         <li><a href="#">My Recipes</a></li>
-                        {% if user.is_authenticated %}
-                            <li><a href="{% url 'following' user.username %}">Following</a></li>
-                        {% endif %}
                         <li><a href="#">Recipes</a></li>
                         <li><a href="#">Explore</a></li>
                         <li class="divider-vertical"></li>

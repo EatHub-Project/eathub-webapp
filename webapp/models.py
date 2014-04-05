@@ -5,6 +5,7 @@ from django.db.models import IntegerField, ForeignKey, CharField, TextField, Dat
 from djangotoolbox.fields import EmbeddedModelField, ListField, DictField
 from django.core.exceptions import ValidationError
 from datetime import datetime
+from django_mongodb_engine.contrib import MongoDBManager
 
 
 # --- Profile ---
@@ -155,6 +156,8 @@ class Recipe(models.Model):
     pictures = ListField(EmbeddedModelField('Picture'), blank=False)
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
+
+    objects = MongoDBManager()
 
     def __str__(self):
         return self.title

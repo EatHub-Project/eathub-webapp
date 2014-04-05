@@ -3,7 +3,6 @@
 {% load i18n %}
 
 {% block container %}
-{% if user.is_authenticated %}
 	<div class="row">
 		<div class="col-md-2">
 			
@@ -44,10 +43,7 @@
         
 		</div>
 	</div>
-	{% endfor %}
-{% else %}
-    <h2>Por favor haga login <a href="{% url 'login' %}"> aqu&iacute;</a>.</h2>
-{% endif %}
+{% endfor %}
 	<br />
 	<br />
 	<br />
