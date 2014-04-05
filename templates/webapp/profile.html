@@ -10,8 +10,8 @@
     <div class="col-md-4">
         <!-- Thumbnails -->
         <div class="thumbnail">
-            <img alt="" src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
-                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
+            <img src="{% if profile.avatar %}{{ profile.avatar.url }}
+                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}" />
             <br/>
             <ul class="list-group custom-set">
                 <li class="list-group-item"><span class="badge">10</span>Recipes</li>
