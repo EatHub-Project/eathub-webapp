@@ -54,13 +54,15 @@ header .container {
 
 .plus {
     margin: 8px;
-    color: #CC3E27;
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #cc3e27;
 }
 
 .plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
-    color: #fff;
-    background-color: #CC3E27;
-    border-color: #D66552;
+    color: #cc3e27;
+    background-color: #fff;
+    border-color: #cc3e27;
 }
 
 .divider-vertical {
@@ -71,7 +73,8 @@ header .container {
 }
 
 .input-group-btn > .btn {
-    color: #CC3E27;
+    background-color: #CC3E27;
+    color: #fff;
     border-left-width: 0;
     left: -2px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -79,8 +82,8 @@ header .container {
 }
 
 .input-group-btn > .btn:hover {
-    color: #fff;
-    background-color: #CC3E27;
+    color: #CC3E27;
+    background-color: #fff;
     border-color: #D66552;
 }
 
@@ -487,5 +490,20 @@ header .container {
     padding-bottom: 5px;
     margin-top: 8px;
     display: none;
+}
 
+.border-search {
+    border-color: #cc3e27;
+}
+
+.border-default {
+    border-color: #cc3e27;
+}
+
+.text-red {
+    color: #cc3e27 !important;
+}
+
+.border-white {
+    border-color: #fff !important;
 }

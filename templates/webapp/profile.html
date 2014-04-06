@@ -3,15 +3,17 @@
 {% load i18n %}
 
 {% block container %}
-
+<div class="panel panel-default">
     <div class="container demo">
 
-    <div class="row show-grid">
+    <div class="panel-body">
     <div class="col-md-4">
         <!-- Thumbnails -->
-        <div class="thumbnail">
-            <img src="{% if profile.avatar %}{{ profile.avatar.url }}
-                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}" />
+
+        <div class="thumbnail border-white">
+            <img alt="" src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
+                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
+
             <br/>
             <ul class="list-group custom-set">
                 <li class="list-group-item"><span class="badge">10</span>Recipes</li>
@@ -239,6 +241,15 @@
     {% endif %}
     <legend>Perfil de savores</legend>
     <div class="recipe-taste">
+        <h5>Salty</h5>
+
+        <div class="progress">
+            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                 aria-valuemax="100" style="width: {{ profile.tastes.salty }}%;">
+            </div>
+        </div>
+    </div>
+    <div class="recipe-taste">
         <h5>Sour</h5>
 
         <div class="progress">
@@ -279,6 +290,7 @@
 
     </div>
     </div>
+</div>
 
 {% endblock %}
 

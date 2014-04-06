@@ -103,6 +103,8 @@
     {% else %}
         {% trans "Create account" as title %}
     {% endif %}
+<div class="panel panel-default">
+<div class="panel-body">
     <h1>{{ title }}</h1>
 
     <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -121,7 +123,7 @@
     {{ form.non_field_errors }}
 
     <legend>Account information</legend>
-    <fieldset class="well">
+    <fieldset class="panel-body">
 
         <!-- Username -->
         <div class="form-group">
@@ -183,7 +185,7 @@
     </fieldset>
 
     <legend>Profile information</legend>
-    <fieldset class="well">
+    <fieldset class="panel-body">
         <!-- Display Name -->
         <div class="form-group">
             <label for="id_{{ form.display_name.name }}"
@@ -300,7 +302,7 @@
     </fieldset>
 
     <legend>Consumer preferences</legend>
-    <fieldset class="well">
+    <fieldset class="panel-body">
         <!-- Special conditions -->
 
         <!-- Tastes -->
@@ -388,4 +390,6 @@
           style="display: none">
         {% csrf_token %}
     </form>
+</div>
+</div>
 {% endblock %}
