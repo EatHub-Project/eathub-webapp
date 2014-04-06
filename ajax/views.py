@@ -33,17 +33,14 @@ def vote_recipe(request):
     recipe = Recipe.objects.get(id=id)
     new_vote = Vote(user=ppal_profile, date=datetime.now())
 
+    #TODO: refactorizar! los dos bucles for son muy parecidos... se podria extraer un metodo para no repetir codigo?
     for vote in recipe.positives:
         if vote.user is ppal_profile:
             if vote_type is u'positive':
                 return HttpResponse(json.dumps({"message": "already voted, no action is necessary"}), status=200)
             else:
                 recipe.negatives.remove(vote)
-                recipe.positives.append(new_vote)
-
-                recipe.save()
-
-                return HttpResponse(json.dumps({"message": "OK"}), status=201)
+                break
 
     for vote in recipe.negatives:
         if vote.user is ppal_profile:
@@ -51,11 +48,7 @@ def vote_recipe(request):
                 return HttpResponse(json.dumps({"message": "already voted, no action is necessary"}), status=200)
             else:
                 recipe.positives.remove(vote)
-                recipe.negatives.append(new_vote)
-
-                recipe.save()
-
-                return HttpResponse(json.dumps({"message": "OK"}), status=201)
+                break
 
     if vote_type is u'positive':
         recipe.positives.append(new_vote)
