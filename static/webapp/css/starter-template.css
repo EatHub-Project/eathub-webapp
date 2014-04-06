@@ -512,3 +512,7 @@ header .container {
     border-radius: 0px !important;
     border: 0px solid #cc3e27;
 }
+
+.badge {
+    background-color: #CC3E27 !important;
+}
