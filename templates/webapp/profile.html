@@ -240,6 +240,15 @@
     {% endif %}
     <legend>Perfil de savores</legend>
     <div class="recipe-taste">
+        <h5>Salty</h5>
+
+        <div class="progress">
+            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                 aria-valuemax="100" style="width: {{ profile.tastes.salty }}%;">
+            </div>
+        </div>
+    </div>
+    <div class="recipe-taste">
         <h5>Sour</h5>
 
         <div class="progress">
