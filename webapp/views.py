@@ -1,5 +1,6 @@
 # coding=utf-8
 from ajax import models as models_ajax
+from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from webapp.models import Profile, Tastes, Recipe
@@ -8,11 +9,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm
 from django.forms.util import ErrorList
+
 
 
 def main(request):
@@ -234,17 +236,45 @@ def receta(request, recipe_id):
 
 
 def profile(request, username):
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
     user_profile = Profile.objects.get(user=user)
+    recipes = Recipe.objects.raw_query({'author.user_id': ObjectId(user_profile.user_id)})
+    followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
+    is_owner = False
+    if request.user.username == username:
+        is_owner = True
 
     # Compruebo si está en mi lista de seguidos
-    following = False
+    is_following = False
     if request.user.is_authenticated() and user.id != request.user.id:
         my_profile = request.user.profile.get()
         #TODO: INEFICIENTE, habría que hacer una búsqueda de verdad en la bbdd, pero ahora mismo no sé cómo se haría
         following_now = my_profile.following
         for f in following_now:
             if f.user.id == user.id:
-                following = True
+                is_following = True
 
-    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following})
+    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'is_owner': is_owner})
+
+
+def following(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+    profile = Profile.objects.get(user=user)
+    tag = "Following"
+    return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile, 'tag': tag})
+
+def followers(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+    followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
+    profile = Profile.objects.get(user=user)
+    tag = "Followers"
+    return render(request, 'webapp/following.html', {'following': followers_list, 'profile': profile, 'tag': tag})
