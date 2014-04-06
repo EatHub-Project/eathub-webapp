@@ -507,3 +507,8 @@ header .container {
 .border-white {
     border-color: #fff !important;
 }
+
+.thumbnail, .panel {
+    border-radius: 0px !important;
+    border: 0px solid #cc3e27;
+}
