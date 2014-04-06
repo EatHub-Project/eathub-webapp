@@ -1,5 +1,6 @@
 # coding=utf-8
 from ajax import models as models_ajax
+from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from webapp.models import Profile, Tastes, Recipe
@@ -240,24 +241,20 @@ def profile(request, username):
     except User.DoesNotExist:
         raise Http404
     user_profile = Profile.objects.get(user=user)
-    recipes = Recipe.objects.raw_query({'author.user.id': user_profile.user_id})
-    #followers = Profile.objects({'following.conatins': user_profile})
-
-    if user == None:
-        return
+    recipes = Recipe.objects.raw_query({'author.user_id': ObjectId(user_profile.user_id)})
+    followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
 
     # Compruebo si está en mi lista de seguidos
-    following = False
+    is_following = False
     if request.user.is_authenticated() and user.id != request.user.id:
         my_profile = request.user.profile.get()
         #TODO: INEFICIENTE, habría que hacer una búsqueda de verdad en la bbdd, pero ahora mismo no sé cómo se haría
         following_now = my_profile.following
         for f in following_now:
             if f.user.id == user.id:
-                following = True
+                is_following = True
 
-
-    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following, 'recipes': recipes, 'followers': None})
+    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'followers': None})
 
 
 def following(request, username):

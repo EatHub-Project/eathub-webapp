@@ -66,6 +66,8 @@ class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profile", unique=True)
     following = ListField(EmbeddedModelField('Following'))
 
+    objects = MongoDBManager()
+
     def __str__(self):
         return str(self.display_name)
 
