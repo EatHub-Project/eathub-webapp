@@ -243,6 +243,9 @@ def profile(request, username):
     user_profile = Profile.objects.get(user=user)
     recipes = Recipe.objects.raw_query({'author.user_id': ObjectId(user_profile.user_id)})
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
+    is_owner = False
+    if request.user.username == username:
+        is_owner = True
 
     # Compruebo si está en mi lista de seguidos
     is_following = False
@@ -254,7 +257,7 @@ def profile(request, username):
             if f.user.id == user.id:
                 is_following = True
 
-    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'followers': None})
+    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'is_owner': is_owner})
 
 
 def following(request, username):

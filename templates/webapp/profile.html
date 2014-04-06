@@ -159,7 +159,7 @@
             </div>
         </div>
     </div>
-    {% if request.user.username == profile.user.username %}
+    {% if is_owner %}
         <legend>Informaci&oacute;n personal</legend>
         <div class="row">
             <div class="col-md-6">
