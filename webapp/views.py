@@ -258,13 +258,19 @@ def profile(request, username):
 
 
 def following(request, username):
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
     profile = Profile.objects.get(user=user)
     tag = "Following"
     return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile, 'tag': tag})
 
 def followers(request, username):
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
     profile = Profile.objects.get(user=user)
     tag = "Followers"
