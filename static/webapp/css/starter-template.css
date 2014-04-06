@@ -508,9 +508,9 @@ header .container {
     border-color: #fff !important;
 }
 
-.thumbnail, .panel {
-    border-radius: 0px !important;
-    border: 0px solid #cc3e27;
+.thumbnail, .panel, .btn, .border-rect, .badge, .progress {
+    border-radius: 2px !important;
+    border: 1px solid #d8d8d8 !important;
 }
 
 .badge {
