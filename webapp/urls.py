@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^recipe/(?P<recipe_id>\w+)/$' , views.receta, name='recipe'),
 	url(r'^profile/(?P<username>\w+)$', views.profile, name='profile'),
 	url(r'^following/(?P<username>\w+)$', views.following, name='following'),
+    url(r'^followers/(?P<username>\w+)$', views.followers, name='followers'),
 )

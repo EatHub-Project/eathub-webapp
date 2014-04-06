@@ -260,4 +260,12 @@ def profile(request, username):
 def following(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
-    return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile})
+    tag = "Following"
+    return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile, 'tag': tag})
+
+def followers(request, username):
+    user = User.objects.get(username=username)
+    followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
+    profile = Profile.objects.get(user=user)
+    tag = "Followers"
+    return render(request, 'webapp/following.html', {'following': followers_list, 'profile': profile, 'tag': tag})
