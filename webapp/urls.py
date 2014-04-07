@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^private/$', views.test_login_required, name='private'),
     url(r'^recipe/(?P<recipe_id>\w+)/$' , views.receta, name='recipe'),
 	url(r'^profile/(?P<username>\w+)$', views.profile, name='profile'),
+    url(r'^recipe/(?P<recipe_id>\w+)/comment/$' , views.comment, name='comment'),
 )

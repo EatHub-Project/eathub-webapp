@@ -2,7 +2,7 @@
 from ajax import models as models_ajax
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe
+from webapp.models import Profile, Tastes, Recipe, Comment
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm
+from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComment
 from django.forms.util import ErrorList
 
 
@@ -248,3 +248,18 @@ def profile(request, username):
                 following = True
 
     return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': following})
+
+
+@login_required
+def comment(request, recipe_id):
+    if request.method == 'POST':
+        u = request.user
+        profile = u.profile.get()
+        form = AddComment(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data()
+            c = Comment(datetime.now(), data['text'], u)
+            r = Recipe.objects.get(recipe_id)
+            r.comments.add(c)
+            r.save()
+    return render(request, 'webapp/newrecipe.html', {'form': form})

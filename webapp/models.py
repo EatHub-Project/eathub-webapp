@@ -105,8 +105,7 @@ class Author(models.Model):
 class Comment(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     text = models.TextField(blank=False)
-    isBanned = models.BooleanField()
-    user_own = ForeignKey(Profile)
+    user_own = ForeignKey(User)
 
     def __str__(self):
         return self.text
