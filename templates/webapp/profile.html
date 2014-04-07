@@ -16,8 +16,9 @@
 
             <br/>
             <ul class="list-group custom-set">
-                <li class="list-group-item"><span class="badge badge-counter">10</span>Recipes</li>
-                <li class="list-group-item"><span class="badge badge-counter">11</span>Friendas</li>
+                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>Recipes</li>
+                <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a href="{% url 'followers' user.username %}">Seguidores</a></li>
+                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a href="{% url 'following' user.username %}">Seguiendo</a></li>
             </ul>
             <br/>
             {% if profile.user.id == user.id %}
@@ -160,7 +161,7 @@
             </div>
         </div>
     </div>
-    {% if request.user.username == profile.user.username %}
+    {% if is_owner %}
         <legend>Informaci&oacute;n personal</legend>
         <div class="row">
             <div class="col-md-6">
@@ -244,7 +245,7 @@
         <h5>Salty</h5>
 
         <div class="progress">
-            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
                  aria-valuemax="100" style="width: {{ profile.tastes.salty }}%;">
             </div>
         </div>

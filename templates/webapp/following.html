@@ -1,0 +1,53 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block container %}
+	<div class="row">
+		<div class="col-md-2">
+			
+		</div>
+		<div class="col-md-6">
+			<h1>{{ tag }}</h1>
+		</div>
+	</div>
+    {% for friend in following %}
+	<div class="row">
+		<div class="col-md-2">
+			
+		</div>
+		<div class="col-md-6">
+			<div class="col-md-12 panel panel-default">
+				<div class="row">
+                    <div class="col-md-5">
+                        <img alt=""  src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
+                                        {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
+                        <h3 class="pull-right">{{ following.display_name }}</h3>
+                    </div>
+                    <div class="col-md-6">
+
+                            <!--<span class="label label-danger">Te sigue</span>-->
+                    </div>
+                </div>
+				<div class="row divider">
+					<div class="col-md-10">
+						<p>Se uni&oacute; el {{ friend.user.date_joined.date }}.</p>
+					</div>
+					<div class="col-md-2">
+						<a type="button" href="{% url 'profile' friend.user.username %}" class="btn btn-default btn-block plus-profile"><span class="glyphicon glyphicon-chevron-right"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+        
+		</div>
+	</div>
+{% endfor %}
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+{% endblock %}
