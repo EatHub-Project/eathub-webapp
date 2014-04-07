@@ -23,7 +23,7 @@
                     <div class="col-md-5">
                         <img alt=""  src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
                                         {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
-                        <h3 class="pull-right">{{ following.display_name }}</h3>
+                        <h3 class="pull-right">{{ friend.display_name }}</h3>
                     </div>
                     <div class="col-md-6">
 
