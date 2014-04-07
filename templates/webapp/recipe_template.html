@@ -232,10 +232,4 @@
         <!-- End Tags -->
     </div>
     <!-- End Recipe -->
-    <form action="/ajax/vote/" method="post">
-        {% csrf_token %}
-        <input type="text" value="01234567890abcdef0000000" name="recipe"/>
-        <input type="text" value="positive" name="type"/>
-        <input type="submit" value="submit"/>
-    </form>
 {% endblock %}
