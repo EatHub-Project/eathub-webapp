@@ -136,7 +136,7 @@ class Savour(models.Model):
 
 class Vote(models.Model):
     date = models.DateField(validators=[validate_past_date])
-    user = ForeignKey(Profile, unique=True)
+    user = ForeignKey(User)
 
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
