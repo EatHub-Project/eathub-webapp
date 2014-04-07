@@ -275,6 +275,8 @@ def followers(request, username):
     except User.DoesNotExist:
         raise Http404
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
+    #TODO: recorrer followers_list y traerse los objetos profile, que es lo que espera la vista. Esto obtiene
+    #solamente los username o user.id, no estoy seguro.
     profile = Profile.objects.get(user=user)
     tag = "Followers"
     return render(request, 'webapp/following.html', {'following': followers_list, 'profile': profile, 'tag': tag, 'follow': False})
