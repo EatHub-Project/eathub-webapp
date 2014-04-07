@@ -267,7 +267,7 @@ def following(request, username):
         raise Http404
     profile = Profile.objects.get(user=user)
     tag = "Following"
-    return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile, 'tag': tag})
+    return render(request, 'webapp/following.html', {'following': profile.following, 'profile': profile, 'tag': tag, 'follow': True})
 
 def followers(request, username):
     try:
@@ -277,4 +277,4 @@ def followers(request, username):
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
     profile = Profile.objects.get(user=user)
     tag = "Followers"
-    return render(request, 'webapp/following.html', {'following': followers_list, 'profile': profile, 'tag': tag})
+    return render(request, 'webapp/following.html', {'following': followers_list, 'profile': profile, 'tag': tag, 'follow': False})

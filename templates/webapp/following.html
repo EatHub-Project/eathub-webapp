@@ -21,7 +21,7 @@
 			<div class="col-md-12 panel panel-default panel-body">
 				<div class="row">
                     <div class="col-md-5">
-                        <img alt=""  src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
+                        <img alt=""  src="{% if friend.avatar %}{{ firend.avatar.url }}
                                         {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
                         <h3 class="pull-right">{{ friend.display_name }}</h3>
                     </div>
@@ -35,8 +35,12 @@
 						<p>Se uni&oacute; el {{ friend.user.date_joined.date }}.</p>
 					</div>
 					<div class="col-md-2">
-						<a type="button" href="{% url 'profile' friend.user.username %}" class="btn btn-default btn-block plus-profile"><span class="glyphicon glyphicon-chevron-right"></span></a>
-					</div>
+                        {% if follow %}
+                            <a type="button" href="{% url 'profile' friend.user.username %}" class="btn btn-default btn-block plus-profile"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        {% else %}
+                            <a type="button" href="{% url 'profile' friend %}" class="btn btn-default btn-block plus-profile"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        {% endif %}
+                    </div>
                 </div>
 			</div>
 		</div>
