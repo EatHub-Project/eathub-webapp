@@ -510,9 +510,12 @@ header .container {
 
 .thumbnail, .panel, .btn, .border-rect, .badge, .progress {
     border-radius: 2px !important;
+}
+
+.thumbnail, .panel, .border-rect {
     border: 1px solid #d8d8d8 !important;
 }
 
-.badge {
+.badge-counter {
     background-color: #CC3E27 !important;
 }
