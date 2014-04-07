@@ -30,14 +30,14 @@
             <div class="recipe-votes">
                 {{ receta.positives|length }}
                 {% if user.is_authenticated %}
-                    <a id="btn-positive" class="btn btn-default btn-block"><img src="/static/webapp/image/voto_positivo.png"></a>
+                    <a id="btn-positive" class="btn"><img src="/static/webapp/image/voto_positivo.png"></a>
                 {% else %}
                     <img src="/static/webapp/image/voto_positivo.png">
                 {% endif %}
                 <br>
                 {{ receta.negatives|length }}
                 {% if user.is_authenticated %}
-                    <a id="btn-negative" class="btn btn-default btn-block"><img src="/static/webapp/image/voto_negativo.png"></a>
+                    <a id="btn-negative" class="btn"><img src="/static/webapp/image/voto_negativo.png"></a>
                 {% else %}
                     <img src="/static/webapp/image/voto_negativo.png">
                 {% endif %}
@@ -333,7 +333,6 @@
                     dataType: "json",
 
                     success: function(jqXHR, textStatus, errorThrown) {
-                        console.log("SUCCESS!!!");
                         $negative.attr("disabled",true);
 
                         var $error = $("#error-vote");
@@ -344,7 +343,6 @@
                     },
 
                     error: function (jqXHR, textStatus, errorThrown) {
-                        console.log("ERROR...");
                         var result = $.parseJSON(jqXHR.responseText);
 
                         var $error = $("#error-vote");
