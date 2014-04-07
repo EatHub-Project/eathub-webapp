@@ -18,7 +18,7 @@
 			
 		</div>
 		<div class="col-md-6">
-			<div class="col-md-12 panel panel-default">
+			<div class="col-md-12 panel panel-default panel-body">
 				<div class="row">
                     <div class="col-md-5">
                         <img alt=""  src="{% if profile.get.avatar %}{{ profile.get.avatar.url }}
@@ -37,7 +37,7 @@
 					<div class="col-md-2">
 						<a type="button" href="{% url 'profile' friend.user.username %}" class="btn btn-default btn-block plus-profile"><span class="glyphicon glyphicon-chevron-right"></span></a>
 					</div>
-				</div>
+                </div>
 			</div>
 		</div>
 		<div class="col-md-2">
