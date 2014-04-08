@@ -41,6 +41,12 @@ def validate_gender(gender):
         raise ValidationError(u'%s is not a valid gender' % gender)
 
 
+def validate_past_date(date):
+    now = datetime.now()
+    if now > date:
+        raise ValidationError(u'date cannot be future')
+
+
 class Tastes(models.Model):
     salty = models.IntegerField(validators=[validate_savour])
     sour = models.IntegerField(validators=[validate_savour])
@@ -134,6 +140,11 @@ class Savour(models.Model):
         return "{}, {}, {}, {}, {}".format(self.salty, self.sour, self.bitter, self.sweet, self.spicy)
 
 
+class Vote(models.Model):
+    date = models.DateField(validators=[validate_past_date])
+    user = ForeignKey(User)
+
+
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
     description = TextField(blank=False)
@@ -158,6 +169,9 @@ class Recipe(models.Model):
     pictures = ListField(EmbeddedModelField('Picture'), blank=False)
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
+
+    positives = ListField(EmbeddedModelField('Vote'))
+    negatives = ListField(EmbeddedModelField('Vote'))
 
     objects = MongoDBManager()
 

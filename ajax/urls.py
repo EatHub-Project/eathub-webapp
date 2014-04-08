@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^upload/$', views.upload_picture, name='upload'),
     url(r'^follow/$', views.follow, name='follow'),
     url(r'^unfollow/$', views.unfollow, name='unfollow'),
+    url(r'^vote/$', views.vote_recipe, name='vote'),
 )
