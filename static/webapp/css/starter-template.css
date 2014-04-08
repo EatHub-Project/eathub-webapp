@@ -551,3 +551,7 @@ header .container {
     font-style: italic;
     color: #424242;
 }
+
+.recipe-link {
+    color: red;
+}

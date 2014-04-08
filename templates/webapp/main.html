@@ -26,8 +26,8 @@
 					</p>
 				</div>
 				<div class="recipe-author">
-					<h5>RECIPE BY</h5>
-					<span><a href="#">{{ recipe.author.display_name }}</a></span>
+					<h5>BY</h5>
+					<span><a class="recipe-link" href="{% url 'profile' recipe.author.user_name %}">{{ recipe.author.display_name }}</a></span>
 				</div>
 			</div>
 			<br />
