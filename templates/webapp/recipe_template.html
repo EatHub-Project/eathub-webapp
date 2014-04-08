@@ -280,10 +280,8 @@
             var $ok = $("#ok-vote");
 
             // por defecto los divs para indicar el resultado estan ocultos
-            console.log("se van a ocultar los divs");
             $error.hide();
             $ok.hide();
-            console.log("se deben de haber ocultado los divs");
 
             // establece una función a ejecutar cuando se haga click sobre el elemento
             $positive.click(function (e) {
@@ -305,6 +303,8 @@
                         $error.hide();
 
                         $ok.show();
+                        console.log("procesamiento success terminado, se recargara la pagina")
+                        window.location.reload(true)
                     },
 
                     // funcion ejecutada cuando se haya producido algun error
@@ -340,6 +340,9 @@
 
                         var $ok = $("#ok-vote");
                         $ok.show();
+
+                        console.log("procesamiento success terminado, se recargara la pagina")
+                        window.location.reload(true)
                     },
 
                     error: function (jqXHR, textStatus, errorThrown) {
