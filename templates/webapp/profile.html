@@ -17,8 +17,8 @@
             <br/>
             <ul class="list-group custom-set">
                 <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>Recipes</li>
-                <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a href="{% url 'followers' user.username %}">Seguidores</a></li>
-                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a href="{% url 'following' user.username %}">Siguiendo</a></li>
+                <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a href="{% url 'followers' profile.user.username %}">Seguidores</a></li>
+                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a href="{% url 'following' profile.user.username %}">Siguiendo</a></li>
             </ul>
             <br/>
             {% if profile.user.id == user.id %}
