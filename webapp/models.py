@@ -103,8 +103,8 @@ class Author(models.Model):
         return self.displayName
 
 class Comment(models.Model):
-    create_date = models.DateTimeField(auto_now_add=True)
     text = models.TextField(blank=False)
+    create_date = models.DateTimeField(default=datetime.now)
     user_own = ForeignKey(User)
 
     def __str__(self):

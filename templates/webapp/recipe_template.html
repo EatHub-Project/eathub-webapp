@@ -87,6 +87,28 @@
             <span class="glyphicon glyphicon-asterisk">{{ receta.notes }}</span>
         </div>
         <!-- End Notes -->
+        <!-- Start comments -->
+        <div class="comments">
+            <div class="form-comments">
+                <form method="POST" action="{% url 'comment' receta.id %}">
+                    {% csrf_token %}
+                    <input type="text" name="text">
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="list-comments">
+                {% for comment in receta.comments %}
+                    <div class="comment">
+                        <div class="comment-author"><a class="profile-image" href="{% url 'profile' comment.user_own.username %}">
+                            <img src="{% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
+                        </div>
+                        <div class="comment-date">{{ comment.create_date }}</div>
+                        <div class="comment-text">{{ comment.text }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- End comments -->
     </div>
 
     <!-- Colum Right -->

@@ -13,7 +13,7 @@ from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComment
 from django.forms.util import ErrorList
-
+from datetime import datetime
 
 def main(request):
     recipes = Recipe.objects.all()
@@ -257,9 +257,9 @@ def comment(request, recipe_id):
         profile = u.profile.get()
         form = AddComment(request.POST)
         if form.is_valid():
-            data = form.cleaned_data()
-            c = Comment(datetime.now(), data['text'], u)
-            r = Recipe.objects.get(recipe_id)
-            r.comments.add(c)
+            text = form.cleaned_data['text']
+            c = Comment(text = text,create_date= datetime.ctime(),user_own = u, )
+            r = Recipe.objects.get(id=recipe_id)
+            r.comments.append(c)
             r.save()
-    return render(request, 'webapp/newrecipe.html', {'form': form})
+    return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
