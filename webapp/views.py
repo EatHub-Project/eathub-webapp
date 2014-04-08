@@ -265,9 +265,14 @@ def following(request, username):
         user = User.objects.get(username=username)
     except User.DoesNotExist:
         raise Http404
+
+    is_owner = False
+    if request.user.username == username:
+        is_owner = True
+
     user_profile = Profile.objects.get(user=user)
     tag = "Following"
-    return render(request, 'webapp/following.html', {'follows': user_profile.following, 'profile': user_profile, 'tag': tag})
+    return render(request, 'webapp/following.html', {'follows': user_profile.following, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
 
 def followers(request, username):
@@ -275,9 +280,12 @@ def followers(request, username):
         user = User.objects.get(username=username)
     except User.DoesNotExist:
         raise Http404
+
+    is_owner = False
+    if request.user.username == username:
+        is_owner = True
+
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
-    #TODO: recorrer followers_list y traerse los objetos profile, que es lo que espera la vista. Esto obtiene
-    #solamente los username o user.id, no estoy seguro.
     user_profile = Profile.objects.get(user=user)
     tag = "Followers"
-    return render(request, 'webapp/following.html', {'follows': followers_list, 'profile': user_profile, 'tag': tag})
+    return render(request, 'webapp/following.html', {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})

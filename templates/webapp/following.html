@@ -3,6 +3,7 @@
 {% load i18n %}
 
 {% block container %}
+{% if follows %}
     <h1>{{ tag }}</h1>
 
     <div class="row">
@@ -24,4 +25,15 @@
             {% endwith %}
         {% endfor %}
     </div>
+{% else %}
+    {% if is_owner %}
+        <div class="recipe-name">
+            <h2 class="follow-msg">¿A&uacute;n no tienes amigos? Sube recetas y haz amigos!</h2>
+        </div>
+    {% else %}
+        <div class="recipe-name">
+            <h2 class="follow-msg">El usuario {{ profile.display_name }} a&uacute;n no tiene amigos.</h2>
+        </div>
+    {% endif %}
+{% endif %}
 {% endblock %}

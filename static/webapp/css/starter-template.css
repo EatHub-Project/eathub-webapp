@@ -556,3 +556,7 @@ header .container {
     color: #CC3E27;
     font-weight: bold;
 }
+
+.follow-msg {
+    text-align: center !important;
+}
