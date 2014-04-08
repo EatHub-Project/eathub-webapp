@@ -553,5 +553,6 @@ header .container {
 }
 
 .recipe-link {
-    color: red;
+    color: #CC3E27;
+    font-weight: bold;
 }
