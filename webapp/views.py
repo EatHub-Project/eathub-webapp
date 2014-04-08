@@ -267,7 +267,7 @@ def following(request, username):
         raise Http404
     user_profile = Profile.objects.get(user=user)
     tag = "Following"
-    return render(request, 'webapp/following.html', {'follows': profile.following, 'profile': user_profile, 'tag': tag})
+    return render(request, 'webapp/following.html', {'follows': user_profile.following, 'profile': user_profile, 'tag': tag})
 
 
 def followers(request, username):
