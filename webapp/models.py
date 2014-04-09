@@ -104,7 +104,7 @@ class Author(models.Model):
 
 class Comment(models.Model):
     text = models.TextField(blank=False)
-    create_date = models.DateTimeField(default=datetime.now)
+    create_date = models.DateTimeField()
     user_own = ForeignKey(User)
 
     def __str__(self):

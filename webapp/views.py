@@ -258,7 +258,7 @@ def comment(request, recipe_id):
         form = AddComment(request.POST)
         if form.is_valid():
             text = form.cleaned_data['text']
-            c = Comment(text = text,create_date= datetime.ctime(),user_own = u, )
+            c = Comment(text = text, create_date = datetime.now(), user_own = u, )
             r = Recipe.objects.get(id=recipe_id)
             r.comments.append(c)
             r.save()

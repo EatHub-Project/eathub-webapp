@@ -5,114 +5,141 @@
 {% block container %}
     <!-- Start Recipe -->
     <!-- Column Left -->
-    <div class="col-md-8 well">
-        <!-- Start Head Recipe -->
-        <div class="recipe-head">
-            <!-- End Title and Image Recipe -->
-            <div class="recipe-time">
-                <span class="glyphicon glyphicon-time"></span>
+    <div class="col-md-8">
+        <!-- Start Main -->
+        <div class="col-md-12 panel">
+            <!-- Start Head Recipe -->
+            <div class="recipe-head">
+                <!-- End Title and Image Recipe -->
+                <div class="recipe-time">
+                    <span class="glyphicon glyphicon-time"></span>
 
-                <p>
-                    {{ receta.time.prep_time }}
-                </p>
+                    <p>
+                        {{ receta.time.prep_time }}
+                    </p>
+                </div>
+                <div class="recipe-author">
+                    <h5>RECIPE BY</h5>
+                    <span><a href="#">{{ receta.author.display_name }}</a></span>
+                </div>
+                <div class="recipe-image">
+                    {% for picture in receta.pictures %}
+                        {% if picture.is_main %}
+                            <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="recipe-name">
+                    <h1>{{ receta.title }}</h1>
+                </div>
+                <!-- Start Description -->
+                <div class="recipe-description">
+                    <p>
+                        {{ receta.description }}
+                    </p>
+                </div>
+                <!-- Start Description -->
+                <!-- End Title and Image Recipe -->
+                <!-- End SubHead Recipe -->
+                <div class="recipe-subhead">
+                    <!-- End Ingredients Recipe -->
+                    <div class="recipe-ingredients">
+                        <h3>Ingredients</h3>
+                        <ul>
+                            {% for ingredient in receta.ingredients %}
+                                {% if ingredient %}
+                                    <li>
+                                        {{ ingredient }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- End Ingredients Recipe -->
+                </div>
             </div>
-            <div class="recipe-author">
-                <h5>RECIPE BY</h5>
-                <span><a href="#">{{ receta.author.display_name }}</a></span>
-            </div>
-            <div class="recipe-image">
-                {% for picture in receta.pictures %}
-                    {% if picture.is_main %}
-                        <img class="img-thumbnail" src="{{ picture.url }}" alt="Recipe main picture">
+            <!-- End SubHead Recipe -->
+            <!-- End Head Recipe -->
+            <!-- Start Directions -->
+            <div class="recipe-steps-list">
+                <h1>Steps</h1>
+                {% for step in receta.steps %}
+                    {% if step %}
+                        <!-- Start Step -->
+                        <div class="recipe-step">
+                            <h5>Step {{ forloop.counter }}</h5>
+                            <span>{{ step }}</span>
+
+                            {% for image in receta.pictures %}
+                                {% if image.step == forloop.parentloop.counter %}
+                                    <div class="recipe-step-image">
+                                        <img class="img-thumbnail" src="{{ image.url }}"/>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <!-- End Step -->
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="recipe-name">
-                <h1>{{ receta.title }}</h1>
+            <!-- End Directions -->
+            <!-- Start Notes -->
+            <div class="recipe-note">
+                <h1>Notes</h1>
+                <span class="glyphicon glyphicon-asterisk">{{ receta.notes }}</span>
             </div>
-            <!-- Start Description -->
-            <div class="recipe-description">
-                <p>
-                    {{ receta.description }}
-                </p>
-            </div>
-            <!-- Start Description -->
-            <!-- End Title and Image Recipe -->
-            <!-- End SubHead Recipe -->
-            <div class="recipe-subhead">
-                <!-- End Ingredients Recipe -->
-                <div class="recipe-ingredients">
-                    <h3>Ingredients</h3>
-                    <ul>
-                        {% for ingredient in receta.ingredients %}
-                            {% if ingredient %}
-                                <li>
-                                    {{ ingredient }}
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                <!-- End Ingredients Recipe -->
-            </div>
+            <!-- End Notes -->
         </div>
-        <!-- End SubHead Recipe -->
-        <!-- End Head Recipe -->
-        <!-- Start Directions -->
-        <div class="recipe-steps-list">
-            <h1>Steps</h1>
-            {% for step in receta.steps %}
-                {% if step %}
-                    <!-- Start Step -->
-                    <div class="recipe-step">
-                        <h5>Step {{ forloop.counter }}</h5>
-                        <span>{{ step }}</span>
-
-                        {% for image in receta.pictures %}
-                            {% if image.step == forloop.parentloop.counter %}
-                                <div class="recipe-step-image">
-                                    <img class="img-thumbnail" src="{{ image.url }}"/>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <!-- End Step -->
-                {% endif %}
-            {% endfor %}
-        </div>
-        <!-- End Directions -->
-        <!-- Start Notes -->
-        <div class="recipe-note">
-            <h1>Notes</h1>
-            <span class="glyphicon glyphicon-asterisk">{{ receta.notes }}</span>
-        </div>
-        <!-- End Notes -->
+        <!-- End Main -->
         <!-- Start comments -->
-        <div class="comments">
-            <div class="form-comments">
-                <form method="POST" action="{% url 'comment' receta.id %}">
-                    {% csrf_token %}
-                    <input type="text" name="text">
-                    <input type="submit">
-                </form>
-            </div>
-            <div class="list-comments">
-                {% for comment in receta.comments %}
-                    <div class="comment">
-                        <div class="comment-author"><a class="profile-image" href="{% url 'profile' comment.user_own.username %}">
-                            <img src="{% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
-                        </div>
-                        <div class="comment-date">{{ comment.create_date }}</div>
-                        <div class="comment-text">{{ comment.text }}</div>
+        <div class="col-md-12 panel">
+            <div class="row">
+                {% if user.is_authenticated %}
+                    <div class="col-md-2">
+                        <a class="profile-image comment-image" href="#">
+                            <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
+                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
+                        </a>
                     </div>
-                {% endfor %}
+                    <div class="col-md-10">
+                        <form method="POST" action="{% url 'comment' receta.id %}">
+                            {% csrf_token %}
+                            <div class="comment-form">
+                                <div class="eg">
+                                    <div class="yw oo"></div>
+                                    <div class="yw VK"></div>
+                                </div>
+                                <textarea class="col-md-12" type="text" name="text"
+                                          placeholder="Escriba un comentario..." rows="4"></textarea>
+                            </div>
+                            <input class="plus btn btn-default" type="submit">
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="list-comments">
+                    {% for comment in receta.comments %}
+                        <div class="row comment">
+                            <div class="col-md-1"><a class="profile-image" href="{% url 'profile' comment.user_own.username %}">
+                                <img src="{% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
+                            </div>
+                            <div class="col-md-11">
+                                <div class="comment-name"><a href="{% url 'profile' comment.user_own.username %}">{{ comment.user_own.username }}</a></div>
+                                <div class="comment-date">{{ comment.create_date }}</div>
+                            </div>
+                         <div class="row comment-text">{{ comment.text }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <!-- End comments -->
     </div>
 
+
     <!-- Colum Right -->
-    <div class="col-md-3 col-md-offset-1 well">
+    <div class="col-md-3 col-md-offset-1 panel">
         <!-- Start Mini Image -->
         <div class="recipe-album">
             <h3>Pictures</h3>

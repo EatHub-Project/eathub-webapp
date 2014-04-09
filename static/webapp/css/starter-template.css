@@ -21,14 +21,14 @@ header .container {
     width: 100%;
 }
 
-
 .navbar-input-group {
     display: inline;
 }
 
-.navbar-input-group-btn{
+.navbar-input-group-btn {
     float: left;
 }
+
 .profile {
     float: right;
     clear: both;
@@ -114,10 +114,10 @@ header .container {
 }
 
 .recipe-name {
-  height: 120px;
-  text-overflow:ellipsis;
-  overflow:hidden;
-  color: #CC3E27;
+    height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #CC3E27;
 }
 
 .recipe-author {
@@ -365,7 +365,6 @@ header .container {
     margin-right: auto;
 }
 
-
 #gallery-indicator span.glyphicon {
     font-size: 200%;
 }
@@ -420,10 +419,10 @@ header .container {
     stroke-dashoffset: 2257;
 }
 
-.description-recipe-main{
-	height: 80px;
-	text-overflow:ellipsis;
-	overflow:hidden;
+.description-recipe-main {
+    height: 80px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #salty.progress-bar {
@@ -450,34 +449,34 @@ header .container {
     color: #CC3E27;
 }
 
-.plus-profile:hover{
+.plus-profile:hover {
     color: #fff;
     background-color: #CC3E27;
     border-color: #D66552;
 }
 
-.btn-follow{
+.btn-follow {
     color: #CC3E27;
 }
 
-.btn-follow:hover{
+.btn-follow:hover {
     color: #fff;
     background-color: #CC3E27;
     border-color: #D66552;
 }
 
-.btn-unfollow{
+.btn-unfollow {
     color: #fff;
     background-color: #CC3E27;
     border-color: #D66552;
 }
 
-.btn-unfollow[disabled]{
+.btn-unfollow[disabled] {
     color: #CC3E27;
     opacity: .65;
 }
 
-.btn-unfollow:hover{
+.btn-unfollow:hover {
     color: #CC3E27;
     background-color: #eaaea4;
 }
@@ -488,4 +487,84 @@ header .container {
     margin-top: 8px;
     display: none;
 
+}
+
+.comment-image img {
+    width: 80px;
+    height: 80px;
+}
+
+.oo {
+    border-bottom: 16px solid #ccc;
+    border-right: 16px solid transparent;
+    left: -1px;
+    top: -1px;
+}
+
+.yw {
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+.VK {
+    border-bottom: 15px solid white;
+    border-right: 15px solid transparent;
+    left: -1px;
+}
+
+.eg {
+    -webkit-box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .04);
+    box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .04);
+    background-color: #e9e9e9;
+    border-top: 1px solid #ccc;
+    cursor: text;
+    display: block;
+    height: 15px;
+    left: 1px;
+    position: absolute;
+    top: 0px;
+    width: 20px;
+}
+
+.comment-form {
+    height: 100px;
+    border: 1px solid #ccc;
+    background-color: #e9e9e9;
+}
+
+.comment-form textarea {
+    border: 0;
+    resize: none;
+    padding-left: 3;
+    color: #999;
+    background-color: transparent;
+    outline:none;
+}
+
+.comment-form:hover {
+    border: 2px solid #CC3E27;
+}
+
+.comment-form:hover .eg {
+    border-top: 2px solid #CC3E27;
+}
+
+.comment-form:hover .oo {
+    border-bottom: 16px solid #CC3E27;
+    left: 0px;
+    top: -2px;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+}
+
+.comment {
+    padding: 20px;
+}
+
+.comment-text {
+    padding-top: 5px;
+    padding-left: 25px;
 }
