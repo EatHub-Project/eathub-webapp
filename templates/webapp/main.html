@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block container %}
-	
+	<h1>{% if request.session.timezone %} {{ request.session.timezone }}  {% else %} "America/Chicago" {% endif %}</h1>
 	<div class="row">
 		{% for recipe in recipes %}
       <div class="col-sm-6 col-md-4">

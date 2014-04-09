@@ -102,6 +102,59 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{% static 'webapp/js/jquery.min.js' %}"></script>
     <script src="{% static 'webapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'webapp/js/jstz-1.0.4.min.js' %}"></script>
+    {% if not request.session.timezone %}
+    <script>
+        var tz = new jstz.determine();
+
+        var csrftoken = getCookie('csrftoken');
+
+        // establecer valores por defecto utilizados en las peticiones ajax
+        $.ajaxSetup({
+            crossDomain: false, // obviates need for sameOrigin test
+            //especificar pretratamiento del XMLHTTPRequest (en este caso, añadir cabecera CSRF)
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        // funcion a ejecutar cuando el DOM este completamente cargado
+        $(document).ready(function() {
+            // establece una función a ejecutar cuando se haga click sobre el elemento
+               var data = {"timezone": tz.name()};
+                $.ajax({    // Realizar peticion ajax
+                    type: "POST",
+                    url: '{% url 'tz' %}',
+                    data: data,
+                    dataType: "json",
+                    success: null,
+                    error: null
+                });
+        });
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+    </script>
+    {% endif %}
     {% block custom_js %} {% endblock %}
 </footer>
 </body>

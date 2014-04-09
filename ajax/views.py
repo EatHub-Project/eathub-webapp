@@ -144,3 +144,10 @@ def vote_recipe(request):
         recipe.save()
 
     return HttpResponse(json.dumps({"message": "OK"}), status=201)
+
+def timezone(request):
+    # Saco de la petición el usuario al que se le quiere seguir
+    timezone = request.POST['timezone']
+    request.session['timezone'] = timezone
+    # Y respondo con un ok
+    return HttpResponse(json.dumps({"message": "OK"}), status=200)
