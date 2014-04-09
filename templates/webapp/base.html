@@ -104,6 +104,7 @@
     <script src="{% static 'webapp/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'webapp/js/jstz-1.0.4.min.js' %}"></script>
     {% if not request.session.timezone %}
+        {% csrf_token %}
     <script>
         var tz = new jstz.determine();
 
