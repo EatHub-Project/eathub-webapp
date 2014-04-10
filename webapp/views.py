@@ -23,8 +23,7 @@ def main(request):
 
 
 def new_account(request):
-    ppal = request.user
-    if ppal.is_authenticated():
+    if request.user.is_authenticated():
         main(request)
 
     if request.method == 'POST':
@@ -48,7 +47,8 @@ def new_account(request):
             birth_date = data['birth_date']
 
             avatar_id = data['avatar_id']
-            avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
+            if avatar_id != u'':
+                avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
 
             if not password == password_repeat:
                 errors = form._errors.setdefault("password_repeat", ErrorList())
@@ -72,14 +72,18 @@ def new_account(request):
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
 
                 #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
-                p.avatar = avatar.image
+                if avatar_id == u'':
+                    p.avatar = u'/static/webapp/image/profile_default.png'
+                else:
+                    p.avatar = avatar.image
 
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
 
                 #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
-                avatar.persist = True
-                avatar.save()
+                if avatar_id != u'':
+                    avatar.persist = True
+                    avatar.save()
 
                 u = authenticate(username=username, password=password)
                 login(request, u)
