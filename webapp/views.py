@@ -24,7 +24,7 @@ def main(request):
 
 def new_account(request):
     if request.user.is_authenticated():
-        main(request)
+        return HttpResponseRedirect(reverse('main'))
 
     if request.method == 'POST':
         form = NewAccountForm(request.POST)
