@@ -560,3 +560,8 @@ header .container {
 .follow-msg {
     text-align: center !important;
 }
+
+/*estilo de los botones de voto de las recetas*/
+.vote{
+    color: #cc3e27;
+}
