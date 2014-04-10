@@ -23,7 +23,10 @@ def main(request):
 
 
 def new_account(request):
-    #TODO if user is authenticated redirect to main
+    ppal = request.user
+    if ppal.is_authenticated():
+        main(request)
+
     if request.method == 'POST':
         form = NewAccountForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
