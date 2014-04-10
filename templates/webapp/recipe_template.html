@@ -288,8 +288,6 @@
 
             // establece una función a ejecutar cuando se haga click sobre el elemento
             $positive.click(function (e) {
-                $positive.attr("disabled", true);
-
                 var data = {"recipe": '{{ receta.id }}', "type": "positive"};
 
                 $.ajax({    // Realizar peticion ajax
@@ -299,7 +297,6 @@
                     dataType: "json",
 
                     // funcion ejecutada cuando la peticion haya tenido exito
-                    // TODO: Function(PlainObject data, String textStatus, jqHXR jqHXR)
                     success: function (jqXHR, textStatus, errorThrown) {
                         $error.hide();
 
@@ -313,8 +310,8 @@
                             $positive_votes.html(result.positives)
                             $negative_votes.html(result.negatives)
 
-                            $positive.attr("disabled", true);
-                            $negative.attr("disabled", true);
+                            //$positive.attr("disabled", true);
+                            //$negative.attr("disabled", true);
                         })
                     },
 
@@ -331,8 +328,6 @@
             });
 
             $negative.click(function (e) {
-                $negative.attr("disabled",true);
-
                 var data = {"recipe": '{{ receta.id }}', "type": "negative"};
 
                 $.ajax({
@@ -342,7 +337,6 @@
                     dataType: "json",
 
                     success: function(jqXHR, textStatus, errorThrown) {
-                        $negative.attr("disabled",true);
 
                         var $error = $("#error-vote");
                         $error.hide();
@@ -358,8 +352,8 @@
                             $positive_votes.html(result.positives)
                             $negative_votes.html(result.negatives)
 
-                            $positive.attr("disabled", true);
-                            $negative.attr("disabled", true);
+                            //$positive.attr("disabled", true);
+                            //$negative.attr("disabled", true);
                         })
                     },
 
