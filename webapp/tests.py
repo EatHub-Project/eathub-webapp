@@ -33,9 +33,9 @@ class ProfileTest(TestCase):
                     location="Seville", tastes=t, user=u, following=[])
             p.clean_fields()
             p.save()
+            self.fail("==>La excepcion no ha saltado como se esperaba.\n")
         except ValidationError as v:
-            if v.message_dict.get('gender') is not None:
-                print "\n==>Ha intentado introducir un perfil con un genero desconocido.\n"
+            pass
 
 
 class RecipesTestCase(TestCase):
@@ -53,9 +53,9 @@ class RecipesTestCase(TestCase):
         try:
             r.clean_fields()
             r.save()
+            self.fail("==>La excepcion no ha saltado como se esperaba.\n")
         except ValidationError as v:
-            if v.message_dict.get('difficult') is not None:
-                print "==>La dificultad debe estar comprendida entre 1 y 3.\n"
+            pass
 
 
 
