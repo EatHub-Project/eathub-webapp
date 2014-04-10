@@ -29,17 +29,18 @@
                 {% endfor %}
             </div>
             <div class="recipe-votes">
-                {{ receta.positives|length }}
+                <span id="positive_votes">{{ receta.positives|length }}</span>
                 {% if user.is_authenticated %}
                     <a id="btn-positive" class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></span></a>
                 {% else %}
-                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></a>
+                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></span></a>
                 {% endif %}
-                {{ receta.negatives|length }}
+
+                <span id="negative_votes">{{ receta.negatives|length }}</span>
                 {% if user.is_authenticated %}
-                    <a id="btn-negative" class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></a>
+                    <a id="btn-negative" class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></span></a>
                 {% else %}
-                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></a>
+                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></span></a>
                 {% endif %}
             </div>
             <div id="error-vote" class="alert alert-dismissable alert-danger">
@@ -276,6 +277,8 @@
         $(document).ready(function() {
             var $positive = $("#btn-positive");
             var $negative = $("#btn-negative");
+            var $positive_votes = $("#positive_votes")
+            var $negative_votes = $("#negative_votes")
             var $error = $("#error-vote");
             var $ok = $("#ok-vote");
 
@@ -298,13 +301,21 @@
                     // funcion ejecutada cuando la peticion haya tenido exito
                     // TODO: Function(PlainObject data, String textStatus, jqHXR jqHXR)
                     success: function (jqXHR, textStatus, errorThrown) {
-                        $positive.attr("disabled", true);
-
                         $error.hide();
 
                         $ok.show();
-                        console.log("procesamiento success terminado, se recargara la pagina")
-                        window.location.reload(true)
+
+                        //actualizar conteo de votos sin necesidad de recargar la pagina
+                        $.get('{% url 'recipe_votes' receta.id %}', function( data ){
+                            var result = $.parseJSON( data );
+
+                            console.log("votos tras la votacion\n +: "+result.positives+"\n -: "+result.negatives);
+                            $positive_votes.html(result.positives)
+                            $negative_votes.html(result.negatives)
+
+                            $positive.attr("disabled", true);
+                            $negative.attr("disabled", true);
+                        })
                     },
 
                     // funcion ejecutada cuando se haya producido algun error
@@ -315,8 +326,6 @@
                         $error.show();
 
                         $ok.hide();
-
-                        $positive.attr("disabled",false);
                     }
                 })
             });
@@ -341,8 +350,17 @@
                         var $ok = $("#ok-vote");
                         $ok.show();
 
-                        console.log("procesamiento success terminado, se recargara la pagina")
-                        window.location.reload(true)
+                        //actualizar conteo de votos sin necesidad de recargar la pagina
+                        $.get('{% url 'recipe_votes' receta.id %}', function( data ){
+                            var result = $.parseJSON( data );
+
+                            console.log("votos tras la votacion\n +: "+result.positives+"\n -: "+result.negatives);
+                            $positive_votes.html(result.positives)
+                            $negative_votes.html(result.negatives)
+
+                            $positive.attr("disabled", true);
+                            $negative.attr("disabled", true);
+                        })
                     },
 
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -354,8 +372,6 @@
 
                         var $ok = $("#ok-vote");
                         $ok.hide();
-
-                        $positive.attr("disabled",false);
                     }
                 })
             })

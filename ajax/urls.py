@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^follow/$', views.follow, name='follow'),
     url(r'^unfollow/$', views.unfollow, name='unfollow'),
     url(r'^vote/$', views.vote_recipe, name='vote'),
+    url(r'^votes/(?P<recipe_id>\w+)/$', views.recipe_votes, name='recipe_votes')
 )

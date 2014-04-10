@@ -144,3 +144,11 @@ def vote_recipe(request):
         recipe.save()
 
     return HttpResponse(json.dumps({"message": "OK"}), status=201)
+
+def recipe_votes(request, recipe_id):
+    if recipe_id == u'':
+        return HttpResponse(json.dumps({"message": "ERROR: you must specify recipe id"}), status=400)
+
+    recipe = Recipe.objects.get(id=recipe_id)
+
+    return HttpResponse(json.dumps({"positives": len(recipe.positives), "negatives": len(recipe.negatives)}), status=200)
