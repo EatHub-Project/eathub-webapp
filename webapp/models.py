@@ -61,8 +61,8 @@ class Tastes(models.Model):
 class Profile(models.Model):
     display_name = models.CharField(max_length=50, blank=False)
     modification_date = models.DateTimeField(null=True)  #TODO: debe ser pasado, falta meter esta restriccion
-    main_language = models.CharField(max_length=50, validators=["""validate_main_language"""])
-    additional_languages = ListField(validators=["""validate_additional_languages"""], null=True, blank=False)
+    main_language = models.CharField(max_length=50, validators=[validate_main_language])
+    additional_languages = ListField(validators=[validate_additional_languages], null=True, blank=False)
     avatar = models.ImageField(upload_to='avatars/', null=True)
     website = models.URLField(null=True)
     gender = models.CharField(max_length=1, validators=[validate_gender], null=True)
