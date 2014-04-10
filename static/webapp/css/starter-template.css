@@ -563,5 +563,5 @@ header .container {
 
 /*estilo de los botones de voto de las recetas*/
 .vote{
-    color: #cc3e27;
+    padding-right: 10px;
 }
