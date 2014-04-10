@@ -153,11 +153,11 @@ def modification_account(request, username):
             u = request.user
             p = u.profile.get()
 
-            t = Tastes(salty=data['salty'],
-                       sour=data['sour'],
-                       bitter=data['bitter'],
-                       sweet=data['sweet'],
-                       spicy=data['spicy'])
+            t = Tastes(salty = data['salty'] if data['salty'] != None else 0,
+                       sour = data['sour'] if data['sour'] != None else 0,
+                       bitter = data['bitter'] if data['bitter'] != None else 0,
+                       sweet = data['sweet'] if data['sweet'] != None else 0,
+                       spicy = data['spicy'] if data['spicy'] != None else 0)
 
             p.display_name = display_name
             p.main_language = main_language
