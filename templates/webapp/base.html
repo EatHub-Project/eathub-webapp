@@ -13,7 +13,9 @@
     <link href="{% static 'webapp/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'webapp/css/starter-template.css' %}" rel="stylesheet">
 
-    {% block custom_css %}{% endblock %}
+    {% block custom_css %}
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    {% endblock %}
 </head>
 <body>
 <header>
@@ -59,7 +61,7 @@
                             <li><p class="navbar-text text-red">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
                             </li>
                             <li class="dropdown">
-                                <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="#">
+                                <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="/profile/{{ user.username }}"> <!--TODO: no se si user.username saca el nombre de usuario correcto (el mismo que el de Author)-->
                                     <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
                                 </a>
