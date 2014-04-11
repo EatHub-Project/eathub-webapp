@@ -557,6 +557,12 @@ header .container {
     font-weight: bold;
 }
 
+.recipe-link:hover {
+    color: #CC3E27;
+    font-weight: bold;
+    text-decoration: None;
+}
+
 .follow-msg {
     text-align: center !important;
 }
@@ -639,4 +645,14 @@ header .container {
 .comment-text {
     padding-top: 5px;
     padding-left: 25px;
+}
+
+.recipe-title {
+    font-size: 40px;
+    color: #CC3E27;
+}
+
+.recipe-title:hover {
+    text-decoration: None;
+    color: #CC3E27;
 }

@@ -18,8 +18,8 @@
                     </p>
                 </div>
                 <div class="recipe-author">
-                    <h5>RECIPE BY</h5>
-                    <span><a href="#">{{ receta.author.display_name }}</a></span>
+                    <h5>Recipe by</h5>
+                    <span><a class="recipe-link" href="#">{{ receta.author.display_name }}</a></span>
                 </div>
                 <div class="recipe-image">
                     {% for picture in receta.pictures %}
@@ -28,6 +28,7 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+
             <div class="recipe-votes">
                 {{ receta.positives|length }}
                 {% if user.is_authenticated %}
@@ -63,10 +64,10 @@
             <!-- Start Description -->
             <!-- End Title and Image Recipe -->
             <!-- End SubHead Recipe -->
-            <div class="recipe-subhead">
+            <div class="recipe-subhead panel-body">
                 <!-- End Ingredients Recipe -->
                 <div class="recipe-ingredients">
-                    <h3>Ingredients</h3>
+                    <h3>&nbsp;Ingredients</h3>
                     <ul>
                         {% for ingredient in receta.ingredients %}
                             {% if ingredient %}
