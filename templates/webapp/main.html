@@ -9,10 +9,12 @@
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
 			<br />
-          <img data-src="holder.js/300x200" alt="300x200" src="{{ recipe.pictures.0 }}" style="width: 300px; height: 200px;">
-          <div class="caption">
+            <a href="{% url 'recipe' recipe.id %}">
+                <img data-src="holder.js/300x200" alt="300x200" src="{{ recipe.pictures.0 }}" style="width: 300px; height: 200px;">
+            </a>
+            <div class="caption">
             <div class="recipe-name">
-				<h1>{{ recipe.title }}</h1>
+				<a class="recipe-title" href="{% url 'recipe' recipe.id %}">{{ recipe.title }}</a>
             </div>
 			<div class="description-recipe-main">
 				<p>{{ recipe.description }}</p>
@@ -32,22 +34,11 @@
 			</div>
 			<br />
 			<br />
-			<p>
-			{% url 'recipe' recipe.id as the_url %}
-			{% if the_url %}
-			<a type="button" class="btn btn-danger btn-block" href="{{ the_url }}">Ver m&aacute;s</a>
-			{% endif %}
-			</p>
           </div>
         </div>
       </div>
 	  {% endfor %}
 	</div>
-	<div class="col-sm-6 col-md-4"></div>
-	<div class="col-sm-6 col-md-4">
-		<button type="button" class="btn btn-default plus btn-block btn-cargarmas">Cargar m&aacute;s recetas</button>
-	</div>
-	<div class="col-sm-6 col-md-4"></div>
 	
 	<br />
 	<br />
