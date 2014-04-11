@@ -111,6 +111,13 @@ class Author(models.Model):
     def __str__(self):
         return self.displayName
 
+class Comment(models.Model):
+    text = models.TextField(blank=False)
+    create_date = models.DateTimeField()
+    user_own = ForeignKey(User)
+
+    def __str__(self):
+        return self.text
 
 class Picture(models.Model):
     url = models.URLField(blank=False)
@@ -169,6 +176,7 @@ class Recipe(models.Model):
     pictures = ListField(EmbeddedModelField('Picture'), blank=False)
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
+    comments = ListField(EmbeddedModelField('Comment'), blank=True)
 
     positives = ListField(EmbeddedModelField('Vote'))
     negatives = ListField(EmbeddedModelField('Vote'))

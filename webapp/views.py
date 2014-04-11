@@ -3,7 +3,7 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe
+from webapp.models import Profile, Tastes, Recipe, Comment
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
@@ -12,9 +12,9 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm
+from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComment
 from django.forms.util import ErrorList
-
+from datetime import datetime
 
 
 def main(request):
@@ -289,3 +289,18 @@ def followers(request, username):
     user_profile = Profile.objects.get(user=user)
     tag = "Followers"
     return render(request, 'webapp/following.html', {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
+
+
+@login_required
+def comment(request, recipe_id):
+    if request.method == 'POST':
+        u = request.user
+        profile = u.profile.get()
+        form = AddComment(request.POST)
+        if form.is_valid():
+            text = form.cleaned_data['text']
+            c = Comment(text = text, create_date = datetime.now(), user_own = u, )
+            r = Recipe.objects.get(id=recipe_id)
+            r.comments.append(c)
+            r.save()
+    return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))

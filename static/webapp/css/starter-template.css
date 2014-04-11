@@ -560,3 +560,83 @@ header .container {
 .follow-msg {
     text-align: center !important;
 }
+
+.comment-image img {
+    width: 80px;
+    height: 80px;
+}
+
+.oo {
+    border-bottom: 16px solid #ccc;
+    border-right: 16px solid transparent;
+    left: -1px;
+    top: -1px;
+}
+
+.yw {
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+.VK {
+    border-bottom: 15px solid white;
+    border-right: 15px solid transparent;
+    left: -1px;
+}
+
+.eg {
+    -webkit-box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .04);
+    box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .04);
+    background-color: #e9e9e9;
+    border-top: 1px solid #ccc;
+    cursor: text;
+    display: block;
+    height: 15px;
+    left: 1px;
+    position: absolute;
+    top: 0px;
+    width: 20px;
+}
+
+.comment-form {
+    height: 100px;
+    border: 1px solid #ccc;
+    background-color: #e9e9e9;
+}
+
+.comment-form textarea {
+    border: 0;
+    resize: none;
+    padding-left: 3;
+    color: #999;
+    background-color: transparent;
+    outline:none;
+}
+
+.comment-form:hover {
+    border: 2px solid #CC3E27;
+}
+
+.comment-form:hover .eg {
+    border-top: 2px solid #CC3E27;
+}
+
+.comment-form:hover .oo {
+    border-bottom: 16px solid #CC3E27;
+    left: 0px;
+    top: -2px;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+}
+
+.comment {
+    padding: 20px;
+}
+
+.comment-text {
+    padding-top: 5px;
+    padding-left: 25px;
+}
