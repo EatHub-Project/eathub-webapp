@@ -115,6 +115,7 @@ class Comment(models.Model):
     text = models.TextField(blank=False)
     create_date = models.DateTimeField()
     user_own = ForeignKey(User)
+    is_banned = models.BooleanField(default=False)
 
     def __str__(self):
         return self.text

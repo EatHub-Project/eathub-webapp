@@ -511,7 +511,8 @@ header .container {
     border-radius: 2px !important;
 }
 
-/*.thumbnail,*/ .panel, .border-rect {
+/*.thumbnail,*/
+.panel, .border-rect {
     border: 1px solid #d8d8d8 !important;
 }
 
@@ -531,7 +532,6 @@ header .container {
     float: left;
 }
 
-
 .follow-list-item .user-name {
     color: #232323;
     font-size: 16px;
@@ -539,7 +539,7 @@ header .container {
     margin: 8px 0 5px 5px;
 }
 
-.follow-list-item .user-name a{
+.follow-list-item .user-name a {
     color: #232323;
 }
 
@@ -572,28 +572,26 @@ header .container {
     height: 80px;
 }
 
-.oo {
+.efecto-inferior {
     border-bottom: 16px solid #ccc;
     border-right: 16px solid transparent;
     left: -1px;
     top: -1px;
 }
 
-.yw {
+.bocadillo-efecto {
     height: 0;
     position: absolute;
     width: 0;
 }
 
-.VK {
+.efecto-superior {
     border-bottom: 15px solid white;
     border-right: 15px solid transparent;
     left: -1px;
 }
 
-.eg {
-    -webkit-box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .04);
-    box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, .04);
+.comment-bocadillo {
     background-color: #e9e9e9;
     border-top: 1px solid #ccc;
     cursor: text;
@@ -617,18 +615,18 @@ header .container {
     padding-left: 3;
     color: #999;
     background-color: transparent;
-    outline:none;
+    outline: none;
 }
 
 .comment-form:hover {
     border: 2px solid #CC3E27;
 }
 
-.comment-form:hover .eg {
+.comment-form:hover .comment-bocadillo {
     border-top: 2px solid #CC3E27;
 }
 
-.comment-form:hover .oo {
+.comment-form:hover .efecto-inferior {
     border-bottom: 16px solid #CC3E27;
     left: 0px;
     top: -2px;
@@ -643,8 +641,11 @@ header .container {
 }
 
 .comment-text {
-    padding-top: 5px;
-    padding-left: 25px;
+    margin: 30px 15px;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    background-color: #e9e9e9;
+    color: #999;
 }
 
 .recipe-title {
@@ -655,4 +656,34 @@ header .container {
 .recipe-title:hover {
     text-decoration: None;
     color: #CC3E27;
+}
+
+.list-comments .efecto-inferior {
+    border-bottom: 0;
+    border-right: 0;
+    border-top: 16px solid #ccc;
+    border-left: 16px solid transparent;
+    left: -2px;
+    top: 0px;
+}
+
+.list-comments .efecto-superior {
+    border-bottom: 0;
+    border-right: 0;
+    border-top: 15px solid white;
+    border-left: 15px solid transparent;
+}
+
+.list-comments .comment-bocadillo {
+    border-top: 0;
+    border-left: 1px solid #ccc;
+    height: 20px;
+    left: -16px;
+    position: relative;
+    top: -21px;
+    width: 15px;
+}
+
+.comment-banned {
+    opacity: 0.5;
 }

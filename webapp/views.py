@@ -304,3 +304,23 @@ def comment(request, recipe_id):
             r.comments.append(c)
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
+@login_required
+def banned_comment(request, recipe_id, comment_id):
+    if request.method == 'GET':
+        u = request.user
+        if u.is_staff:
+            r=Recipe.objects.get(id=recipe_id)
+            r.comments[int(comment_id)].is_banned=True
+            r.save()
+    return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
+@login_required
+def unbanned_comment(request, recipe_id, comment_id):
+    if request.method == 'GET':
+        u = request.user
+        if u.is_staff:
+            r=Recipe.objects.get(id=recipe_id)
+            r.comments[int(comment_id)].is_banned=False
+            r.save()
+    return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
