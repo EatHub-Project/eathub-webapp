@@ -13,6 +13,7 @@
                 <!-- End Title and Image Recipe -->
                 <div class="recipe-time">
                     <span class="glyphicon glyphicon-time"></span>
+
                     <p>
                         {{ receta.time.prep_time }}
                     </p>
@@ -29,57 +30,57 @@
                     {% endfor %}
                 </div>
 
-            <div class="recipe-votes">
-                {{ receta.positives|length }}
-                {% if user.is_authenticated %}
-                    <a id="btn-positive" class="btn"><img src="/static/webapp/image/voto_positivo.png"></a>
-                {% else %}
-                    <img src="/static/webapp/image/voto_positivo.png">
-                {% endif %}
-                <br>
-                {{ receta.negatives|length }}
-                {% if user.is_authenticated %}
-                    <a id="btn-negative" class="btn"><img src="/static/webapp/image/voto_negativo.png"></a>
-                {% else %}
-                    <img src="/static/webapp/image/voto_negativo.png">
-                {% endif %}
-            </div>
-            <div id="error-vote" class="alert alert-dismissable alert-danger">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Opps!</strong> <span>Unknown error</span>
-            </div>
-            <div id="ok-vote" class="alert alert-dismissable alert-success alert-follow">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Done!</strong> <span></span>
-            </div>
-            <div class="recipe-name">
-                <h1>{{ receta.title }}</h1>
-            </div>
-            <!-- Start Description -->
-            <div class="recipe-description">
-                <p>
-                    {{ receta.description }}
-                </p>
-            </div>
-            <!-- Start Description -->
-            <!-- End Title and Image Recipe -->
-            <!-- End SubHead Recipe -->
-            <div class="recipe-subhead panel-body">
-                <!-- End Ingredients Recipe -->
-                <div class="recipe-ingredients">
-                    <h3>&nbsp;Ingredients</h3>
-                    <ul>
-                        {% for ingredient in receta.ingredients %}
-                            {% if ingredient %}
-                                <li>
-                                    {{ ingredient }}
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                <div class="recipe-votes">
+                    {{ receta.positives|length }}
+                    {% if user.is_authenticated %}
+                        <a id="btn-positive" class="btn"><img src="/static/webapp/image/voto_positivo.png"></a>
+                    {% else %}
+                        <img src="/static/webapp/image/voto_positivo.png">
+                    {% endif %}
+                    <br>
+                    {{ receta.negatives|length }}
+                    {% if user.is_authenticated %}
+                        <a id="btn-negative" class="btn"><img src="/static/webapp/image/voto_negativo.png"></a>
+                    {% else %}
+                        <img src="/static/webapp/image/voto_negativo.png">
+                    {% endif %}
                 </div>
-                <!-- End Ingredients Recipe -->
-            </div>
+                <div id="error-vote" class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Opps!</strong> <span>Unknown error</span>
+                </div>
+                <div id="ok-vote" class="alert alert-dismissable alert-success alert-follow">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Done!</strong> <span></span>
+                </div>
+                <div class="recipe-name">
+                    <h1>{{ receta.title }}</h1>
+                </div>
+                <!-- Start Description -->
+                <div class="recipe-description">
+                    <p>
+                        {{ receta.description }}
+                    </p>
+                </div>
+                <!-- Start Description -->
+                <!-- End Title and Image Recipe -->
+                <!-- End SubHead Recipe -->
+                <div class="recipe-subhead panel-body">
+                    <!-- End Ingredients Recipe -->
+                    <div class="recipe-ingredients">
+                        <h3>&nbsp;Ingredients</h3>
+                        <ul>
+                            {% for ingredient in receta.ingredients %}
+                                {% if ingredient %}
+                                    <li>
+                                        {{ ingredient }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- End Ingredients Recipe -->
+                </div>
             </div>
             <!-- End SubHead Recipe -->
             <!-- End Head Recipe -->
@@ -115,11 +116,11 @@
         </div>
         <!-- End Main -->
         <!-- Start comments -->
-        <div class="col-md-12 panel">
-            <div class="row">
+        <div class="col-md-12 panel panel-default">
+            <div class="row panel-body">
                 {% if user.is_authenticated %}
                     <div class="col-md-2">
-                        <a class="profile-image comment-image" href="#">
+                        <a class="profile-image comment-image" href="{% url 'profile' user.username %}">
                             <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
                         </a>
@@ -128,9 +129,9 @@
                         <form method="POST" action="{% url 'comment' receta.id %}">
                             {% csrf_token %}
                             <div class="comment-form">
-                                <div class="eg">
-                                    <div class="yw oo"></div>
-                                    <div class="yw VK"></div>
+                                <div class="comment-bocadillo">
+                                    <div class="bocadillo-efecto efecto-inferior"></div>
+                                    <div class="bocadillo-efecto efecto-superior"></div>
                                 </div>
                                 <textarea class="col-md-12" type="text" name="text"
                                           placeholder="Escriba un comentario..." rows="4"></textarea>
@@ -140,19 +141,50 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="row">
+            <div class="row panel-body">
                 <div class="list-comments">
                     {% for comment in receta.comments %}
-                        <div class="row comment">
-                            <div class="col-md-1"><a class="profile-image" href="{% url 'profile' comment.user_own.username %}">
-                                <img src="{% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
+                        {% if not comment.is_banned or comment.is_banned and user.is_staff or comment.is_banned and comment.user_own == user %}
+                            <div class="row comment {% if comment.is_banned %}comment-banned{% endif %}">
+                                <div class="row">
+                                    <div class="col-md-1"><a class="profile-image"
+                                                             href="{% url 'profile' comment.user_own.username %}">
+                                        <img src="
+
+
+
+
+
+                                                {% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="comment-name"><a
+                                                href="{% url 'profile' comment.user_own.username %}">{{ comment.user_own.username }}</a>
+                                        </div>
+                                        <div class="comment-date">{{ comment.create_date }}</div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        {% if user.is_staff %}
+                                            {% if not comment.is_banned %}
+                                                <a href="{% url 'banned' receta.id forloop.counter0 %}"
+                                                   class="plus btn btn-default">Banned Comment</a>
+                                            {% else %}
+                                                <a href="{% url 'unbanned' receta.id forloop.counter0 %}"
+                                                   class="plus btn btn-default">Unbanned Comment</a>
+                                            {% endif %}
+                                        {% elif comment.user_own == user %}
+                                            <div class="alert alert-danger">This comment has been banned.</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="row comment-text">
+                                    <div class="comment-bocadillo">
+                                        <div class="bocadillo-efecto efecto-inferior"></div>
+                                        <div class="bocadillo-efecto efecto-superior"></div>
+                                    </div>
+                                    {{ comment.text }}</div>
                             </div>
-                            <div class="col-md-11">
-                                <div class="comment-name"><a href="{% url 'profile' comment.user_own.username %}">{{ comment.user_own.username }}</a></div>
-                                <div class="comment-date">{{ comment.create_date }}</div>
-                            </div>
-                         <div class="row comment-text">{{ comment.text }}</div>
-                        </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -322,7 +354,7 @@
         });
 
         // funcion a ejecutar cuando el DOM este completamente cargado
-        $(document).ready(function() {
+        $(document).ready(function () {
             var $positive = $("#btn-positive");
             var $negative = $("#btn-negative");
             var $error = $("#error-vote");
@@ -365,24 +397,24 @@
 
                         $ok.hide();
 
-                        $positive.attr("disabled",false);
+                        $positive.attr("disabled", false);
                     }
                 })
             });
 
             $negative.click(function (e) {
-                $negative.attr("disabled",true);
+                $negative.attr("disabled", true);
 
                 var data = {"recipe": '{{ receta.id }}', "type": "negative"};
 
                 $.ajax({
-                    type:"POST",
+                    type: "POST",
                     url: '{% url 'vote' %}',
                     data: data,
                     dataType: "json",
 
-                    success: function(jqXHR, textStatus, errorThrown) {
-                        $negative.attr("disabled",true);
+                    success: function (jqXHR, textStatus, errorThrown) {
+                        $negative.attr("disabled", true);
 
                         var $error = $("#error-vote");
                         $error.hide();
@@ -404,7 +436,7 @@
                         var $ok = $("#ok-vote");
                         $ok.hide();
 
-                        $positive.attr("disabled",false);
+                        $positive.attr("disabled", false);
                     }
                 })
             })

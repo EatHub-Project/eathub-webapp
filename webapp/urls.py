@@ -16,4 +16,6 @@ urlpatterns = patterns('',
 	url(r'^following/(?P<username>\w+)$', views.following, name='following'),
     url(r'^followers/(?P<username>\w+)$', views.followers, name='followers'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/$' , views.comment, name='comment'),
+    url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/banned/$' , views.banned_comment, name='banned'),
+    url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/unbanned/$' , views.unbanned_comment, name='unbanned'),
 )
