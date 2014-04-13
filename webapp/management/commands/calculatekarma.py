@@ -11,12 +11,17 @@ class Command(NoArgsCommand):
         for u in usuarios:
             p = u.profile.get()
             recipes = list(Recipe.objects.raw_query({'author.user_id': ObjectId(u.id)}))
+            Recipe.objects.raw_query()
             pos = 0
             neg = 0
             for r in recipes:
                 pos+= r.positives.__len__()
                 neg+= r.negatives.__len__()
-            p.karma = 6 + (recipes.__len__()*0.2)+(pos*0.1)-(neg*0.1)
+            karma = 6 + (recipes.__len__()*0.2)+(pos*0.1)-(neg*0.1)
+            if p.karma<=karma:
+                p.karma=karma
+            else:
+                p.karma+=(karma*0.10)
             p.save()
             self.stdout.write('The user "%s"' % u.username)
             self.stdout.write('have karma "%s"' % p.karma)
