@@ -687,3 +687,8 @@ header .container {
 .comment-banned {
     opacity: 0.5;
 }
+
+/*estilo de los botones de voto de las recetas*/
+.vote{
+    padding-right: 12px;
+}

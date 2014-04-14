@@ -106,11 +106,56 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <!-- End Directions -->
-            <!-- Start Notes -->
-            <div class="recipe-note">
-                <h1>Notes</h1>
-                <span class="glyphicon glyphicon-asterisk">{{ receta.notes }}</span>
+            <div class="recipe-votes">
+                <span id="positive_votes">{{ receta.positives|length }}</span>
+                {% if user.is_authenticated %}
+                    <a id="btn-positive" class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></span></a>
+                {% else %}
+                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+
+                <span id="negative_votes">{{ receta.negatives|length }}</span>
+                {% if user.is_authenticated %}
+                    <a id="btn-negative" class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></span></a>
+                {% else %}
+                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></span></a>
+                {% endif %}
+            </div>
+            <div id="error-vote" class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Opps!</strong> <span>Unknown error</span>
+            </div>
+            <div id="ok-vote" class="alert alert-dismissable alert-success alert-follow">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Done!</strong> <span></span>
+            </div>
+            <div class="recipe-name">
+                <h1>{{ receta.title }}</h1>
+            </div>
+            <!-- Start Description -->
+            <div class="recipe-description">
+                <p>
+                    {{ receta.description }}
+                </p>
+            </div>
+            <!-- Start Description -->
+            <!-- End Title and Image Recipe -->
+            <!-- End SubHead Recipe -->
+            <div class="recipe-subhead">
+                <!-- End Ingredients Recipe -->
+                <div class="recipe-ingredients">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        {% for ingredient in receta.ingredients %}
+                            {% if ingredient %}
+                                <li>
+                                    {{ ingredient }}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- End Ingredients Recipe -->
             </div>
             <!-- End Notes -->
         </div>
@@ -357,6 +402,8 @@
         $(document).ready(function () {
             var $positive = $("#btn-positive");
             var $negative = $("#btn-negative");
+            var $positive_votes = $("#positive_votes")
+            var $negative_votes = $("#negative_votes")
             var $error = $("#error-vote");
             var $ok = $("#ok-vote");
 
@@ -366,8 +413,6 @@
 
             // establece una función a ejecutar cuando se haga click sobre el elemento
             $positive.click(function (e) {
-                $positive.attr("disabled", true);
-
                 var data = {"recipe": '{{ receta.id }}', "type": "positive"};
 
                 $.ajax({    // Realizar peticion ajax
@@ -377,15 +422,22 @@
                     dataType: "json",
 
                     // funcion ejecutada cuando la peticion haya tenido exito
-                    // TODO: Function(PlainObject data, String textStatus, jqHXR jqHXR)
                     success: function (jqXHR, textStatus, errorThrown) {
-                        $positive.attr("disabled", true);
-
                         $error.hide();
 
                         $ok.show();
-                        console.log("procesamiento success terminado, se recargara la pagina")
-                        window.location.reload(true)
+
+                        //actualizar conteo de votos sin necesidad de recargar la pagina
+                        $.get('{% url 'recipe_votes' receta.id %}', function( data ){
+                            var result = $.parseJSON( data );
+
+                            console.log("votos tras la votacion\n +: "+result.positives+"\n -: "+result.negatives);
+                            $positive_votes.html(result.positives)
+                            $negative_votes.html(result.negatives)
+
+                            //$positive.attr("disabled", true);
+                            //$negative.attr("disabled", true);
+                        })
                     },
 
                     // funcion ejecutada cuando se haya producido algun error
@@ -396,15 +448,11 @@
                         $error.show();
 
                         $ok.hide();
-
-                        $positive.attr("disabled", false);
                     }
                 })
             });
 
             $negative.click(function (e) {
-                $negative.attr("disabled", true);
-
                 var data = {"recipe": '{{ receta.id }}', "type": "negative"};
 
                 $.ajax({
@@ -412,9 +460,7 @@
                     url: '{% url 'vote' %}',
                     data: data,
                     dataType: "json",
-
-                    success: function (jqXHR, textStatus, errorThrown) {
-                        $negative.attr("disabled", true);
+                    success: function(jqXHR, textStatus, errorThrown) {
 
                         var $error = $("#error-vote");
                         $error.hide();
@@ -422,8 +468,17 @@
                         var $ok = $("#ok-vote");
                         $ok.show();
 
-                        console.log("procesamiento success terminado, se recargara la pagina")
-                        window.location.reload(true)
+                        //actualizar conteo de votos sin necesidad de recargar la pagina
+                        $.get('{% url 'recipe_votes' receta.id %}', function( data ){
+                            var result = $.parseJSON( data );
+
+                            console.log("votos tras la votacion\n +: "+result.positives+"\n -: "+result.negatives);
+                            $positive_votes.html(result.positives)
+                            $negative_votes.html(result.negatives)
+
+                            //$positive.attr("disabled", true);
+                            //$negative.attr("disabled", true);
+                        })
                     },
 
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -435,8 +490,6 @@
 
                         var $ok = $("#ok-vote");
                         $ok.hide();
-
-                        $positive.attr("disabled", false);
                     }
                 })
             })

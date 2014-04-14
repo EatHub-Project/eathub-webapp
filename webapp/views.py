@@ -23,7 +23,9 @@ def main(request):
 
 
 def new_account(request):
-    #TODO if user is authenticated redirect to main
+    if request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('main'))
+
     if request.method == 'POST':
         form = NewAccountForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
@@ -45,7 +47,8 @@ def new_account(request):
             birth_date = data['birth_date']
 
             avatar_id = data['avatar_id']
-            avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
+            if avatar_id != u'':
+                avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
 
             if not password == password_repeat:
                 errors = form._errors.setdefault("password_repeat", ErrorList())
@@ -69,14 +72,18 @@ def new_account(request):
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
 
                 #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
-                p.avatar = avatar.image
+                if avatar_id == u'':
+                    p.avatar = u'/static/webapp/image/profile_default.png'
+                else:
+                    p.avatar = avatar.image
 
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
 
                 #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
-                avatar.persist = True
-                avatar.save()
+                if avatar_id != u'':
+                    avatar.persist = True
+                    avatar.save()
 
                 u = authenticate(username=username, password=password)
                 login(request, u)
@@ -153,11 +160,11 @@ def modification_account(request, username):
             u = request.user
             p = u.profile.get()
 
-            t = Tastes(salty=data['salty'],
-                       sour=data['sour'],
-                       bitter=data['bitter'],
-                       sweet=data['sweet'],
-                       spicy=data['spicy'])
+            t = Tastes(salty = data['salty'] if data['salty'] != None else 0,
+                       sour = data['sour'] if data['sour'] != None else 0,
+                       bitter = data['bitter'] if data['bitter'] != None else 0,
+                       sweet = data['sweet'] if data['sweet'] != None else 0,
+                       spicy = data['spicy'] if data['spicy'] != None else 0)
 
             p.display_name = display_name
             p.main_language = main_language
