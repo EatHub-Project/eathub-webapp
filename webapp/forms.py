@@ -60,6 +60,20 @@ class NewRecipeForm(forms.Form):
     # sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     # spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
+    def __init__(self, *args, **kwargs):
+        steps = kwargs.pop('steps')
+        super(NewRecipeForm, self).__init__(*args, **kwargs)
+
+        for i, question in enumerate(steps):
+            self.fields['step_%s' % i] = forms.CharField()
+
+    def get_cleaned_steps(self):
+        steps = list()
+        for field in self.cleaned_data:
+            if field.startswith('step_'):
+                steps.append(self.cleaned_data[field])
+        return steps
+
 
 class EditAccountForm(NewAccountForm):
     def __init__(self, *args, **kwargs):

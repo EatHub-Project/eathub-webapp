@@ -98,7 +98,9 @@ def new_account(request):
 def new_recipe(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
-        form = NewRecipeForm(request.POST)
+        steps = get_steps(request.POST)
+        form = NewRecipeForm(request.POST, steps=steps)
+
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
             data = form.cleaned_data
@@ -113,6 +115,7 @@ def new_recipe(request):
                 pictures_list = extra_pictures.split(";")
 
             ingredients = data['ingredients_list'].split(";")
+            steps = form.get_cleaned_steps()
 
             # serves = data['serves']
             # language = data['language']
@@ -127,9 +130,18 @@ def new_recipe(request):
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
-        form = NewRecipeForm()
+        form = NewRecipeForm(steps=[])
 
     return render(request, 'webapp/newrecipe.html', {'form': form})
+
+
+def get_steps(post):
+    steps = list()
+    for name in post:
+        if name.startswith('step_'):
+            steps.append(post[name])
+    return steps
+
 
 
 @login_required
