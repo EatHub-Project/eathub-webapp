@@ -101,21 +101,28 @@ def new_recipe(request):
         form = NewRecipeForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
-            # TODO validar que el nombre de usuario sea único
             data = form.cleaned_data
+
+            # Basic information
             title = data['title']
             description = data['description']
+            main_picture = data['main_picture_id']
+            extra_pictures = data['pictures_ids_list']
+            pictures_list = []
+            if extra_pictures:
+                pictures_list = extra_pictures.split(";")
+
             ingredients = data['ingredients_list'].split(";")
 
-            serves = data['serves']
-            language = data['language']
-            temporality = data['temporality']
-            nationality = data['nationality']
-            special_conditions = data['special_conditions']
-            notes = data['notes']
-            difficult = data['difficult']
-            food_type = data['food_type']
-            tags = data['tags']
+            # serves = data['serves']
+            # language = data['language']
+            # temporality = data['temporality']
+            # nationality = data['nationality']
+            # special_conditions = data['special_conditions']
+            # notes = data['notes']
+            # difficult = data['difficult']
+            # food_type = data['food_type']
+            # tags = data['tags']
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 

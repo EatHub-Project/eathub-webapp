@@ -45,20 +45,29 @@
     <script>
         $().ready(function () {
             // Drag&Drop for main picture
-            var obj = $("#main-picture");
-            activateDragAndDrop(obj, "{% url 'upload' %}", function (returndata) {
+            var mainPicture = $("#main-picture");
+            activateDragAndDrop(mainPicture, "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
                 //TODO validar y tal
                 $("#main-picture").css('background-image', 'url(' + response.url + ')');
-                $("#main-picture-indicator").hide()
-                //TODO guardar la info somewhere
+                $("#main-picture-indicator").hide();
+
+                // Guardar la info en un campo oculto
+                var input_id = "#id_{{ form.main_picture_id.name }}";
+                $(input_id).val(response.id);
             });
 
             // Drag&Drop for gallery
             var gallery = $("#gallery");
             activateDragAndDrop(gallery, "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
-                addPicture(response.url)
+                $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + response.url + '"></div>');
+
+                // Guardar la info en un campo oculto
+                var input_id = "#id_{{ form.pictures_ids_list.name }}";
+                //TODO este campo es difícil de limpiar si se quiere quitar una foto de la lista
+                var current_val = $(input_id).val();
+                $(input_id).val(current_val + ";" + response.id);
             });
 
             $(".step-list").on("click", ".step-picture", function (event) {
@@ -93,10 +102,6 @@
             });
 
         });
-        function addPicture(url) {
-            var $gallery = $("#gallery");
-            $gallery.append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
-        }
     </script>
     <script>
         $().ready(function () {
@@ -145,6 +150,7 @@
         </div>
 
         <!-- Main Image -->
+        <input type="hidden" id="id_{{ form.main_picture_id.name }}" name="{{ form.main_picture_id.name }}">
         <div class="form-group">
             <div class="col-sm-12">
                 <div class="main-picture drop-target" id="main-picture">
@@ -159,6 +165,8 @@
         </div>
 
         <!-- Gallery -->
+        <!-- TODO Cuando se vuelve a la página, por ejemplo yendo atrás, los campos del formulario están rellenos, incluído los hidden, pero las fotos obviamente no se muestran. Algo hay que hacer con eso -->
+        <input type="hidden" id="id_{{ form.pictures_ids_list.name }}" name="{{ form.pictures_ids_list.name }}">
         <!-- TODO con ciertos tamaños de imagen se buggea y la cuadrícula se va a tomar viento -->
         <div class="form-group">
             <div class="col-sm-12">

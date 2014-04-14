@@ -39,24 +39,26 @@ class NewRecipeForm(forms.Form):
     DIFFICULT = [("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")]
 
     title = forms.CharField(max_length=50, required=False)
+    main_picture_id = forms.CharField(required=True)
+    pictures_ids_list = forms.CharField(required=False)
     description = forms.CharField(required=False)
-    ingredients_list = forms.CharField(required=False)
-    serves = forms.CharField(max_length=50, required=False)
-    language = forms.ChoiceField(choices=LANGUAGES, required=False)
-    temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
-    nationality = forms.ChoiceField(choices=COUNTRY, required=False)
-    special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS, required=False)
-    notes = forms.CharField(widget=forms.Textarea, required=False)
-    difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
-    food_type = forms.ChoiceField(choices=FOOD_TYPE, required=False)
-    tags = forms.CharField(required=False)
-    main_image = forms.ImageField(required=False)
 
-    salty = forms.IntegerField(max_value=99, min_value=0, required=False)
-    sour = forms.IntegerField(max_value=99, min_value=0, required=False)
-    bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
-    sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
-    spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
+    ingredients_list = forms.CharField(required=True)
+    # serves = forms.CharField(max_length=50, required=False)
+    # language = forms.ChoiceField(choices=LANGUAGES, required=False)
+    # temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
+    # nationality = forms.ChoiceField(choices=COUNTRY, required=False)
+    # special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS, required=False)
+    # notes = forms.CharField(widget=forms.Textarea, required=False)
+    # difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
+    # food_type = forms.ChoiceField(choices=FOOD_TYPE, required=False)
+    # tags = forms.CharField(required=False)
+    #
+    # salty = forms.IntegerField(max_value=99, min_value=0, required=False)
+    # sour = forms.IntegerField(max_value=99, min_value=0, required=False)
+    # bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
+    # sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
+    # spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
 
 class EditAccountForm(NewAccountForm):
