@@ -71,6 +71,7 @@ class Profile(models.Model):
     tastes = EmbeddedModelField('Tastes', null=True)
     user = models.ForeignKey(User, related_name="profile", unique=True)
     following = ListField(EmbeddedModelField('Following'))
+    karma = models.IntegerField(default=6)
 
     objects = MongoDBManager()
 

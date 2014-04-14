@@ -117,7 +117,7 @@
         <!-- Start comments -->
         <div class="col-md-12 panel">
             <div class="row">
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated  %}
                     <div class="col-md-2">
                         <a class="profile-image comment-image" href="#">
                             <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
