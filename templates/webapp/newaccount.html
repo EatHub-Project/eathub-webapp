@@ -210,7 +210,11 @@
                         id="id_{{ form.main_language.name }}" name="{{ form.main_language.name }}">
                     {% for choice in form.main_language.field.choices %}
                         {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
-                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        <option value="{{ choice.0 }}"
+                                {% ifequal form.main_language.value choice.0 %}
+                                selected
+                                {% endifequal %}
+                                >{{ choice.1 }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -226,7 +230,14 @@
                 <select class="form-control show-tick" multiple data-live-search="true"
                         id="id_{{ form.additional_languages.name }}" name="{{ form.additional_languages.name }}">
                     {% for choice in form.additional_languages.field.choices %}
-                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        <option value="{{ choice.0 }}"
+                                {% for opt in form.additional_languages.value %}
+                                    {% ifequal opt choice.0 %}
+                                selected
+                                    {% endifequal %}
+                                {% endfor %}
+                                >{{ choice.1 }}
+                        </option>
                     {% endfor %}
                 </select>
             </div>
@@ -241,7 +252,11 @@
                 <select class="form-control show-tick"
                         id="id_{{ form.gender.name }}" name="{{ form.gender.name }}">
                     {% for choice in form.gender.field.choices %}
-                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        <option value="{{ choice.0 }}"
+                                {% ifequal form.gender.value choice.0 %}
+                                selected
+                                {% endifequal %}
+                                >{{ choice.1 }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -279,7 +294,7 @@
             <div class="col-sm-3">
                 <input type="date" class="form-control"
                        name="{{ form.birth_date.name }}" id="id_{{ form.birth_date.name }}"
-                       value="{{ form.birth_date.value | default_if_none:'' }}">
+                       value="{{ form.birth_date.value.year }}-{% if form.birth_date.value.month < 10 %}0{% endif %}{{ form.birth_date.value.month }}-{% if form.birth_date.value.day < 10 %}0{% endif %}{{ form.birth_date.value.day }}">
             </div>
         </div>
 
@@ -292,7 +307,8 @@
                 -->
             <div class="col-sm-3">
                 <div id="drop-target" class="drag-and-drop avatar-drop">
-                    <img id="avatar-target" class="img-rounded img-responsive" src="{{ form.avatar_url.value|default_if_none:'' }}">
+                    <img id="avatar-target" class="img-rounded img-responsive"
+                         src="{{ form.avatar_url.value|default_if_none:'' }}">
                     <input type="hidden" id="id_{{ form.avatar_url.name }}" name="{{ form.avatar_url.name }}">
                     <input type="hidden" id="id_{{ form.avatar_id.name }}" name="{{ form.avatar_id.name }}">
                 </div>
@@ -318,6 +334,7 @@
                        data-slider-value="{{ form.salty.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="salty"
+                       value="{{ form.salty.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -330,6 +347,7 @@
                        data-slider-value="{{ form.sour.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="sour"
+                       value="{{ form.sour.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -342,6 +360,7 @@
                        data-slider-value="{{ form.bitter.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="bitter"
+                       value="{{ form.bitter.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -354,6 +373,7 @@
                        data-slider-value="{{ form.sweet.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="sweet"
+                       value="{{ form.sweet.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -366,6 +386,7 @@
                        data-slider-value="{{ form.spicy.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="spicy"
+                       value="{{ form.spicy.value | default_if_none:'50' }}"
                         >
             </div>
         </div>

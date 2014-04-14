@@ -35,6 +35,8 @@ def follow(request):
     username = request.POST['username']
     if not username:
         return HttpResponse(json.dumps({"message": "You must specify a user to follow by its username"}), status=400)
+    elif username == me.username:
+        return HttpResponse(json.dumps({"message": "You can't follow yourself."}), status=400)
     try:
         who = User.objects.get(username=username)
     except ObjectDoesNotExist:
