@@ -194,13 +194,7 @@
                                 <div class="row">
                                     <div class="col-md-1"><a class="profile-image"
                                                              href="{% url 'profile' comment.user_own.username %}">
-                                        <img src="
-
-
-
-
-
-                                                {% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
+                                        <img src="{% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="comment-name"><a
@@ -217,7 +211,7 @@
                                                 <a href="{% url 'unbanned' receta.id forloop.counter0 %}"
                                                    class="plus btn btn-default">Unbanned Comment</a>
                                             {% endif %}
-                                        {% elif comment.user_own == user %}
+                                        {% elif comment.user_own == user and comment.is_banned %}
                                             <div class="alert alert-danger">This comment has been banned.</div>
                                         {% endif %}
                                     </div>
