@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block container %}
-<div class="panel panel-default">
+    <div class="panel panel-default">
     <div class="container demo">
 
     <div class="panel-body">
@@ -17,8 +17,10 @@
             <br/>
             <ul class="list-group custom-set">
                 <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>Recipes</li>
-                <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a href="{% url 'followers' profile.user.username %}">Seguidores</a></li>
-                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a href="{% url 'following' profile.user.username %}">Siguiendo</a></li>
+                <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a
+                        href="{% url 'followers' profile.user.username %}">Seguidores</a></li>
+                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a
+                        href="{% url 'following' profile.user.username %}">Siguiendo</a></li>
             </ul>
             <br/>
             {% if profile.user.id == user.id %}
@@ -161,6 +163,26 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-10">
+                <h4>Karma</h4>
+            </div>
+            <div class="col-md-10">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-10">
+                <p>{{ profile.karma }}</p>
+            </div>
+            <div class="col-md-10">
+
+            </div>
+        </div>
+    </div>
     {% if is_owner %}
         <legend>Informaci&oacute;n personal</legend>
         <div class="row">
@@ -202,6 +224,7 @@
             </div>
         </div>
     {% endif %}
+
     <legend>Perfil de savores</legend>
     <div class="recipe-taste">
         <h5>Salty</h5>
@@ -253,7 +276,7 @@
 
     </div>
     </div>
-</div>
+    </div>
 
 {% endblock %}
 
