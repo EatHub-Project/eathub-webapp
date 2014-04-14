@@ -232,11 +232,6 @@ def logout_user(request):
     return views.logout(request, next_page=reverse('main'))
 
 
-@login_required
-def test_login_required(request):
-    return HttpResponse("Secret, " + request.user.username)
-
-
 def receta(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
     return render(request, 'webapp/recipe_template.html', {'receta': recipe})
