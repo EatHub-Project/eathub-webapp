@@ -155,16 +155,14 @@ header .container {
 }
 
 .recipe-ingredients {
-    width: 500px;
-    border-right: 1px solid #CC3E27;
+    font-style: italic;
+    background-color: #FCF0AD;
 }
 
 .recipe-ingredients h3 {
-    color: #CC3E27;
 }
 
 .recipe-ingredients li {
-    padding: 5px;
     list-style: none;
 }
 
@@ -257,7 +255,7 @@ header .container {
     padding: 10px;
     background-color: #FFF;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .recipe-step h5 {
@@ -294,7 +292,7 @@ header .container {
     padding: 15px;
     background-color: #FFF;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 2px;
     text-align: justify;
     text-align-last: left;
 }
