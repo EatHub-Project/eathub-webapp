@@ -43,7 +43,8 @@ class NewRecipeForm(forms.Form):
     pictures_ids_list = forms.CharField(required=False)
     description = forms.CharField(required=False)
 
-    ingredients_list = forms.CharField(required=True)
+    #ingredients_list = forms.CharField(required=True)
+
     # serves = forms.CharField(max_length=50, required=False)
     # language = forms.ChoiceField(choices=LANGUAGES, required=False)
     # temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
@@ -62,10 +63,14 @@ class NewRecipeForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         steps = kwargs.pop('steps')
+        ingredients = kwargs.pop('ingredients')
         super(NewRecipeForm, self).__init__(*args, **kwargs)
 
-        for i, question in enumerate(steps):
+        for i, step in enumerate(steps):
             self.fields['step_%s' % i] = forms.CharField()
+
+        for i, ingredient in enumerate(ingredients):
+            self.fields['ingredient_%s' % i] = forms.CharField()
 
     def get_cleaned_steps(self):
         steps = list()
@@ -73,6 +78,15 @@ class NewRecipeForm(forms.Form):
             if field.startswith('step_'):
                 steps.append(self.cleaned_data[field])
         return steps
+
+    def get_cleaned_ingredients(self):
+        ingredients = list()
+        for field in self.cleaned_data:
+            if field.startswith('ingredient_'):
+                ingredients.append(self.cleaned_data[field])
+        return ingredients
+
+
 
 
 class EditAccountForm(NewAccountForm):

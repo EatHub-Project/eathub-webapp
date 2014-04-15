@@ -99,8 +99,9 @@ def new_recipe(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
         steps = get_steps(request.POST)
+        ingredients = get_ingredients(request.POST)
         mapping_step_picture = get_mapping_step_picture(request.POST)
-        form = NewRecipeForm(request.POST, steps=steps)
+        form = NewRecipeForm(request.POST, steps=steps, ingredients=ingredients)
 
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
@@ -115,7 +116,7 @@ def new_recipe(request):
             if extra_pictures:
                 pictures_list = extra_pictures.split(";")
 
-            ingredients = data['ingredients_list'].split(";")
+            ingredients = form.get_cleaned_ingredients()
             steps = form.get_cleaned_steps()
 
             # serves = data['serves']
@@ -131,7 +132,7 @@ def new_recipe(request):
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
-        form = NewRecipeForm(steps=[])
+        form = NewRecipeForm(steps=[], ingredients=[])
 
     return render(request, 'webapp/newrecipe.html', {'form': form})
 
@@ -154,6 +155,13 @@ def get_steps(post):
             steps.append(post[name])
     return steps
 
+
+def get_ingredients(post):
+    ingredients = list()
+    for name in post:
+        if name.startswith('ingredient_'):
+            ingredients.append(post[name])
+    return ingredients
 
 
 @login_required

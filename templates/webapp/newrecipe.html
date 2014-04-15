@@ -117,17 +117,6 @@
         $().ready(function () {
             $("#recipe-form").submit(function (e) {
                 var $form = $(this);
-                // Recoge la lista de ingredientes
-                var ingredients= [];
-                $(".ingredient-input").each(function (index, Element) {
-                    var ingredient = $(Element).val();
-                    if(ingredient){
-                        ingredients.push(ingredient);
-                    }
-                });
-                var string = ingredients.join(";");
-                var list_id = "#id_{{ form.ingredients_list.name }}";
-                $(list_id).val(string);
 
                 // Recoge las asociaciones paso-foto
                 $.each(associationStepPicture, function(index, value){
@@ -241,7 +230,7 @@
                             <span class="input-group-addon repeatable-move"><span
                                     class="glyphicon glyphicon-sort"></span> </span>
                                 <input type="text" class="form-control ingredient-input"
-                                       name="ingredient[{row-count-placeholder}]"
+                                       name="ingredient_{row-count-placeholder}" id="id_ingredient_{row-count-placeholder}"
                                         >
                             <span class="input-group-btn ingredient-remove">
                                 <button class="btn btn-default repeatable-remove" type="button"><span
