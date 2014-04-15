@@ -248,7 +248,7 @@ def profile(request, username):
     except User.DoesNotExist:
         raise Http404
     user_profile = Profile.objects.get(user=user)
-    recipes = Recipe.objects.raw_query({'author.user_id': ObjectId(user_profile.user_id)})
+    recipes = Recipe.objects.raw_query({'author_id': ObjectId(user.id)})
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
     is_owner = False
     if request.user.username == username:

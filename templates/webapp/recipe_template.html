@@ -18,7 +18,7 @@
                         </div>
                         <div class="recipe-author panel-body">
                             <h5>Recipe by</h5>
-                            <span><a class="recipe-link" href="#">{{ receta.author.display_name }}</a></span>
+                            <span><a class="recipe-link" href="{% url 'profile' receta.author.username %}">{{ receta.author.profile.get.display_name }}</a></span>
                         </div>
                     </div>
                     <div class="row">

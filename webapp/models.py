@@ -104,14 +104,6 @@ def validate_difficult(difficult):
 
 # Models
 
-class Author(models.Model):
-    display_name = models.CharField(max_length=50, blank=False)
-    user_name = models.CharField(max_length=50, blank=False)
-    user = ForeignKey(Profile, unique=True)
-
-    def __str__(self):
-        return self.displayName
-
 class Comment(models.Model):
     text = models.TextField(blank=False)
     create_date = models.DateTimeField()
@@ -174,7 +166,7 @@ class Recipe(models.Model):
     is_published = BooleanField()
     parent = ForeignKey('self', null=True, blank=True)
     #embedded
-    author = EmbeddedModelField('Author')
+    author = ForeignKey(User)
     pictures = ListField(EmbeddedModelField('Picture'), blank=False)
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
