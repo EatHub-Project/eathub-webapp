@@ -16,31 +16,31 @@
 
             <br/>
             <ul class="list-group custom-set">
-                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>Recipes</li>
+                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>{% trans "Recipes" %}</li>
                 <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a
-                        href="{% url 'followers' profile.user.username %}">Seguidores</a></li>
+                        href="{% url 'followers' profile.user.username %}">{% trans "Followers" %}</a></li>
                 <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a
-                        href="{% url 'following' profile.user.username %}">Siguiendo</a></li>
+                        href="{% url 'following' profile.user.username %}">{% trans "Following" %}</a></li>
             </ul>
             <br/>
             {% if profile.user.id == user.id %}
-                <a class="btn btn-default btn-block btn-follow disabled">This is you!</a>
+                <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
             {% elif following %}
-                <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">Unfollow</a>
+                <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
             {% else %}
                 <a id="btn-follow" class="btn btn-default btn-block btn-follow">Follow</a>
             {% endif %}
             <!-- Alert boxes-->
             <div id="error-follow" class="alert alert-dismissable alert-danger alert-follow">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Opps!</strong> <span>Unknown error</span></div>
+                <strong>Opps!</strong> <span>{% trans "Unknown error" %}</span></div>
             <div id="ok-follow" class="alert alert-dismissable alert-success alert-follow">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Done!</strong> <span></span></div>
+                <strong>{% trans "Done!" %}</strong> <span></span></div>
         </div>
         <!-- /Thumbnails -->
         {% if profile.user.id == user.id %}
-            <a href="{% url 'profile_edit' user.username %}">Editar perfil</a>
+            <a href="{% url 'profile_edit' user.username %}">{% trans "Edit profile" %}</a>
         {% endif %}
     </div>
     <div class="col-md-8 left-block">
@@ -49,11 +49,11 @@
         <h1>{{ profile.display_name }}</h1>
     </div>
 
-    <legend>Informaci&oacute;n b&aacute;sica</legend>
+    <legend>{% trans "Basic info" %}</legend>
     <div class="row">
         <div class="col-md-6">
             <div class="col-md-10">
-                <h4>Email</h4>
+                <h4>{% trans "Email" %}</h4>
             </div>
             <div class="col-md-10">
 
@@ -61,7 +61,7 @@
         </div>
         <div class="col-md-6">
             <div class="col-md-10">
-                <h4>Idioma</h4>
+                <h4>{% trans "Language" %}</h4>
             </div>
             <div class="col-md-10">
 
@@ -91,7 +91,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="col-md-10">
-                <h4>Fecha de registro</h4>
+                <h4>{% trans "Check-in date" %}</h4>
             </div>
             <div class="col-md-10">
 
@@ -126,11 +126,11 @@
             </div>
         </div>
     </div>
-    <legend>Informaci&oacute;n del usuario</legend>
+    <legend>{% trans "User info" %}</legend>
     <div class="row">
         <div class="col-md-6">
             <div class="col-md-10">
-                <h4>Sitio web</h4>
+                <h4>{% trans "website" %}</h4>
             </div>
             <div class="col-md-10">
 
@@ -138,7 +138,7 @@
         </div>
         <div class="col-md-6">
             <div class="col-md-10">
-                <h4>G&eacute;nero</h4>
+                <h4>{% trans "Gender" %}</h4>
             </div>
             <div class="col-md-10">
 
@@ -184,11 +184,11 @@
         </div>
     </div>
     {% if is_owner %}
-        <legend>Informaci&oacute;n personal</legend>
+        <legend>{% trans "Personal info" %}</legend>
         <div class="row">
             <div class="col-md-6">
                 <div class="col-md-10">
-                    <h4>Fecha de nacimiento</h4>
+                    <h4>{% trans "Bith date" %}</h4>
                 </div>
                 <div class="col-md-10">
 
@@ -196,7 +196,7 @@
             </div>
             <div class="col-md-6">
                 <div class="col-md-10">
-                    <h4>&Uacute;ltimo login</h4>
+                    <h4>{% trans "Last login" %}</h4>
                 </div>
                 <div class="col-md-10">
 
@@ -225,9 +225,9 @@
         </div>
     {% endif %}
 
-    <legend>Perfil de savores</legend>
+    <legend>{% trans "Savours profile" %}</legend>
     <div class="recipe-taste">
-        <h5>Salty</h5>
+        <h5>{% trans "Salty" %}</h5>
 
         <div class="progress">
             <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
@@ -236,7 +236,7 @@
         </div>
     </div>
     <div class="recipe-taste">
-        <h5>Sour</h5>
+        <h5>{% trans "Sour" %}</h5>
 
         <div class="progress">
             <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80" aria-valuemin="0"
@@ -245,7 +245,7 @@
         </div>
     </div>
     <div class="recipe-taste">
-        <h5>Bitter</h5>
+        <h5>{% trans "Bitter" %}</h5>
 
         <div class="progress">
             <div class="progress-bar" id="bitter" role="progressbar" aria-valuenow="60" aria-valuemin="0"
@@ -254,7 +254,7 @@
         </div>
     </div>
     <div class="recipe-taste">
-        <h5>Sweet</h5>
+        <h5>{% trans "Sweet" %}</h5>
 
         <div class="progress">
             <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60" aria-valuemin="0"
@@ -263,7 +263,7 @@
         </div>
     </div>
     <div class="recipe-taste">
-        <h5>Spicy</h5>
+        <h5>{% trans "Spicy" %}</h5>
 
         <div class="progress">
             <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60" aria-valuemin="0"
