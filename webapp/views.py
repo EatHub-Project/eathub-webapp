@@ -292,6 +292,15 @@ def followers(request, username):
     tag = "Followers"
     return render(request, 'webapp/following.html', {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
+def recipes(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    recipes_list = Recipe.objects.raw_query({'author.user_id': ObjectId(user.id)})
+    return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
+
 
 @login_required
 def comment(request, recipe_id):

@@ -1,0 +1,32 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block container %}
+{% if recipes %}
+    <h1>Recipes</h1>
+
+    <div class="row">
+        {% for recipe in recipes %}
+                {% with recipe_aux=recipe.get %}
+                <div class="col-md-4 panel follow-list-item">
+                    <img class="img-rounded" src="{{ recipe_aux.picture.0 }}"/>
+
+                    <h3 class="user-name"><a href="{% url 'recipes' recipe_aux.id %}">
+                        {{ recipe_aux.title }}</a></h3>
+
+                    <p class="location">
+                        <!--<span class="glyphicon glyphicon-map-marker"></span><span>{{ friend_profile.location }}</span>-->
+                    </p>
+
+                    <p class="extra-info">No recipes yet</p>
+                </div>
+                {% endwith %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="recipe-name">
+        <h2 class="follow-msg">¿A&uacute;n no tienes recetas? Crea recetas y compartelas!</h2>
+    </div>
+{% endif %}
+{% endblock %}
