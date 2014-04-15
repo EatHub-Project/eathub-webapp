@@ -8,28 +8,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-30 01:25+0100\n"
+"POT-Creation-Date: 2014-04-15 16:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/webapp/index.html:61
+#: .\views.py:57 .\views.py:161
+msgid "Passwords don't match"
+msgstr "LAs contraseñas no coinciden"
+
+#: .\views.py:62
+msgid "Username alerady taken"
+msgstr "Ese nombre de usuario ya está en uso"
+
+#: templates/webapp/base.html.py:28
+msgid "Toggle navigation"
+msgstr "Cambiar la navegación"
+
+#: templates/webapp/base.html.py:40
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/webapp/base.html.py:41 .\profile.html.py:19
+msgid "Recipes"
+msgstr "Recetas"
+
+#: templates/webapp/base.html.py:42
+msgid "Explore"
+msgstr "Explora"
+
+#: templates/webapp/base.html.py:60
 msgid "Hello"
 msgstr "Hola"
 
-#: templates/webapp/login.html:31
-msgid "Please sign in"
-msgstr "Por favor inicie sesión"
+#: templates/webapp/base.html.py:68
+msgid "Profile"
+msgstr "Perfil"
 
-#: templates/webapp/login.html:44
+#: templates/webapp/base.html.py:71
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: templates/webapp/base.html.py:77
+msgid "Add recipe"
+msgstr "Añadir receta"
+
+#: templates/webapp/base.html.py:83
+msgid "Sign-up"
+msgstr "Registrarse"
+
+#: templates/webapp/following.html.py:23
+msgid "No recipes yet"
+msgstr "Aún no hay recetas"
+
+#: templates/webapp/following.html.py:31
+msgid "Don't you have friends? Let's make some!"
+msgstr "¿No tienes amigos? ¡Vamos a buscarlos!"
+
+#: templates/webapp/following.html.py:35
+msgid "has no friends yet"
+msgstr "aún no tiene amigos"
+
+#: templates/webapp/login.html.py:30
+msgid "Please sign in"
+msgstr ""
+
+#: templates/webapp/login.html.py:43
 msgid "Remember me"
 msgstr "Recuérdame"
 
-#: templates/webapp/login.html:47
+#: templates/webapp/login.html.py:46
 msgid "Sign in"
-msgstr "Iniciar sesión"
+msgstr "Inicia sesión"
+
+#: templates/webapp/logo.html.py:9
+msgid "This is a provisional starting page"
+msgstr "Esta es una página de inicio provisional"
+
+#: templates/webapp/logo.html.py:11
+msgid "Under construction"
+msgstr "En construcción"
+
+#: templates/webapp/newaccount.html.py:102 .\profile.html.py:43
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: templates/webapp/newaccount.html.py:104 .\newaccount.html.py:405
+msgid "Create account"
+msgstr ""
+
+#: templates/webapp/newaccount.html.py:126
+msgid "Account information"
+msgstr "información de la cuenta"
+
+#: templates/webapp/newaccount.html.py:146 .\newaccount.html.py:159 .\newaccount.html.py:172
+#: templates/webapp/newaccount.html.py:185 .\newaccount.html.py:201 .\newaccount.html.py:224
+msgid "Required"
+msgstr "Requerido"
+
+#: templates/webapp/newaccount.html.py:189
+msgid "Profile information"
+msgstr "Información del perfil"
+
+#: templates/webapp/newaccount.html.py:323
+msgid "Consumer preferences"
+msgstr "Preferencias de los usuarios"
+
+#: templates/webapp/newaccount.html.py:403
+msgid "Save changes"
+msgstr "Guardar los cambios"
+
+#: templates/webapp/profile.html.py:21
+msgid "Followers"
+msgstr "Seguidores"
+
+#: templates/webapp/profile.html.py:23
+msgid "Following"
+msgstr "Siguiendo"
+
+#: templates/webapp/profile.html.py:27
+msgid "That's you!"
+msgstr "¡Este eres tú!"
+
+#: templates/webapp/profile.html.py:29
+msgid "Unfollow"
+msgstr "Dejar de seguir"
+
+#: templates/webapp/profile.html.py:36
+msgid "Unknown error"
+msgstr "Error desconocido"
+
+#: templates/webapp/profile.html.py:39
+msgid "Done!"
+msgstr "¡Hecho!"
+
+#: templates/webapp/profile.html.py:52
+msgid "Basic info"
+msgstr "Información básica"
+
+#: templates/webapp/profile.html.py:56
+msgid "Email"
+msgstr "Email"
+
+#: templates/webapp/profile.html.py:64
+msgid "Language"
+msgstr "Idioma"
+
+#: templates/webapp/profile.html.py:94
+msgid "Check-in date"
+msgstr "Fecha de registro"
+
+#: templates/webapp/profile.html.py:129
+msgid "User info"
+msgstr "Información del usuario"
+
+#: templates/webapp/profile.html.py:133
+msgid "website"
+msgstr "Sitio web"
+
+#: templates/webapp/profile.html.py:141
+msgid "Gender"
+msgstr "Género"
+
+#: templates/webapp/profile.html.py:187
+msgid "Personal info"
+msgstr "Información personal"
+
+#: templates/webapp/profile.html.py:191
+msgid "Bith date"
+msgstr "Fecha de nacimiento"
+
+#: templates/webapp/profile.html.py:199
+msgid "Last login"
+msgstr "Último login"
+
+#: templates/webapp/profile.html.py:228
+msgid "Savours profile"
+msgstr "Perfil de sabores"
+
+#: templates/webapp/profile.html.py:230
+msgid "Salty"
+msgstr "Salado"
+
+#: templates/webapp/profile.html.py:239
+msgid "Sour"
+msgstr "Agrio"
+
+#: templates/webapp/profile.html.py:248
+msgid "Bitter"
+msgstr "Amargo"
+
+#: templates/webapp/profile.html.py:257
+msgid "Sweet"
+msgstr "Dulce"
+
+#: templates/webapp/profile.html.py:266
+msgid "Spicy"
+msgstr "Picante"

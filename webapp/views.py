@@ -16,6 +16,8 @@ from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComm
 from django.forms.util import ErrorList
 from datetime import datetime
 
+from django.utils.translation import ugettext as _
+
 
 def main(request):
     recipes = Recipe.objects.all()
@@ -52,11 +54,13 @@ def new_account(request):
 
             if not password == password_repeat:
                 errors = form._errors.setdefault("password_repeat", ErrorList())
-                errors.append(u"Passwords don't match")
+                output = _("Passwords don't match")
+                errors.append(unicode(output))
 
             elif User.objects.filter(username=username).count():
                 errors = form._errors.setdefault("username", ErrorList())
-                errors.append(u"Username alerady taken")
+                output = _("Username alerady taken")
+                errors.append(unicode(output))
             #todo: validar email único también
             else:
                 u = User.objects.create_user(username, email, password)
@@ -154,7 +158,8 @@ def modification_account(request, username):
             if password:  # todo comprobar también que sea válida en cuanto a caracteres y tal
                 if not password == password_repeat:
                     errors = form._errors.setdefault("password_repeat", ErrorList())
-                    errors.append(u"Passwords don't match")
+                    output = _("Passwords don't match")
+                    errors.append(unicode(output))
                     valid = False
 
             u = request.user

@@ -122,7 +122,7 @@
 
     {{ form.non_field_errors }}
 
-    <legend>Account information</legend>
+    <legend>{% trans "Account information" %}</legend>
     <fieldset class="panel-body">
 
         <!-- Username -->
@@ -141,7 +141,7 @@
                        name="{{ form.username.name }}" id="id_{{ form.username.name }}"
                        value="{{ form.username.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
-            <span class="help-block">Required</span>
+            <span class="help-block">{% trans "Required" %}</span>
         </div>
 
 
@@ -154,7 +154,7 @@
                        name="{{ form.email.name }}" id="id_{{ form.email.name }}"
                        value="{{ form.email.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
-            <span class="help-block">Required</span>
+            <span class="help-block">{% trans "Required" %}</span>
         </div>
 
         <!-- Password -->
@@ -167,7 +167,7 @@
                        name="{{ form.password.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">Required</span>
+            <span class="help-block">{% trans "Required" %}</span>
         </div>
 
         <!-- Password repeat -->
@@ -180,11 +180,11 @@
                        name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password_repeat.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">Required</span>
+            <span class="help-block">{% trans "Required" %}</span>
         </div>
     </fieldset>
 
-    <legend>Profile information</legend>
+    <legend>{% trans "Profile information" %}</legend>
     <fieldset class="panel-body">
         <!-- Display Name -->
         <div class="form-group">
@@ -196,7 +196,7 @@
                        name="{{ form.display_name.name }}" id="id_{{ form.display_name.name }}"
                        value="{{ form.display_name.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">Required</span>
+            <span class="help-block">{% trans "Required" %}</span>
         </div>
 
         <!-- Main Language -->
@@ -218,7 +218,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <span class="help-block">Required</span>
+            <span class="help-block">{% trans "Required" %}</span>
         </div>
 
         <!-- Additional languages -->
@@ -317,7 +317,7 @@
 
     </fieldset>
 
-    <legend>Consumer preferences</legend>
+    <legend>{% trans "Consumer preferences" %}</legend>
     <fieldset class="panel-body">
         <!-- Special conditions -->
 

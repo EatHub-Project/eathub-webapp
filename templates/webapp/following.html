@@ -20,7 +20,7 @@
                         <span class="glyphicon glyphicon-map-marker"></span><span>{{ friend_profile.location }}</span>
                     </p>
 
-                    <p class="extra-info">No recipes yet</p>
+                    <p class="extra-info">{% trans "No recipes yet" %}</p>
                 </div>
             {% endwith %}
         {% endfor %}
@@ -28,11 +28,11 @@
 {% else %}
     {% if is_owner %}
         <div class="recipe-name">
-            <h2 class="follow-msg">¿A&uacute;n no tienes amigos? Sube recetas y haz amigos!</h2>
+            <h2 class="follow-msg">{% trans "Don't you have friends? Let's make some!" %}</h2>
         </div>
     {% else %}
         <div class="recipe-name">
-            <h2 class="follow-msg">El usuario {{ profile.display_name }} a&uacute;n no tiene amigos.</h2>
+            <h2 class="follow-msg"> {{ profile.display_name }} {% trans "has no friends yet" %}</h2>
         </div>
     {% endif %}
 {% endif %}
