@@ -99,6 +99,7 @@ def new_recipe(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
         steps = get_steps(request.POST)
+        mapping_step_picture = get_mapping_step_picture(request.POST)
         form = NewRecipeForm(request.POST, steps=steps)
 
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
@@ -133,6 +134,17 @@ def new_recipe(request):
         form = NewRecipeForm(steps=[])
 
     return render(request, 'webapp/newrecipe.html', {'form': form})
+
+
+def get_mapping_step_picture(post):
+    mapping = dict()
+    for name in post:
+        if name.startswith("step-picture-index_"):
+            index = post[name]
+            value = post["step-picture-id_" + index]
+            if index and value:
+                mapping[index] = value
+    return mapping
 
 
 def get_steps(post):

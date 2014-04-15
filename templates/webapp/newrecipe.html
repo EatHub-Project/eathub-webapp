@@ -43,6 +43,9 @@
         });
     </script>
     <script>
+        var galleryArray = {};
+        var associationStepPicture = {};
+
         $().ready(function () {
             // Drag&Drop for main picture
             var mainPicture = $("#main-picture");
@@ -68,11 +71,15 @@
                 //TODO este campo es difícil de limpiar si se quiere quitar una foto de la lista
                 var current_val = $(input_id).val();
                 $(input_id).val(current_val + ";" + response.id);
+
+                // Y en una variable global
+                galleryArray[response.url] = response.id;
             });
 
             $(".step-list").on("click", ".step-picture", function (event) {
                 var stepPicture = $(this);
-                //TODO mostrar un modal
+                var stepIndex = stepPicture.attr("data-step-index");
+
                 var $modal = $("#modal-picture");
                 $modal.modal("show");
                 var $gallery = $modal.find("#gallery-modal");
@@ -88,12 +95,15 @@
                 }
 
                 $gallery.find(".gallery-item").click(function (e) {
-                    var url = $(this).find("img").attr("src")
+                    var url = $(this).find("img").attr("src");
+                    var id = galleryArray[url];
+                    associationStepPicture[stepIndex] = id;
 
                     var $control = stepPicture.children(".step-picture-add");
                     var $pic = stepPicture.children("img");
 
                     $pic.attr("src", url);
+                    //$pic.attr("data-picture-id", id);
                     $pic.show();
                     $control.hide();
 
@@ -106,6 +116,8 @@
     <script>
         $().ready(function () {
             $("#recipe-form").submit(function (e) {
+                var $form = $(this);
+                // Recoge la lista de ingredientes
                 var ingredients= [];
                 $(".ingredient-input").each(function (index, Element) {
                     var ingredient = $(Element).val();
@@ -116,6 +128,19 @@
                 var string = ingredients.join(";");
                 var list_id = "#id_{{ form.ingredients_list.name }}";
                 $(list_id).val(string);
+
+                // Recoge las asociaciones paso-foto
+                $.each(associationStepPicture, function(index, value){
+                    var inputIndex = $("<input>")
+                       .attr("type", "hidden")
+                       .attr("name", "step-picture-index_"+index).val(index);
+                    var inputValue = $("<input>")
+                       .attr("type", "hidden")
+                       .attr("name", "step-picture-id_"+index).val(value);
+
+                    $form.append(inputIndex);
+                    $form.append(inputValue);
+                });
             });
         });
     </script>
@@ -241,6 +266,7 @@
         <div class="repeat">
             <div class="form-group repeatable-wrapper step-list">
                 <div class="repeatable-container">
+                    <!-- Step item -->
                     <div class="repeatable-row repeatable-template">
                         <div class="form-group step">
                             <div class="col-sm-1">
@@ -253,7 +279,7 @@
                                           name="step_{row-count-placeholder}" id="id_step_{row-count-placeholder}"
                                         ></textarea>
                             </div>
-                            <div class="col-sm-2 step-picture">
+                            <div class="col-sm-2 step-picture" data-step-index="{row-count-placeholder}">
                                 <a class="btn btn-default step-picture-add"><span
                                         class="glyphicon glyphicon-camera"></span></a>
                                 <img class="img-rounded"
@@ -262,6 +288,7 @@
                         </div>
                         <hr>
                     </div>
+                    <!-- /Step item -->
                 </div>
                 <div class="form-group step">
                     <div class="col-sm-1">
