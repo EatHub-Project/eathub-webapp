@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
+msgid "This user doesn't has any recipe yet"
+msgstr "This user doesn't has any recipe yet"
+
 msgid "Recipes"
 msgstr "Recipes"
 

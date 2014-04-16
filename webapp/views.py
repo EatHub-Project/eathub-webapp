@@ -342,9 +342,13 @@ def recipes(request, username):
     except User.DoesNotExist:
         raise Http404
 
+    is_owner = False
+    if request.user.username == username:
+        is_owner = True
+
     recipes_list = Recipe.objects.raw_query({'author_id': ObjectId(user.id)})
     recipes_list.order_by('creation_date')
-    return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
+    return render(request, 'webapp/recipes.html', {'recipes': recipes_list, 'is_owner': is_owner})
 
 
 def following(request, username):
