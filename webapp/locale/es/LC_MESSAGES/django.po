@@ -18,6 +18,9 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "This user doesn't has any recipe yet"
+msgstr "Este usuario no tiene ninguna receta aún"
+
 msgid "Recipes"
 msgstr "Recetas"
 
