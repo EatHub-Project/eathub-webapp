@@ -156,9 +156,8 @@ class Vote(models.Model):
     def __eq__(self, other):
         res = False
 
-        if self.user is other.user:
-            if self.date == other.date:
-                res = True
+        if self.user is other.user and self.date == other.date:
+            res = True
 
         return res
 
