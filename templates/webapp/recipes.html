@@ -9,12 +9,16 @@
     <div class="row">
         {% for recipe in recipes %}
 
-                <div class="col-md-3 panel follow-list-item">
+                <div class="col-md-3 panel follow-list-item recipe-max-height">
                     <img class="img-rounded"
                          src="{{ recipe.pictures.0 }}"/>
 
-                    <h3 class="user-name"><a href="{% url 'recipe' recipe.id %}">
-                        {{ recipe.title }}</a></h3>
+                    <div class="limit-text recipe-title-max-height">
+                        <h3 class="user-name"><a href="{% url 'recipe' recipe.id %}">
+                            {{ recipe.title }}</a></h3>
+                    </div>
+
+                    <br />
 
                     <div class="recipe-time panel-body pull-right">
                         <span class="glyphicon glyphicon-time"></span>
