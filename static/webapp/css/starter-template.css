@@ -690,3 +690,18 @@ header .container {
 .vote{
     padding-right: 12px;
 }
+
+
+.recipe-max-height {
+    height: 95px;
+}
+
+
+.limit-text {
+    overflow:hidden;
+}
+
+.recipe-title-max-height {
+    height: 25px;
+}
+
