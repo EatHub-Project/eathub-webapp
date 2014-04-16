@@ -140,6 +140,8 @@ class Step(models.Model):
     text = models.TextField(blank=False)
     image = models.ImageField(upload_to="images/recipe/",null=True)
 
+class Picture(models.Model):
+    image = models.ImageField(upload_to="images/",null=False)
 
 
 class Recipe(models.Model):
@@ -164,7 +166,7 @@ class Recipe(models.Model):
     #embedded
     steps = ListField(EmbeddedModelField('Step'), null=False)
     author = ForeignKey(User)
-    pictures = ListField(models.ImageField(upload_to="images/recipe/", null=False))
+    pictures = ListField(EmbeddedModelField('Picture'))
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
     comments = ListField(EmbeddedModelField('Comment'), blank=True)

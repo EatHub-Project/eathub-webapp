@@ -195,7 +195,7 @@
                         {% if receta.pictures %}
                             <ul>
                                 {% for picture in receta.pictures %}
-                                    <li><img class="img-thumbnail" src="/{{ picture }}"/></li>
+                                    <li><img class="img-thumbnail" src="{{ picture.image.url }}"/></li>
                                 {% endfor %}
                             </ul>
                         {% else %}
