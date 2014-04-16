@@ -78,9 +78,7 @@ def new_account(request):
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
 
                 #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
-                if avatar_id == u'':
-                    p.avatar = u'/static/webapp/image/profile_default.png'
-                else:
+                if avatar_id != u'':
                     p.avatar = avatar.image
 
                 p.clean()
