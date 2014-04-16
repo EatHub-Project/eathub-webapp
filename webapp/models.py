@@ -153,6 +153,15 @@ class Vote(models.Model):
     date = models.DateField(validators=[validate_past_date])
     user = ForeignKey(User)
 
+    def __eq__(self, other):
+        res = False
+
+        if self.user is other.user:
+            if self.date == other.date:
+                res = True
+
+        return res
+
 
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
