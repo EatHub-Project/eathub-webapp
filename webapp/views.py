@@ -343,7 +343,7 @@ def recipes(request, username):
     except User.DoesNotExist:
         raise Http404
 
-    recipes_list = Recipe.objects.raw_query({'author.user_id': ObjectId(user.id)})
+    recipes_list = Recipe.objects.raw_query({'author_id': ObjectId(user.id)})
     #recipes_list = Recipe.objects.get(author=user)
     print(recipes_list)
     return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
