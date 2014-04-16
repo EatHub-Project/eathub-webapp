@@ -1,0 +1,334 @@
+[
+    {
+        "_id": {
+            "$oid": "5337f7d9144115cb2ce71e20"
+        },
+        "additional_languages": [],
+        "avatar": "images/lethimaeki0031_1.jpg",
+        "birth_date": null,
+        "display_name": "Juhani L.",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "unknown",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "5337f3cb144115cb2ce71e1c"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "5337f8a5144115cb2ce71e21"
+        },
+        "additional_languages": [],
+        "avatar": "images/pedro.persist.jpg",
+        "birth_date": null,
+        "display_name": "Pedro Verd",
+        "following": [
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "francisco"
+            }
+        ],
+        "gender": "unknown",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 40,
+            "salty": 34,
+            "sour": 62,
+            "spicy": 71,
+            "sweet": 57
+        },
+        "user_id": {
+            "$oid": "5337f440144115cb2ce71e1d"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "5337f91e144115cb2ce71e22"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/i100236495_91881_5.jpg",
+        "birth_date": {
+            "$date": 687139200000
+        },
+        "display_name": "francisco",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "f",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "5337f4b4144115cb2ce71e1e"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "5337f9ac144115cb2ce71e23"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/i100236495_91881_5.jpg",
+        "birth_date": {
+            "$date": 687139200000
+        },
+        "display_name": "camaron",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "f",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "5337f520144115cb2ce71e1f"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "533fbc2b86c9bdaca925fee4"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/i100236495_91881_5.jpg",
+        "birth_date": {
+            "$date": 687139200000
+        },
+        "display_name": "Alex",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "f",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "533fb9b386c9bdaca925fee0"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "533fbc9086c9bdaca925fee5"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/i100236495_91881_5.jpg",
+        "birth_date": {
+            "$date": 687139200000
+        },
+        "display_name": "dimitri",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "f",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "533fbca586c9bdaca925fee6"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/i100236495_91881_5.jpg",
+        "birth_date": {
+            "$date": 687139200000
+        },
+        "display_name": "Thomas",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "f",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "533fbad086c9bdaca925fee2"
+        },
+        "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "53412d1e18085d03fc51b72e"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/i100236495_91881_5.jpg",
+        "birth_date": {
+            "$date": 687139200000
+        },
+        "display_name": "prueba",
+        "following": [
+            {
+                "display_name": "homie",
+                "user_id": {
+                    "$oid": "53412fa018085d03fc51b730"
+                },
+                "username": "homie"
+            }
+        ],
+        "gender": "f",
+        "location": "Stalingrado",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "53412d1e18085d03fc51b72d"
+        },
+        "website": "http://www.kosovonomola.com/"
+    },
+    {
+        "_id": {
+            "$oid": "53412fa018085d03fc51b731"
+        },
+        "additional_languages": [
+            "es"
+        ],
+        "avatar": "images/discrepo.png",
+        "birth_date": {
+            "$date": -27080352000000
+        },
+        "display_name": "homie",
+        "following": [
+            {
+                "display_name": "prueba",
+                "user_id": {
+                    "$oid": "53412d1e18085d03fc51b72d"
+                },
+                "username": "testing"
+            }
+        ],
+        "gender": "m",
+        "location": "Kosovo",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": null,
+            "salty": null,
+            "sour": null,
+            "spicy": null,
+            "sweet": null
+        },
+        "user_id": {
+            "$oid": "53412fa018085d03fc51b730"
+        },
+        "website": "http://www.jajajaja.com/"
+    }
+]

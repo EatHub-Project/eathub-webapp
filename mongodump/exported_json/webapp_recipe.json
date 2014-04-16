@@ -1,0 +1,689 @@
+[
+    {
+        "_id": {
+            "$oid": "533823fb8853831ea07adbc7"
+        },
+        "author_id": {
+            "$oid": "5337f3cb144115cb2ce71e1c"
+        },
+        "creation_date": {
+            "$date": 1396278155747
+        },
+        "description": "Receta de carne de morcillo cocida con verduras en la olla r\u00e1pida acompa\u00f1ada de salsa de tomate casera, pimientos asados en el horno y patatas fritas.",
+        "difficult": 4,
+        "food_type": "carne",
+        "ingredients": [
+            "500 g de carne de morcillo",
+            "2 kg de tomate pera en conserva",
+            "2 morrones rojos",
+            "3 cebollas pochadas",
+            "6 pimientos choriceros remojados",
+            "2 zanahorias",
+            "2 patatas",
+            "1 puerro",
+            "1 cebolleta",
+            "5 dientes de ajo",
+            "salsa de soja",
+            "agua",
+            "aceite de oliva virgen extra",
+            "sal",
+            "1 hoja de laurel",
+            "comino",
+            "piment\u00f3n",
+            "perejil",
+            "vinagreta"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396279394154
+        },
+        "nationality": "spain",
+        "negatives": [],
+        "notes": "Comida muy pesada",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://www.pepekitchen.com/wp-content/uploads/2009/10/carne-con-tomate1.jpg"
+            }
+        ],
+        "positives": [
+            {
+                "date": {
+                    "$date": 1396915200000
+                },
+                "user_id": {
+                    "$oid": "5337f440144115cb2ce71e1d"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 6,
+            "salty": 8,
+            "sour": 7,
+            "spicy": 8,
+            "sweet": 5
+        },
+        "serves": "4 personas",
+        "special_conditions": [],
+        "steps": [
+            "Paso 1,    Pon abundante agua en una olla rapida, sazona, introduce una rama de perejil e incorpora la carne troceada para cocer. Pica el puerro, la zanahoria y la cebolleta y a\u00f1\u00e1delos a la olla. Agrega dos dientes de ajo, un poco de comino, una hoja de laurel y un poco de pimenton. Cierra y deja que se cocine durante 30 minutos aproximadamente desde que empiece a hervir.",
+            "Paso 2,    Coloca los pimientos morrones en una bandeja de horno y horn\u00e9alos a 250\u00baC durante 30 minutos",
+            "Paso 3,    Para la salsa de tomate, pica el ajo y deja que infusione el aceite de oliva en una cazuela. A\u00f1ade el tomate pera y cocina durante unos minutos. Agrega la cebolla pochada y vierte la salsa de soja. Abre los pimientos choriceros, retira la pulpa y a\u00f1adelo a la salsa de tomate. Cocina unos minutos, vierte un poco de caldo de la cocci\u00f3n de la carne y tritura con la batidora electrica",
+            "Paso 4,    Pela las patatas, cortalas en cubos y frielas en un cazo con abundante aceite de oliva virgen extra.",
+            "Paso 5,    Pon la carne cocida y las verduras en una tartera, incorpora el tomate y agrega los pimientos asados y las patatas fritas. Deja que se cocine el conjunto a fuego suave durante 5 minutos aproximadamente y s\u00edrvelo en un plato."
+        ],
+        "tags": [
+            "carne",
+            "summer",
+            "christmas",
+            "spain",
+            "ricas",
+            "cosas",
+            "prueba"
+        ],
+        "temporality": [
+            "valentines",
+            "summer"
+        ],
+        "time": {
+            "cook_time": 30,
+            "prep_time": 30
+        },
+        "title": "Carne con tomate"
+    },
+    {
+        "_id": {
+            "$oid": "5338269d8853831ea07adbc8"
+        },
+        "author_id": {
+            "$oid": "533fb9b386c9bdaca925fee0"
+        },
+        "creation_date": {
+            "$date": 1396188829487
+        },
+        "description": "Receta de ensalada de arroz con colores vivos y f\u00e1ciles de preparar.",
+        "difficult": 2,
+        "food_type": "arroz",
+        "ingredients": [
+            "150 gramos de arroz basmati (si no hay usa otro de grano largo o corto)",
+            "100 gramos de lechuga",
+            "50 gramos de  cebolla",
+            " 1 zanahoria grande",
+            "1 tomate",
+            " 2 cucharadas grandes de ma\u00edz dulce",
+            " 2 lonchas gruesas de queso semi curado",
+            "1 lata de at\u00fan",
+            "12 aceitunas",
+            "                               vinagre de estrag\u00f3n (si no tienes usa vinagre de vino rojo o blanco)",
+            "or\u00e9gano ",
+            "sal",
+            " aceite de oliva (un chorrito)",
+            "agua para hervir el arroz"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "Comida muy ligera",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://www.javirecetas.com/images/46/ensalada-arroz.jpg"
+            }
+        ],
+        "savours": {
+            "bitter": 5,
+            "salty": 5,
+            "sour": 8,
+            "spicy": 7,
+            "sweet": 5
+        },
+        "serves": "4 personas",
+        "special_conditions": [],
+        "steps": [
+            "Paso 1,    Pon en un cacharro agua a calentar y cuando est\u00e9 hirviendo echa el arroz y media cuchara de postre con sal. Mira en el paquete cuanto tiempo tarda la cocci\u00f3n, el arroz basmati estar\u00e1 en unos 20 minutos de todas formas estate atento y no lo dejes demasiado tierno.",
+            "Paso 2,    Mientra se cuece el arroz pelamos la zanahoria y el tomate. Corta la zanahoria a taquitos y haz lo mismo con el tomate, la cebolla y el queso.",
+            "Paso 3,    Lava la lechuga, esc\u00farrela bien y c\u00f3rtala en juliana (en tiras finas no demasiado largas). Pica la mitad de las aceitunas.",
+            "Paso 4,    Escurre el at\u00fan y ponlo en una fuente junto con todas las verduras (incluido el ma\u00edz), el queso y las aceitunas.",
+            "Paso 5,    Cuando est\u00e9 cocido el arroz, esc\u00farrelo y enjuaga bajo el grifo con abundante agua. Vuelve a escurrir bien y \u00e9chale un chorrito de aceite de oliva. Mezcla bien, as\u00ed evitar\u00e1s que se pegue y despu\u00e9s a\u00f1\u00e1delo a la fuente con los dem\u00e1s ingredientes de la ensalada.",
+            "Paso 6,Echa un buen chorro de vinagre de estrag\u00f3n y una pizca de or\u00e9gano. Mezcla todo bien y si quieres puedes tomarla ya, pero lo suyo es que la sirvas algo fr\u00eda, as\u00ed que lo mejor ser\u00e1 que metas la ensalada de arroz en el frigor\u00edfico una hora para que se mezclen bien los sabores."
+        ],
+        "tags": [
+            "arroz",
+            "summer"
+        ],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 20
+        },
+        "title": "Ensalada de arroz"
+    },
+    {
+        "_id": {
+            "$oid": "533828d28853831ea07adbc9"
+        },
+        "author_id": {
+            "$oid": "5337f4b4144115cb2ce71e1e"
+        },
+        "creation_date": {
+            "$date": 1396189394154
+        },
+        "description": "Receta de un postre tradicional.",
+        "difficult": 5,
+        "food_type": "torrijas",
+        "ingredients": [
+            "1 barra de pan del d\u00eda anterior o una barra espec\u00edfica para torrijas (de venta en casi todas las pasteler\u00edas). La de esta receta ten\u00eda la escandalera de 55 cm. ",
+            "1 l de leche entera.",
+            "1 rama de canela o canela en polvo",
+            "5 huevos medianos.",
+            " 1 palo de canela-rama",
+            " 1 vaina de vainilla",
+            " la c\u00e1scara de medio lim\u00f3n ",
+            "100 ml de vino de Oporto",
+            "  300 g de az\u00facar blanca y 1 cucharada de canela molida.",
+            " 1/2 l de aceite de oliva virgen extra"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "Comida muy rica",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": null,
+                "step": 1,
+                "url": "http://farm8.staticflickr.com/7272/6872301972_3a0df58040_z.jpg"
+            },
+            {
+                "is_main": null,
+                "step": 6,
+                "url": "http://farm8.staticflickr.com/7104/7018415889_b63e06fe67_z.jpg"
+            },
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://farm8.staticflickr.com/7230/7018417397_ed2a52bd56_z.jpg"
+            }
+        ],
+        "savours": {
+            "bitter": 5,
+            "salty": 7,
+            "sour": 6,
+            "spicy": 7,
+            "sweet": 5
+        },
+        "serves": "4 personas",
+        "special_conditions": [
+            "diabetec"
+        ],
+        "steps": [
+            "Paso 1,    El primer paso es preparar los ingredientes con los que vamos a aromatizar la leche. Lavamos muy bien el lim\u00f3n y pelamos su piel de manera fina, sin mucho blanco que luego nos amargue el postre.",
+            "Paso 2,    En la preparaci\u00f3n de la leche aromatizada tenemos un ingrediente que va a marcar la diferencia, tambi\u00e9n el precio pues no es barata, las vainas de vainilla. Para esta receta vamos a necesitar la vaina abierta entera, no es necesario a\u00f1adir el interior, es decir las semillas, estas las podemos guardar para otro postre, mi recomendaci\u00f3n es que las congel\u00e9is en un papel de aluminio y vay\u00e1is utilizando poco a poco dependiendo de la receta, as\u00ed pod\u00e9is economizar este ingrediente.",
+            "Paso 3,    Para sacarle el mayor provecho, cortamos los extremos, la parte m\u00e1s ancha de la vaina con un cuchillo, la rajamos de un extremo al otro, abri\u00e9ndola como un libro. Raspamos el interior con la hoja de un cuchillo (lo mejor es abrirla bien con los dedos y rasparla con la mitad de la hoja del cuchillo), as\u00ed sacaremos las semillas que vamos a guardar.",
+            "Paso 4,    La vaina limpia es la que vamos a a\u00f1adir a la leche, adem\u00e1s una vez aromatizada la leche, la vamos a sacar y secar, la guardaremos para otras utilizaciones, por ejemplo para aromatizar az\u00facar y hacer nuestro propio az\u00facar avainillado.",
+            "Paso 5,    Calentamos la leche a fuego medio casi hasta el punto de ebullici\u00f3n. Bajamos la temperatura y retiramos del fuego, a\u00f1adimos la vaina de la vainilla, la piel del lim\u00f3n y por \u00faltimo la rama de canela. Dejamos todo en reposo durante 5 minutos, es decir, infusionando la leche. La leche debe estar tibia o fr\u00eda cuando la empleemos para empapar las torrijas. Reservamos.",
+            "Paso 6,Un truquillo para que las torrijas no salgan empalagosas es no a\u00f1adirle az\u00facar a la leche que hemos infusionado, sino cuando preparemos el alm\u00edbar o con el az\u00facar y la canela que a\u00f1adiremos al final. De esta manera unificamos sabores y os quedar\u00e1 realmente deliciosa."
+        ],
+        "tags": [
+            "torrijas",
+            "leche",
+            "christmas"
+        ],
+        "temporality": [
+            "christmas"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 40
+        },
+        "title": "Torrijas de leche"
+    },
+    {
+        "_id": {
+            "$oid": "53382b298853831ea07adbca"
+        },
+        "author_id": {
+            "$oid": "533fb9b386c9bdaca925fee0"
+        },
+        "creation_date": {
+            "$date": 1396189993886
+        },
+        "description": "Receta de mini hamburguesas de pescado",
+        "difficult": 4,
+        "food_type": "hamburguesas",
+        "ingredients": [
+            "300g migas de bacalao desalado ",
+            "2 cucharadas aceite de oliva virgen extra",
+            "1 huevo grande",
+            " 1/4 cebolla fresca",
+            " 1 cucharada de mayonesa ligera  ",
+            " 1 cucharada de mostaza ",
+            " 1 cucharada zumo de lim\u00f3n",
+            " 6 cucharadas pan rallado",
+            " 2 cucharadas perejil fresco",
+            "   Sal",
+            "                                 Pimienta"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "Comida muy rica",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": null,
+                "step": 4,
+                "url": "http://www.pequerecetas.com/wp-content/uploads/2014/03/receta-de-hamburguesas-bacalao.jpg"
+            },
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://www.pequerecetas.com/wp-content/uploads/2014/03/hamburguesas-de-bacalao.jpg"
+            }
+        ],
+        "savours": {
+            "bitter": 5,
+            "salty": 5,
+            "sour": 5,
+            "spicy": 7,
+            "sweet": 7
+        },
+        "serves": "4 personas",
+        "special_conditions": [],
+        "steps": [
+            "Paso 1,    Precalentamos el horno a 180\u00ba, mientras tanto ponemos las migas en un recipiente apto para horno y a\u00f1adimos una cucharada de aceite de oliva, mezclamos todo bien y llevamos al horno 10 minutos a 180\u00ba calor arriba y abajo.",
+            "Paso 2,    Transcurrido el tiempo retiramos las migas de bacalao del horno y dejamos templar, una vez est\u00e9n templadas desmigamos las migas en un cuenco grande.",
+            "Paso 3,    A\u00f1adimos huevo batido, cebolleta muy picada, mayonesa, zumo de lim\u00f3n, mostaza, pan rallado, perejil, aceite de oliva, sal, pimienta y mezclamos todo bien.",
+            "Paso 4,    Formamos 7 hamburguesas, cogemos peque\u00f1as bolitas de masa, les damos forma redonda y aplastamos un poquito con las palmas de la mano. Dejamos las hamburguesas en un plato que tendremos preparado con papel de horno y llevamos a la nevera durante 30 minutos.",
+            "Paso 5,    Transcurrido el tiempo vertemos un poquito de aceite de oliva en una sart\u00e9n y llevamos al fuego, cuando empiece a estar caliente vamos friendo las hamburguesas de bacalao unos 3 minutos por cada lado."
+        ],
+        "tags": [
+            "pescado",
+            "hamburguesas"
+        ],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 10,
+            "prep_time": 30
+        },
+        "title": "Hamburguesas de pescado"
+    },
+    {
+        "_id": {
+            "$oid": "533fc27d86c9bdaca925fee8"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "creation_date": {
+            "$date": 1393683794154
+        },
+        "description": "OTRA FORMA DE COMER CARNE DE LA OLLA =)",
+        "difficult": 5,
+        "food_type": "heavy meal",
+        "ingredients": [
+            "Carne de la olla (hervida de hacer caldo)",
+            "1 pte. esparragos",
+            "200 grs. champi\u00f1ones",
+            "1 pte. ajos tiernos",
+            "2 berenjenas",
+            "Bechamel",
+            "Queso rallado"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "No ten\u00eda queso rallado y us\u00e9 esta vez tranchetes.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": true,
+                "step": 6,
+                "url": "http://4.bp.blogspot.com/-7TRNUY-P5-w/UxGfVlfFsEI/AAAAAAAAAYk/I_MIrD9gGWA/s1600/148.JPG"
+            }
+        ],
+        "savours": {
+            "bitter": 50,
+            "salty": 80,
+            "sour": 10,
+            "spicy": 40,
+            "sweet": 20
+        },
+        "serves": "4 personas",
+        "special_conditions": [
+            "diabetec"
+        ],
+        "steps": [
+            "Paso 1,    Corto la carne de la olla en trocitos peque\u00f1os y la a\u00f1ado a la salsa bechamel, que la habr\u00e9 hecho con la cebolla en vez de rallada partida a trocitos. Y reservamos.",
+            "Paso 2,    En una sart\u00e9n paso las berenjenas que las habremos cortado longitudinalmente y las pongo en el fondo de una fuente refractar\u00eda",
+            "Paso 3,    en la misma sart\u00e9n salteamos los champi\u00f1ones laminados, los esp\u00e1rragos cortados en trozos no muy grandes y los ajetes a trocitos",
+            "Paso 4,    Todo ello lo echamos encima  de las berenjenas lo repartimos bien y encima echamos la bechamel que tenemos reservada con la carne",
+            "Paso 5,    encima echamos el queso rallado y lo metemos al horno durante unos 15 minutos para gratinar",
+            "Paso 6,    Servimos caliente"
+        ],
+        "tags": [
+            "carne",
+            "olla",
+            "entresemana"
+        ],
+        "temporality": [
+            "spring"
+        ],
+        "time": {
+            "cook_time": 25,
+            "prep_time": 10
+        },
+        "title": "OTRA FORMA DE COMER CARNE DE LA OLLA"
+    },
+    {
+        "_id": {
+            "$oid": "533fc4bd86c9bdaca925fee9"
+        },
+        "author_id": {
+            "$oid": "533fb9b386c9bdaca925fee0"
+        },
+        "creation_date": {
+            "$date": 1394893394154
+        },
+        "description": " Pasta Italiana",
+        "difficult": 5,
+        "food_type": "heavy meal",
+        "ingredients": [
+            "150 grs. surimi",
+            "1 kg. Mejillones hervidos (sin valva)",
+            "300 grs. Spugne naif (pasta italiana)",
+            "250 grs. Gamba arrocera",
+            "1 puerro",
+            "2 cebolletas grandes",
+            "1 bandeja champi\u00f1ones (laminar)",
+            "Or\u00e9gano",
+            "Aceite de oliva",
+            "1 chucaradita de az\u00facar"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "esta receta es de mi hija menor, con pasta que nos ha tra\u00eddo mi hija mayor de N\u00e1poles",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://4.bp.blogspot.com/-9aCn-k_-XVI/UEOiwlSoAhI/AAAAAAAAAYI/m6btocWdzek/s1600/017.JPG"
+            }
+        ],
+        "savours": {
+            "bitter": 55,
+            "salty": 85,
+            "sour": 15,
+            "spicy": 45,
+            "sweet": 25
+        },
+        "serves": "3 personas",
+        "special_conditions": [
+            "diabetec"
+        ],
+        "steps": [
+            "Paso 1,    Hervir la pasta al dente, con agua abundante, un chorrito de aceite de oliva, sal y una pastilla de caldo.",
+            "Paso 2,    En una cazuela poner aceite y echar la cebolla rallada, dos o tres minutos m\u00e1s tarde echar el puerro muy picado y remover, dejar unos minutos hasta que coja color",
+            "Paso 3,    Echar el az\u00facar y a continuaci\u00f3n los champi\u00f1ones y el or\u00e9gano",
+            "Paso 4,    Cuando est\u00e9n cogiendo color los champi\u00f1ones le echamos la sal a gusto",
+            "Paso 5,    Echar las gambas sin cabeza",
+            "Paso 6,    Una vez tengan  aspecto de cocinadas a\u00f1adiremos la pasta, los mejillones y el surimi a trozos, remover. Y ya est\u00e1 lista la receta para servir."
+        ],
+        "tags": [
+            "pasta",
+            "tasty",
+            "abroad"
+        ],
+        "temporality": [
+            "spring"
+        ],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 5
+        },
+        "title": "SPUGNE NAIF"
+    },
+    {
+        "_id": {
+            "$oid": "533fc6b386c9bdaca925feea"
+        },
+        "author_id": {
+            "$oid": "533fb9b386c9bdaca925fee0"
+        },
+        "creation_date": {
+            "$date": 1394893394154
+        },
+        "description": " Pasta Italiana",
+        "difficult": 5,
+        "food_type": "heavy meal",
+        "ingredients": [
+            "150 grs. surimi",
+            "1 kg. Mejillones hervidos (sin valva)",
+            "300 grs. Spugne naif (pasta italiana)",
+            "250 grs. Gamba arrocera",
+            "1 puerro",
+            "2 cebolletas grandes",
+            "1 bandeja champi\u00f1ones (laminar)",
+            "Or\u00e9gano",
+            "Aceite de oliva",
+            "1 chucaradita de az\u00facar",
+            "1 poco de pimienta negra",
+            "1 poco de clavo"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "esta receta es de mi hija menor, con pasta que nos ha tra\u00eddo mi hija mayor de N\u00e1poles",
+        "parent_id": {
+            "$oid": "533fc4bd86c9bdaca925fee9"
+        },
+        "pictures": [
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://4.bp.blogspot.com/-9aCn-k_-XVI/UEOiwlSoAhI/AAAAAAAAAYI/m6btocWdzek/s1600/017.JPG"
+            }
+        ],
+        "savours": {
+            "bitter": 55,
+            "salty": 85,
+            "sour": 15,
+            "spicy": 45,
+            "sweet": 25
+        },
+        "serves": "3 personas",
+        "special_conditions": [
+            null
+        ],
+        "steps": [
+            "Paso 1,    Hervir la pasta al dente, con agua abundante, un chorrito de aceite de oliva, sal y una pastilla de caldo.",
+            "Paso 2,    En una cazuela poner aceite y echar la cebolla rallada, dos o tres minutos m\u00e1s tarde echar el puerro muy picado y remover, dejar unos minutos hasta que coja color",
+            "Paso 3,    Echar el az\u00facar y a continuaci\u00f3n los champi\u00f1ones y el or\u00e9gano",
+            "Paso 4,    Cuando est\u00e9n cogiendo color los champi\u00f1ones le echamos la sal a gusto",
+            "Paso 5,    Echar las gambas sin cabeza",
+            "Paso 6,    Una vez tengan  aspecto de cocinadas a\u00f1adiremos la pasta, los mejillones y el surimi a trozos, remover.",
+            "Paso 7,    Pasarlo todo a un cuenco, a\u00f1adir pimienta negra, un poco de clavo y remover. Y ya est\u00e1 lista la receta para servir."
+        ],
+        "tags": [
+            "pasta",
+            "tasty",
+            "abroad"
+        ],
+        "temporality": [
+            "spring"
+        ],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 5
+        },
+        "title": "SPUGNE NAIF"
+    },
+    {
+        "_id": {
+            "$oid": "533fc83286c9bdaca925feeb"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "creation_date": {
+            "$date": 1393683794154
+        },
+        "description": "OTRA FORMA DE COMER CARNE DE LA OLLA =)",
+        "difficult": 5,
+        "food_type": "heavy meal",
+        "ingredients": [
+            "Carne de la olla (hervida de hacer caldo)",
+            "1 pte. esparragos",
+            "200 grs. champi\u00f1ones",
+            "1 pte. ajos tiernos",
+            "2 berenjenas",
+            "Bechamel",
+            "Queso rallado"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "spain",
+        "notes": "No ten\u00eda queso rallado y us\u00e9 esta vez tranchetes.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": true,
+                "step": 6,
+                "url": "http://4.bp.blogspot.com/-7TRNUY-P5-w/UxGfVlfFsEI/AAAAAAAAAYk/I_MIrD9gGWA/s1600/148.JPG"
+            }
+        ],
+        "savours": {
+            "bitter": 50,
+            "salty": 80,
+            "sour": 10,
+            "spicy": 40,
+            "sweet": 20
+        },
+        "serves": "4 personas",
+        "special_conditions": [
+            "diabetec"
+        ],
+        "steps": [
+            "Paso 1,    Corto la carne de la olla en trocitos peque\u00f1os y la a\u00f1ado a la salsa bechamel, que la habr\u00e9 hecho con la cebolla en vez de rallada partida a trocitos. Y reservamos.",
+            "Paso 2,    En una sart\u00e9n paso las berenjenas que las habremos cortado longitudinalmente y las pongo en el fondo de una fuente refractar\u00eda",
+            "Paso 3,    en la misma sart\u00e9n salteamos los champi\u00f1ones laminados, los esp\u00e1rragos cortados en trozos no muy grandes y los ajetes a trocitos",
+            "Paso 4,    Todo ello lo echamos encima  de las berenjenas lo repartimos bien y encima echamos la bechamel que tenemos reservada con la carne",
+            "Paso 5,    encima echamos el queso rallado y lo metemos al horno durante unos 15 minutos para gratinar",
+            "Paso 6,    Servimos caliente"
+        ],
+        "tags": [
+            "carne",
+            "olla",
+            "entresemana"
+        ],
+        "temporality": [
+            "spring"
+        ],
+        "time": {
+            "cook_time": 25,
+            "prep_time": 10
+        },
+        "title": "OTRA FORMA DE COMER CARNE DE LA OLLA"
+    },
+    {
+        "_id": {
+            "$oid": "533fc87d86c9bdaca925feec"
+        },
+        "author_id": {
+            "$oid": "533fb9b386c9bdaca925fee0"
+        },
+        "creation_date": {
+            "$date": 1394029394154
+        },
+        "description": "El nombre lo dice todo! =)",
+        "difficult": 5,
+        "food_type": "estofado",
+        "ingredients": [
+            "2 Kgrs. Alcachofas",
+            "750 grs. de Calamares",
+            "300 grs. de almejas (rosellona)",
+            "3 Patatas medianas",
+            "3 tomates maduros (de rama)",
+            "1 Manojo Ajetes tiernos",
+            "1 Cebolleta",
+            "1 Pastilla caldo (pescado)",
+            "1 Aceite de oliva"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "modification_date": {
+            "$date": 1396189394154
+        },
+        "nationality": "italian",
+        "notes": "Esta muy rico!!",
+        "parent_id": null,
+        "pictures": [
+            {
+                "is_main": true,
+                "step": null,
+                "url": "http://4.bp.blogspot.com/-4Krr-u-ckPo/T2WuA9OJbaI/AAAAAAAAAYA/y2lChDXcC-Y/s1600/crucero%2Bfebrero%2B2012%2Bcanarias%2B002.JPG"
+            }
+        ],
+        "savours": {
+            "bitter": 35,
+            "salty": 85,
+            "sour": 5,
+            "spicy": 35,
+            "sweet": 5
+        },
+        "serves": "2 personas",
+        "special_conditions": [],
+        "steps": [
+            "Paso 1,    En una cazuela ponemos aceite y echamos las alcachofas y las patatas en trozos y sofre\u00edmos",
+            "Paso 2,    despu\u00e9s a\u00f1adimos el calamar partido en ruedas, la cebolla partidas en trozos peque\u00f1os y los ajos tambi\u00e9n partidos en trocitos",
+            "Paso 3,    sofre\u00edmos todo durante unos minutos y echamos el tomate que lo habremos rallado",
+            "Paso 4,    dejamos sofre\u00edr otros 5 minutos y por \u00faltimo a\u00f1adimos la pastilla de caldo troceada y las almejas",
+            "Paso 5,    tapamos la cazuela y dejamos que se abran las almejas",
+            "Paso 6,    la receta estar\u00e1 lista para comer una vez est\u00e9n las patatas y las alcachofas tiernas"
+        ],
+        "tags": [
+            "calamares",
+            "almejas",
+            "alcachofas",
+            "estofado"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 45,
+            "prep_time": 20
+        },
+        "title": "ALCACHOFAS CON CALAMARES Y ALMEJAS"
+    }
+]

@@ -1,5 +1,6 @@
 # Custom
-media/
+media/images/*
+!media/images/*.persist.*
 
 # Created by http://www.gitignore.io
 
