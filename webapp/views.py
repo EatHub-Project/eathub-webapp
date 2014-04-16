@@ -3,7 +3,8 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Author, Savour, Picture
+from ajax.models import UploadedImage
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
@@ -119,15 +120,46 @@ def new_recipe(request):
             ingredients = form.get_cleaned_ingredients()
             steps = form.get_cleaned_steps()
 
-            # serves = data['serves']
-            # language = data['language']
-            # temporality = data['temporality']
-            # nationality = data['nationality']
-            # special_conditions = data['special_conditions']
-            # notes = data['notes']
-            # difficult = data['difficult']
-            # food_type = data['food_type']
-            # tags = data['tags']
+            serves = data['serves']
+            language = data['language']
+            temporality = data['temporality']
+            nationality = data['nationality']
+            special_conditions = data['special_conditions']
+            notes = data['notes']
+            difficult = data['difficult']
+            food_type = data['food_type']
+            tags = []
+            tags_all = data['tags']
+            prep_time = data['prep_time']
+            cook_time = data['cook_time']
+            if tags_all:
+                tags = tags_all.split(",")
+
+            t = Savour(salty=data['salty'],
+                           sour=data['sour'],
+                           bitter=data['bitter'],
+                           sweet=data['sweet'],
+                           spicy=data['spicy'])
+
+            time = Time(prep_time=prep_time, cook_time=cook_time)
+
+            r = Recipe(title=title,description=description,ingredients=ingredients,serves=serves,
+                       language=language,temporality=temporality,nationality=nationality,special_conditions=special_conditions,
+                       notes=notes,difficult=difficult,food_type=food_type,tags=tags,steps=steps)
+            u = request.user
+            profile = u.profile.get()
+            a = Author(display_name = profile.display_name, user_name = u.username, user = profile)
+            image=UploadedImage.objects.get(id=main_picture)
+            p=Picture(url=image.image.url,is_main=True)
+            r.pictures.append(p)
+            for key,value in mapping_step_picture.iteritems():
+                image=UploadedImage.objects.get(id=value)
+                p=Picture(url=image.image.url,is_main=False,step=(int(key)+1))
+                r.pictures.append(p)
+            r.savours=t
+            r.time=time
+            r.author=a
+            r.save()
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 

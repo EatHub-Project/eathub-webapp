@@ -327,8 +327,8 @@
                 <textarea class="form-control input-lg"
                           placeholder="Anything else you want to point out about your recipe?"
                           rows="3"
-                          name="step" id="id_step"
-                        ></textarea>
+                          name="{{ form.notes.name }}" id="id_{{ form.notes.name }}"
+                          >{{ form.notes.value | default_if_none:'' }}</textarea>
             </div>
         </div>
     </fieldset>
@@ -341,11 +341,12 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Preparation time</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.prep_time.name }}">Preparation time</label>
 
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="minutes">
+                            <input type="number" class="form-control" placeholder="minutes" name="{{ form.prep_time.name }}" id="id_{{ form.prep_time.name }}"
+                                    value="{{ form.prep_time.value | default_if_none:'' }}">
                             <span class="input-group-addon"><span
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
@@ -354,11 +355,12 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Cooking time</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.cook_time.name }}">Cooking time</label>
 
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="minutes">
+                            <input type="number" class="form-control" placeholder="minutes" name="{{ form.cook_time.name }}" id="id_{{ form.cook_time.name }}"
+                                    value="{{ form.cook_time.value | default_if_none:'' }}">
                             <span class="input-group-addon"><span
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
@@ -370,22 +372,27 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Serves</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.serves.name }}">Serves</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'">
+                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'" name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
+                                    value="{{ form.serves.value | default_if_none:'' }}">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Difficulty</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.difficult.name }}">Difficulty</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control">
-                            <option>Easy</option>
-                            <option>Medium</option>
-                            <option>Hard</option>
+                        <select class="form-control" name="{{ form.difficult.name }}" id="id_{{ form.difficult.name }}">
+                        {% for choice in form.difficult.field.choices %}
+                        <option value="{{ choice.0 }}"
+                                {% ifequal form.difficult.value choice.0 %}
+                                selected
+                                {% endifequal %}
+                                >{{ choice.1 }}</option>
+                    {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -395,27 +402,37 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Temporality</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">Temporality</label>
 
                     <div class="col-sm-8">
-                        <select class="form-control show-tick" data-live-search="true" multiple>
-                            <option>Christmas</option>
-                            <option>Summer</option>
-                            <option>St. Valentine's</option>
+                        <select class="form-control show-tick" data-live-search="true" multiple name="{{ form.temporality.name }}" id="id_{{ form.temporality.name }}">
+                            {% for choice in form.temporality.field.choices %}
+                        <option value="{{ choice.0 }}"
+                                {% for opt in form.temporality.value %}
+                                    {% ifequal opt choice.0 %}
+                                selected
+                                    {% endifequal %}
+                                {% endfor %}
+                                >{{ choice.1 }}
+                        </option>
+                    {% endfor %}
                         </select>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Food type</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.food_type.name }}">Food type</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control show-tick">
-                            <option>Breakfast</option>
-                            <option>Desert</option>
-                            <option>Drink</option>
-                            <option>...</option>
+                        <select class="form-control show-tick" name="{{ form.food_type.name }}" id="id_{{ form.food_type.name }}">
+                            {% for choice in form.food_type.field.choices %}
+                        <option value="{{ choice.0 }}"
+                                {% ifequal form.food_type.value choice.0 %}
+                                selected
+                                {% endifequal %}
+                                >{{ choice.1 }}</option>
+                    {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -425,25 +442,37 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Special conditions</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.special_conditions.name }}">Special conditions</label>
 
                     <div class="col-sm-8">
-                        <select class="form-control show-tick" data-live-search="true" multiple>
-                            <option>Celiac</option>
-                            <option>Vegetarian</option>
-                            <option>Diabetic</option>
+                        <select class="form-control show-tick" data-live-search="true" multiple name="{{ form.special_conditions.name }}" id="id_{{ form.special_conditions.name }}">
+                            {% for choice in form.special_conditions.field.choices %}
+                        <option value="{{ choice.0 }}"
+                                {% for opt in form.special_conditions.value %}
+                                    {% ifequal opt choice.0 %}
+                                selected
+                                    {% endifequal %}
+                                {% endfor %}
+                                >{{ choice.1 }}
+                        </option>
+                    {% endfor %}
                         </select>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Language</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.languages.name }}">Language</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control show-tick">
-                            <option>Spanish</option>
-                            <option>English</option>
+                        <select class="form-control show-tick" name="{{ form.language.name }}" id="id_{{ form.language.name }}">
+                            {% for choice in form.language.field.choices %}
+                        <option value="{{ choice.0 }}"
+                                {% ifequal form.language.value choice.0 %}
+                                selected
+                                {% endifequal %}
+                                >{{ choice.1 }}</option>
+                    {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -453,19 +482,28 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Free tags</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.tags.name }}">Free tags</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Comma separated tags">
+                        <input type="text" class="form-control" placeholder="Comma separated tags" name="{{ form.tags.name }}" id="id_{{ form.tags.name }}"
+                                value="{{ form.tags.value | default_if_none:'' }}">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Nationality</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.nationality.name }}">Nationality</label>
 
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="If any">
+                        <select class="form-control show-tick" name="{{ form.nationality.name }}" id="id_{{ form.nationality.name }}">
+                            {% for choice in form.nationality.field.choices %}
+                        <option value="{{ choice.0 }}"
+                                {% ifequal form.nationality.value choice.0 %}
+                                selected
+                                {% endifequal %}
+                                >{{ choice.1 }}</option>
+                    {% endfor %}
+                        </select>
                     </div>
                 </div>
             </div>
@@ -488,6 +526,7 @@
                        data-slider-value="{{ form.salty.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="salty"
+                       value="{{ form.salty.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -500,6 +539,7 @@
                        data-slider-value="{{ form.sour.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="sour"
+                       value="{{ form.sour.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -512,6 +552,7 @@
                        data-slider-value="{{ form.bitter.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="bitter"
+                       value="{{ form.bitter.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -524,6 +565,7 @@
                        data-slider-value="{{ form.sweet.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="sweet"
+                       value="{{ form.sweet.value | default_if_none:'50' }}"
                         >
             </div>
 
@@ -536,6 +578,7 @@
                        data-slider-value="{{ form.spicy.value | default_if_none:'50' }}"
                        data-slider-tooltip="hide"
                        data-slider-id="spicy"
+                       value="{{ form.spicy.value | default_if_none:'50' }}"
                         >
             </div>
 

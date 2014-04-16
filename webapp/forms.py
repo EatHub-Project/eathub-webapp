@@ -36,7 +36,7 @@ class NewRecipeForm(forms.Form):
     TEMPORALITY = [("summer", "Summer"), ("autumn", "Autumn"), ("spring", "Spring"), ("winter", "Winter")]
     FOOD_TYPE = [("dinner","Dinner"),("lunch","Lunch"),("breakfast","Breakfast"),("picnic","Picnic"),("snack","Snack"),("drink","Drink"),("dessert","Dessert")]
     SPECIAL_CONDITIONS = [("diabetic", "Diabetic"), ("celiac", "Celiac"), ("vegetarian", "Vegetarian")]
-    DIFFICULT = [("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")]
+    DIFFICULT = [(1, "Easy"), (2, "Medium"), (3, "Hard")]
 
     title = forms.CharField(max_length=50, required=False)
     main_picture_id = forms.CharField(required=True)
@@ -45,21 +45,23 @@ class NewRecipeForm(forms.Form):
 
     #ingredients_list = forms.CharField(required=True)
 
-    # serves = forms.CharField(max_length=50, required=False)
-    # language = forms.ChoiceField(choices=LANGUAGES, required=False)
-    # temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
-    # nationality = forms.ChoiceField(choices=COUNTRY, required=False)
-    # special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS, required=False)
-    # notes = forms.CharField(widget=forms.Textarea, required=False)
-    # difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
-    # food_type = forms.ChoiceField(choices=FOOD_TYPE, required=False)
-    # tags = forms.CharField(required=False)
-    #
-    # salty = forms.IntegerField(max_value=99, min_value=0, required=False)
-    # sour = forms.IntegerField(max_value=99, min_value=0, required=False)
-    # bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
-    # sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
-    # spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
+    serves = forms.CharField(max_length=50, required=False)
+    language = forms.ChoiceField(choices=LANGUAGES, required=False)
+    temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
+    nationality = forms.ChoiceField(choices=COUNTRY, required=False)
+    special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS, required=False)
+    notes = forms.CharField(widget=forms.Textarea, required=False)
+    difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
+    food_type = forms.ChoiceField(choices=FOOD_TYPE, required=False)
+    tags = forms.CharField(required=False)
+    prep_time = forms.IntegerField(required=True)
+    cook_time = forms.IntegerField(required=True)
+
+    salty = forms.IntegerField(max_value=99, min_value=0, required=False)
+    sour = forms.IntegerField(max_value=99, min_value=0, required=False)
+    bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
+    sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
+    spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
     def __init__(self, *args, **kwargs):
         steps = kwargs.pop('steps')
