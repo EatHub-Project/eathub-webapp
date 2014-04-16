@@ -3,7 +3,8 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Author, Savour, Picture
+from ajax.models import UploadedImage
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
@@ -102,14 +103,27 @@ def new_account(request):
 def new_recipe(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
-        form = NewAccountForm(request.POST, request.FILES)
+        steps = get_steps(request.POST)
+        ingredients = get_ingredients(request.POST)
+        mapping_step_picture = get_mapping_step_picture(request.POST)
+        form = NewRecipeForm(request.POST, steps=steps, ingredients=ingredients)
+
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
-            # TODO validar que el nombre de usuario sea único
             data = form.cleaned_data
+
+            # Basic information
             title = data['title']
             description = data['description']
-            ingredients = data['ingredients']
+            main_picture = data['main_picture_id']
+            extra_pictures = data['pictures_ids_list']
+            pictures_list = []
+            if extra_pictures:
+                pictures_list = extra_pictures.split(";")
+
+            ingredients = form.get_cleaned_ingredients()
+            steps = form.get_cleaned_steps()
+
             serves = data['serves']
             language = data['language']
             temporality = data['temporality']
@@ -118,14 +132,72 @@ def new_recipe(request):
             notes = data['notes']
             difficult = data['difficult']
             food_type = data['food_type']
-            tags = data['tags']
+            tags = []
+            tags_all = data['tags']
+            prep_time = data['prep_time']
+            cook_time = data['cook_time']
+            if tags_all:
+                tags = tags_all.split(",")
+
+            t = Savour(salty=data['salty'],
+                           sour=data['sour'],
+                           bitter=data['bitter'],
+                           sweet=data['sweet'],
+                           spicy=data['spicy'])
+
+            time = Time(prep_time=prep_time, cook_time=cook_time)
+
+            r = Recipe(title=title,description=description,ingredients=ingredients,serves=serves,
+                       language=language,temporality=temporality,nationality=nationality,special_conditions=special_conditions,
+                       notes=notes,difficult=difficult,food_type=food_type,tags=tags,steps=steps)
+            u = request.user
+            profile = u.profile.get()
+            a = Author(display_name = profile.display_name, user_name = u.username, user = profile)
+            image=UploadedImage.objects.get(id=main_picture)
+            p=Picture(url=image.image.url,is_main=True)
+            r.pictures.append(p)
+            for key,value in mapping_step_picture.iteritems():
+                image=UploadedImage.objects.get(id=value)
+                p=Picture(url=image.image.url,is_main=False,step=(int(key)+1))
+                r.pictures.append(p)
+            r.savours=t
+            r.time=time
+            r.author=a
+            r.save()
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
-        form = NewRecipeForm()
+        form = NewRecipeForm(steps=[], ingredients=[])
 
     return render(request, 'webapp/newrecipe.html', {'form': form})
+
+
+def get_mapping_step_picture(post):
+    mapping = dict()
+    for name in post:
+        if name.startswith("step-picture-index_"):
+            index = post[name]
+            value = post["step-picture-id_" + index]
+            if index and value:
+                mapping[index] = value
+    return mapping
+
+
+def get_steps(post):
+    steps = list()
+    for name in post:
+        if name.startswith('step_'):
+            steps.append(post[name])
+    return steps
+
+
+def get_ingredients(post):
+    ingredients = list()
+    for name in post:
+        if name.startswith('ingredient_'):
+            ingredients.append(post[name])
+    return ingredients
 
 
 @login_required
