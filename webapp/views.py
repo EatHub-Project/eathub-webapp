@@ -22,7 +22,8 @@ from django.utils.translation import ugettext as _
 
 def main(request):
     recipes = Recipe.objects.all()
-    return render(request, 'webapp/main.html', {'recipes': recipes})
+    recipes.order_by('creation_date')
+    return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
 
 def new_account(request):
@@ -335,6 +336,17 @@ def profile(request, username):
                 is_following = True
 
     return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'is_owner': is_owner})
+
+
+def recipes(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    recipes_list = Recipe.objects.raw_query({'author_id': ObjectId(user.id)})
+    recipes_list.order_by('creation_date')
+    return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
 
 
 def following(request, username):

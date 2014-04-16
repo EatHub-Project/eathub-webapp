@@ -17,6 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
+msgid "Recipes"
+msgstr "Recipes"
+
+msgid "Don't you have recipes? Let's make yourself one!"
+msgstr "Don't you have recipes? Let's make yourself one!"
+
 #: .\views.py:57 .\views.py:161
 msgid "Passwords don't match"
 msgstr "Passwords don't match"

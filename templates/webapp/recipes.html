@@ -1,0 +1,36 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block container %}
+{% if recipes %}
+    <h1>{% trans "Recipes" %}</h1>
+
+    <div class="row">
+        {% for recipe in recipes %}
+
+                <div class="col-md-3 panel follow-list-item">
+                    <img class="img-rounded"
+                         src="{{ recipe.pictures.0 }}"/>
+
+                    <h3 class="user-name"><a href="{% url 'recipe' recipe.id %}">
+                        {{ recipe.title }}</a></h3>
+
+                    <div class="recipe-time panel-body pull-right">
+                        <span class="glyphicon glyphicon-time"></span>
+                        <p>{{ recipe.time.prep_time }}</p>
+                    </div>
+                    <!--<p class="location">
+                        <span class="glyphicon glyphicon-map-marker"></span><span>{{ friend_profile.location }}</span>
+                    </p>-->
+
+                    <!--<p class="extra-info">{% trans "No recipes yet" %}</p>-->
+                </div>
+        {% endfor %}
+    </div>
+{% else %}
+        <div class="recipe-name">
+            <h2 class="follow-msg">{% trans "Don't you have recipes? Let's make yourself one!" %}</h2>
+        </div>
+{% endif %}
+{% endblock %}
