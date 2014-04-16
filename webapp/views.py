@@ -345,8 +345,7 @@ def recipes(request, username):
         raise Http404
 
     recipes_list = Recipe.objects.raw_query({'author_id': ObjectId(user.id)})
-    #recipes_list = Recipe.objects.get(author=user)
-    print(recipes_list)
+    recipes_list.order_by('creation_date')
     return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
 
 
