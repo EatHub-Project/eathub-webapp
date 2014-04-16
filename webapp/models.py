@@ -154,12 +154,7 @@ class Vote(models.Model):
     user = ForeignKey(User)
 
     def __eq__(self, other):
-        res = False
-
-        if self.user is other.user and self.date == other.date:
-            res = True
-
-        return res
+        return self.user is other.user and self.date == other.date
 
 
 class Recipe(models.Model):
