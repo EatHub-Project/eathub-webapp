@@ -337,6 +337,18 @@ def profile(request, username):
     return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'is_owner': is_owner})
 
 
+def recipes(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    recipes_list = Recipe.objects.raw_query({'author.user_id': ObjectId(user.id)})
+    #recipes_list = Recipe.objects.get(author=user)
+    print(recipes_list)
+    return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
+
+
 def following(request, username):
     try:
         user = User.objects.get(username=username)

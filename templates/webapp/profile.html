@@ -16,7 +16,8 @@
 
             <br/>
             <ul class="list-group custom-set">
-                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span>{% trans "Recipes" %}</li>
+                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span><a
+                        href="{% url 'recipes' profile.user.username %}">{% trans "Recipes" %}</a></li>
                 <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a
                         href="{% url 'followers' profile.user.username %}">{% trans "Followers" %}</a></li>
                 <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a

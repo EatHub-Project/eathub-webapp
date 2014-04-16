@@ -18,9 +18,15 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "Recipes"
+msgstr "Recetas"
+
+msgid "Don't you have recipes? Let's make yourself one!"
+msgstr "¿No tienes recetas? Hazte una!"
+
 #: .\views.py:57 .\views.py:161
 msgid "Passwords don't match"
-msgstr "LAs contraseñas no coinciden"
+msgstr "Las contraseñas no coinciden"
 
 #: .\views.py:62
 msgid "Username alerady taken"
