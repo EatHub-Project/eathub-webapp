@@ -3,7 +3,7 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Picture
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step
 from ajax.models import UploadedImage
 
 from django.contrib.auth.decorators import login_required
@@ -146,18 +146,22 @@ def new_recipe(request):
                            spicy=data['spicy'])
 
             time = Time(prep_time=prep_time, cook_time=cook_time)
-
+            imagen_principal =UploadedImage.objects.get(id=main_picture)
             r = Recipe(title=title,description=description,ingredients=ingredients,serves=serves,
                        language=language,temporality=temporality,nationality=nationality,special_conditions=special_conditions,
-                       notes=notes,difficult=difficult,food_type=food_type,tags=tags,steps=steps)
+                       notes=notes,difficult=difficult,food_type=food_type,tags=tags, main_image=imagen_principal.image)
             u = request.user
-            image=UploadedImage.objects.get(id=main_picture)
-            p=Picture(url=image.image.url,is_main=True)
-            r.pictures.append(p)
-            for key,value in mapping_step_picture.iteritems():
-                image=UploadedImage.objects.get(id=value)
-                p=Picture(url=image.image.url,is_main=False,step=(int(key)+1))
-                r.pictures.append(p)
+            for i in range(len(steps)):
+                if mapping_step_picture.__contains__(str(i)):
+                    imagen =UploadedImage.objects.get(id=mapping_step_picture.get(str(i)))
+                    paso = Step(text=steps[i],image=imagen.image)
+                else:
+                    paso = Step(text=steps[i])
+                r.steps.append(paso)
+            for pic in extra_pictures.split(";"):
+                if pic!= '':
+                    imagen = UploadedImage.objects.get(id=pic)
+                    r.pictures.append(imagen.image)
             r.savours=t
             r.time=time
             r.author=u

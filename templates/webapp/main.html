@@ -10,7 +10,7 @@
         <div class="thumbnail">
 			<br />
             <a href="{% url 'recipe' recipe.id %}">
-                <img data-src="holder.js/300x200" alt="300x200" src="{{ recipe.pictures.0 }}" style="width: 300px; height: 200px;">
+                <img data-src="holder.js/300x200" alt="300x200" src="{{ recipe.main_picture.url }}" style="width: 300px; height: 200px;">
             </a>
             <div class="caption">
             <div class="recipe-name">

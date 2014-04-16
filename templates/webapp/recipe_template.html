@@ -23,11 +23,7 @@
                     </div>
                     <div class="row">
                         <div class="recipe-image">
-                            {% for picture in receta.pictures %}
-                                {% if picture.is_main %}
-                                    <img class="img-rounded" src="{{ picture.url }}" alt="Recipe main picture">
-                                {% endif %}
-                            {% endfor %}
+                            <img class="img-rounded" src="{{ receta.main_image.url }}" alt="Recipe main picture">
                         </div>
                     </div>
                     <div class="row">
@@ -199,7 +195,7 @@
                         {% if receta.pictures %}
                             <ul>
                                 {% for picture in receta.pictures %}
-                                    <li><img class="img-thumbnail" src="{{ picture.url }}"/></li>
+                                    <li><img class="img-thumbnail" src="/{{ picture }}"/></li>
                                 {% endfor %}
                             </ul>
                         {% else %}
@@ -212,22 +208,17 @@
 
                     <div class="recipe-steps-list">
                         {% for step in receta.steps %}
-                            {% if step %}
-                                <!-- Start Step -->
-                                <div class="recipe-step">
-                                    <h5>Step {{ forloop.counter }}</h5>
-                                    <span>{{ step }}</span>
-
-                                    {% for image in receta.pictures %}
-                                        {% if image.step == forloop.parentloop.counter %}
-                                            <div class="recipe-step-image">
-                                                <img class="img-thumbnail" src="{{ image.url }}"/>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
+                            <!-- Start Step -->
+                            <div class="recipe-step">
+                                <h5>Step {{ forloop.counter }}</h5>
+                                <span>{{ step.text }}</span>
+                                <div class="recipe-step-image">
+                                    {% if step.image %}
+                                        <img class="img-thumbnail" src="{{ step.image.url }}"/>
+                                    {% endif %}
                                 </div>
-                                <!-- End Step -->
-                            {% endif %}
+                            </div>
+                            <!-- End Step -->
                         {% endfor %}
                     </div>
                 </div>
