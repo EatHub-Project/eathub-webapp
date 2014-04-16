@@ -3,7 +3,7 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment, Time, Author, Savour, Picture
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Picture
 from ajax.models import UploadedImage
 
 from django.contrib.auth.decorators import login_required
@@ -151,8 +151,6 @@ def new_recipe(request):
                        language=language,temporality=temporality,nationality=nationality,special_conditions=special_conditions,
                        notes=notes,difficult=difficult,food_type=food_type,tags=tags,steps=steps)
             u = request.user
-            profile = u.profile.get()
-            a = Author(display_name = profile.display_name, user_name = u.username, user = profile)
             image=UploadedImage.objects.get(id=main_picture)
             p=Picture(url=image.image.url,is_main=True)
             r.pictures.append(p)
@@ -162,7 +160,7 @@ def new_recipe(request):
                 r.pictures.append(p)
             r.savours=t
             r.time=time
-            r.author=a
+            r.author=u
             r.save()
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
