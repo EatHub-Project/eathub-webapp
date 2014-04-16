@@ -22,7 +22,8 @@ from django.utils.translation import ugettext as _
 
 def main(request):
     recipes = Recipe.objects.all()
-    return render(request, 'webapp/main.html', {'recipes': recipes})
+    recipes.order_by('creation_date')
+    return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
 
 def new_account(request):
