@@ -175,3 +175,7 @@ LOGGING = {
 from django.core.urlresolvers import reverse
 LOGIN_REDIRECT_URL = reverse('main')
 LOGIN_URL = reverse('login')
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR,'locale'),
+)
