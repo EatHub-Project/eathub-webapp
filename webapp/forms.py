@@ -99,5 +99,13 @@ class EditAccountForm(NewAccountForm):
         self.fields['password'].required = False
         self.fields['password_repeat'].required = False
 
+class SocialAccountForm(NewAccountForm):
+    def __init__(self, *args, **kwargs):
+        super(EditAccountForm, self).__init__(*args, **kwargs)
+        self.fields['username'].required = False
+        self.fields['email'].required = False
+        self.fields['password'].required = False
+        self.fields['password_repeat'].required = False
+
 class AddComment(forms.Form):
     text = forms.CharField(required=True)
