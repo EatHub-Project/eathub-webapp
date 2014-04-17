@@ -795,3 +795,73 @@ header .container {
     font-size: 15px;
     margin-top: 10px;
 }
+
+.post-it-right {
+    background: #fefabc;
+    padding: 15px;
+
+    -moz-transform: rotate(3deg);
+    -webkit-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+
+    box-shadow: 0px 4px 6px #777;
+    -moz-box-shadow: 0px 4px 6px #777;
+    -webkit-box-shadow: 0px 4px 6px #777;
+}
+
+.post-it-left {
+    background: #fefabc;
+    padding: 15px;
+
+    -moz-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+
+    box-shadow: 0px 4px 6px #777;
+    -moz-box-shadow: 0px 4px 6px #777;
+    -webkit-box-shadow: 0px 4px 6px #777;
+
+}
+
+.postit {
+    position: relative;
+    border: 1px solid #E8E8E8;
+    border-bottom-right-radius: 60px 5px;
+    display: inline-block;
+    /*background: rgb(255, 255, 136); *//* Old browsers *//*
+    background: -moz-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* FF3.6+ *//*
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, rgba(255, 255, 136, 1)), color-stop(100%, rgba(255, 255, 214, 1))); *//* Chrome,Safari4+ *//*
+    background: -webkit-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* Chrome10+,Safari5.1+ *//*
+    background: -o-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* Opera 11.10+ *//*
+    background: -ms-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* IE10+ *//*
+    background: linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* W3C */
+    background: #fefabc;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff88', endColorstr='#ffff88', GradientType=0); *//* IE6-9 fallback on horizontal gradient */
+    box-shadow: 0px 3px 6px #777;
+    -moz-box-shadow: 0px 3px 6px #777;
+    -webkit-box-shadow: 0px 3px 6px #777;
+}
+
+.postit:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -0px;
+    bottom: 20px;
+    width: 200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+    -moz-transform: matrix(-1, -0.12, 0, 1, 0, 0);
+    -webkit-transform: matrix(-1, -0.12, 0, 1, 0, 0);
+    -o-transform: matrix(-1, -0.1, 0, 12, 0, 0);
+    -ms-transform: matrix(-1, -0.12, 0, 1, 0, 0);
+    transform: matrix(-1, -0.12, 0, 1, 0, 0);
+
+
+
+}
