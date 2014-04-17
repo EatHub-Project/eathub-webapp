@@ -3,7 +3,7 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step, Picture
 from ajax.models import UploadedImage
 
 from django.contrib.auth.decorators import login_required
@@ -159,9 +159,9 @@ def new_recipe(request):
                     paso = Step(text=steps[i])
                 r.steps.append(paso)
             for pic in extra_pictures.split(";"):
-                if pic!= '':
-                    imagen = UploadedImage.objects.get(id=pic)
-                    r.pictures.append(imagen.image)
+                if pic != '':
+                    imagen = Picture(image=UploadedImage.objects.get(id=pic).image)
+                    r.pictures.append(imagen)
             r.savours=t
             r.time=time
             r.author=u
