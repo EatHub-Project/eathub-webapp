@@ -8,205 +8,211 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-15 16:04+0200\n"
+"POT-Creation-Date: 2014-04-17 12:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 
-
-#: .\views.py:57 .\views.py:161
-msgid "Passwords don't match"
-msgstr "Passwords don't match"
-
-#: .\views.py:62
-msgid "Username alerady taken"
-msgstr "Username alerady taken"
-
-#: templates/webapp/base.html.py:28
+#: templates/webapp/base.html:28
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
-#: templates/webapp/base.html.py:40
+#: templates/webapp/base.html:40
 msgid "Home"
 msgstr "Home"
 
-#: templates/webapp/base.html.py:41 .\profile.html.py:19
+#: templates/webapp/base.html:41 templates/webapp/profile.html:20
+#: templates/webapp/recipes.html:7
 msgid "Recipes"
 msgstr "Recipes"
 
-#: templates/webapp/base.html.py:42
+#: templates/webapp/base.html:42
 msgid "Explore"
 msgstr "Explore"
 
-#: templates/webapp/base.html.py:60
+#: templates/webapp/base.html:60
 msgid "Hello"
 msgstr "Hello"
 
-#: templates/webapp/base.html.py:68
+#: templates/webapp/base.html:68
 msgid "Profile"
 msgstr "Profile"
 
-#: templates/webapp/base.html.py:71
+#: templates/webapp/base.html:71
 msgid "Logout"
 msgstr "Logout"
 
-#: templates/webapp/base.html.py:77
+#: templates/webapp/base.html:77
 msgid "Add recipe"
 msgstr "Add recipe"
 
-#: templates/webapp/base.html.py:83
+#: templates/webapp/base.html:83
 msgid "Sign-up"
 msgstr "Sign-up"
 
-#: templates/webapp/following.html.py:23
+#: templates/webapp/following.html:23 templates/webapp/recipes.html:31
 msgid "No recipes yet"
 msgstr "No recipes yet"
 
-#: templates/webapp/following.html.py:31
+#: templates/webapp/following.html:31
 msgid "Don't you have friends? Let's make some!"
 msgstr "Don't you have friends? Let's make some!"
 
-#: templates/webapp/following.html.py:35
+#: templates/webapp/following.html:35
 msgid "has no friends yet"
 msgstr "has no friends yet"
 
-#: templates/webapp/login.html.py:30
+#: templates/webapp/login.html:30
 msgid "Please sign in"
 msgstr "Please sign in"
 
-#: templates/webapp/login.html.py:43
+#: templates/webapp/login.html:43
 msgid "Remember me"
 msgstr "Remember me"
 
-#: templates/webapp/login.html.py:46
+#: templates/webapp/login.html:46
 msgid "Sign in"
 msgstr "Sign in"
 
-#: templates/webapp/logo.html.py:9
+#: templates/webapp/logo.html:9
 msgid "This is a provisional starting page"
 msgstr "This is a provisional starting page"
 
-#: templates/webapp/logo.html.py:11
+#: templates/webapp/logo.html:11
 msgid "Under construction"
 msgstr "Under construction"
 
-#: templates/webapp/newaccount.html.py:102 .\profile.html.py:43
+#: templates/webapp/newaccount.html:102 templates/webapp/profile.html:44
 msgid "Edit profile"
 msgstr "Edit profile"
 
-#: templates/webapp/newaccount.html.py:104 .\newaccount.html.py:405
+#: templates/webapp/newaccount.html:104 templates/webapp/newaccount.html:405
 msgid "Create account"
 msgstr "Create account"
 
-#: templates/webapp/newaccount.html.py:126
+#: templates/webapp/newaccount.html:126
 msgid "Account information"
 msgstr "Account information"
 
-#: templates/webapp/newaccount.html.py:146 .\newaccount.html.py:159 .\newaccount.html.py:172
-#: templates/webapp/newaccount.html.py:185 .\newaccount.html.py:201 .\newaccount.html.py:224
+#: templates/webapp/newaccount.html:146 templates/webapp/newaccount.html:159
+#: templates/webapp/newaccount.html:172 templates/webapp/newaccount.html:185
+#: templates/webapp/newaccount.html:201 templates/webapp/newaccount.html:224
 msgid "Required"
 msgstr "Required"
 
-#: templates/webapp/newaccount.html.py:189
+#: templates/webapp/newaccount.html:189
 msgid "Profile information"
 msgstr "Profile information"
 
-#: templates/webapp/newaccount.html.py:323
+#: templates/webapp/newaccount.html:323
 msgid "Consumer preferences"
 msgstr "Consumer preferences"
 
-#: templates/webapp/newaccount.html.py:403
+#: templates/webapp/newaccount.html:403
 msgid "Save changes"
 msgstr "Save changes"
 
-#: templates/webapp/profile.html.py:21
+#: templates/webapp/profile.html:22
 msgid "Followers"
 msgstr "Followers"
 
-#: templates/webapp/profile.html.py:23
+#: templates/webapp/profile.html:24
 msgid "Following"
 msgstr "Following"
 
-#: templates/webapp/profile.html.py:27
+#: templates/webapp/profile.html:28
 msgid "That's you!"
 msgstr "That's you!"
 
-#: templates/webapp/profile.html.py:29
+#: templates/webapp/profile.html:30
 msgid "Unfollow"
 msgstr "Unfollow"
 
-#: templates/webapp/profile.html.py:36
+#: templates/webapp/profile.html:37
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: templates/webapp/profile.html.py:39
+#: templates/webapp/profile.html:40
 msgid "Done!"
 msgstr "Done!"
 
-#: templates/webapp/profile.html.py:52
+#: templates/webapp/profile.html:53
 msgid "Basic info"
 msgstr "Basic info"
 
-#: templates/webapp/profile.html.py:56
+#: templates/webapp/profile.html:57
 msgid "Email"
 msgstr "Email"
 
-#: templates/webapp/profile.html.py:64
+#: templates/webapp/profile.html:65
 msgid "Language"
 msgstr "Language"
 
-#: templates/webapp/profile.html.py:94
+#: templates/webapp/profile.html:95
 msgid "Check-in date"
 msgstr "Check-in date"
 
-#: templates/webapp/profile.html.py:129
+#: templates/webapp/profile.html:130
 msgid "User info"
 msgstr "User info"
 
-#: templates/webapp/profile.html.py:133
+#: templates/webapp/profile.html:134
 msgid "website"
 msgstr "website"
 
-#: templates/webapp/profile.html.py:141
+#: templates/webapp/profile.html:142
 msgid "Gender"
 msgstr "Gender"
 
-#: templates/webapp/profile.html.py:187
+#: templates/webapp/profile.html:188
 msgid "Personal info"
 msgstr "Personal info"
 
-#: templates/webapp/profile.html.py:191
+#: templates/webapp/profile.html:192
 msgid "Bith date"
 msgstr "Bith date"
 
-#: templates/webapp/profile.html.py:199
+#: templates/webapp/profile.html:200
 msgid "Last login"
 msgstr "Last login"
 
-#: templates/webapp/profile.html.py:228
+#: templates/webapp/profile.html:229
 msgid "Savours profile"
 msgstr "Savours profile"
 
-#: templates/webapp/profile.html.py:230
+#: templates/webapp/profile.html:231
 msgid "Salty"
 msgstr "Salty"
 
-#: templates/webapp/profile.html.py:239
+#: templates/webapp/profile.html:240
 msgid "Sour"
 msgstr "Sour"
 
-#: templates/webapp/profile.html.py:248
+#: templates/webapp/profile.html:249
 msgid "Bitter"
 msgstr "Bitter"
 
-#: templates/webapp/profile.html.py:257
+#: templates/webapp/profile.html:258
 msgid "Sweet"
 msgstr "Sweet"
 
-#: templates/webapp/profile.html.py:266
+#: templates/webapp/profile.html:267
 msgid "Spicy"
 msgstr "Spicy"
+
+#: templates/webapp/recipes.html:37
+#, fuzzy
+msgid "Don't you have recipes? Let's make yourself one!"
+msgstr "Don't you have friends? Let's make some!"
+
+#: webapp/views.py:59 webapp/views.py:230
+msgid "Passwords don't match"
+msgstr "Passwords don't match"
+
+#: webapp/views.py:64
+msgid "Username alerady taken"
+msgstr "Username alerady taken"
