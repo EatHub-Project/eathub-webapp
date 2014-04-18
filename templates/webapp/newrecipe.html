@@ -1,6 +1,7 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% load recipe_form %}
 
 
 {% block custom_css %}
@@ -46,15 +47,31 @@
         var galleryArray = {};
         var associationStepPicture = {};
 
+        function setMainPicture(url) {
+            $("#main-picture").css('background-image', 'url(' + url + ')');
+            $("#main-picture-indicator").hide();
+        }
+
+        function procesaFormularioInicial() {
+            // Main Picture
+            var mainPictureInputName = "#id_{{ form.main_picture_id.name }}";
+            var $mainPictureInput = $(mainPictureInputName);
+            var mainPictureUrl = $mainPictureInput.attr("initial-picture-url");
+            if (mainPictureUrl) {
+                setMainPicture(mainPictureUrl);
+            }
+        }
+
+
         $().ready(function () {
+
+            procesaFormularioInicial();
+
             // Drag&Drop for main picture
-            var mainPicture = $("#main-picture");
-            activateDragAndDrop(mainPicture, "{% url 'upload' %}", function (returndata) {
+            activateDragAndDrop($("#main-picture"), "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
                 //TODO validar y tal
-                $("#main-picture").css('background-image', 'url(' + response.url + ')');
-                $("#main-picture-indicator").hide();
-
+                setMainPicture(response.url);
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.main_picture_id.name }}";
                 $(input_id).val(response.id);
@@ -164,7 +181,10 @@
         </div>
 
         <!-- Main Image -->
-        <input type="hidden" id="id_{{ form.main_picture_id.name }}" name="{{ form.main_picture_id.name }}">
+        <input type="hidden" id="id_{{ form.main_picture_id.name }}" name="{{ form.main_picture_id.name }}"
+               initial-picture-url="{% picture_from_id form.main_picture_id.value %}"
+               value="{{ form.main_picture_id.value |default:"" }}">
+
         <div class="form-group">
             <div class="col-sm-12">
                 <div class="main-picture drop-target" id="main-picture">

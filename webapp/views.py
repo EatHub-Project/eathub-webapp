@@ -166,7 +166,7 @@ def new_recipe(request):
             r.author=u
             r.save()
 
-            return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+            #DEBUG return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
         form = NewRecipeForm(steps=[], ingredients=[])
