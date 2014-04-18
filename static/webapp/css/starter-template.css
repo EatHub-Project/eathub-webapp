@@ -117,25 +117,6 @@ header .container {
     font-size: 20px;
 }
 
-.recipe-name {
-    max-height: 120px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin-bottom: 30px;
-    color: #CC3E27;
-    font-size: 3em;
-}
-
-.recipe-author {
-    float: right;
-}
-
-.recipe-author h5 {
-    display: inline;
-    color: #CC3E27;
-    font-weight: bold;
-}
-
 .recipe-image {
     padding: 30px;
     text-align: center;
@@ -268,14 +249,6 @@ header .container {
     text-align: center;
 }
 
-.main-picture-padding {
-    padding: 10px;
-}
-
-.main-picture-carousel {
-    height: 450px;
-    overflow: hidden;
-}
 
 #main-picture-indicator {
     height: 200px;
@@ -625,6 +598,60 @@ header .container {
 
 .recipe-title-max-height {
     height: 25px;
+}
+
+.recipe-name {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+}
+
+.main-picture-padding {
+    height: 400px;
+    padding: 10px;
+    position: relative;
+}
+
+.main-picture-carousel {
+    overflow: hidden;
+    height: 380px;
+
+}
+
+.recipe-author {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #CC3E27;
+}
+
+.recipe-author:hover, .recipe-author.hover {
+    background-color: #CC3E27;
+    color: #fff;
+}
+
+.recipe-author-picture {
+    float: right;
+    z-index: 10;
+    width: 80px;
+    margin: 2px;
+    background-color: #fff;
+    padding: 4px;
+
+}
+
+.recipe-author-name {
+    float: right;
+    z-index: 9;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-right: 44px;
+    padding: 8px 44px 10px 10px;
+    border-radius: 5px;
 }
 
 .recipe-data p{

@@ -9,12 +9,6 @@
     <div class="col-md-8 col-md-offset-2">
     <h1 class="recipe-name">Homemade strawberry lollipop</h1>
 
-    {% comment %}<div class="panel main-picture-padding">
-                <div class="main-picture"
-                     style="background-image: url('http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg')">
-                </div>
-            </div>{% endcomment %}
-
     <div class="panel main-picture-padding row">
         <div id="carousel-example-generic" class="main-picture-carousel carousel slide"
              data-ride="carousel">
@@ -52,6 +46,13 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </div>
+
+        <!-- Author overlay -->
+        <a class="recipe-author-link" href="#">
+            <img class="img-circle recipe-author recipe-author-picture"
+                 src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
+            <h5 class="recipe-author recipe-author-name">By Virgi</h5>
+        </a>
     </div>
 
     <div class="panel panel-body row recipe-description">
@@ -418,5 +419,16 @@
             // these HTTP methods do not require CSRF protection
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
         }
+    </script>
+    <script>
+        $().ready(function () {
+            $(".recipe-author-link").hover(
+                    function () {
+                        $(".recipe-author").addClass("hover");
+                    },
+                    function () {
+                        $(".recipe-author").removeClass("hover");
+                    });
+        });
     </script>
 {% endblock %}
