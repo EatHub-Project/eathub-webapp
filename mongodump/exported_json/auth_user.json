@@ -31,7 +31,7 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1396966326277
+            "$date": 1397846542349
         },
         "last_name": "Fern\u00e1ndez Garc\u00eda",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
@@ -44,7 +44,7 @@
         "date_joined": {
             "$date": 1373452632089
         },
-        "email": "franciscoh@gmail.com",
+        "email": "franciscohgomez@gmail.com",
         "first_name": "Francisco",
         "is_active": true,
         "is_staff": false,
@@ -52,9 +52,9 @@
         "last_login": {
             "$date": 1396876163731
         },
-        "last_name": "Fern\u00e1ndez Hern\u00e1ndez",
+        "last_name": "Hern\u00e1ndez",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
-        "username": "francisco"
+        "username": "franhg"
     },
     {
         "_id": {
@@ -69,11 +69,11 @@
         "is_staff": false,
         "is_superuser": true,
         "last_login": {
-            "$date": 1396876118248
+            "$date": 1397846281164
         },
         "last_name": "Garc\u00eda Herrero",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
-        "username": "camaron"
+        "username": "pgherrero"
     },
     {
         "_id": {
@@ -88,9 +88,9 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1396876576283
+            "$date": 1397846967568
         },
-        "last_name": "Barriero fern\u00e1ndez",
+        "last_name": "De Jacques",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
         "username": "alex"
     },
@@ -101,17 +101,17 @@
         "date_joined": {
             "$date": 1297623312089
         },
-        "email": "dimitrov@gmail.com",
-        "first_name": "Dimi",
+        "email": "jamesjones@gmail.com",
+        "first_name": "James",
         "is_active": true,
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1396876937615
+            "$date": 1397845999578
         },
-        "last_name": "Barriero Popovich",
+        "last_name": "Jones",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
-        "username": "dimitri"
+        "username": "james17"
     },
     {
         "_id": {
@@ -120,15 +120,15 @@
         "date_joined": {
             "$date": 1360792522089
         },
-        "email": "dimitrov@gmail.com",
-        "first_name": "Thomas",
+        "email": "tomassalinascalderon@gmail.com",
+        "first_name": "Tomas",
         "is_active": true,
         "is_staff": true,
         "is_superuser": false,
         "last_login": {
-            "$date": 1396876104803
+            "$date": 1397847048872
         },
-        "last_name": "Fern\u00e1ndez Popovich",
+        "last_name": "Salinas Calderon",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
         "username": "tomas"
     },
@@ -139,36 +139,17 @@
         "date_joined": {
             "$date": 1396744318042
         },
-        "email": "test@test.test",
-        "first_name": "",
+        "email": "mariolopezrodriguez@hotmail.com",
+        "first_name": "Mario",
         "is_active": true,
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1396876054374
+            "$date": 1397845450013
         },
-        "last_name": "",
+        "last_name": "Lopez",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
-        "username": "testing"
-    },
-    {
-        "_id": {
-            "$oid": "53412fa018085d03fc51b730"
-        },
-        "date_joined": {
-            "$date": 1396802560396
-        },
-        "email": "hola@que.ase",
-        "first_name": "",
-        "is_active": true,
-        "is_staff": false,
-        "is_superuser": false,
-        "last_login": {
-            "$date": 1396963272974
-        },
-        "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
-        "username": "homie"
+        "username": "mariolopez"
     },
     {
         "_id": {
