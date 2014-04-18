@@ -525,24 +525,27 @@ header .container {
 .comment-form textarea {
     border: 0;
     resize: none;
-    padding-left: 3;
-    color: #999;
+    padding-left: 10px;
     background-color: transparent;
     outline: none;
 }
 
 .comment-form:hover {
-    border: 2px solid #CC3E27;
+    border: 1px solid #CC3E27;
 }
 
 .comment-form:hover .comment-bocadillo {
-    border-top: 2px solid #CC3E27;
+    border-top: 1px solid #CC3E27;
 }
 
 .comment-form:hover .efecto-inferior {
     border-bottom: 16px solid #CC3E27;
     left: 0px;
-    top: -2px;
+    top: -1px;
+}
+
+.comment-form:focus {
+    background-color: #fff;
 }
 
 .comment-form textarea:focus {
@@ -780,10 +783,23 @@ header .container {
     margin: 30px 40px;
 }
 
-.recipe-comment {
+.recipe-comment, .recipe-comment-form {
     padding-left: 100px;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+.recipe-comment-form {
+    margin-top: 90px;
+}
+
+.recipe-comment-form-input {
+    position: relative;
+    padding-left: 15px;
+}
+
+.recipe-comment-form .recipe-comment-picture {
+    margin-top: -10px;
 }
 
 .recipe-comment-picture {

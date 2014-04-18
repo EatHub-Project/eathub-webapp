@@ -294,7 +294,6 @@
                     <img class="img-circle recipe-comment-picture"
                          src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
 
-
                     <span class="recipe-comment-name">Virgi Moriel</span>
                     <span class="recipe-comment-date">18 de Abril de 2014 a las 00:13</span>
 
@@ -303,7 +302,29 @@
                         demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y están muy
                         buenas.</p>
                 </div>
+                {% if not forloop.last %}
+                    <hr>
+                {% endif %}
             {% endfor %}
+
+            <div class="recipe-comment-form">
+                <img class="img-circle recipe-comment-picture"
+                     src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
+
+                <div class="recipe-comment-form-input">
+                    <form method="POST" action="{% url 'comment' receta.id %}">
+                        <div class="comment-form">
+                            <div class="comment-bocadillo">
+                                <div class="bocadillo-efecto efecto-inferior"></div>
+                                <div class="bocadillo-efecto efecto-superior"></div>
+                            </div>
+                            <textarea class="col-md-12" type="text" name="text"
+                                      placeholder="Escriba un comentario..." rows="4"></textarea>
+                        </div>
+                        <input class="plus btn btn-default" type="submit">
+                    </form>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -460,8 +481,21 @@
                     function () {
                         $(".recipe-votes").animate({"margin-bottom": 0})
                     },
-                    function() {
+                    function () {
                         $(".recipe-votes").animate({"margin-bottom": "-40px"})
+                    }
+            );
+
+            var $commentForm = $(".recipe-comment-form textarea");
+            var $input = $(".comment-bocadillo, .comment-form");
+            $commentForm.focusin(
+                    function () {
+                        $input.css("background-color", "#fefefe")
+                    }
+            );
+            $commentForm.focusout(
+                    function () {
+                        $input.css("background-color", "#e9e9e9")
                     }
             );
         });
