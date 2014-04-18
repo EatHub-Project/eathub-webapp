@@ -82,11 +82,14 @@ class NewRecipeForm(forms.Form):
         return steps
 
     def get_cleaned_ingredients(self):
-        ingredients = list()
-        for field in self.cleaned_data:
-            if field.startswith('ingredient_'):
-                ingredients.append(self.cleaned_data[field])
-        return ingredients
+        try:
+            ingredients = list()
+            for field in self.cleaned_data:
+                if field.startswith('ingredient_'):
+                    ingredients.append(self.cleaned_data[field])
+            return ingredients
+        except AttributeError:
+                return None
 
     def get_pictures_ids_list(self):
         try:

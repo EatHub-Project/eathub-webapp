@@ -282,6 +282,26 @@
                     </div>
                     <!-- /ingredient-item -->
 
+                    {% for ingredient in form.get_cleaned_ingredients %}
+                        <div class="form-group ingredient-item repeatable-row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <div class="input-group">
+                                <span class="input-group-addon repeatable-move"><span
+                                        class="glyphicon glyphicon-sort"></span> </span>
+                                    <input type="text" class="form-control ingredient-input"
+                                           name="ingredient_{{ forloop.counter0 }}" id="id_ingredient_{{ forloop.counter0 }}"
+                                           value="{{ ingredient }}"
+                                            >
+                                <span class="input-group-btn ingredient-remove">
+                                    <button class="btn btn-default repeatable-remove" type="button"><span
+                                            class="glyphicon glyphicon-remove"></span></button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                   {% endfor %}
+
+
                 </div>
                 <div class="form-group ingredient-item ">
                     <div class="col-sm-8 col-sm-offset-2">
