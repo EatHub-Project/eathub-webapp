@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-17 12:53+0200\n"
+"POT-Creation-Date: 2014-04-18 17:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,9 +50,14 @@ msgstr "Logout"
 msgid "Add recipe"
 msgstr "Add recipe"
 
-#: templates/webapp/base.html:83
-msgid "Sign-up"
-msgstr "Sign-up"
+#: templates/webapp/base.html:82 templates/webapp/login.html:64
+msgid "Sign in"
+msgstr "Sign in"
+
+#: templates/webapp/base.html:83 templates/webapp/newaccount.html:104
+#: templates/webapp/newaccount.html:405
+msgid "Create account"
+msgstr "Create account"
 
 #: templates/webapp/following.html:23 templates/webapp/recipes.html:31
 msgid "No recipes yet"
@@ -66,17 +71,53 @@ msgstr "Don't you have friends? Let's make some!"
 msgid "has no friends yet"
 msgstr "has no friends yet"
 
-#: templates/webapp/login.html:30
+#: templates/webapp/login.html:7
+msgid "Welcome to EatHub"
+msgstr "Welcome to EatHub"
+
+#: templates/webapp/login.html:9
+msgid ""
+"Do you like to eat? Then EatHub is for you. Explore everyone's recipes and "
+"their variations, create and customize your own food, and collaborate to "
+"find the best recipes in the world!"
+msgstr ""
+"Do you like to eat? Then EatHub is for you. Explore everyone's recipes and "
+"their variations, create and customize your own food, and collaborate to "
+"find the best recipes in the world!"
+
+#: templates/webapp/login.html:37
+#, fuzzy
+msgid "Username and password don't match."
+msgstr "Passwords don't match"
+
+#: templates/webapp/login.html:40
+msgid "You need to be logged-in to view this page."
+msgstr "You need to be logged-in to view this page."
+
+#: templates/webapp/login.html:47
 msgid "Please sign in"
 msgstr "Please sign in"
 
-#: templates/webapp/login.html:43
+#: templates/webapp/login.html:50
+msgid "Username"
+msgstr "Username"
+
+#: templates/webapp/login.html:55
+msgid "Password"
+msgstr "Password"
+
+#: templates/webapp/login.html:61
 msgid "Remember me"
 msgstr "Remember me"
 
-#: templates/webapp/login.html:46
-msgid "Sign in"
-msgstr "Sign in"
+#: templates/webapp/login.html:68
+#, fuzzy
+msgid "Create an account"
+msgstr "Create an account"
+
+#: templates/webapp/login.html:71
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
 
 #: templates/webapp/logo.html:9
 msgid "This is a provisional starting page"
@@ -89,10 +130,6 @@ msgstr "Under construction"
 #: templates/webapp/newaccount.html:102 templates/webapp/profile.html:44
 msgid "Edit profile"
 msgstr "Edit profile"
-
-#: templates/webapp/newaccount.html:104 templates/webapp/newaccount.html:405
-msgid "Create account"
-msgstr "Create account"
 
 #: templates/webapp/newaccount.html:126
 msgid "Account information"
@@ -209,10 +246,11 @@ msgstr "Spicy"
 msgid "Don't you have recipes? Let's make yourself one!"
 msgstr "Don't you have friends? Let's make some!"
 
-#: webapp/views.py:59 webapp/views.py:230
+#: webapp/views.py:59 webapp/views.py:234
 msgid "Passwords don't match"
 msgstr "Passwords don't match"
 
 #: webapp/views.py:64
+#, fuzzy
 msgid "Username alerady taken"
-msgstr "Username alerady taken"
+msgstr "Username aleready taken"
