@@ -57,23 +57,22 @@
         <!-- Votes overaly -->
         <div class="recipe-votes-container">
             <div class="recipe-votes">
-                <div class="recipe-votes-buttons">
-                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> Like</a>
-                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
-                </div>
-
                 <div class="recipe-votes-indicators">
                     <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>456</span>
                     <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>3</span>
                     <span class="recipe-votes-count">534</span>
                 </div>
 
-
                 <div class="progress recipe-votes-progress">
                     <div class="progress-bar progress-bar-success" style="width: 90%">
                     </div>
                     <div class="progress-bar progress-bar-warning" style="width: 10%">
                     </div>
+                </div>
+
+                <div class="recipe-votes-buttons">
+                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
                 </div>
 
             </div>
@@ -459,10 +458,10 @@
             //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
             $(".recipe-votes-container").hover(
                     function () {
-                        $(".recipe-votes").animate({"margin-top": 0})
+                        $(".recipe-votes").animate({"margin-bottom": 0})
                     },
                     function() {
-                        $(".recipe-votes").animate({"margin-top": "-40px"})
+                        $(".recipe-votes").animate({"margin-bottom": "-40px"})
                     }
             );
         });
