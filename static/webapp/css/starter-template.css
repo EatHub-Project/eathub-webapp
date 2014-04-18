@@ -52,6 +52,19 @@ header .container {
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
+
+.btn-eathub {
+    color: #fff;
+    background-color: #CC3E27;
+    border-color: #cc3e27;
+}
+
+.btn-eathub.btn.btn-default:hover, .btn-eathub.btn.btn-default:focus, .btn-eathub.btn.btn-default:active {
+    color: #cc3e27;
+    background-color: #fff;
+    border-color: #cc3e27;
+}
+
 .plus {
     margin: 8px;
     color: #fff;
@@ -705,3 +718,56 @@ header .container {
     height: 25px;
 }
 
+
+.login-welcome-title {
+    font-size: 46px;
+    text-align: center;
+    color: #474747;
+}
+
+.login-welcome-text {
+    font-size: 21px;
+    font-weight: 200;
+    text-align: center;
+    margin-top: 30px;
+    line-height: 1.4;
+}
+
+.login-welcome {
+    margin-top: 10px;
+}
+
+.login-form {
+    margin-top: 110px;
+}
+
+.login-form-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #CC3E27;
+}
+
+.login-form form {
+    padding: 20px 40px 10px;
+}
+
+.login-form-submit {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-form-remember label {
+    font-weight: bold;
+    color: #767676;
+    font-size: 13px;
+}
+
+.login-form-signup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-form-signup a{
+    color: #CC3E27;
+}
