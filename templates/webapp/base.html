@@ -79,8 +79,8 @@
                                 </div>
                             </li>
                         {% else %}
-                            <a class="plus btn btn-default" href="{% url 'login' %}" role="button">Log in</a>
-                            <a class="plus btn btn-default" href="{% url 'newaccount' %}">{% trans "Sign-up" %}</a>
+                            <a class="btn btn-default btn-eathub" href="{% url 'login' %}" role="button">{% trans "Sign in" %}</a>
+                            <a class="btn btn-default btn-eathub-inverted" href="{% url 'newaccount' %}">{% trans "Create account" %}</a>
                         {% endif %}
                     </ul>
                 </div>

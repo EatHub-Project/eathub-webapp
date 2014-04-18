@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-17 12:53+0200\n"
+"POT-Creation-Date: 2014-04-18 17:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,9 +51,14 @@ msgstr "Cerrar sesión"
 msgid "Add recipe"
 msgstr "Añadir receta"
 
-#: templates/webapp/base.html:83
-msgid "Sign-up"
-msgstr "Registrarse"
+#: templates/webapp/base.html:82 templates/webapp/login.html:64
+msgid "Sign in"
+msgstr "Entrar"
+
+#: templates/webapp/base.html:83 templates/webapp/newaccount.html:104
+#: templates/webapp/newaccount.html:405
+msgid "Create account"
+msgstr "Nueva cuenta"
 
 #: templates/webapp/following.html:23 templates/webapp/recipes.html:31
 msgid "No recipes yet"
@@ -67,17 +72,52 @@ msgstr "¿No tienes amigos? ¡Vamos a buscarlos!"
 msgid "has no friends yet"
 msgstr "aún no tiene amigos"
 
-#: templates/webapp/login.html:30
-msgid "Please sign in"
-msgstr ""
+#: templates/webapp/login.html:7
+msgid "Welcome to EatHub"
+msgstr "Bienvenido a EatHub"
 
-#: templates/webapp/login.html:43
+#: templates/webapp/login.html:9
+msgid ""
+"Do you like to eat? Then EatHub is for you. Explore everyone's recipes and "
+"their variations, create and customize your own food, and collaborate to "
+"find the best recipes in the world!"
+msgstr ""
+"¿Te gusta comer? Entonces EatHub es para ti. Explora recetas de otra gente y "
+"sus variaciones, crea y personaliza tu propia comida, y colabora para "
+"encontrar las mejores recetas en el mundo."
+
+#: templates/webapp/login.html:37
+#, fuzzy
+msgid "Username and password don't match."
+msgstr "Las contraseñas no coinciden"
+
+#: templates/webapp/login.html:40
+msgid "You need to be logged-in to view this page."
+msgstr "Debes estar registrado para ver esta página."
+
+#: templates/webapp/login.html:47
+msgid "Please sign in"
+msgstr "Inicia sesión"
+
+#: templates/webapp/login.html:50
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: templates/webapp/login.html:55
+msgid "Password"
+msgstr "Contraseña"
+
+#: templates/webapp/login.html:61
 msgid "Remember me"
 msgstr "Recuérdame"
 
-#: templates/webapp/login.html:46
-msgid "Sign in"
-msgstr "Inicia sesión"
+#: templates/webapp/login.html:68
+msgid "Create an account"
+msgstr "Crea una cuenta"
+
+#: templates/webapp/login.html:71
+msgid "Forgot your password?"
+msgstr "¿Olvidaste tu contraseña?"
 
 #: templates/webapp/logo.html:9
 msgid "This is a provisional starting page"
@@ -90,10 +130,6 @@ msgstr "En construcción"
 #: templates/webapp/newaccount.html:102 templates/webapp/profile.html:44
 msgid "Edit profile"
 msgstr "Editar perfil"
-
-#: templates/webapp/newaccount.html:104 templates/webapp/newaccount.html:405
-msgid "Create account"
-msgstr ""
 
 #: templates/webapp/newaccount.html:126
 msgid "Account information"
@@ -210,10 +246,14 @@ msgstr "Picante"
 msgid "Don't you have recipes? Let's make yourself one!"
 msgstr "¿No tienes amigos? ¡Vamos a buscarlos!"
 
-#: webapp/views.py:59 webapp/views.py:230
+#: webapp/views.py:59 webapp/views.py:234
 msgid "Passwords don't match"
 msgstr "Las contraseñas no coinciden"
 
 #: webapp/views.py:64
 msgid "Username alerady taken"
 msgstr "Ese nombre de usuario ya está en uso"
+
+#, fuzzy
+#~ msgid "Usuario y contraseña incorrectos."
+#~ msgstr "Las contraseñas no coinciden"
