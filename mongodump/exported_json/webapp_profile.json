@@ -330,5 +330,33 @@
             "$oid": "53412fa018085d03fc51b730"
         },
         "website": "http://www.jajajaja.com/"
+    },
+    {
+        "_id": {
+            "$oid": "53511955b88bbe11b48fcdd8"
+        },
+        "additional_languages": [],
+        "avatar": "images/fotocarne_recortada_1.jpg",
+        "birth_date": {
+            "$date": 724204800000
+        },
+        "display_name": "Juanma",
+        "following": [],
+        "gender": "m",
+        "karma": 6,
+        "location": "Sevilla",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 50,
+            "salty": 50,
+            "sour": 50,
+            "spicy": 50,
+            "sweet": 50
+        },
+        "user_id": {
+            "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "website": ""
     }
 ]

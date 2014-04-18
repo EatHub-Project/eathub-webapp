@@ -583,5 +583,431 @@
             "prep_time": 20
         },
         "title": "Alcachofas con calamares y almejas"
+    },
+    {
+        "_id": {
+            "$oid": "5351163430adf210288cc8f5"
+        },
+        "author_id": {
+            "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "creation_date": {
+            "$date": 1397212214154
+        },
+        "description": "Una comida rica y f\u00e1cil de preparar.",
+        "difficult": 1,
+        "food_type": "pasta",
+        "ingredients": [
+            "300 gramos de macarrones",
+            "50 gramos de queso rallado",
+            "1 bote de tomate",
+            "10 gramos de sal"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "main_image": {
+            "url": "http://1.bp.blogspot.com/-59y6DIVija0/UhjQLP2LuJI/AAAAAAAAAjQ/n0FFHM2JYB8/s1600/9+Emplatamos.jpg"
+        },
+        "nationality": "italian",
+        "notes": "Uno de los grandes aportes de la cocina italiana.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": {
+                    "url": "http://1.bp.blogspot.com/-59y6DIVija0/UhjQLP2LuJI/AAAAAAAAAjQ/n0FFHM2JYB8/s1600/9+Emplatamos.jpg"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 10,
+            "salty": 10,
+            "sour": 45,
+            "spicy": 30,
+            "sweet": 10
+        },
+        "serves": "1 persona",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Llenamos una cazuela hasta la mitad con agua y la ponemos a calentar."
+            },
+            {
+                "image": "",
+                "text": "Acto seguido echamos un peque\u00f1o pu\u00f1ado de sal y vertimos un poco de aceite de oliva."
+            },
+            {
+                "image": "",
+                "text": "Pasados 10 minutos, cuando el agua est\u00e9 caliente sin llegar a hervir, echamos los macarrones."
+            },
+            {
+                "image": "",
+                "text": "Despu\u00e9s de 15 minutos estar\u00e1n listos. S\u00f3lo tenemos que sacar el agua de la cazuela."
+            },
+            {
+                "image": "",
+                "text": "El siguiente paso es a\u00f1adir 50 gramos de queso rallado y remover los macarrones."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda vertir el tomate. Y ya tendremos nuestra comida lista para ser servida."
+            }
+        ],
+        "tags": [
+            "macarrones",
+            "tomate",
+            "pasta",
+            "queso rallado"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 25,
+            "prep_time": 35
+        },
+        "title": "Macarrones con tomate"
+    },
+    {
+        "_id": {
+            "$oid": "53511b8d08dce7283d0cb122"
+        },
+        "author_id": {
+            "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "creation_date": {
+            "$date": 1394461394154
+        },
+        "description": "Una buena tortilla de patatas espa\u00f1ola, de las de toda la vida.",
+        "difficult": 1,
+        "food_type": "frito",
+        "ingredients": [
+            "5 patatas",
+            "2 huevos",
+            "aceite de oliva"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "main_image": {
+            "url": "http://magazine.horasur.com/wp-content/uploads/2013/07/tortilla-de-patata.jpg"
+        },
+        "nationality": "spanish",
+        "notes": "La imagen lo dice todo.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": {
+                    "url": "http://magazine.horasur.com/wp-content/uploads/2013/07/tortilla-de-patata.jpg"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 25,
+            "salty": 85,
+            "sour": 50,
+            "spicy": 55,
+            "sweet": 0
+        },
+        "serves": "2 personas",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Calentamos un poco de aceite en una sart\u00e9n."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, cortamos 5 patatas, bien en tiras o en rodajas."
+            },
+            {
+                "image": "",
+                "text": "Una vez el aceita se ha calentado, echamos las patatas en la sart\u00e9n."
+            },
+            {
+                "image": "",
+                "text": "Mientras se fr\u00eden las patatas batimos 2 huevos en un plato hondo."
+            },
+            {
+                "image": "",
+                "text": "Una vez fritas las patatas, las sacamos de la sart\u00e9n y las colocamos en un plato plano."
+            },
+            {
+                "image": "",
+                "text": "En otra sart\u00e9n echamos las patatas y r\u00e1pidamente los huevos batidos, procurando que los huevos batidos cubran todas las patatas."
+            },
+            {
+                "image": "",
+                "text": "Pasados unos 6 minutos, s\u00f3lo tenemos que colocar un plato grande y plano sobre la sart\u00e9n y voltearla."
+            },
+            {
+                "image": "",
+                "text": "Para finalizar, volvemos a echar la tortilla en la sart\u00e9n para fre\u00edrla por el otro lado. Y ya tenemos nuestra tortilla."
+            }
+        ],
+        "tags": [
+            "patatas",
+            "huevos",
+            "aceite"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 20,
+            "prep_time": 20
+        },
+        "title": "Tortilla de patatas"
+    },
+    {
+        "_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "author_id": {
+            "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "creation_date": {
+            "$date": 1397226194154
+        },
+        "description": "Una rica tarta de flan Potax y galletas.",
+        "difficult": 1,
+        "food_type": "dulces",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "canela en polvo"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "main_image": {
+            "url": "http://nadaenlanevera.files.wordpress.com/2008/09/img_82851.jpg"
+        },
+        "nationality": "spanish",
+        "notes": "F\u00e1cil de preparar y muy rica.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": {
+                    "url": "http://nadaenlanevera.files.wordpress.com/2008/09/img_82851.jpg"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 0,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 99
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Potax."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (peeferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un toque de canela en polvo."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
+    },
+    {
+        "_id": {
+            "$oid": "53511e2b08dce7283d0cb124"
+        },
+        "author_id": {
+            "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "creation_date": {
+            "$date": 1397298614154
+        },
+        "description": "Una comida deliciosa.",
+        "difficult": 2,
+        "food_type": "carne",
+        "ingredients": [
+            "1 cabeza de ajo",
+            "1 lim\u00f3n",
+            "1 pastilla de avecrem",
+            "2 puntas de solomillo",
+            "1 chorreoncito de whisky"
+        ],
+        "is_published": true,
+        "language": "spanish",
+        "main_image": {
+            "url": "http://es.globedia.com/imagenes/noticias/2013/10/19/solomillo-whisky-chuparse-dedos_1_1873420.jpg"
+        },
+        "nationality": "spanish",
+        "notes": "",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": {
+                    "url": "http://es.globedia.com/imagenes/noticias/2013/10/19/solomillo-whisky-chuparse-dedos_1_1873420.jpg"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 20,
+            "salty": 20,
+            "sour": 75,
+            "spicy": 30,
+            "sweet": 10
+        },
+        "serves": "4 personas",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Cortamos en filetes las puntas de solomillo."
+            },
+            {
+                "image": "",
+                "text": "Doramos los filetes en un perol."
+            },
+            {
+                "image": "",
+                "text": "Echamos una pizca de aceite en una cacerola."
+            },
+            {
+                "image": "",
+                "text": "Acto seguido echamos los dientes de ajo en la cacerola despu\u00e9s de haberles quitado la primera capa."
+            },
+            {
+                "image": "",
+                "text": "Echar los filetes en la cacerola."
+            },
+            {
+                "image": "",
+                "text": "Vertir lim\u00f3n exprimido sobre los filetes."
+            },
+            {
+                "image": "",
+                "text": "Echar chorreoncito de whisky para dar m\u00e1s sabor."
+            },
+            {
+                "image": "",
+                "text": "Esparcir pastilla de avecrem por la cacerola."
+            },
+            {
+                "image": "",
+                "text": "Dejar los filetes a fuego lento hasta que se evapore el whisky y el lim\u00f3n. Y ya tendremos listo un plato delicioso."
+            }
+        ],
+        "tags": [
+            "solomillo",
+            "whisky"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 45,
+            "prep_time": 60
+        },
+        "title": "Solomillo al whisky"
+    },
+    {
+        "_id": {
+            "$oid": "535120c308dce7283d0cb125"
+        },
+        "author_id": {
+            "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "creation_date": {
+            "$date": 1394461394154
+        },
+        "description": "Un postre delicioso.",
+        "difficult": 1,
+        "food_type": "frito",
+        "ingredients": [
+            "100 gr az\u00facar",
+            "4 yogures de lim\u00f3n",
+            "1 rayadura de lim\u00f3n",
+            "1/2 litro de nata montada",
+            "1 cajita de grosellas",
+            "unas hojas de menta"
+        ],
+        "is_published": true,
+        "language": "francais",
+        "main_image": {
+            "url": "http://3.bp.blogspot.com/-wAcLqWskg-c/TgeZufEq5EI/AAAAAAAABLA/-QR-ozaNWw8/s1600/Mousse+de+limo%25CC%2581n+Ruqui+1.jpg"
+        },
+        "nationality": "spanish",
+        "notes": "La imagen lo dice todo.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": {
+                    "url": "http://3.bp.blogspot.com/-wAcLqWskg-c/TgeZufEq5EI/AAAAAAAABLA/-QR-ozaNWw8/s1600/Mousse+de+limo%25CC%2581n+Ruqui+1.jpg"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 25,
+            "salty": 85,
+            "sour": 50,
+            "spicy": 55,
+            "sweet": 0
+        },
+        "serves": "1 persona",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Mezclamos bien el az\u00facar, los yogures y la rayadura de lim\u00f3n."
+            },
+            {
+                "image": "",
+                "text": "Agregamos la nata batiendo unas varillas."
+            },
+            {
+                "image": "",
+                "text": "Vertemos la mousse en copas y la adornamos con grosellas y unas hojas de menta."
+            },
+            {
+                "image": "",
+                "text": "Lo servimos muy fr\u00edo."
+            }
+        ],
+        "tags": [
+            "lim\u00f3n",
+            "az\u00facar",
+            "menta",
+            "nata montada",
+            "grosellas"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 20,
+            "prep_time": 20
+        },
+        "title": "Mousse de lim\u00f3n"
     }
 ]
