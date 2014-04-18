@@ -75,11 +75,14 @@ class NewRecipeForm(forms.Form):
             self.fields['ingredient_%s' % i] = forms.CharField()
 
     def get_cleaned_steps(self):
-        steps = list()
-        for field in self.cleaned_data:
-            if field.startswith('step_'):
-                steps.append(self.cleaned_data[field])
-        return steps
+        try:
+            steps = list()
+            for field in self.cleaned_data:
+                if field.startswith('step_'):
+                    steps.append(self.cleaned_data[field])
+            return steps
+        except AttributeError:
+                return None
 
     def get_cleaned_ingredients(self):
         try:
