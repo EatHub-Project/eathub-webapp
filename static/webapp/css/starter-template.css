@@ -65,6 +65,22 @@ header .container {
     border-color: #cc3e27;
 }
 
+.btn-eathub-inverted {
+    color: #CC3E27;
+    background-color: #fff;
+    border-color: #cc3e27;
+}
+
+.btn-eathub-inverted.btn.btn-default:hover, .btn-eathub-inverted.btn.btn-default:focus, .btn-eathub-inverted.btn.btn-default:active {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #cc3e27;
+}
+
+.navbar .btn-eathub, .navbar .btn-eathub-inverted {
+    margin: 8px;
+}
+
 .plus {
     margin: 8px;
     color: #fff;
