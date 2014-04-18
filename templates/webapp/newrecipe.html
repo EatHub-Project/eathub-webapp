@@ -52,14 +52,26 @@
             $("#main-picture-indicator").hide();
         }
 
+        function addGalleryPicture(url){
+            $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
+        }
+
         function procesaFormularioInicial() {
-            // Main Picture
+            // - Main Picture
             var mainPictureInputName = "#id_{{ form.main_picture_id.name }}";
             var $mainPictureInput = $(mainPictureInputName);
+            // La url está almacenada en el atributo initial-picture-url
             var mainPictureUrl = $mainPictureInput.attr("initial-picture-url");
             if (mainPictureUrl) {
                 setMainPicture(mainPictureUrl);
             }
+
+            // - Gallery
+            // Las urls se guardan en items de una lista oculta
+            $("#initial-pictures-urls").find("li").each(function(index, item){
+                var url = $(item).text();
+                addGalleryPicture(url);
+            });
         }
 
 
@@ -81,7 +93,7 @@
             var gallery = $("#gallery");
             activateDragAndDrop(gallery, "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
-                $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + response.url + '"></div>');
+                addGalleryPicture(response.url)
 
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.pictures_ids_list.name }}";
@@ -199,8 +211,17 @@
         </div>
 
         <!-- Gallery -->
-        <!-- TODO Cuando se vuelve a la página, por ejemplo yendo atrás, los campos del formulario están rellenos, incluído los hidden, pero las fotos obviamente no se muestran. Algo hay que hacer con eso -->
-        <input type="hidden" id="id_{{ form.pictures_ids_list.name }}" name="{{ form.pictures_ids_list.name }}">
+        {% if form.pictures_ids_list %}
+            <ul id="initial-pictures-urls" style="display: none">
+                {% for pic_id in form.get_pictures_ids_list %}
+                    {% if pic_id %}
+                        <li>{% picture_from_id pic_id %}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <input type="hidden" id="id_{{ form.pictures_ids_list.name }}" name="{{ form.pictures_ids_list.name }}"
+               value="{{ form.pictures_ids_list.value |default:"" }}">
         <!-- TODO con ciertos tamaños de imagen se buggea y la cuadrícula se va a tomar viento -->
         <div class="form-group">
             <div class="col-sm-12">

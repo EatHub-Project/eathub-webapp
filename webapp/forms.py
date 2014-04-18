@@ -88,7 +88,11 @@ class NewRecipeForm(forms.Form):
                 ingredients.append(self.cleaned_data[field])
         return ingredients
 
-
+    def get_pictures_ids_list(self):
+        try:
+            return self.cleaned_data['pictures_ids_list'].split(";")
+        except AttributeError:
+            return None
 
 
 class EditAccountForm(NewAccountForm):
