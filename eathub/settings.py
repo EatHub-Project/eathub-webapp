@@ -171,7 +171,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '1379378712344246'
 SOCIAL_AUTH_FACEBOOK_SECRET = '6d393f9ba474e7e81faa1c6fef893c72'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_TWITTER_KEY = 'WqIqlHDIeWYQYVrkUfSn9nYLk '
+SOCIAL_AUTH_TWITTER_KEY = 'WqIqlHDIeWYQYVrkUfSn9nYLk'
 SOCIAL_AUTH_TWITTER_SECRET = 'ujQhHYk3fzDtVExIeMASp3XXhOtBrOfe3xzLfbYy9MDrDiuhbD'
 
 SOCIAL_AUTH_PIPELINE = (
@@ -182,7 +182,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.user.get_username',
     'social.pipeline.social_auth.associate_by_email',  # <--- enable this one
     'webapp.views.create_user',
-    'social.pipeline.social_auth.associate_by_email',  # <--- enable this one
     'social.pipeline.social_auth.associate_user',
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details'

@@ -415,23 +415,19 @@ def unbanned_comment(request, recipe_id, comment_id):
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
 
-USER_FIELDS = ['username', 'email', 'first_name', 'last_name','gender']
-FACEBOOK_RESPONSE_FIELDS = ['location']
-GOOGLE_RESPONSE_FIELDS = ['picture']
+USER_FIELDS = ['username', 'email', 'first_name']
 @partial
 def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
-    if user or strategy.session_pop('is_new'):
+    if user:
         return {'is_new': False}
+    elif strategy.session_pop('is_new'):
+        email=strategy.session_pop('user')
+        u=User.objects.get(email=email)
+        return {'is_new': False,'user':u}
+
 
     fields = dict((name, details.get(name))
                         for name in strategy.setting('USER_FIELDS',USER_FIELDS))
-
-    if kwargs.get('backend').name=='facebook':
-        fields.update(dict((name, kwargs.get('response').get(name))
-                            for name in strategy.setting('USER_FIELDS',FACEBOOK_RESPONSE_FIELDS)))
-    elif kwargs.get('backend').name=='google-plus':
-        fields.update(dict((name, kwargs.get('response').get(name))
-                            for name in strategy.setting('USER_FIELDS',GOOGLE_RESPONSE_FIELDS)))
     if not fields:
         return
 
@@ -502,6 +498,7 @@ def new_account_social(request):
                     avatar.persist = True
                     avatar.save()
                 request.session['is_new']=True
+                request.session['user']=u.email
 
                 backend = request.session['partial_pipeline']['backend']
                 return redirect('social:complete', backend=backend)
@@ -513,8 +510,6 @@ def new_account_social(request):
             'username': fields.get('username'),
             'email': fields.get('emai'),
             'display_name': fields.get('first_name'),
-            'gender': fields.get('gender'),
-            'avatar_url': fields.get('picture'),
         }
         form = NewAccountForm(initial=data)
 
