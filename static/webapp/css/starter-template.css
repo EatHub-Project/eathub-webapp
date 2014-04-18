@@ -809,6 +809,71 @@ header .container {
     margin-top: 10px;
 }
 
+.recipe-votes-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.recipe-votes {
+    background-color: #fff;
+    padding: 5px 10px 10px 10px;
+    border-radius: 5px;
+    margin-top: -40px;
+}
+
+/*.recipe-votes:hover {
+    margin-top: 0;
+}*/
+
+.recipe-votes-progress {
+    height: 4px;
+    margin-bottom: 0;
+}
+
+.recipe-votes-indicators {
+    color: #676767;
+    font-size: 11px;
+    text-align: right;
+}
+
+.recipe-votes-indicator {
+    margin-left: 6px;
+}
+
+.recipe-votes-indicator i {
+    margin-right: 3px;
+    font-size: 15px;
+}
+
+.recipe-votes-count {
+    font-size: 18px;
+    color: #3d3d3d;
+    margin-left: 8px
+}
+
+.recipe-votes-buttons {
+    height: 40px;
+}
+
+.recipe-votes-like-btn {
+    color: #939393;
+    font-size: 14px;
+    background: none;
+    border: none;
+}
+
+.recipe-votes-like-btn:hover, .recipe-votes-like-btn:hover i {
+    background-color: #CC3E27;
+    color: #fff;
+}
+
+.recipe-votes-like-btn i {
+    font-size: 16px;
+    color: #656565;
+}
+
 .post-it-right {
     background: #fefabc;
     padding: 15px;
