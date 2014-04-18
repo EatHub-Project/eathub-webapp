@@ -65,7 +65,10 @@
                 </button>
 
                 <div class="login-form-signup">
-                    <a href="#">{% trans "Create an account" %}</a>
+                    <a href="{% url 'newaccount' %}">{% trans "Create an account" %}</a>
+                </div>
+                <div class="login-form-forgot">
+                    <a href="#">{% trans "Forgot your password?" %}</a>
                 </div>
             </form>
         </div>

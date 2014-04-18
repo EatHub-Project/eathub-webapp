@@ -768,6 +768,11 @@ header .container {
     text-align: center;
 }
 
-.login-form-signup a{
+.login-form-forgot {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.login-form-forgot a, .login-form-signup a{
     color: #CC3E27;
 }
