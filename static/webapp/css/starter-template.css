@@ -793,13 +793,12 @@ header .container {
     margin-top: 90px;
 }
 
-.recipe-comment-form-input {
-    position: relative;
-    padding-left: 15px;
+.recipe-comment-form textarea {
+    background-color: #eee;
 }
 
-.recipe-comment-form .recipe-comment-picture {
-    margin-top: -10px;
+.recipe-comment-form textarea:focus {
+    background-color: #fff;
 }
 
 .recipe-comment-picture {
