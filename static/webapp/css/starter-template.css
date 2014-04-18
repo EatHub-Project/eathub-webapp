@@ -157,10 +157,11 @@ header .container {
     background-color: #FFF;
     color: #CC3E27;
     border: 1px solid #e3e3e3;
-    border-radius: 10%;
+    border-radius: 3px;
     padding: 4px 5px;
     margin: 3px;
     text-align: center;
+    font-weight: 500;
 }
 
 .recipe-tag:hover {
