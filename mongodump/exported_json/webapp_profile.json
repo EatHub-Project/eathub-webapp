@@ -422,6 +422,13 @@
                     "$oid": "533fb9b386c9bdaca925fee0"
                 },
                 "username": "alex"
+            },
+            {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
             }
         ],
         "gender": "m",
@@ -438,6 +445,49 @@
         },
         "user_id": {
             "$oid": "53511955b88bbe11b48fcdd7"
+        },
+        "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "5352390a18085d15c08181cf"
+        },
+        "additional_languages": [],
+        "avatar": "images/ted.persist.jpg",
+        "birth_date": {
+            "$date": 605750400000
+        },
+        "display_name": "Ted",
+        "following": [
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            }
+        ],
+        "gender": "unknown",
+        "karma": 6,
+        "location": "London",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 36,
+            "salty": 61,
+            "sour": 74,
+            "spicy": 40,
+            "sweet": 67
+        },
+        "user_id": {
+            "$oid": "5352390a18085d15c08181ce"
         },
         "website": ""
     }

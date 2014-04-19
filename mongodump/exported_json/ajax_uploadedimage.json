@@ -68,5 +68,12 @@
         },
         "image": "images/alexis.persist.jpg",
         "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352390018085d15c08181cd"
+        },
+        "image": "images/ted.persist.jpg",
+        "persist": true
     }
 ]

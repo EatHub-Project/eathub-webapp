@@ -12,10 +12,10 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397903001808
+            "$date": 1397904888227
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "juan"
     },
     {
@@ -34,7 +34,7 @@
             "$date": 1397902225314
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "pedro"
     },
     {
@@ -53,7 +53,7 @@
             "$date": 1397902115995
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "franhg"
     },
     {
@@ -72,7 +72,7 @@
             "$date": 1397902279314
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "pgherrero"
     },
     {
@@ -91,7 +91,7 @@
             "$date": 1397903054242
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "alex"
     },
     {
@@ -107,10 +107,10 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397902416479
+            "$date": 1397904475378
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "james17"
     },
     {
@@ -129,7 +129,7 @@
             "$date": 1397902571064
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "tomas"
     },
     {
@@ -145,10 +145,10 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397902467062
+            "$date": 1397904788787
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "mariolopez"
     },
     {
@@ -159,13 +159,34 @@
             "$date": 1397831028988
         },
         "email": "jualoppaz@alum.us.es",
+        "first_name": "",
         "is_active": true,
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397831028988
+            "$date": 1397904965283
         },
-        "password": "pbkdf2_sha256$10000$iDTrkyF1xScV$2IOGg16DTRkmUERk3eARtwLzF5mPKbJLiU6nU2PFbYk=",
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "juanma"
+    },
+    {
+        "_id": {
+            "$oid": "5352390a18085d15c08181ce"
+        },
+        "date_joined": {
+            "$date": 1397904682760
+        },
+        "email": "tedjohnson@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1397904988507
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
+        "username": "Ted"
     }
 ]
