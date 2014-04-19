@@ -16,20 +16,25 @@
             <ol class="carousel-indicators">
 
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                {% for pic in receta.pictures %}
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter }}"></li>
+                {% endfor %}
 
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                {% for image in receta.pictures %}
-                        <div class="item">
-                            <img src="{{ image }}">
+                <div class="item active">
+                    <img src="{{ receta.main_image.url }}">
 
-                            <div class="carousel-caption"></div>
-                        </div>
+                    <div class="carousel-caption"></div>
+                </div>
+                {% for picture in receta.pictures %}
+                    <div class="item">
+                        <img src="{{ picture.image.url }}">
 
+                        <div class="carousel-caption"></div>
+                    </div>
                 {% endfor %}
             </div>
 
@@ -45,17 +50,18 @@
         <!-- Author overlay -->
         <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
             <img class="img-circle recipe-author recipe-author-picture"
-                 src="{{ receta.author.avatar }}">
-            <h5 class="recipe-author recipe-author-name">By {{ receta.author.username }}</h5>
+                 src="{{ receta.author.profile.get.avatar.url }}">
+            <h5 class="recipe-author recipe-author-name">By {{ receta.author.profile.get.display_name }}</h5>
         </a>
 
         <!-- Votes overaly -->
         <div class="recipe-votes-container">
             <div class="recipe-votes">
-                {% if user.is_authenticated %}
                 <div class="recipe-votes-indicators">
-                    <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>{{ receta.positives|length }}</span>
-                    <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>{{ receta.negatives|length }}</span>
+                    <span class="recipe-votes-indicator"><i
+                            class="fa fa-thumbs-up"></i>{{ receta.positives|length }}</span>
+                        <span class="recipe-votes-indicator"><i
+                                class="fa fa-thumbs-down"></i>{{ receta.negatives|length }}</span>
                     <span class="recipe-votes-count">{{ total_votos }}</span>
                 </div>
 
@@ -66,30 +72,10 @@
                     </div>
                 </div>
 
-                    <div class="recipe-votes-buttons">
-                        <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> Like</a>
-                        <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
-                    </div>
-                {% else %}
-                    <div class="recipe-votes-indicators">
-                        <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>{{ receta.positives|length }}</span>
-                        <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>{{ receta.negatives|length }}</span>
-                        <span class="recipe-votes-count">{{ total_votos }}</span>
-                    </div>
-
-                    <div class="progress recipe-votes-progress">
-                        <div class="progress-bar progress-bar-success" style="width: {{ por_pos }}%">
-                        </div>
-                        <div class="progress-bar progress-bar-warning" style="width: {{ por_neg }}%">
-                        </div>
-                    </div>
-
-                    <div class="recipe-votes-buttons">
-                        <span><i class="fa fa-thumbs-up"></i> Like</span>
-                        <span><i class="fa fa-thumbs-down"></i></span>
-                    </div>
-                {% endif %}
-
+                <div class="recipe-votes-buttons">
+                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -100,11 +86,16 @@
 
     <div class="panel panel-body row">
         <div class="col-md-4 recipe-data">
-            {% comment %}<p>30 + 10 min</p>
-                <p class="recipe-data-secondary">prep + cook time</p>{% endcomment %}
-            <p>{{ receta.time.prep_time }} min</p>
-
-            <p class="recipe-data-secondary">prep time</p>
+            {% if receta.time.prep_time and receta.time.cook_time %}
+                <p>{{ recipe.time.prep_time }} + {{ recipe.time.cook_time }} min</p>
+                <p class="recipe-data-secondary">prep + cook time</p>
+            {% elif receta.time.prep_time %}
+                <p>{{ receta.time.prep_time }} min</p>
+                <p class="recipe-data-secondary">prep time</p>
+            {% elif receta.time.cook_time %}
+                <p>{{ receta.time.cook_time }} min</p>
+                <p class="recipe-data-secondary">prep time</p>
+            {% endif %}
         </div>
         <div class="col-md-4 recipe-data">
             <p>{{ difficult_value }}</p>
@@ -119,8 +110,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 recipe-ingredients-parent">
-            <div class="{% comment %}panel{% endcomment %} panel-body recipe-ingredients post-it-left">
+        <div class="col-md-6 recipe-ingredients-parent {% if not receta.notes %}col-md-offset-3{% endif %}">
+            <div class="panel-body recipe-ingredients post-it-left">
                 <h3 class="recipe-panel-title">Ingredients</h3>
                 <ul>
                     {% for ingredient in receta.ingredients %}
@@ -130,7 +121,7 @@
             </div>
         </div>
         <div class="col-md-6 recipe-notes-parent">
-            <div class="{% comment %}panel {% endcomment %}panel-body recipe-notes postit">
+            <div class="panel-body recipe-notes postit">
                 <h3 class="recipe-panel-title">Notes</h3>
 
                 <p>{{ receta.notes }}</p>
@@ -146,114 +137,52 @@
                 <div class="row">
                     <div class="col-md-1 col-md-offset-1 recipe-step-count">{{ forloop.counter }}</div>
                     <div class="col-md-9">
-                        <p class="text-soft">{{ step.text }}</p>
+                        <p class="text-soft">{{ step.text|linebreaks }}</p>
                     </div>
-                    {% if step.image %}
-                    <img class="img-rounded recipe-step-picture img-thumbnail center-block"
-                     src="{{ step.image }}">
-                    {% endif %}
                 </div>
+                {% if step.image %}
+                    <img class="img-rounded recipe-step-picture img-thumbnail center-block"
+                         src="{{ step.image.url }}">
+                {% endif %}
             </div>
 
-            <span class="recipe-step-separator center-block"></span>
+            {% if not forloop.last %}
+                <span class="recipe-step-separator center-block"></span>
+            {% endif %}
 
         {% endfor %}
-        <!--<div id="step-1" class="recipe-step">
-            <div class="row">
-                <div class="col-md-1 col-md-offset-1 recipe-step-count">1</div>
-                <div class="col-md-9">
-                    <p class="text-soft">Ponemos en un cazo el azúcar con el agua a fuego medio y removemos de vez
-                        en
-                        cuando
-                        hasta que hierva. Tapamos el cazo y lo dejamos hirviendo unos 3 minutos.</p>
-                </div>
-            </div>
-        </div>
-
-        <span class="recipe-step-separator center-block"></span>
-
-        <div id="step-2" class="recipe-step">
-            <div class="row">
-                <div class="col-md-1 col-md-offset-1 recipe-step-count">2</div>
-                <div class="col-md-9">
-                    <p class="text-soft">Cuando veamos que espese un poco y oscurezca el color le ponemos el
-                        colorante
-                        que
-                        queramos y la esencia. Si queréis hacerlas de fresa, yo lo que hago es ponerle en vez de
-                        esencia
-                        un
-                        poco
-                        de sirope de fresa, que da color y sabor.</p>
-                </div>
-            </div>
-            <img class="img-rounded recipe-step-picture img-thumbnail center-block"
-                 src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08373-1600x1200.jpg">
-        </div>
-
-        <span class="recipe-step-separator center-block"></span>
-
-        <div id="step-3" class="recipe-step">
-            <div class="row">
-                <div class="col-md-1 col-md-offset-1 recipe-step-count">3</div>
-                <div class="col-md-9">
-                    <p class="text-soft">Ponemos el cazo dentro de la cacerola que habíamos preparado con agua, para
-                        así
-                        detener la cocción, y lo sacamos rápidamente para que no nos enfríe mucho el cazo.</p>
-                </div>
-            </div>
-        </div>
-
-        <span class="recipe-step-separator center-block"></span>
-
-        <div id="step-4" class="recipe-step">
-            <div class="row">
-                <div class="col-md-1 col-md-offset-1 recipe-step-count">4</div>
-                <div class="col-md-9">
-                    <p class="text-soft">Con una cuchara de metal vamos poniendo el contenido encima de nuestro
-                        mármol o
-                        de nuestro papel, haciendo formas de piruletas (círculos de unos 4cm de ancho).</p>
-                </div>
-            </div>
-            <img class="img-rounded recipe-step-picture img-thumbnail center-block"
-                 src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08372-1600x1200.jpg">
-        </div>
-
-        <span class="recipe-step-separator center-block"></span>
-
-        <div id="step-5" class="recipe-step">
-            <div class="row">
-                <div class="col-md-1 col-md-offset-1 recipe-step-count">5</div>
-                <div class="col-md-9">
-                    <p class="text-soft">Le echamos virutitas por encima y ya está. Dejamos secar nuestras piruletas
-                        un par de horas y listo. ¡A comer! :)</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    </div>
 
     <div class="row">
         <div class="col-md-6 recipe-more-parent">
             <div class="panel panel-body recipe-more">
                 <h3 class="recipe-panel-title">More information</h3>
 
-                <div class="recipe-more-title">Occasions:</div>
-                <span><a class="recipe-tag" href="#">Christmas</a></span>
-                <span><a class="recipe-tag" href="#">St. Valentine's</a></span>
-                <span><a class="recipe-tag" href="#">Other stuff's day</a></span>
+                {% if receta.temporality %}
+                    <div class="recipe-more-title">Occasions:</div>
+                    {% for occasion in receta.temporality %}
+                        <span><a class="recipe-tag" href="#">{{ occasion }}</a></span>
+                    {% endfor %}
+                {% endif %}
 
-                <div class="recipe-more-title">Food Type:</div>
-                <span><a class="recipe-tag" href="#">Desert</a></span>
-                <span><a class="recipe-tag" href="#">Candy</a></span>
+                {% if receta.food_type %}
+                    <div class="recipe-more-title">Food Type:</div>
+                    <span><a class="recipe-tag" href="#">{{ receta.food_type }}</a></span>
+                {% endif %}
 
-                <div class="recipe-more-title">Suitable for:</div>
-                <span><a class="recipe-tag" href="#">Celiac</a></span>
-                <span><a class="recipe-tag" href="#">Vegetarian</a></span>
+                {% if receta.special_conditions %}
+                    <div class="recipe-more-title">Suitable for:</div>
+                    {% for condition in receta.special_conditions %}
+                        <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
+                    {% endfor %}
+                {% endif %}
 
-                <div class="recipe-more-title">Tags:</div>
-                <span><a class="recipe-tag" href="#">Candy</a></span>
-                <span><a class="recipe-tag" href="#">Yummy</a></span>
-                <span><a class="recipe-tag" href="#">Kids</a></span>
-                <span><a class="recipe-tag" href="#">Strawberry</a></span>
+                {% if receta.tags %}
+                    <div class="recipe-more-title">Tags:</div>
+                    {% for tag in receta.tags %}
+                        <span><a class="recipe-tag" href="#">{{ tag }}</a></span>
+                    {% endfor %}
+                {% endif %}
 
 
             </div>
@@ -267,7 +196,8 @@
                         <span>Salty</span>
 
                         <div class="progress">
-                            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0"
                                  aria-valuemax="100" style="width: {{ receta.savours.salty }}%;">
                             </div>
                         </div>
@@ -276,7 +206,8 @@
                         <span>Sour</span>
 
                         <div class="progress">
-                            <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                            <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80"
+                                 aria-valuemin="0"
                                  aria-valuemax="100" style="width: {{ receta.savours.sour }}%;">
                             </div>
                         </div>
@@ -295,7 +226,8 @@
                         <span>Sweet</span>
 
                         <div class="progress">
-                            <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                            <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0"
                                  aria-valuemax="100" style="width: 90%;">
                             </div>
                         </div>
@@ -304,7 +236,8 @@
                         <span>Spicy</span>
 
                         <div class="progress">
-                            <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                            <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0"
                                  aria-valuemax="100" style="width: {{ receta.savours.spicy }}%;">
                             </div>
                         </div>
@@ -318,40 +251,53 @@
         <h3 class="recipe-panel-title">Comments</h3>
 
         <div class="recipe-comment-list">
-            {% comment %}<div class="recipe-comment-empty">
-                <p class="text-soft">No comments yet. Be the first!</p>
-            </div>{% endcomment %}
+            {% if receta.comments %}
+                {% for comment in receta.comments %}
+                    {% if not comment.is_banned or comment.is_banned and user.is_staff or comment.is_banned and comment.user_own == user %}
+                        <div class="recipe-comment">
+                            <img class="img-circle recipe-comment-picture"
+                                 src="{{ comment.user_own.profile.get.avatar.url }}">
 
-            {% for i in "1234" %}
-                <div class="recipe-comment">
-                    <img class="img-circle recipe-comment-picture"
-                         src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
+                            <span class="recipe-comment-name">{{ comment.user_own.profile.get.display_name }}</span>
+                            <span class="recipe-comment-date">{{ comment.create_date }}</span>
 
-                    <span class="recipe-comment-name">Virgi Moriel</span>
-                    <span class="recipe-comment-date">18 de Abril de 2014 a las 00:13</span>
-
-                    <p class="text-soft"> Creo que ya puedo pasarme a confirmarlo: ¡están riquísimas! Aunque no han
-                        quedado
-                        demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y están muy
-                        buenas.</p>
+                            <p class="text-soft {% if comment.is_banned %}recipe-comment-banned{% endif %}"
+                                    >{{ comment.text|linebreaks }}</p>
+                            {% if user.is_staff %}
+                                {% if comment.is_banned %}
+                                    <a href="{% url 'unbanned' receta.id forloop.counter0 %}"
+                                       class="plus btn btn-default">Unbanned Comment</a>
+                                {% else %}
+                                    <a href="{% url 'banned' receta.id forloop.counter0 %}"
+                                       class="plus btn btn-default">Ban comment</a>
+                                {% endif %}
+                            {% elif comment.user_own == user and comment.is_banned %}
+                                <div class="alert alert-danger">This comment has been banned.</div>
+                            {% endif %}
+                        </div>
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="recipe-comment-empty">
+                    <p class="text-soft">No comments yet. Be the first!</p>
                 </div>
-                <hr>
-            {% endfor %}
+            {% endif %}
 
             {% if user.is_authenticated %}
                 <div id="recipe-comment-form" class="recipe-comment-form">
                     <img class="img-circle recipe-comment-picture"
-                         src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
+                         src="{{ user.profile.get.avatar.url }}">
 
                     <form method="POST" action="{% url 'comment' receta.id %}">
                         <textarea class="form-control" name="text"
                                   placeholder="Escribe un comentario sobre la receta…" rows="5"></textarea>
                         <input class="plus btn btn-default" type="submit">
                     </form>
-                    {% else %}
-                    <div class="recipe-comment-login text-soft">Want to comment? <a
-                            href="{% url 'login' %}">Log in</a> first.
-                    </div>
+                </div>
+            {% else %}
+                <div class="recipe-comment-login text-soft">Want to comment? <a
+                        href="{% url 'login' %}">Log in</a> first.
                 </div>
             {% endif %}
 
