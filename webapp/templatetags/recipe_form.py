@@ -5,6 +5,13 @@ from django.db import DatabaseError
 
 register = template.Library()
 
+@register.simple_tag(takes_context=True)
+def step_picture(context, form, token):
+    value = form.get("step-picture-id_"+str(token), '')
+    context['stepimageid']=value
+    return value
+
+
 
 @register.tag("picture_from_id")
 def do_picture_from_id(parser, token):
