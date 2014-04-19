@@ -833,6 +833,17 @@ header .container {
     font-style: italic;
 }
 
+.recipe-comment-login {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+.recipe-comment-login a {
+    color: #CC3E27;
+}
+
 .recipe-votes-container {
     position: absolute;
     bottom: 0;

@@ -309,16 +309,23 @@
                 <hr>
             {% endfor %}
 
-            <div class="recipe-comment-form">
-                <img class="img-circle recipe-comment-picture"
-                     src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
+            {% if user.is_authenticated %}
+                <div id="recipe-comment-form" class="recipe-comment-form">
+                    <img class="img-circle recipe-comment-picture"
+                         src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
 
-                <form method="POST" action="{% url 'comment' receta.id %}">
-                    <textarea class="form-control" name="text"
-                              placeholder="Escribe un comentario sobre la receta…" rows="5"></textarea>
-                    <input class="plus btn btn-default" type="submit">
-                </form>
-            </div>
+                    <form method="POST" action="{% url 'comment' receta.id %}">
+                        <textarea class="form-control" name="text"
+                                  placeholder="Escribe un comentario sobre la receta…" rows="5"></textarea>
+                        <input class="plus btn btn-default" type="submit">
+                    </form>
+                    {% else %}
+                    <div class="recipe-comment-login text-soft">Want to comment? <a
+                            href="{% url 'login' %}">Log in</a> first.
+                    </div>
+                </div>
+            {% endif %}
+
 
         </div>
     </div>
