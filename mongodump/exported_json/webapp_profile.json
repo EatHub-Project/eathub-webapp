@@ -490,5 +490,50 @@
             "$oid": "5352390a18085d15c08181ce"
         },
         "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "5352494f18085d15c08181d2"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/maria.persist.jpeg",
+        "birth_date": {
+            "$date": 718675200000
+        },
+        "display_name": "Mar\u00eda",
+        "following": [
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            }
+        ],
+        "gender": "f",
+        "karma": 6,
+        "location": "Sevilla",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 41,
+            "salty": 87,
+            "sour": 50,
+            "spicy": 88,
+            "sweet": 24
+        },
+        "user_id": {
+            "$oid": "5352494f18085d15c08181d1"
+        },
+        "website": ""
     }
 ]

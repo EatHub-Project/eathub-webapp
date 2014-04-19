@@ -164,7 +164,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397904965283
+            "$date": 1397905030064
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -188,5 +188,24 @@
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "Ted"
+    },
+    {
+        "_id": {
+            "$oid": "5352494f18085d15c08181d1"
+        },
+        "date_joined": {
+            "$date": 1397908846847
+        },
+        "email": "mariarojas@hotmail.es",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1397908847322
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$9bB2towojvxw$Avup4rkvuoHBrEK9l+HnsNr+lGUFDOEUVY6nmTL0aXA=",
+        "username": "mariarojas"
     }
 ]

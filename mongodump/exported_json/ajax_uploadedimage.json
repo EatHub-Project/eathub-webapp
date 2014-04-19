@@ -75,5 +75,26 @@
         },
         "image": "images/ted.persist.jpg",
         "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352493818085d15c08181d0"
+        },
+        "image": "images/maria.persist.jpeg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352499b18085d15c08181d3"
+        },
+        "image": "images/maria.persist_1.jpeg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53524ae318085d15c08181d4"
+        },
+        "image": "images/maria.persist.jpeg",
+        "persist": true
     }
 ]
