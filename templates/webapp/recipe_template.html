@@ -7,35 +7,37 @@
     <!-- Column Left -->
 
     <div class="col-md-8 col-md-offset-2">
-    <h1 class="recipe-name">Homemade strawberry lollipop</h1>
+    <h1 class="recipe-name">{{ receta.title }}</h1>
 
     <div class="panel main-picture-padding row">
         <div id="carousel-example-generic" class="main-picture-carousel carousel slide"
              data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
+
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg">
+                {% for image in receta.pictures %}
+                    {% if forloop.counter0 %}
+                        <div class="item active">
+                            <img src="{{ image }}">
 
-                    <div class="carousel-caption"></div>
-                </div>
-                <div class="item">
-                    <img src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08373-1600x1200.jpg">
+                            <div class="carousel-caption"></div>
+                        </div>
+                    {% else %}
+                        <div class="item">
+                            <img src="{{ image }}">
 
-                    <div class="carousel-caption"></div>
-                </div>
-                <div class="item">
-                    <img src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08371-1600x1200.jpg">
-
-                    <div class="carousel-caption"></div>
-                </div>
+                            <div class="carousel-caption"></div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
 
             <!-- Controls -->
@@ -48,25 +50,25 @@
         </div>
 
         <!-- Author overlay -->
-        <a class="recipe-author-link" href="#">
+        <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
             <img class="img-circle recipe-author recipe-author-picture"
-                 src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
-            <h5 class="recipe-author recipe-author-name">By Virgi</h5>
+                 src="{{ receta.author.avatar }}">
+            <h5 class="recipe-author recipe-author-name">By {{ receta.author.username }}</h5>
         </a>
 
         <!-- Votes overaly -->
         <div class="recipe-votes-container">
             <div class="recipe-votes">
                 <div class="recipe-votes-indicators">
-                    <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>456</span>
-                    <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>3</span>
-                    <span class="recipe-votes-count">534</span>
+                    <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>{{ receta.positives|length }}</span>
+                    <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>{{ receta.negatives|length }}</span>
+                    <span class="recipe-votes-count">{{ total_votos }}</span>
                 </div>
 
                 <div class="progress recipe-votes-progress">
-                    <div class="progress-bar progress-bar-success" style="width: 90%">
+                    <div class="progress-bar progress-bar-success" style="width: {{ por_pos }}%">
                     </div>
-                    <div class="progress-bar progress-bar-warning" style="width: 10%">
+                    <div class="progress-bar progress-bar-warning" style="width: {{ por_neg }}%">
                     </div>
                 </div>
 
@@ -80,25 +82,24 @@
     </div>
 
     <div class="panel panel-body row recipe-description">
-        <p class="text-soft">Unas piruletas caseras de azúcar la mar de ricas y fáciles de hacer, del sabor que más
-            os guste, que volverán locos a los más peques de la casa. </p>
+        <p class="text-soft"> {{ receta.description }} </p>
     </div>
 
     <div class="panel panel-body row">
         <div class="col-md-4 recipe-data">
             {% comment %}<p>30 + 10 min</p>
                 <p class="recipe-data-secondary">prep + cook time</p>{% endcomment %}
-            <p>30 min</p>
+            <p>{{ receta.time.prep_time }} min</p>
 
             <p class="recipe-data-secondary">prep time</p>
         </div>
         <div class="col-md-4 recipe-data">
-            <p>Easy</p>
+            <p>{{ difficult_value }}</p>
 
             <p class="recipe-data-secondary">difficulty</p>
         </div>
         <div class="col-md-4 recipe-data">
-            <p>4 units</p>
+            <p>{{ receta.serves }}</p>
 
             <p class="recipe-data-secondary">serves</p>
         </div>
@@ -109,11 +110,9 @@
             <div class="{% comment %}panel{% endcomment %} panel-body recipe-ingredients post-it-left">
                 <h3 class="recipe-panel-title">Ingredients</h3>
                 <ul>
-                    <li>200g de azúcar</li>
-                    <li>80ml de agua</li>
-                    <li>Esencia (la que más nos guste)</li>
-                    <li>Colorante alimenticio</li>
-                    <li>Virutitas para decorar</li>
+                    {% for ingredient in receta.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -121,9 +120,7 @@
             <div class="{% comment %}panel {% endcomment %}panel-body recipe-notes postit">
                 <h3 class="recipe-panel-title">Notes</h3>
 
-                <p>Esta es una receta que os hará quedar bien con los más peques de la casa. Generalmente a los
-                    niños les encanta, además si les ponéis colores llamativos les va a llamar mucho la atención y
-                    se divertirán más comiéndolas.</p>
+                <p>{{ receta.notes }}</p>
             </div>
         </div>
     </div>
