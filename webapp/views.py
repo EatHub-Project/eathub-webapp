@@ -168,12 +168,13 @@ def new_recipe(request):
             r.author = u
             r.save()
 
-            #DEBUG return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+            return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
         form = NewRecipeForm(steps=[], ingredients=[])
 
     return render(request, 'webapp/newrecipe.html', {'form': form})
+
 
 
 def edit_receta(request, recipe_id):
