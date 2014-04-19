@@ -336,7 +336,7 @@
             "$oid": "53511955b88bbe11b48fcdd8"
         },
         "additional_languages": [],
-        "avatar": "images/fotocarne_recortada_1.jpg",
+        "avatar": "images/fotocarne_recortada.persist.jpg",
         "birth_date": {
             "$date": 724204800000
         },

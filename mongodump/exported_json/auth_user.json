@@ -188,5 +188,24 @@
         "last_name": "",
         "password": "pbkdf2_sha256$10000$iDTrkyF1xScV$2IOGg16DTRkmUERk3eARtwLzF5mPKbJLiU6nU2PFbYk=",
         "username": "juanma"
+    },
+    {
+        "_id": {
+            "$oid": "535130eab88bbe140cb839e5"
+        },
+        "date_joined": {
+            "$date": 1397837066756
+        },
+        "email": "jualoppaz@alum.us.es",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1397837066756
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$b2dq707SfLv7$3NlXN/NmtLyl+T0pVrQd4I0/kbt/ZWy2g/ksbTeb/kE=",
+        "username": "prueba"
     }
 ]

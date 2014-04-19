@@ -36,9 +36,7 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://www.pepekitchen.com/wp-content/uploads/2009/10/carne-con-tomate1.jpg"
-        },
+        "main_image": "images/carne_con_tomate.persist.jpg",
         "modification_date": {
             "$date": 1396279394154
         },
@@ -48,9 +46,7 @@
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://www.pepekitchen.com/wp-content/uploads/2009/10/carne-con-tomate1.jpg"
-                }
+                "image": "images/carne_con_tomate.persist.jpg"
             }
         ],
         "positives": [],
@@ -135,9 +131,7 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://www.javirecetas.com/images/46/ensalada-arroz.jpg"
-        },
+        "main_image": "images/ensalada_de_arroz.persist.jpg",
         "modification_date": {
             "$date": 1396189394154
         },
@@ -146,9 +140,7 @@
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://www.javirecetas.com/images/46/ensalada-arroz.jpg"
-                }
+                "image": "images/ensalada_de_arroz.persist.jpg"
             }
         ],
         "savours": {
@@ -227,9 +219,7 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://farm8.staticflickr.com/7272/6872301972_3a0df58040_z.jpg"
-        },
+        "main_image": "images/torrijas_de_leche.persist.jpg",
         "modification_date": {
             "$date": 1396189394154
         },
@@ -238,19 +228,13 @@
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://farm8.staticflickr.com/7272/6872301972_3a0df58040_z.jpg"
-                }
+                "image": "images/torrijas_de_leche.persist.jpg"
             },
             {
-                "image": {
-                    "url": "http://farm8.staticflickr.com/7104/7018415889_b63e06fe67_z.jpg"
-                }
+                "image": "images/torrijas_de_leche_2.persist.jpg"
             },
             {
-                "image": {
-                    "url": "http://farm8.staticflickr.com/7230/7018417397_ed2a52bd56_z.jpg"
-                }
+                "image": "images/torrijas_de_leche_3.persist.jpg"
             }
         ],
         "savours": {
@@ -332,9 +316,7 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://www.pequerecetas.com/wp-content/uploads/2014/03/receta-de-hamburguesas-bacalao.jpg"
-        },
+        "main_image": "images/hamburguesas_pescado.persist.jpg",
         "modification_date": {
             "$date": 1396189394154
         },
@@ -343,9 +325,7 @@
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://www.pequerecetas.com/wp-content/uploads/2014/03/receta-de-hamburguesas-bacalao.jpg"
-                }
+                "image": "images/hamburguesas_pescado.persist.jpg"
             }
         ],
         "savours": {
@@ -421,9 +401,7 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://4.bp.blogspot.com/-9aCn-k_-XVI/UEOiwlSoAhI/AAAAAAAAAYI/m6btocWdzek/s1600/017.JPG"
-        },
+        "main_image": "images/spugne_naif.persist.jpg",
         "modification_date": {
             "$date": 1396189394154
         },
@@ -434,9 +412,7 @@
         },
         "pictures": [
             {
-                "image": {
-                    "url": "http://4.bp.blogspot.com/-9aCn-k_-XVI/UEOiwlSoAhI/AAAAAAAAAYI/m6btocWdzek/s1600/017.JPG"
-                }
+                "image": "images/spugne_naif.persist.jpg"
             }
         ],
         "savours": {
@@ -520,9 +496,7 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://4.bp.blogspot.com/-4Krr-u-ckPo/T2WuA9OJbaI/AAAAAAAAAYA/y2lChDXcC-Y/s1600/crucero%2Bfebrero%2B2012%2Bcanarias%2B002.JPG"
-        },
+        "main_image": "images/alcachofas_calamares_y_almejas.persist.jpg",
         "modification_date": {
             "$date": 1396189394154
         },
@@ -531,9 +505,7 @@
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://4.bp.blogspot.com/-4Krr-u-ckPo/T2WuA9OJbaI/AAAAAAAAAYA/y2lChDXcC-Y/s1600/crucero%2Bfebrero%2B2012%2Bcanarias%2B002.JPG"
-                }
+                "image": "images/alcachofas_calamares_y_almejas.persist.jpg"
             }
         ],
         "savours": {
@@ -605,17 +577,13 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://1.bp.blogspot.com/-59y6DIVija0/UhjQLP2LuJI/AAAAAAAAAjQ/n0FFHM2JYB8/s1600/9+Emplatamos.jpg"
-        },
+        "main_image": "images/macarrones_con_tomate.persist.jpg",
         "nationality": "italian",
         "notes": "Uno de los grandes aportes de la cocina italiana.",
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://1.bp.blogspot.com/-59y6DIVija0/UhjQLP2LuJI/AAAAAAAAAjQ/n0FFHM2JYB8/s1600/9+Emplatamos.jpg"
-                }
+                "image": "images/macarrones_con_tomate.persist.jpg"
             }
         ],
         "savours": {
@@ -686,17 +654,13 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://magazine.horasur.com/wp-content/uploads/2013/07/tortilla-de-patata.jpg"
-        },
+        "main_image": "images/tortilla_de_patatas.persist.jpg",
         "nationality": "spanish",
         "notes": "La imagen lo dice todo.",
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://magazine.horasur.com/wp-content/uploads/2013/07/tortilla-de-patata.jpg"
-                }
+                "image": "images/tortilla_de_patatas.persist.jpg"
             }
         ],
         "savours": {
@@ -775,17 +739,13 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://nadaenlanevera.files.wordpress.com/2008/09/img_82851.jpg"
-        },
+        "main_image": "images/tarta_de_flan_y_galletas.persist.jpg",
         "nationality": "spanish",
         "notes": "F\u00e1cil de preparar y muy rica.",
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://nadaenlanevera.files.wordpress.com/2008/09/img_82851.jpg"
-                }
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
             }
         ],
         "savours": {
@@ -862,17 +822,13 @@
         ],
         "is_published": true,
         "language": "spanish",
-        "main_image": {
-            "url": "http://es.globedia.com/imagenes/noticias/2013/10/19/solomillo-whisky-chuparse-dedos_1_1873420.jpg"
-        },
+        "main_image": "images/solomillo_al_whisky.persist.jpg",
         "nationality": "spanish",
         "notes": "",
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://es.globedia.com/imagenes/noticias/2013/10/19/solomillo-whisky-chuparse-dedos_1_1873420.jpg"
-                }
+                "image": "images/solomillo_al_whisky.persist.jpg"
             }
         ],
         "savours": {
@@ -956,17 +912,13 @@
         ],
         "is_published": true,
         "language": "francais",
-        "main_image": {
-            "url": "http://3.bp.blogspot.com/-wAcLqWskg-c/TgeZufEq5EI/AAAAAAAABLA/-QR-ozaNWw8/s1600/Mousse+de+limo%25CC%2581n+Ruqui+1.jpg"
-        },
+        "main_image": "images/mousse_de_limon.persist.jpg",
         "nationality": "spanish",
         "notes": "La imagen lo dice todo.",
         "parent_id": null,
         "pictures": [
             {
-                "image": {
-                    "url": "http://3.bp.blogspot.com/-wAcLqWskg-c/TgeZufEq5EI/AAAAAAAABLA/-QR-ozaNWw8/s1600/Mousse+de+limo%25CC%2581n+Ruqui+1.jpg"
-                }
+                "image": "images/mousse_de_limon.persist.jpg"
             }
         ],
         "savours": {
