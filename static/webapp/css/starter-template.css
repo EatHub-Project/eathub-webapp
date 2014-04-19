@@ -931,6 +931,10 @@ font-weight: bold;
     color: #656565;
 }
 
+.recipe-controls {
+    margin-bottom: 20px;
+}
+
 .post-it-right {
     background: #fefabc;
     padding: 15px;
