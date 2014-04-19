@@ -675,9 +675,9 @@ header .container {
 }
 
 .recipe-author-main h5 {
-display: inline;
-color: #CC3E27;
-font-weight: bold;
+    display: inline;
+    color: #CC3E27;
+    font-weight: bold;
 }
 
 .recipe-data p{
@@ -686,6 +686,41 @@ font-weight: bold;
     text-align: center;
     font-size: 17px;
     font-weight: bold;
+}
+
+.recipe-fork {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: #CC3E27;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+
+.recipe-fork-count, .recipe-fork-clone {
+    color: #CC3E27;
+    font-size: 17px;
+    padding: 0 6px;
+    background: none;
+    font-weight: 500;
+}
+
+.recipe-fork-count:hover, .recipe-fork-clone:hover {
+    background-color: #CC3E27;
+    color: #fff;
+}
+
+.recipe-fork-count {
+    border: none;
+}
+
+.recipe-fork-clone {
+    font-size: 15px;
+    font-weight: 500;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid #e3e3e3;
 }
 
 .recipe-data p.recipe-data-secondary {
@@ -936,6 +971,11 @@ font-weight: bold;
 
 .recipe-controls {
     margin-bottom: 20px;
+}
+
+.recipe-controls .fa{
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .post-it-right {
