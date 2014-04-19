@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
 from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComment
@@ -183,7 +183,9 @@ def edit_receta(request, recipe_id):
     r = Recipe.objects.get(id=ObjectId(recipe_id))
 
     if r.author != user:
-        raise Http404
+        res = HttpResponse("Unauthorized")
+        res.status_code = 401
+        return res
 
     if request.method == 'POST':
         steps = get_steps(request.POST)
