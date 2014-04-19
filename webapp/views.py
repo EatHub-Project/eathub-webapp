@@ -153,8 +153,8 @@ def new_recipe(request):
                        main_image=imagen_principal.image)
             u = request.user
             for i in range(len(steps)):
-                if mapping_step_picture.__contains__(str(i)):
-                    imagen = UploadedImage.objects.get(id=mapping_step_picture.get(str(i)))
+                if mapping_step_picture.__contains__(i):
+                    imagen = UploadedImage.objects.get(id=mapping_step_picture.get(i))
                     paso = Step(text=steps[i], image=imagen.image)
                 else:
                     paso = Step(text=steps[i])
@@ -178,46 +178,54 @@ def new_recipe(request):
 
 def edit_receta(request, recipe_id):
     r = Recipe.objects.get(id=ObjectId(recipe_id))
-    pictures = ";"
+    pictures = ""
     for pic in r.pictures:
-        pictures = pictures.join(UploadedImage.objects.get(image=pic.image).image.url+";"),
+        pictures += ";"+UploadedImage.objects.get(image=pic.image).id
     data = {
         'title': r.title,
         'pictures_ids_list': r.pictures,
-        'sweet': r.savour.sweet,
-        'salty': r.savour.salty,
+        'sweet': r.savours.sweet,
+        'salty': r.savours.salty,
         'food_type': r.food_type,
-        'main_picture_id': UploadedImage.objects.get(image=r.main_image),
+        'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
         'special_conditions': r.special_conditions,
-        'bitter': r.savour.bitter,
+        'bitter': r.savours.bitter,
         'difficult': r.difficult,
-        'spicy': r.savour.spicy,
+        'spicy': r.savours.spicy,
         'description': r.description,
         'pictures_ids_list': pictures,
-        'nationality': r.nationallity,
-        'tags': r.tags,
+        'nationality': r.nationality,
+        'tags': ",".join(r.tags),
         'cook_time': r.time.cook_time,
         'language': r.language,
         'notes': r.notes,
         'serves': r.serves,
-        'sour': r.savour.sour,
+        'sour': r.savours.sour,
         'prep_time': r.time.prep_time,
         'temporality': r.temporality,
     }
+    for i,ing in enumerate(r.ingredients):
+        data['ingredient_%s' % i]=ing
 
-    form = NewRecipeForm(initial=data, steps=r.steps, ingredients=r.ingredients)
+    for i,step in enumerate(r.steps):
+        data['step_%s' % i]=step.text
+        if step.image:
+            data['step-picture-id_%s' % i]=UploadedImage.objects.get(image=step.image).id
+
+    form = NewRecipeForm(data=data, steps=r.steps, ingredients=r.ingredients)
 
     return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
 
 
 def get_mapping_step_picture(post):
     mapping = dict()
+    index=0
     for name in post:
-        if name.startswith("step-picture-index_"):
-            index = post[name]
-            value = post["step-picture-id_" + index]
-            if index and value:
+        if name.startswith("step-picture-id_"):
+            value = post[name]
+            if value:
                 mapping[index] = value
+                index+=1
     return mapping
 
 
