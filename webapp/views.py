@@ -176,9 +176,15 @@ def new_recipe(request):
     return render(request, 'webapp/newrecipe.html', {'form': form})
 
 
-
+@login_required
 def edit_receta(request, recipe_id):
+    user = User.objects.get(username=request.user.username)
     r = Recipe.objects.get(id=ObjectId(recipe_id))
+
+    if r.author != user:
+        raise Http404
+
+
     pictures = ""
     for pic in r.pictures:
         pictures += ";"+UploadedImage.objects.get(image=pic.image).id
