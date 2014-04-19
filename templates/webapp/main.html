@@ -27,9 +27,9 @@
 						{{ recipe.time.prep_time }}
 					</p>
 				</div>
-				<div class="recipe-author">
+				<div class="recipe-author-main">
 					<h5>by</h5>
-					<span><a class="recipe-link" href="{% url 'profile' recipe.author.username %}">{{ recipe.author.profile.get.display_name }}</a></span>
+					<span><a class="recipe-link-main" href="{% url 'profile' recipe.author.username %}">{{ recipe.author.profile.get.display_name }}</a></span>
 				</div>
 			</div>
 			<br />

@@ -658,6 +658,28 @@ header .container {
     border-radius: 5px;
 }
 
+.recipe-author-main {
+    float: right;
+}
+
+.recipe-link-main {
+    color: #CC3E27;
+    font-weight: bold;
+    text-decoration: None;
+}
+
+.recipe-link-main:hover {
+    color: #CC3E27;
+    font-weight: bold;
+    text-decoration: None;
+}
+
+.recipe-author-main h5 {
+display: inline;
+color: #CC3E27;
+font-weight: bold;
+}
+
 .recipe-data p{
     margin: 0;
     color: #CC3E27;
