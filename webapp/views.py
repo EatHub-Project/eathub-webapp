@@ -311,7 +311,23 @@ def logout_user(request):
 
 def receta(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
-    return render(request, 'webapp/recipe_template.html', {'receta': recipe})
+
+    total_votos = len(recipe.positives) + len(recipe.positives)
+    porcentaje_positivos = 50
+    porcentaje_negativos = 50
+    if total_votos != 0:
+        porcentaje_positivos = (len(recipe.positives) / total_votos)*100
+        porcentaje_negativos = (len(recipe.negativos) / total_votos)*100
+
+    num = recipe.difficult
+    dificultad = "Dificil"
+    if num>=0 and num<=1:
+        dificultad = "Facil"
+    elif num>=2 and num<=3:
+        dificultad = "Media"
+
+    return render(request, 'webapp/recipe_template.html', {'receta': recipe, 'total_votos': total_votos, 'difficult_value': dificultad,
+                                                           'por_pos': porcentaje_positivos, 'por_neg': porcentaje_negativos})
 
 
 def profile(request, username):

@@ -1,5 +1,6 @@
 body {
     padding-top: 90px;
+    background-color: #eeeeee;
 }
 
 .starter-template {
@@ -145,23 +146,6 @@ header .container {
     font-size: 20px;
 }
 
-.recipe-name {
-    height: 120px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: #CC3E27;
-}
-
-.recipe-author {
-    float: right;
-}
-
-.recipe-author h5 {
-    display: inline;
-    color: #CC3E27;
-    font-weight: bold;
-}
-
 .recipe-image {
     padding: 30px;
     text-align: center;
@@ -171,28 +155,8 @@ header .container {
     width: 400px;
 }
 
-.recipe-description {
-    border-top: 1px solid #e3e3e3;
-    border-bottom: 1px solid #e3e3e3;
-    margin: 20px 0;
-    padding: 10px;
-    background-color: #FFF;
-}
-
 .recipe-subhead {
 
-}
-
-.recipe-ingredients {
-    font-style: italic;
-    background-color: #FCF0AD;
-}
-
-.recipe-ingredients h3 {
-}
-
-.recipe-ingredients li {
-    list-style: none;
 }
 
 .recipe-album ul {
@@ -222,10 +186,11 @@ header .container {
     background-color: #FFF;
     color: #CC3E27;
     border: 1px solid #e3e3e3;
-    border-radius: 10%;
+    border-radius: 3px;
     padding: 4px 5px;
     margin: 3px;
     text-align: center;
+    font-weight: 500;
 }
 
 .recipe-tag:hover {
@@ -235,13 +200,10 @@ header .container {
     border-color: #FFF;
 }
 
-.recipe-taste h5 {
-    font-weight: bold;
-    margin-bottom: 0;
-}
 
 .recipe-taste .progress {
     height: 10px;
+    margin-bottom: 10px;
 }
 
 .recipe-taste .progress .progress-bar {
@@ -273,39 +235,6 @@ header .container {
 .recipe-info-data span .recipe-tag {
     margin-right: -7px;
     margin-top: -5px;
-}
-
-.recipe-steps-list h1 {
-    color: #CC3E27;
-}
-
-.recipe-step {
-    border: 1px solid #e3e3e3;
-    padding: 10px;
-    background-color: #FFF;
-    margin-bottom: 20px;
-    border-radius: 2px;
-}
-
-.recipe-step h5 {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.recipe-step span {
-    display: block;
-    padding: 10px;
-}
-
-.recipe-step-image {
-    text-align: center;
-    width: 100%;
-}
-
-.recipe-step-image img {
-    width: 400px;
-    background-color: #CC3E27;
 }
 
 .recipe-note {
@@ -349,6 +278,7 @@ header .container {
     font-size: 175%;
     text-align: center;
 }
+
 
 #main-picture-indicator {
     height: 200px;
@@ -639,24 +569,27 @@ header .container {
 .comment-form textarea {
     border: 0;
     resize: none;
-    padding-left: 3;
-    color: #999;
+    padding-left: 10px;
     background-color: transparent;
     outline: none;
 }
 
 .comment-form:hover {
-    border: 2px solid #CC3E27;
+    border: 1px solid #CC3E27;
 }
 
 .comment-form:hover .comment-bocadillo {
-    border-top: 2px solid #CC3E27;
+    border-top: 1px solid #CC3E27;
 }
 
 .comment-form:hover .efecto-inferior {
     border-bottom: 16px solid #CC3E27;
     left: 0px;
-    top: -2px;
+    top: -1px;
+}
+
+.comment-form:focus {
+    background-color: #fff;
 }
 
 .comment-form textarea:focus {
@@ -685,35 +618,16 @@ header .container {
     color: #CC3E27;
 }
 
-.list-comments .efecto-inferior {
-    border-bottom: 0;
-    border-right: 0;
-    border-top: 16px solid #ccc;
-    border-left: 16px solid transparent;
-    left: -2px;
-    top: 0px;
-}
-
-.list-comments .efecto-superior {
-    border-bottom: 0;
-    border-right: 0;
-    border-top: 15px solid white;
-    border-left: 15px solid transparent;
-}
-
-.list-comments .comment-bocadillo {
-    border-top: 0;
-    border-left: 1px solid #ccc;
-    height: 20px;
-    left: -16px;
-    position: relative;
-    top: -21px;
-    width: 15px;
-}
 
 .comment-banned {
     opacity: 0.5;
 }
+
+
+.text-soft {
+    color: #5a5a5a;
+}
+
 
 /*estilo de los botones de voto de las recetas*/
 .vote{
@@ -791,4 +705,445 @@ header .container {
 
 .login-form-forgot a, .login-form-signup a{
     color: #CC3E27;
+}
+
+.recipe-name {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+}
+
+.main-picture-padding {
+    height: 400px;
+    padding: 10px;
+    position: relative;
+}
+
+.main-picture-carousel {
+    overflow: hidden;
+    height: 380px;
+
+}
+
+.recipe-author {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #CC3E27;
+}
+
+.recipe-author:hover, .recipe-author.hover {
+    background-color: #CC3E27;
+    color: #fff;
+}
+
+.recipe-author-picture {
+    float: right;
+    z-index: 10;
+    width: 80px;
+    margin: 2px;
+    background-color: #fff;
+    padding: 4px;
+
+}
+
+.recipe-author-name {
+    float: right;
+    z-index: 9;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-right: 44px;
+    padding: 8px 44px 10px 10px;
+    border-radius: 5px;
+}
+
+.recipe-author-main {
+    float: right;
+}
+
+.recipe-link-main {
+    color: #CC3E27;
+    font-weight: bold;
+    text-decoration: None;
+}
+
+.recipe-link-main:hover {
+    color: #CC3E27;
+    font-weight: bold;
+    text-decoration: None;
+}
+
+.recipe-author-main h5 {
+    display: inline;
+    color: #CC3E27;
+    font-weight: bold;
+}
+
+.recipe-data p{
+    margin: 0;
+    color: #CC3E27;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.recipe-fork {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    color: #CC3E27;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+
+.recipe-fork-count, .recipe-fork-clone {
+    color: #CC3E27;
+    font-size: 17px;
+    padding: 0 6px;
+    background: none;
+    font-weight: 500;
+}
+
+.recipe-fork-count:hover, .recipe-fork-clone:hover {
+    background-color: #CC3E27;
+    color: #fff;
+}
+
+.recipe-fork-count {
+    border: none;
+}
+
+.recipe-fork-clone {
+    font-size: 15px;
+    font-weight: 500;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid #e3e3e3;
+}
+
+.recipe-data p.recipe-data-secondary {
+    color: #bababa;
+    font-weight: normal;
+}
+
+.recipe-description p {
+    font-size: 16px;
+    margin: 5px 20px;
+}
+
+.recipe-panel-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.recipe-ingredients {
+    /*background-color: #FCF0AD;*/
+    min-height: 200px;
+}
+
+.recipe-ingredients ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 10px;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.recipe-ingredients li:before{
+    content: "-";
+    position:relative; left:-5px;
+    color: #5a5a5a;
+}
+
+.recipe-ingredients-parent{
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.recipe-notes {
+    font-size: 15px;
+    width: 100%;
+    min-height: 200px;
+}
+
+.recipe-notes-parent{
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.recipe-step-list{
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.recipe-step {
+
+}
+
+.recipe-step-count {
+    font-size: 55px;
+    color: #CC3E27;
+    text-align: center;
+}
+
+.recipe-step p {
+    font-size: 16px;
+    color: #424242;
+    line-height: 1.7;
+}
+
+.recipe-step-separator {
+    background: url('../image/separator.png') no-repeat center;
+    height: 65px;
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe-step-picture {
+    margin-top: 10px;
+    height: 200px;
+    width: auto;
+}
+
+.recipe-tastes {
+}
+
+.recipe-tastes-list {
+    margin: 0 10px;
+}
+
+.recipe-tastes-parent{
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.recipe-taste span {
+    color: #696969;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.recipe-more-title {
+    color: #696969;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.recipe-more-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.recipe-comment-list {
+    margin: 30px 40px;
+}
+
+.recipe-comment, .recipe-comment-form {
+    padding-left: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.recipe-comment-form {
+}
+
+.recipe-comment-form textarea {
+    background-color: #eee;
+}
+
+.recipe-comment-form textarea:focus {
+    background-color: #fff;
+}
+
+.recipe-comment-picture {
+    width: 100%;
+    height: 100%;
+    max-width: 75px;
+    margin-left: -100px;
+    float: left;
+}
+
+.recipe-comment-name {
+    color: #5a5a5a;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.recipe-comment-date {
+    color: #8d8d8d;
+    margin-left: 5px;
+}
+
+.recipe-comment p {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.recipe-comment-empty {
+    padding-left: 100px;
+}
+
+.recipe-comment-empty p{
+    font-size: 16px;
+    font-style: italic;
+}
+
+.recipe-comment-login {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+.recipe-comment-login a {
+    color: #CC3E27;
+}
+
+.recipe-votes-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.recipe-votes {
+    background-color: #fff;
+    padding: 5px 15px 0 15px;
+    border-radius: 5px;
+    margin-bottom: -40px;
+}
+
+/*.recipe-votes:hover {
+    margin-bottom: 0;
+}*/
+
+.recipe-votes-progress {
+    height: 4px;
+    margin-bottom: 10px;
+}
+
+.recipe-votes-indicators {
+    color: #676767;
+    font-size: 11px;
+    text-align: right;
+}
+
+.recipe-votes-indicator {
+    margin-left: 6px;
+}
+
+.recipe-votes-indicator i {
+    margin-right: 3px;
+    font-size: 15px;
+}
+
+.recipe-votes-count {
+    font-size: 18px;
+    color: #3d3d3d;
+    margin-left: 8px
+}
+
+.recipe-votes-buttons {
+    height: 40px;
+    margin-top: 2px;
+}
+
+.recipe-votes-like-btn {
+    color: #939393;
+    font-size: 14px;
+    background: none;
+    border: none;
+}
+
+.recipe-votes-like-btn:hover, .recipe-votes-like-btn:hover i {
+    background-color: #CC3E27;
+    color: #fff;
+}
+
+.recipe-votes-like-btn i {
+    font-size: 16px;
+    color: #656565;
+}
+
+.recipe-controls {
+    margin-bottom: 20px;
+}
+
+.recipe-controls .fa{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.post-it-right {
+    background: #fefabc;
+    padding: 15px;
+
+    -moz-transform: rotate(3deg);
+    -webkit-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+
+    box-shadow: 0px 4px 6px #777;
+    -moz-box-shadow: 0px 4px 6px #777;
+    -webkit-box-shadow: 0px 4px 6px #777;
+}
+
+.post-it-left {
+    background: #fefabc;
+    padding: 15px;
+
+    -moz-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+
+    box-shadow: 0px 4px 6px #777;
+    -moz-box-shadow: 0px 4px 6px #777;
+    -webkit-box-shadow: 0px 4px 6px #777;
+
+}
+
+.postit {
+    position: relative;
+    border: 1px solid #E8E8E8;
+    border-bottom-right-radius: 60px 5px;
+    display: inline-block;
+    /*background: rgb(255, 255, 136); *//* Old browsers *//*
+    background: -moz-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* FF3.6+ *//*
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(77%, rgba(255, 255, 136, 1)), color-stop(100%, rgba(255, 255, 214, 1))); *//* Chrome,Safari4+ *//*
+    background: -webkit-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* Chrome10+,Safari5.1+ *//*
+    background: -o-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* Opera 11.10+ *//*
+    background: -ms-linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* IE10+ *//*
+    background: linear-gradient(-45deg, rgba(255, 255, 136, 1) 77%, rgba(255, 255, 214, 1) 100%); *//* W3C */
+    background: #fefabc;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff88', endColorstr='#ffff88', GradientType=0); *//* IE6-9 fallback on horizontal gradient */
+    box-shadow: 0px 3px 6px #777;
+    -moz-box-shadow: 0px 3px 6px #777;
+    -webkit-box-shadow: 0px 3px 6px #777;
+}
+
+.postit:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -0px;
+    bottom: 20px;
+    width: 200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 15px 5px rgba(0, 0, 0, 0.40);
+    -moz-transform: matrix(-1, -0.12, 0, 1, 0, 0);
+    -webkit-transform: matrix(-1, -0.12, 0, 1, 0, 0);
+    -o-transform: matrix(-1, -0.1, 0, 12, 0, 0);
+    -ms-transform: matrix(-1, -0.12, 0, 1, 0, 0);
+    transform: matrix(-1, -0.12, 0, 1, 0, 0);
 }
