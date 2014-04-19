@@ -183,9 +183,7 @@ def edit_receta(request, recipe_id):
     r = Recipe.objects.get(id=ObjectId(recipe_id))
 
     if r.author != user:
-        res = HttpResponse("Unauthorized")
-        res.status_code = 401
-        return res
+        return HttpResponse('Unauthorized', status=401)
 
     if request.method == 'POST':
         steps = get_steps(request.POST)
