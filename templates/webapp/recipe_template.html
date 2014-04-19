@@ -24,19 +24,12 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 {% for image in receta.pictures %}
-                    {% if forloop.counter0 %}
-                        <div class="item active">
-                            <img src="{{ image }}">
-
-                            <div class="carousel-caption"></div>
-                        </div>
-                    {% else %}
                         <div class="item">
                             <img src="{{ image }}">
 
                             <div class="carousel-caption"></div>
                         </div>
-                    {% endif %}
+
                 {% endfor %}
             </div>
 
@@ -59,6 +52,7 @@
         <!-- Votes overaly -->
         <div class="recipe-votes-container">
             <div class="recipe-votes">
+                {% if user.is_authenticated %}
                 <div class="recipe-votes-indicators">
                     <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>{{ receta.positives|length }}</span>
                     <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>{{ receta.negatives|length }}</span>
@@ -72,10 +66,29 @@
                     </div>
                 </div>
 
-                <div class="recipe-votes-buttons">
-                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> Like</a>
-                    <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
-                </div>
+                    <div class="recipe-votes-buttons">
+                        <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> Like</a>
+                        <a class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
+                    </div>
+                {% else %}
+                    <div class="recipe-votes-indicators">
+                        <span class="recipe-votes-indicator"><i class="fa fa-thumbs-up"></i>{{ receta.positives|length }}</span>
+                        <span class="recipe-votes-indicator"><i class="fa fa-thumbs-down"></i>{{ receta.negatives|length }}</span>
+                        <span class="recipe-votes-count">{{ total_votos }}</span>
+                    </div>
+
+                    <div class="progress recipe-votes-progress">
+                        <div class="progress-bar progress-bar-success" style="width: {{ por_pos }}%">
+                        </div>
+                        <div class="progress-bar progress-bar-warning" style="width: {{ por_neg }}%">
+                        </div>
+                    </div>
+
+                    <div class="recipe-votes-buttons">
+                        <span><i class="fa fa-thumbs-up"></i> Like</span>
+                        <span><i class="fa fa-thumbs-down"></i></span>
+                    </div>
+                {% endif %}
 
             </div>
         </div>
@@ -126,7 +139,26 @@
     </div>
 
     <div class="recipe-step-list">
-        <div id="step-1" class="recipe-step">
+
+        {% for step in receta.steps %}
+
+            <div id="step-{{ forloop.counter }}" class="recipe-step">
+                <div class="row">
+                    <div class="col-md-1 col-md-offset-1 recipe-step-count">{{ forloop.counter }}</div>
+                    <div class="col-md-9">
+                        <p class="text-soft">{{ step.text }}</p>
+                    </div>
+                    {% if step.image %}
+                    <img class="img-rounded recipe-step-picture img-thumbnail center-block"
+                     src="{{ step.image }}">
+                    {% endif %}
+                </div>
+            </div>
+
+            <span class="recipe-step-separator center-block"></span>
+
+        {% endfor %}
+        <!--<div id="step-1" class="recipe-step">
             <div class="row">
                 <div class="col-md-1 col-md-offset-1 recipe-step-count">1</div>
                 <div class="col-md-9">
@@ -197,7 +229,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="row">
         <div class="col-md-6 recipe-more-parent">
