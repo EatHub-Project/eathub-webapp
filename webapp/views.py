@@ -21,8 +21,7 @@ from django.utils.translation import ugettext as _
 
 
 def main(request):
-    recipes = Recipe.objects.all()
-    recipes.order_by('creation_date')
+    recipes = Recipe.objects.all().order_by('-creation_date')
     return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
 
