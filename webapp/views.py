@@ -234,6 +234,7 @@ def edit_receta(request, recipe_id):
             r.time = time
             imagen_principal = UploadedImage.objects.get(id=main_picture)
             u = request.user
+            r.steps = list() #Para que no se dupliquen los pasos, machacamos lo que tenemos y metemos de nuevo.
             for i in range(len(steps)):
                 if mapping_step_picture.__contains__(i):
                     imagen = UploadedImage.objects.get(id=mapping_step_picture.get(i))
@@ -241,15 +242,19 @@ def edit_receta(request, recipe_id):
                 else:
                     paso = Step(text=steps[i])
                 r.steps.append(paso)
+            r.pictures = list()
             for pic in extra_pictures.split(";"):
                 if pic != '':
                     imagen = Picture(image=UploadedImage.objects.get(id=pic).image)
                     r.pictures.append(imagen)
+
+            r.ingredients = list(ingredients)
             r.time = time
             r.author = u
             r.save()
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+        return render(request, 'webapp/recipe_template.html', {'receta': r}) #TODO: ha habido un error, mostrar en la misma plantilla lo que esta fallando al usuario.
     else:
         pictures = ""
         for pic in r.pictures:
