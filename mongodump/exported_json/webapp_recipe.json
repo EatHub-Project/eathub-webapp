@@ -374,104 +374,6 @@
     },
     {
         "_id": {
-            "$oid": "533fc6b386c9bdaca925feea"
-        },
-        "author_id": {
-            "$oid": "533fb9b386c9bdaca925fee0"
-        },
-        "creation_date": {
-            "$date": 1394893394154
-        },
-        "description": " Pasta Italiana",
-        "difficult": 5,
-        "food_type": "heavy meal",
-        "ingredients": [
-            "150 grs. surimi",
-            "1 kg. Mejillones hervidos (sin valva)",
-            "300 grs. Spugne naif (pasta italiana)",
-            "250 grs. Gamba arrocera",
-            "1 puerro",
-            "2 cebolletas grandes",
-            "1 bandeja champi\u00f1ones (laminar)",
-            "Or\u00e9gano",
-            "Aceite de oliva",
-            "1 chucaradita de az\u00facar",
-            "1 poco de pimienta negra",
-            "1 poco de clavo"
-        ],
-        "is_published": true,
-        "language": "spanish",
-        "main_image": "images/spugne_naif.persist.jpg",
-        "modification_date": {
-            "$date": 1396189394154
-        },
-        "nationality": "spain",
-        "notes": "esta receta es de mi hija menor, con pasta que nos ha tra\u00eddo mi hija mayor de N\u00e1poles",
-        "parent_id": {
-            "$oid": "533fc4bd86c9bdaca925fee9"
-        },
-        "pictures": [
-            {
-                "image": "images/spugne_naif.persist.jpg"
-            }
-        ],
-        "savours": {
-            "bitter": 55,
-            "salty": 85,
-            "sour": 15,
-            "spicy": 45,
-            "sweet": 25
-        },
-        "serves": "3 personas",
-        "special_conditions": [
-            null
-        ],
-        "steps": [
-            {
-                "image": "",
-                "text": "Hervir la pasta al dente, con agua abundante, un chorrito de aceite de oliva, sal y una pastilla de caldo."
-            },
-            {
-                "image": "",
-                "text": "En una cazuela poner aceite y echar la cebolla rallada, dos o tres minutos m\u00e1s tarde echar el puerro muy picado y remover, dejar unos minutos hasta que coja color"
-            },
-            {
-                "image": "",
-                "text": "Echar el az\u00facar y a continuaci\u00f3n los champi\u00f1ones y el or\u00e9gano"
-            },
-            {
-                "image": "",
-                "text": "Cuando est\u00e9n cogiendo color los champi\u00f1ones le echamos la sal a gusto"
-            },
-            {
-                "image": "",
-                "text": "Echar las gambas sin cabeza"
-            },
-            {
-                "image": "",
-                "text": "Una vez tengan  aspecto de cocinadas a\u00f1adiremos la pasta, los mejillones y el surimi a trozos, remover."
-            },
-            {
-                "image": "",
-                "text": "Pasarlo todo a un cuenco, a\u00f1adir pimienta negra, un poco de clavo y remover. Y ya est\u00e1 lista la receta para servir."
-            }
-        ],
-        "tags": [
-            "pasta",
-            "tasty",
-            "abroad"
-        ],
-        "temporality": [
-            "spring"
-        ],
-        "time": {
-            "cook_time": 35,
-            "prep_time": 5
-        },
-        "title": "SPUGNE NAIF"
-    },
-    {
-        "_id": {
             "$oid": "533fc87d86c9bdaca925feec"
         },
         "author_id": {
@@ -961,5 +863,115 @@
             "prep_time": 20
         },
         "title": "Mousse de lim\u00f3n"
+    },
+    {
+        "_id": {
+            "$oid": "53524d5fc54d2d087132cf6d"
+        },
+        "author_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "comments": [
+            {
+                "create_date": {
+                    "$date": 1397909887677
+                },
+                "text": "Creo que ya puedo pasarme a confirmarlo: \u00a1est\u00e1n riqu\u00edsimas! Aunque no han quedado demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y est\u00e1n muy buenas.",
+                "user_own_id": {
+                    "$oid": "5337f440144115cb2ce71e1d"
+                }
+            }
+        ],
+        "creation_date": {
+            "$date": 1397909887677
+        },
+        "description": "Tengo muchos primos peque\u00f1os, y casi siempre que vienen a casa, me piden alguna golosina para comer, pero yo nunca las compro, as\u00ed que los pobres siempre se quedaban sin comerlas, hasta que se me ocurri\u00f3 hacerlas yo misma.\r\n\r\nMe acord\u00e9 de cuando hago decoraciones en las tartas con caramelo e hice mi versi\u00f3n personal de las piruletas de toda la vida, as\u00ed que os voy a ense\u00f1ar c\u00f3mo las hago.",
+        "difficult": 1,
+        "food_type": "snack",
+        "ingredients": [
+            "200g de az\u00facar",
+            "80ml de agua",
+            "Esencia (la que m\u00e1s nos guste)",
+            "Colorante alimenticio",
+            "Virutitas para decorar"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/pirus_0.persist.jpg",
+        "modification_date": {
+            "$date": 1397909887677
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "Es una receta que os har\u00e1 quedar bien con los m\u00e1s peques de casa. No os puedo decir personalmente c\u00f3mo han quedado \u00e9stas \u00faltimas porque la ni\u00f1a a la que doy clases particulares se las ha llevado para casita, pero generalmente a los ni\u00f1os les encanta, adem\u00e1s si les pon\u00e9is colores llamativos les va a llamar mucho la atenci\u00f3n y se divertir\u00e1n m\u00e1s comi\u00e9ndolas.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/pirus_1.persist.jpg"
+            },
+            {
+                "image": "images/pirus_2.persist.jpg"
+            },
+            {
+                "image": "images/pirus_3.persist.jpg"
+            },
+            {
+                "image": "images/pirus_4.persist.jpg"
+            },
+            {
+                "image": "images/pirus_5.persist.jpg"
+            },
+            {
+                "image": "images/pirus_6.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 5,
+            "salty": 5,
+            "sour": 5,
+            "spicy": 6,
+            "sweet": 95
+        },
+        "serves": "8 piruletas aprox.",
+        "special_conditions": [
+            "celiac",
+            "vegetarian"
+        ],
+        "steps": [
+            {
+                "image": "images/pirus_1.persist.jpg",
+                "text": "Antes que nada vamos a preparar unas cosas:\r\n\r\n- En el m\u00e1rmol o sobre el papel para horno ponemos un poco de aceite.\r\n- Ponemos en una cacerola agua fr\u00eda y la reservamos.\r\n- Partimos por la mitad varios palitos de bamb\u00fa, de los utilizados para hacer pinchos morunos.\r\n- Cerca de donde hayamos puesto el aceite nos preparamos las virutitas que utilizaremos para decorar y los palitos de bamb\u00fa."
+            },
+            {
+                "image": "images/pirus_3.persist.jpg",
+                "text": "Y ahora s\u00ed, vamos a la receta:\r\n\r\nPonemos en un cazo el az\u00facar con el agua a fuego medio y removemos de vez en cuando hasta que hierva. Tapamos el cazo y lo dejamos hirviendo unos 3 minutos. Cuando veamos que espese un poco y oscurezca el color le ponemos el colorante que queramos y la esencia. Si quer\u00e9is hacerlas de fresa, yo lo que hago es ponerle en vez de esencia, un poco de sirope de fresa, que da color y sabor."
+            },
+            {
+                "image": "images/pirus_4.persist.jpg",
+                "text": "Con una cuchara de metal vamos poniendo el contenido encima de nuestro m\u00e1rmol o de nuestro papel, haciendo formas de piruletas (circulos de unos 4cm de ancho). Ponemos el palito de bamb\u00fa, y volvemos a poner encima de \u00e9l un poco de caramelo para que luego no se nos caiga al secarse. Le echamos por encima virutitas y ya est\u00e1."
+            },
+            {
+                "image": "images/pirus_1.persist.jpg",
+                "text": "Ponemos el cazo dentro de la cacerola que hab\u00edamos preparado con agua, para as\u00ed, detener la cocci\u00f3n y lo sacamos r\u00e1pidamente para que no nos enfr\u00ede mucho el cazo."
+            },
+            {
+                "image": "",
+                "text": "Dejaremos secar nuestras piruletas un par de horas."
+            }
+        ],
+        "tags": [
+            "Dulce",
+            " Chuches",
+            " Rico",
+            " Ni\u00f1os",
+            " Fresa"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 10
+        },
+        "title": "Piruletas caseras"
     }
 ]

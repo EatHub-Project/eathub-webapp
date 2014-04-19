@@ -207,5 +207,24 @@
         "last_name": "",
         "password": "pbkdf2_sha256$10000$b2dq707SfLv7$3NlXN/NmtLyl+T0pVrQd4I0/kbt/ZWy2g/ksbTeb/kE=",
         "username": "prueba"
+    },
+    {
+        "_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "date_joined": {
+            "$date": 1397909307184
+        },
+        "email": "virgi.moriel@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1397913961722
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$khrqS6LipgAO$iQ0Z7iFLpiCeofqi3PP0KHublC4hx/J7sAmB8l2hWCE=",
+        "username": "virsfc"
     }
 ]

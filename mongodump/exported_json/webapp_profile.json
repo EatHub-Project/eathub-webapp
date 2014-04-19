@@ -358,5 +358,35 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbf"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/virgi.persist.jpg",
+        "birth_date": {
+            "$date": 660528000000
+        },
+        "display_name": "Virgi",
+        "following": [],
+        "gender": "f",
+        "karma": 6,
+        "location": "Alacant, Spain",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 41,
+            "salty": 62,
+            "sour": 43,
+            "spicy": 61,
+            "sweet": 80
+        },
+        "user_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "website": ""
     }
 ]
