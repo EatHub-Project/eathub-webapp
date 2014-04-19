@@ -78,13 +78,6 @@
     },
     {
         "_id": {
-            "$oid": "5352c1a7b88bbe1e48d4f24f"
-        },
-        "image": "images/torrijas_de_leche.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
             "$oid": "5352c1acb88bbe1e48d4f250"
         },
         "image": "images/torrijas_de_leche_2.persist.jpg",
@@ -102,6 +95,13 @@
             "$oid": "5352c1b5b88bbe1e48d4f252"
         },
         "image": "images/carne_con_tomate.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352c4e2b88bbe1e48d4f253"
+        },
+        "image": "images/torrijas_de_leche.persist.jpg",
         "persist": true
     }
 ]
