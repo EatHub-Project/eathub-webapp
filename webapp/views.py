@@ -166,6 +166,7 @@ def new_recipe(request):
             r.savours = t
             r.time = time
             r.author = u
+            r.clean()
             r.save()
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
@@ -184,44 +185,109 @@ def edit_receta(request, recipe_id):
     if r.author != user:
         raise Http404
 
+    if request.method == 'POST':
+        steps = get_steps(request.POST)
+        ingredients = get_ingredients(request.POST)
+        mapping_step_picture = get_mapping_step_picture(request.POST)
+        form = NewRecipeForm(request.POST, steps=steps, ingredients=ingredients)
+        if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
+            data = form.cleaned_data
 
-    pictures = ""
-    for pic in r.pictures:
-        pictures += ";"+UploadedImage.objects.get(image=pic.image).id
-    data = {
-        'title': r.title,
-        'pictures_ids_list': r.pictures,
-        'sweet': r.savours.sweet,
-        'salty': r.savours.salty,
-        'food_type': r.food_type,
-        'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
-        'special_conditions': r.special_conditions,
-        'bitter': r.savours.bitter,
-        'difficult': r.difficult,
-        'spicy': r.savours.spicy,
-        'description': r.description,
-        'pictures_ids_list': pictures,
-        'nationality': r.nationality,
-        'tags': ",".join(r.tags),
-        'cook_time': r.time.cook_time,
-        'language': r.language,
-        'notes': r.notes,
-        'serves': r.serves,
-        'sour': r.savours.sour,
-        'prep_time': r.time.prep_time,
-        'temporality': r.temporality,
-    }
-    for i,ing in enumerate(r.ingredients):
-        data['ingredient_%s' % i]=ing
+            # Basic information
+            r.title = data['title']
+            r.description = data['description']
+            main_picture = data['main_picture_id']
+            r.main_picture = main_picture
+            extra_pictures = data['pictures_ids_list']
+            pictures_list = []
+            if extra_pictures:
+                pictures_list = extra_pictures.split(";")
 
-    for i,step in enumerate(r.steps):
-        data['step_%s' % i]=step.text
-        if step.image:
-            data['step-picture-id_%s' % i]=UploadedImage.objects.get(image=step.image).id
+            ingredients = form.get_cleaned_ingredients()
+            steps = form.get_cleaned_steps()
 
-    form = NewRecipeForm(data=data, steps=r.steps, ingredients=r.ingredients)
+            r.serves = data['serves']
+            r.language = data['language']
+            r.temporality = data['temporality']
+            r.nationality = data['nationality']
+            r.special_conditions = data['special_conditions']
+            r.notes = data['notes']
+            r.difficult = data['difficult']
+            r.food_type = data['food_type']
+            tags = []
+            tags_all = data['tags']
+            prep_time = data['prep_time']
+            r.prep_time = prep_time
+            cook_time = data['cook_time']
+            r.cook_time = cook_time
+            if tags_all:
+                tags = tags_all.split(",")
+            r.tags = tags
 
-    return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
+            r.savours = Savour(salty=data['salty'],
+                       sour=data['sour'],
+                       bitter=data['bitter'],
+                       sweet=data['sweet'],
+                       spicy=data['spicy'])
+
+            time = Time(prep_time=prep_time, cook_time=cook_time)
+            r.time = time
+            imagen_principal = UploadedImage.objects.get(id=main_picture)
+            u = request.user
+            for i in range(len(steps)):
+                if mapping_step_picture.__contains__(i):
+                    imagen = UploadedImage.objects.get(id=mapping_step_picture.get(i))
+                    paso = Step(text=steps[i], image=imagen.image)
+                else:
+                    paso = Step(text=steps[i])
+                r.steps.append(paso)
+            for pic in extra_pictures.split(";"):
+                if pic != '':
+                    imagen = Picture(image=UploadedImage.objects.get(id=pic).image)
+                    r.pictures.append(imagen)
+            r.time = time
+            r.author = u
+            r.save()
+
+            return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+    else:
+        pictures = ""
+        for pic in r.pictures:
+            pictures += ";"+UploadedImage.objects.get(image=pic.image).id
+        data = {
+            'title': r.title,
+            'pictures_ids_list': r.pictures,
+            'sweet': r.savours.sweet,
+            'salty': r.savours.salty,
+            'food_type': r.food_type,
+            'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
+            'special_conditions': r.special_conditions,
+            'bitter': r.savours.bitter,
+            'difficult': r.difficult,
+            'spicy': r.savours.spicy,
+            'description': r.description,
+            'pictures_ids_list': pictures,
+            'nationality': r.nationality,
+            'tags': ",".join(r.tags),
+            'cook_time': r.time.cook_time,
+            'language': r.language,
+            'notes': r.notes,
+            'serves': r.serves,
+            'sour': r.savours.sour,
+            'prep_time': r.time.prep_time,
+            'temporality': r.temporality,
+        }
+        for i,ing in enumerate(r.ingredients):
+            data['ingredient_%s' % i]=ing
+
+        for i,step in enumerate(r.steps):
+            data['step_%s' % i]=step.text
+            if step.image:
+                data['step-picture-id_%s' % i]=UploadedImage.objects.get(image=step.image).id
+
+        form = NewRecipeForm(data=data, steps=r.steps, ingredients=r.ingredients)
+
+        return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
 
 
 def get_mapping_step_picture(post):
