@@ -5,5 +5,61 @@
         },
         "image": "images/pedro.persist.jpg",
         "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53522eac18085d12b807199b"
+        },
+        "image": "images/Fran_Benavente.persist_1.JPG",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53522ef618085d12b807199c"
+        },
+        "image": "images/Fran_Benavente.persist.JPG",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53522f2918085d12b807199d"
+        },
+        "image": "images/Juhani_Tamminen.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53522fbc18085d12b807199e"
+        },
+        "image": "images/paco.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352304618085d12b807199f"
+        },
+        "image": "images/james.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "535230ab18085d12b80719a0"
+        },
+        "image": "images/mario.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352311718085d12b80719a1"
+        },
+        "image": "images/Tomas.persist.jpg",
+        "persist": null
+    },
+    {
+        "_id": {
+            "$oid": "5352312c18085d12b80719a2"
+        },
+        "image": "images/Tomas.persist_1.jpg",
+        "persist": true
     }
 ]

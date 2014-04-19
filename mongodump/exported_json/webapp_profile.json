@@ -4,20 +4,43 @@
             "$oid": "5337f7d9144115cb2ce71e20"
         },
         "additional_languages": [],
-        "avatar": "images/lethimaeki0031_1.jpg",
+        "avatar": "images/Juhani_Tamminen.persist.jpg",
         "birth_date": null,
         "display_name": "Juhani L.",
-        "following": [],
+        "following": [
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            }
+        ],
         "gender": "unknown",
+        "karma": 6,
         "location": "Sevilla",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 67,
+            "salty": 64,
+            "sour": 63,
+            "spicy": 69,
+            "sweet": 42
         },
         "user_id": {
             "$oid": "5337f3cb144115cb2ce71e1c"
@@ -34,21 +57,29 @@
         "display_name": "Pedro Verd",
         "following": [
             {
-                "display_name": "Juhani L.",
+                "display_name": "Juanma",
                 "user_id": {
-                    "$oid": "5337f3cb144115cb2ce71e1c"
+                    "$oid": "53511955b88bbe11b48fcdd7"
                 },
-                "username": "juan"
+                "username": "juanma"
             },
             {
                 "display_name": "francisco",
                 "user_id": {
                     "$oid": "5337f4b4144115cb2ce71e1e"
                 },
-                "username": "francisco"
+                "username": "franhg"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
             }
         ],
         "gender": "unknown",
+        "karma": 6,
         "location": "Lugo",
         "main_language": "es",
         "modification_date": null,
@@ -71,13 +102,36 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/Fran_Benavente.persist.JPG",
         "birth_date": {
             "$date": 687139200000
         },
         "display_name": "francisco",
-        "following": [],
+        "following": [
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            }
+        ],
         "gender": "m",
+        "karma": 6,
         "location": "Sevilla",
         "main_language": "es",
         "modification_date": null,
@@ -100,13 +154,36 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/paco.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
         "display_name": "Paco",
-        "following": [],
+        "following": [
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            }
+        ],
         "gender": "m",
+        "karma": 4,
         "location": "Segovia",
         "main_language": "en",
         "modification_date": null,
@@ -141,6 +218,13 @@
                     "$oid": "5337f4b4144115cb2ce71e1e"
                 },
                 "username": "franhg"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
             }
         ],
         "gender": "m",
@@ -167,13 +251,36 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/james.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
         "display_name": "James",
-        "following": [],
+        "following": [
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            }
+        ],
         "gender": "m",
+        "karma": 5,
         "location": "Liverpool",
         "main_language": "en",
         "modification_date": null,
@@ -196,13 +303,27 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
-        "birth_date": {
-            "$date": 687139200000
-        },
+        "avatar": "images/Tomas.persist_1.jpg",
+        "birth_date": null,
         "display_name": "Tomas",
-        "following": [],
+        "following": [
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            }
+        ],
         "gender": "m",
+        "karma": 6,
         "location": "Teruel",
         "main_language": "en",
         "modification_date": null,
@@ -211,7 +332,7 @@
             "salty": 70,
             "sour": 80,
             "spicy": 90,
-            "sweet": 100
+            "sweet": 81
         },
         "user_id": {
             "$oid": "533fbad086c9bdaca925fee2"
@@ -225,13 +346,36 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "http://upload.wikimedia.org/wikipedia/en/9/99/MarioSMBW.png",
+        "avatar": "images/mario.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
         "display_name": "Mario",
-        "following": [],
+        "following": [
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            }
+        ],
         "gender": "m",
+        "karma": 6,
         "location": "Madrid",
         "main_language": "en",
         "modification_date": null,
