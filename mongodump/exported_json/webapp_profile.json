@@ -206,7 +206,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/alexis.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
@@ -396,12 +396,34 @@
             "$oid": "53511955b88bbe11b48fcdd8"
         },
         "additional_languages": [],
-        "avatar": "images/fotocarne_recortada_1.jpg",
+        "avatar": "images/juanma.persist.jpg",
         "birth_date": {
             "$date": 724204800000
         },
         "display_name": "Juanma",
-        "following": [],
+        "following": [
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            }
+        ],
         "gender": "m",
         "karma": 6,
         "location": "Sevilla",

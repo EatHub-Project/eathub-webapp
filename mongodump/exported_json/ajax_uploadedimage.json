@@ -61,5 +61,12 @@
         },
         "image": "images/Tomas.persist_1.jpg",
         "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5352333718085d12b80719a3"
+        },
+        "image": "images/alexis.persist.jpg",
+        "persist": true
     }
 ]

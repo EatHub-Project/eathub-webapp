@@ -12,7 +12,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397902125739
+            "$date": 1397903001808
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
@@ -88,7 +88,7 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1397901218533
+            "$date": 1397903054242
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$LbrdLQq01eBU$URuLyt5uZoXcyyNOY3QnF2PdSdd1y9OpUPClPP2E1Pg=",
