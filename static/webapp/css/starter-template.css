@@ -705,6 +705,7 @@ font-weight: bold;
 
 .recipe-ingredients {
     /*background-color: #FCF0AD;*/
+    min-height: 200px;
 }
 
 .recipe-ingredients ul {
@@ -728,6 +729,8 @@ font-weight: bold;
 
 .recipe-notes {
     font-size: 15px;
+    width: 100%;
+    min-height: 200px;
 }
 
 .recipe-notes-parent{
