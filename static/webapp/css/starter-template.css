@@ -790,7 +790,6 @@ header .container {
 }
 
 .recipe-comment-form {
-    margin-top: 90px;
 }
 
 .recipe-comment-form textarea {
@@ -823,6 +822,15 @@ header .container {
 .recipe-comment p {
     font-size: 15px;
     margin-top: 10px;
+}
+
+.recipe-comment-empty {
+    padding-left: 100px;
+}
+
+.recipe-comment-empty p{
+    font-size: 16px;
+    font-style: italic;
 }
 
 .recipe-votes-container {

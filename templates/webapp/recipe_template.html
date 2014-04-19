@@ -289,6 +289,10 @@
         <h3 class="recipe-panel-title">Comments</h3>
 
         <div class="recipe-comment-list">
+            {% comment %}<div class="recipe-comment-empty">
+                <p class="text-soft">No comments yet. Be the first!</p>
+            </div>{% endcomment %}
+
             {% for i in "1234" %}
                 <div class="recipe-comment">
                     <img class="img-circle recipe-comment-picture"
@@ -302,20 +306,18 @@
                         demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y están muy
                         buenas.</p>
                 </div>
-                {% if not forloop.last %}
-                    <hr>
-                {% endif %}
+                <hr>
             {% endfor %}
 
             <div class="recipe-comment-form">
                 <img class="img-circle recipe-comment-picture"
                      src="https://lh5.googleusercontent.com/-OiRh2CnezSw/U1A_gITdD4I/AAAAAAAASss/dauhnw6AtSw/w608-h609-no/004recortada.jpg">
 
-                    <form method="POST" action="{% url 'comment' receta.id %}">
-                            <textarea class="form-control" name="text"
-                                      placeholder="Escribe un comentario sobre la receta…" rows="5"></textarea>
-                        <input class="plus btn btn-default" type="submit">
-                    </form>
+                <form method="POST" action="{% url 'comment' receta.id %}">
+                    <textarea class="form-control" name="text"
+                              placeholder="Escribe un comentario sobre la receta…" rows="5"></textarea>
+                    <input class="plus btn btn-default" type="submit">
+                </form>
             </div>
 
         </div>
@@ -471,10 +473,10 @@
             //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
             $(".recipe-votes-container").hover(
                     function () {
-                        $(".recipe-votes").animate({"margin-bottom": 0})
+                        $(".recipe-votes").animate({"margin-bottom": 0}, 150)
                     },
                     function () {
-                        $(".recipe-votes").animate({"margin-bottom": "-40px"})
+                        $(".recipe-votes").animate({"margin-bottom": "-40px"}, 150)
                     }
             );
         });
