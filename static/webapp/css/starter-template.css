@@ -319,6 +319,21 @@ header .container {
     border-radius: 6px;
 }
 
+.step span {
+    font-size: 50px;
+    color: #CC3E27;
+}
+
+.step.next span {
+    font-size: 50px;
+    color: #ccc4bc;
+}
+
+.step img {
+    height: auto;
+    width: 100%;
+}
+
 .savours-help {
     font-size: 18px;
     font-style: italic;
