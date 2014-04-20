@@ -125,7 +125,7 @@ def edit_receta(request, recipe_id):
     if request.method == 'POST':
         form = NewRecipeForm(request.POST)
         if form.is_valid:  # else -> render respone with the obtained form, with errors and stuff
-            recipe = store_recipe(form, request.user)
+            recipe = store_recipe(form, request.user, r)
             if recipe:
                 return HttpResponseRedirect(reverse('recipe', kwargs={'recipe_id': recipe.id}))  # Redirect after POST
 
@@ -135,7 +135,7 @@ def edit_receta(request, recipe_id):
         return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
 
 
-def store_recipe(form, user):
+def store_recipe(form, user, recipe=None):
     if form.is_valid():
         # Extract the data from the form and create the User and Profile instance
         data = form.cleaned_data
@@ -174,11 +174,22 @@ def store_recipe(form, user):
         time = Time(prep_time=prep_time, cook_time=cook_time)
         imagen_principal = UploadedImage.objects.get(id=main_picture).image
 
-        r = Recipe(title=title, description=description, ingredients=ingredients, serves=serves,
-                   language=language, temporality=temporality, nationality=nationality,
-                   special_conditions=special_conditions,
-                   notes=notes, difficult=difficult, food_type=food_type, tags=tags,
-                   main_image=imagen_principal)
+        if not recipe:
+            recipe = Recipe()
+
+        recipe.title = title
+        recipe.description = description
+        recipe.ingredients = ingredients
+        recipe.serves = serves
+        recipe.language = language
+        recipe.temporality = temporality
+        recipe.nationality = nationality
+        recipe.special_conditions = special_conditions
+        recipe.notes = notes
+        recipe.difficult = difficult
+        recipe.food_type = food_type
+        recipe.tags = tags
+        recipe.main_image = imagen_principal
         u = user
 
         # steps is a list of dict
@@ -191,7 +202,7 @@ def store_recipe(form, user):
                 step_object = Step(text=step['text'])
 
             step_list.append(step_object)
-        r.steps = step_list
+        recipe.steps = step_list
 
         # pictures_id_list is a list of ids
         pictures_list = list()
@@ -201,13 +212,13 @@ def store_recipe(form, user):
                     picture = Picture(image=UploadedImage.objects.get(id=pic).image)
                     pictures_list.append(picture)
 
-        r.pictures = pictures_list
-        r.savours = t
-        r.time = time
-        r.author = u
-        r.clean()
-        r.save()
-        return r
+        recipe.pictures = pictures_list
+        recipe.savours = t
+        recipe.time = time
+        recipe.author = u
+        recipe.clean()
+        recipe.save()
+        return recipe
     else:
         return None
 
