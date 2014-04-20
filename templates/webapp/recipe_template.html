@@ -313,6 +313,7 @@
                          src="{{ user.profile.get.avatar.url }}">
 
                     <form method="POST" action="{% url 'comment' receta.id %}">
+                        {% csrf_token %}
                         <textarea class="form-control" name="text"
                                   placeholder="{% trans "Write a comment about the recipe…" %}" rows="5"></textarea>
                         <input class="plus btn btn-default" type="submit" value="{% trans "Send" %}">
