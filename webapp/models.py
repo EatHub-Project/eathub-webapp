@@ -101,7 +101,26 @@ def validate_difficult(difficult):
     if difficult <= 0 or difficult >= 4:
         raise ValidationError("Difficult must be in range 1 to 3")
 
+def validate_time(time):
+    if time.prep_time is None and time.cook_time is None:
+        raise ValidationError("Preparation time and cook time can't be None at same time")
+    if time.prep_time < 0 or time.cook_time < 0:
+        raise ValidationError("No negative time is allowed")
 
+def validate_temporality(temporality):
+    if len(temporality) == 0:
+        raise ValidationError("It must be at least one temporality")
+    for season in temporality:
+        if season is None:
+            raise ValidationError("A temporality is not allowed to be None")
+
+
+def validate_ingredients(ingredients):
+    if len(ingredients) == 0:
+        raise ValidationError("It must be at least one step")
+    for ingredient in ingredients:
+        if ingredient is None:
+            raise ValidationError("An ingredient is not allowed to be None")
 # Models
 
 class Comment(models.Model):
@@ -155,10 +174,10 @@ class Recipe(models.Model):
     creation_date = DateTimeField(auto_now_add=True)
     main_image = models.ImageField(upload_to="images/recipe/", null=False)
     modification_date = DateTimeField(auto_now_add=True, null=True)
-    ingredients = ListField(blank=False)
+    ingredients = ListField(blank=False, validators=[validate_ingredients])
     serves = CharField(max_length=50, blank=False)
     language = CharField(max_length=50, blank=False)
-    temporality = ListField(null=True)
+    temporality = ListField(null=True, validators=[validate_temporality])
     nationality = CharField(max_length=50, null=True)
     special_conditions = ListField(null=True)
     notes = TextField(null=True)
