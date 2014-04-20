@@ -56,8 +56,13 @@
 
         <!-- Author overlay -->
         <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
-            <img class="img-circle recipe-author recipe-author-picture"
-                 src="{{ receta.author.profile.get.avatar.url }}">
+            <div class="img-circle recipe-author recipe-author-picture-container">
+                <div class="img-circle recipe-author-picture"
+                     style="background-image: url('{{ receta.author.profile.get.avatar.url }}')">
+                    <img class="img-circle recipe-author"
+                         src="{{ receta.author.profile.get.avatar.url }}">
+                </div>
+            </div>
             <h5 class="recipe-author recipe-author-name">By {{ receta.author.profile.get.display_name }}</h5>
         </a>
 
