@@ -23,14 +23,14 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
+            <div class="carousel-inner recipe-carousel-wrapper">
+                <div class="item active recipe-carousel-item" style="background-image: url('{{ receta.main_image.url }}')">
                     <img src="{{ receta.main_image.url }}">
 
                     <div class="carousel-caption"></div>
                 </div>
                 {% for picture in receta.pictures %}
-                    <div class="item">
+                    <div class="item recipe-carousel-item" style="background-image: url('{{ picture.image.url }}')">
                         <img src="{{ picture.image.url }}">
 
                         <div class="carousel-caption"></div>

@@ -740,7 +740,21 @@ header .container {
 .main-picture-carousel {
     overflow: hidden;
     height: 380px;
+}
 
+.recipe-carousel-item {
+    /*width: 100%;*/
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.recipe-carousel-wrapper {
+    height: 100%;
+}
+
+.recipe-carousel-item img {
+    opacity: 0;
 }
 
 .recipe-author {
