@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
 from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComment
@@ -138,21 +138,23 @@ def new_recipe(request):
                 tags = tags_all.split(",")
 
             t = Savour(salty=data['salty'],
-                           sour=data['sour'],
-                           bitter=data['bitter'],
-                           sweet=data['sweet'],
-                           spicy=data['spicy'])
+                       sour=data['sour'],
+                       bitter=data['bitter'],
+                       sweet=data['sweet'],
+                       spicy=data['spicy'])
 
             time = Time(prep_time=prep_time, cook_time=cook_time)
-            imagen_principal =UploadedImage.objects.get(id=main_picture)
-            r = Recipe(title=title,description=description,ingredients=ingredients,serves=serves,
-                       language=language,temporality=temporality,nationality=nationality,special_conditions=special_conditions,
-                       notes=notes,difficult=difficult,food_type=food_type,tags=tags, main_image=imagen_principal.image)
+            imagen_principal = UploadedImage.objects.get(id=main_picture)
+            r = Recipe(title=title, description=description, ingredients=ingredients, serves=serves,
+                       language=language, temporality=temporality, nationality=nationality,
+                       special_conditions=special_conditions,
+                       notes=notes, difficult=difficult, food_type=food_type, tags=tags,
+                       main_image=imagen_principal.image)
             u = request.user
             for i in range(len(steps)):
-                if mapping_step_picture.__contains__(str(i)):
-                    imagen =UploadedImage.objects.get(id=mapping_step_picture.get(str(i)))
-                    paso = Step(text=steps[i],image=imagen.image)
+                if mapping_step_picture.__contains__(i):
+                    imagen = UploadedImage.objects.get(id=mapping_step_picture.get(i))
+                    paso = Step(text=steps[i], image=imagen.image)
                 else:
                     paso = Step(text=steps[i])
                 r.steps.append(paso)
@@ -160,9 +162,10 @@ def new_recipe(request):
                 if pic != '':
                     imagen = Picture(image=UploadedImage.objects.get(id=pic).image)
                     r.pictures.append(imagen)
-            r.savours=t
-            r.time=time
-            r.author=u
+            r.savours = t
+            r.time = time
+            r.author = u
+            r.clean()
             r.save()
 
             return HttpResponseRedirect(reverse('main'))  # Redirect after POST
@@ -173,14 +176,133 @@ def new_recipe(request):
     return render(request, 'webapp/newrecipe.html', {'form': form})
 
 
+@login_required
+def edit_receta(request, recipe_id):
+    user = User.objects.get(username=request.user.username)
+    r = Recipe.objects.get(id=ObjectId(recipe_id))
+
+    if r.author != user:
+        return HttpResponse('Unauthorized', status=401)
+
+    if request.method == 'POST':
+        steps = get_steps(request.POST)
+        ingredients = get_ingredients(request.POST)
+        mapping_step_picture = get_mapping_step_picture(request.POST)
+        form = NewRecipeForm(request.POST, steps=steps, ingredients=ingredients)
+        if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
+            data = form.cleaned_data
+
+            # Basic information
+            r.title = data['title']
+            r.description = data['description']
+            main_picture = data['main_picture_id']
+            r.main_picture = main_picture
+            extra_pictures = data['pictures_ids_list']
+            pictures_list = []
+            if extra_pictures:
+                pictures_list = extra_pictures.split(";")
+
+            #ingredients = form.get_cleaned_ingredients()
+            steps = form.get_cleaned_steps()
+
+            r.serves = data['serves']
+            r.language = data['language']
+            r.temporality = data['temporality']
+            r.nationality = data['nationality']
+            r.special_conditions = data['special_conditions']
+            r.notes = data['notes']
+            r.difficult = data['difficult']
+            r.food_type = data['food_type']
+            tags = []
+            tags_all = data['tags']
+            prep_time = data['prep_time']
+            r.prep_time = prep_time
+            cook_time = data['cook_time']
+            r.cook_time = cook_time
+            if tags_all:
+                tags = tags_all.split(",")
+            r.tags = tags
+
+            r.savours = Savour(salty=data['salty'],
+                               sour=data['sour'],
+                               bitter=data['bitter'],
+                               sweet=data['sweet'],
+                               spicy=data['spicy'])
+
+            time = Time(prep_time=prep_time, cook_time=cook_time)
+            r.time = time
+            imagen_principal = UploadedImage.objects.get(id=main_picture)
+            u = request.user
+            r.steps = list() #Para que no se dupliquen los pasos, machacamos lo que tenemos y metemos de nuevo.
+            for i in range(len(steps)):
+                if mapping_step_picture.__contains__(i):
+                    imagen = UploadedImage.objects.get(id=mapping_step_picture.get(i))
+                    paso = Step(text=steps[i], image=imagen.image)
+                else:
+                    paso = Step(text=steps[i])
+                r.steps.append(paso)
+            r.pictures = list()
+            for pic in extra_pictures.split(";"):
+                if pic != '':
+                    imagen = Picture(image=UploadedImage.objects.get(id=pic).image)
+                    r.pictures.append(imagen)
+
+            r.ingredients = list(ingredients)
+            r.time = time
+            r.author = u
+            r.save()
+
+            return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+        return render(request, 'webapp/recipe_template.html', {'receta': r}) #TODO: ha habido un error, mostrar en la misma plantilla lo que esta fallando al usuario.
+    else:
+        pictures = ""
+        for pic in r.pictures:
+            pictures += ";"+UploadedImage.objects.get(image=pic.image).id
+        data = {
+            'title': r.title,
+            'pictures_ids_list': r.pictures,
+            'sweet': r.savours.sweet,
+            'salty': r.savours.salty,
+            'food_type': r.food_type,
+            'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
+            'special_conditions': r.special_conditions,
+            'bitter': r.savours.bitter,
+            'difficult': r.difficult,
+            'spicy': r.savours.spicy,
+            'description': r.description,
+            'pictures_ids_list': pictures,
+            'nationality': r.nationality,
+            'tags': ",".join(r.tags),
+            'cook_time': r.time.cook_time,
+            'language': r.language,
+            'notes': r.notes,
+            'serves': r.serves,
+            'sour': r.savours.sour,
+            'prep_time': r.time.prep_time,
+            'temporality': r.temporality,
+        }
+        for i,ing in enumerate(r.ingredients):
+            data['ingredient_%s' % i]=ing
+
+        for i,step in enumerate(r.steps):
+            data['step_%s' % i]=step.text
+            if step.image:
+                data['step-picture-id_%s' % i]=UploadedImage.objects.get(image=step.image).id
+
+        form = NewRecipeForm(data=data, steps=r.steps, ingredients=r.ingredients)
+
+        return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
+
+
 def get_mapping_step_picture(post):
     mapping = dict()
+    index=0
     for name in post:
-        if name.startswith("step-picture-index_"):
-            index = post[name]
-            value = post["step-picture-id_" + index]
-            if index and value:
+        if name.startswith("step-picture-id_"):
+            value = post[name]
+            if value:
                 mapping[index] = value
+                index+=1
     return mapping
 
 
@@ -237,11 +359,11 @@ def modification_account(request, username):
             u = request.user
             p = u.profile.get()
 
-            t = Tastes(salty = data['salty'] if data['salty'] != None else 0,
-                       sour = data['sour'] if data['sour'] != None else 0,
-                       bitter = data['bitter'] if data['bitter'] != None else 0,
-                       sweet = data['sweet'] if data['sweet'] != None else 0,
-                       spicy = data['spicy'] if data['spicy'] != None else 0)
+            t = Tastes(salty=data['salty'] if data['salty'] != None else 0,
+                       sour=data['sour'] if data['sour'] != None else 0,
+                       bitter=data['bitter'] if data['bitter'] != None else 0,
+                       sweet=data['sweet'] if data['sweet'] != None else 0,
+                       spicy=data['spicy'] if data['spicy'] != None else 0)
 
             p.display_name = display_name
             p.main_language = main_language
@@ -352,7 +474,9 @@ def profile(request, username):
             if f.user.id == user.id:
                 is_following = True
 
-    return render(request, 'webapp/profile.html', {'profile': user_profile, 'following': is_following, 'followers_list': followers_list, 'recipes': recipes, 'is_owner': is_owner})
+    return render(request, 'webapp/profile.html',
+                  {'profile': user_profile, 'following': is_following, 'followers_list': followers_list,
+                   'recipes': recipes, 'is_owner': is_owner})
 
 
 def recipes(request, username):
@@ -377,7 +501,8 @@ def following(request, username):
 
     user_profile = Profile.objects.get(user=user)
     tag = "Following"
-    return render(request, 'webapp/following.html', {'follows': user_profile.following, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
+    return render(request, 'webapp/following.html',
+                  {'follows': user_profile.following, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
 
 def followers(request, username):
@@ -393,7 +518,8 @@ def followers(request, username):
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
     user_profile = Profile.objects.get(user=user)
     tag = "Followers"
-    return render(request, 'webapp/following.html', {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
+    return render(request, 'webapp/following.html',
+                  {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
 
 @login_required
@@ -404,28 +530,30 @@ def comment(request, recipe_id):
         form = AddComment(request.POST)
         if form.is_valid():
             text = form.cleaned_data['text']
-            c = Comment(text = text, create_date = datetime.now(), user_own = u, )
+            c = Comment(text=text, create_date=datetime.now(), user_own=u, )
             r = Recipe.objects.get(id=recipe_id)
             r.comments.append(c)
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
 
 @login_required
 def banned_comment(request, recipe_id, comment_id):
     if request.method == 'GET':
         u = request.user
         if u.is_staff:
-            r=Recipe.objects.get(id=recipe_id)
-            r.comments[int(comment_id)].is_banned=True
+            r = Recipe.objects.get(id=recipe_id)
+            r.comments[int(comment_id)].is_banned = True
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
 
 @login_required
 def unbanned_comment(request, recipe_id, comment_id):
     if request.method == 'GET':
         u = request.user
         if u.is_staff:
-            r=Recipe.objects.get(id=recipe_id)
-            r.comments[int(comment_id)].is_banned=False
+            r = Recipe.objects.get(id=recipe_id)
+            r.comments[int(comment_id)].is_banned = False
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))

@@ -72,23 +72,33 @@ class NewRecipeForm(forms.Form):
             self.fields['step_%s' % i] = forms.CharField()
 
         for i, ingredient in enumerate(ingredients):
-            self.fields['ingredient_%s' % i] = forms.CharField()
+            self.fields['ingredient_%s' % i] = forms.CharField(required=False)
 
     def get_cleaned_steps(self):
-        steps = list()
-        for field in self.cleaned_data:
-            if field.startswith('step_'):
-                steps.append(self.cleaned_data[field])
-        return steps
+        try:
+            steps = list()
+            for field in self.cleaned_data:
+                if field.startswith('step_'):
+                    steps.append(self.cleaned_data[field])
+            return steps
+        except AttributeError:
+                return None
 
     def get_cleaned_ingredients(self):
-        ingredients = list()
-        for field in self.cleaned_data:
-            if field.startswith('ingredient_'):
-                ingredients.append(self.cleaned_data[field])
-        return ingredients
+        try:
+            ingredients = list()
+            for field in self.cleaned_data:
+                if field.startswith('ingredient_'):
+                    ingredients.append(self.cleaned_data[field])
+            return ingredients
+        except AttributeError:
+                return None
 
-
+    def get_pictures_ids_list(self):
+        try:
+            return self.cleaned_data['pictures_ids_list'].split(";")
+        except AttributeError:
+            return None
 
 
 class EditAccountForm(NewAccountForm):

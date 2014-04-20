@@ -1,6 +1,7 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% load recipe_form %}
 
 
 {% block custom_css %}
@@ -46,15 +47,45 @@
         var galleryArray = {};
         var associationStepPicture = {};
 
+        function setMainPicture(url) {
+            $("#main-picture").css('background-image', 'url(' + url + ')');
+            $("#main-picture-indicator").hide();
+        }
+
+        function addGalleryPicture(url){
+            $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
+        }
+
+        function procesaFormularioInicial() {
+            // - Main Picture
+            var mainPictureInputName = "#id_{{ form.main_picture_id.name }}";
+            var $mainPictureInput = $(mainPictureInputName);
+            // La url está almacenada en el atributo initial-picture-url
+            var mainPictureUrl = $mainPictureInput.attr("initial-picture-url");
+            if (mainPictureUrl) {
+                setMainPicture(mainPictureUrl);
+            }
+
+            // - Gallery
+            // Las urls se guardan en items de una lista oculta
+            $("#initial-pictures-urls").find("li").each(function(index, item){
+                var url = $(item).text();
+                var id = $(item).attr('id');
+                galleryArray[url]=id;
+                addGalleryPicture(url);
+            });
+        }
+
+
         $().ready(function () {
+
+            procesaFormularioInicial();
+
             // Drag&Drop for main picture
-            var mainPicture = $("#main-picture");
-            activateDragAndDrop(mainPicture, "{% url 'upload' %}", function (returndata) {
+            activateDragAndDrop($("#main-picture"), "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
                 //TODO validar y tal
-                $("#main-picture").css('background-image', 'url(' + response.url + ')');
-                $("#main-picture-indicator").hide();
-
+                setMainPicture(response.url);
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.main_picture_id.name }}";
                 $(input_id).val(response.id);
@@ -64,7 +95,7 @@
             var gallery = $("#gallery");
             activateDragAndDrop(gallery, "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
-                $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + response.url + '"></div>');
+                addGalleryPicture(response.url)
 
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.pictures_ids_list.name }}";
@@ -97,7 +128,6 @@
                 $gallery.find(".gallery-item").click(function (e) {
                     var url = $(this).find("img").attr("src");
                     var id = galleryArray[url];
-                    associationStepPicture[stepIndex] = id;
 
                     var $control = stepPicture.children(".step-picture-add");
                     var $pic = stepPicture.children("img");
@@ -105,32 +135,15 @@
                     $pic.attr("src", url);
                     //$pic.attr("data-picture-id", id);
                     $pic.show();
+
+                    var $id = stepPicture.children("input");
+                    $id.attr("value", id);
                     $control.hide();
 
                     $modal.modal("hide");
                 });
             });
 
-        });
-    </script>
-    <script>
-        $().ready(function () {
-            $("#recipe-form").submit(function (e) {
-                var $form = $(this);
-
-                // Recoge las asociaciones paso-foto
-                $.each(associationStepPicture, function(index, value){
-                    var inputIndex = $("<input>")
-                       .attr("type", "hidden")
-                       .attr("name", "step-picture-index_"+index).val(index);
-                    var inputValue = $("<input>")
-                       .attr("type", "hidden")
-                       .attr("name", "step-picture-id_"+index).val(value);
-
-                    $form.append(inputIndex);
-                    $form.append(inputValue);
-                });
-            });
         });
     </script>
 {% endblock %}
@@ -164,7 +177,10 @@
         </div>
 
         <!-- Main Image -->
-        <input type="hidden" id="id_{{ form.main_picture_id.name }}" name="{{ form.main_picture_id.name }}">
+        <input type="hidden" id="id_{{ form.main_picture_id.name }}" name="{{ form.main_picture_id.name }}"
+               initial-picture-url="{% picture_from_id form.main_picture_id.value %}"
+               value="{{ form.main_picture_id.value |default:"" }}">
+
         <div class="form-group">
             <div class="col-sm-12">
                 <div class="main-picture drop-target" id="main-picture">
@@ -179,8 +195,17 @@
         </div>
 
         <!-- Gallery -->
-        <!-- TODO Cuando se vuelve a la página, por ejemplo yendo atrás, los campos del formulario están rellenos, incluído los hidden, pero las fotos obviamente no se muestran. Algo hay que hacer con eso -->
-        <input type="hidden" id="id_{{ form.pictures_ids_list.name }}" name="{{ form.pictures_ids_list.name }}">
+        {% if form.pictures_ids_list %}
+            <ul id="initial-pictures-urls" style="display: none">
+                {% for pic_id in form.get_pictures_ids_list %}
+                    {% if pic_id %}
+                        <li id="{{ pic_id }}">{% picture_from_id pic_id %}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <input type="hidden" id="id_{{ form.pictures_ids_list.name }}" name="{{ form.pictures_ids_list.name }}"
+               value="{{ form.pictures_ids_list.value |default:"" }}">
         <!-- TODO con ciertos tamaños de imagen se buggea y la cuadrícula se va a tomar viento -->
         <div class="form-group">
             <div class="col-sm-12">
@@ -241,6 +266,26 @@
                     </div>
                     <!-- /ingredient-item -->
 
+                    {% for ingredient in form.get_cleaned_ingredients %}
+                        <div class="form-group ingredient-item repeatable-row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <div class="input-group">
+                                <span class="input-group-addon repeatable-move"><span
+                                        class="glyphicon glyphicon-sort"></span> </span>
+                                    <input type="text" class="form-control ingredient-input"
+                                           name="ingredient_{{ forloop.counter0 }}" id="id_ingredient_{{ forloop.counter0 }}"
+                                           value="{{ ingredient }}"
+                                            >
+                                <span class="input-group-btn ingredient-remove">
+                                    <button class="btn btn-default repeatable-remove" type="button"><span
+                                            class="glyphicon glyphicon-remove"></span></button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                   {% endfor %}
+
+
                 </div>
                 <div class="form-group ingredient-item ">
                     <div class="col-sm-8 col-sm-offset-2">
@@ -273,11 +318,44 @@
                                         class="glyphicon glyphicon-camera"></span></a>
                                 <img class="img-rounded"
                                      src="" style="display: none">
+                                <input type="text" hidden name="step-picture-id_{row-count-placeholder}">
                             </div>
                         </div>
                         <hr>
                     </div>
                     <!-- /Step item -->
+
+                    {% for step in form.get_cleaned_steps %}
+                        <div class="repeatable-row">
+                            <div class="form-group step">
+                                <div class="col-sm-1">
+                                    <span>{{ forloop.counter }}</span>
+                                </div>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control input-lg"
+                                              placeholder="What is the first step?…"
+                                              rows="4"
+                                              name="step_{{ forloop.counter0 }}" id="id_step_{{ forloop.counter0 }}"
+                                            >{{ step }}</textarea>
+                                </div>
+                                <div class="col-sm-2 step-picture" data-step-index="{{ forloop.counter0 }}">
+                                    <input type="text" hidden name="step-picture-id_{{ forloop.counter0 }}" value="{% step_picture form.data forloop.counter0 %}">
+                                    {% if stepimageid %}
+                                        <a class="btn btn-default step-picture-add" style="display: none"><span
+                                            class="glyphicon glyphicon-camera"></span></a>
+                                        <img class="img-rounded"
+                                             src="{% picture_from_id stepimageid %}">
+                                    {% else %}
+                                        <a class="btn btn-default step-picture-add"><span
+                                            class="glyphicon glyphicon-camera"></span></a>
+                                        <img class="img-rounded"
+                                                 src="" style="display: none">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="form-group step">
                     <div class="col-sm-1">
