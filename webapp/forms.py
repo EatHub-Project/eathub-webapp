@@ -1,3 +1,4 @@
+import json
 from django import forms
 from models import Recipe
 
@@ -40,10 +41,11 @@ class NewRecipeForm(forms.Form):
 
     title = forms.CharField(max_length=50, required=False)
     main_picture_id = forms.CharField(required=True)
-    pictures_ids_list = forms.CharField(required=False)
+    pictures_ids_json = forms.CharField(required=False)
     description = forms.CharField(required=False)
 
-    #ingredients_list = forms.CharField(required=True)
+    ingredients_json = forms.CharField(required=True)
+    steps_json = forms.CharField(required=True)
 
     serves = forms.CharField(max_length=50, required=False)
     language = forms.ChoiceField(choices=LANGUAGES, required=False)
@@ -63,41 +65,36 @@ class NewRecipeForm(forms.Form):
     sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
-    def __init__(self, *args, **kwargs):
-        steps = kwargs.pop('steps')
-        ingredients = kwargs.pop('ingredients')
-        super(NewRecipeForm, self).__init__(*args, **kwargs)
-
-        for i, step in enumerate(steps):
-            self.fields['step_%s' % i] = forms.CharField()
-
-        for i, ingredient in enumerate(ingredients):
-            self.fields['ingredient_%s' % i] = forms.CharField()
-
-    def get_cleaned_steps(self):
+    def get_ingredients_list(self):
         try:
-            steps = list()
-            for field in self.cleaned_data:
-                if field.startswith('step_'):
-                    steps.append(self.cleaned_data[field])
-            return steps
+            json_data = self.cleaned_data['ingredients_json']
+            data = json.loads(json_data)
+            return data
         except AttributeError:
-                return None
-
-    def get_cleaned_ingredients(self):
-        try:
-            ingredients = list()
-            for field in self.cleaned_data:
-                if field.startswith('ingredient_'):
-                    ingredients.append(self.cleaned_data[field])
-            return ingredients
-        except AttributeError:
-                return None
+            return None
+        except KeyError:
+            return None
 
     def get_pictures_ids_list(self):
         try:
-            return self.cleaned_data['pictures_ids_list'].split(";")
+            json_data = self.cleaned_data['pictures_ids_json']
+            if json_data:
+                data = json.loads(json_data)
+                return data
         except AttributeError:
+            return None
+        except KeyError:
+            return None
+        return None
+
+    def get_steps_list(self):
+        try:
+            json_data = self.cleaned_data['steps_json']
+            data = json.loads(json_data)
+            return data
+        except AttributeError:
+            return None
+        except KeyError:
             return None
 
 

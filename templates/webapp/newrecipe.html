@@ -52,8 +52,8 @@
             $("#main-picture-indicator").hide();
         }
 
-        function addGalleryPicture(url){
-            $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '"></div>');
+        function addGalleryPicture(url, id) {
+            $("#gallery").append('<div class="col-sm-3 gallery-item"><img class="img-rounded" src="' + url + '" data-picture-id="' + id + '"></div>');
         }
 
         function procesaFormularioInicial() {
@@ -68,16 +68,80 @@
 
             // - Gallery
             // Las urls se guardan en items de una lista oculta
-            $("#initial-pictures-urls").find("li").each(function(index, item){
+            $("#initial-pictures-urls").find("li").each(function (index, item) {
                 var url = $(item).text();
-                var id = $(item).attr('id');
-                galleryArray[url]=id;
-                addGalleryPicture(url);
+                var id = $(item).attr('data-picture-id');
+                galleryArray[url] = id;
+                addGalleryPicture(url, id);
             });
         }
 
 
         $().ready(function () {
+
+            var $form = $("#recipe-form");
+            $form.submit(function (e) {
+                //e.preventDefault();
+
+                // Genera el json de fotos
+                var pictures = [];
+                $(".gallery-item").each(function (index, element) {
+                    var picture_id = $(element).find("img").attr("data-picture-id");
+                    if (picture_id) {
+                        pictures.push(picture_id);
+                    }
+                });
+                if (pictures.length) {
+                    var picturesInput = $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "{{ form.pictures_ids_json.name }}")
+                            .val(JSON.stringify(pictures));
+                    $form.append(picturesInput);
+                }
+
+
+                // Genera el json de ingredientes
+                var ingredients = [];
+                $(".ingredient-item").each(function (index, element) {
+                    if (!$(element).hasClass("repeatable-template")) {
+                        var ingredient = $(element).find(".ingredient-input").val();
+                        if (ingredient) {
+                            ingredients.push(ingredient);
+                        }
+                    }
+                });
+                if (ingredients.length) {
+                    var ingredientsInput = $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "{{ form.ingredients_json.name }}")
+                            .val(JSON.stringify(ingredients));
+                    $form.append(ingredientsInput);
+                }
+
+                // Genera el json de pasos
+                var steps = [];
+                $(".step").each(function (index, element) {
+                    if (!$(element).hasClass("repeatable-template")) {
+                        var step = {};
+                        var stepText = $(element).find(".step-input").val();
+                        if (stepText) {
+                            step['text'] = stepText;
+                            var pictureId = $(element).find("img").attr("data-picture-id");
+                            if (pictureId) {
+                                step['picture'] = pictureId;
+                            }
+                            steps.push(step);
+                        }
+                    }
+                });
+                if (steps.length) {
+                    var stepsInput = $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "{{ form.steps_json.name }}")
+                            .val(JSON.stringify(steps));
+                    $form.append(stepsInput);
+                }
+            });
 
             procesaFormularioInicial();
 
@@ -95,7 +159,7 @@
             var gallery = $("#gallery");
             activateDragAndDrop(gallery, "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
-                addGalleryPicture(response.url)
+                addGalleryPicture(response.url, response.id)
 
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.pictures_ids_list.name }}";
@@ -133,11 +197,9 @@
                     var $pic = stepPicture.children("img");
 
                     $pic.attr("src", url);
-                    //$pic.attr("data-picture-id", id);
+                    $pic.attr("data-picture-id", id);
                     $pic.show();
 
-                    var $id = stepPicture.children("input");
-                    $id.attr("value", id);
                     $control.hide();
 
                     $modal.modal("hide");
@@ -149,8 +211,8 @@
 {% endblock %}
 
 {% block container %}
-<div class="panel panel-default">
-<div class="panel-body">
+    <div class="panel panel-default">
+    <div class="panel-body">
     <form role="form well well-lg" id="recipe-form" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
@@ -163,6 +225,7 @@
     {% endfor %}
 
     {{ form.non_field_errors }}
+    {{ form.errors }}
 
     <h3 class="col-lg-offset-1">Basic information</h3>
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
@@ -195,11 +258,11 @@
         </div>
 
         <!-- Gallery -->
-        {% if form.pictures_ids_list %}
+        {% if form.pictures_ids_json %}
             <ul id="initial-pictures-urls" style="display: none">
                 {% for pic_id in form.get_pictures_ids_list %}
                     {% if pic_id %}
-                        <li id="{{ pic_id }}">{% picture_from_id pic_id %}</li>
+                        <li data-picture-id="{{ pic_id }}">{% picture_from_id pic_id %}</li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -245,6 +308,7 @@
         <h4>Ingredients list</h4>
 
         <input type="hidden" id="id_{{ form.ingredients_list.name }}" name="{{ form.ingredients_list.name }}">
+
         <div class="repeat">
             <div class="form-group repeatable-wrapper">
                 <div class="repeatable-container">
@@ -255,7 +319,8 @@
                             <span class="input-group-addon repeatable-move"><span
                                     class="glyphicon glyphicon-sort"></span> </span>
                                 <input type="text" class="form-control ingredient-input"
-                                       name="ingredient_{row-count-placeholder}" id="id_ingredient_{row-count-placeholder}"
+                                       name="ingredient_{row-count-placeholder}"
+                                       id="id_ingredient_{row-count-placeholder}"
                                         >
                             <span class="input-group-btn ingredient-remove">
                                 <button class="btn btn-default repeatable-remove" type="button"><span
@@ -266,14 +331,15 @@
                     </div>
                     <!-- /ingredient-item -->
 
-                    {% for ingredient in form.get_cleaned_ingredients %}
+                    {% for ingredient in form.get_ingredients_list %}
                         <div class="form-group ingredient-item repeatable-row">
                             <div class="col-sm-8 col-sm-offset-2">
                                 <div class="input-group">
                                 <span class="input-group-addon repeatable-move"><span
                                         class="glyphicon glyphicon-sort"></span> </span>
                                     <input type="text" class="form-control ingredient-input"
-                                           name="ingredient_{{ forloop.counter0 }}" id="id_ingredient_{{ forloop.counter0 }}"
+                                           name="ingredient_{{ forloop.counter0 }}"
+                                           id="id_ingredient_{{ forloop.counter0 }}"
                                            value="{{ ingredient }}"
                                             >
                                 <span class="input-group-btn ingredient-remove">
@@ -283,7 +349,7 @@
                                 </div>
                             </div>
                         </div>
-                   {% endfor %}
+                    {% endfor %}
 
 
                 </div>
@@ -307,7 +373,7 @@
                                 <span>{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control input-lg"
+                                <textarea class="form-control input-lg step-input"
                                           placeholder="What is the first step?…"
                                           rows="4"
                                           name="step_{row-count-placeholder}" id="id_step_{row-count-placeholder}"
@@ -318,38 +384,38 @@
                                         class="glyphicon glyphicon-camera"></span></a>
                                 <img class="img-rounded"
                                      src="" style="display: none">
-                                <input type="text" hidden name="step-picture-id_{row-count-placeholder}">
                             </div>
                         </div>
                         <hr>
                     </div>
                     <!-- /Step item -->
 
-                    {% for step in form.get_cleaned_steps %}
+                    {% for step in form.get_steps_list %}
                         <div class="repeatable-row">
                             <div class="form-group step">
                                 <div class="col-sm-1">
                                     <span>{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control input-lg"
+                                    <textarea class="form-control input-lg step-input"
                                               placeholder="What is the first step?…"
                                               rows="4"
                                               name="step_{{ forloop.counter0 }}" id="id_step_{{ forloop.counter0 }}"
-                                            >{{ step }}</textarea>
+                                            >{{ step.text }}</textarea>
                                 </div>
                                 <div class="col-sm-2 step-picture" data-step-index="{{ forloop.counter0 }}">
-                                    <input type="text" hidden name="step-picture-id_{{ forloop.counter0 }}" value="{% step_picture form.data forloop.counter0 %}">
-                                    {% if stepimageid %}
+                                    <input type="text" hidden name="step-picture-id_{{ forloop.counter0 }}"
+                                           value="{% step_picture form.data forloop.counter0 %}">
+                                    {% if step.picture %}
                                         <a class="btn btn-default step-picture-add" style="display: none"><span
-                                            class="glyphicon glyphicon-camera"></span></a>
-                                        <img class="img-rounded"
-                                             src="{% picture_from_id stepimageid %}">
+                                                class="glyphicon glyphicon-camera"></span></a>
+                                        <img class="img-rounded" data-picture-id="{{ step.picture }}"
+                                             src="{% picture_from_id step.picture %}">
                                     {% else %}
                                         <a class="btn btn-default step-picture-add"><span
-                                            class="glyphicon glyphicon-camera"></span></a>
+                                                class="glyphicon glyphicon-camera"></span></a>
                                         <img class="img-rounded"
-                                                 src="" style="display: none">
+                                             src="" style="display: none">
                                     {% endif %}
                                 </div>
                             </div>
@@ -406,7 +472,7 @@
                           placeholder="Anything else you want to point out about your recipe?"
                           rows="3"
                           name="{{ form.notes.name }}" id="id_{{ form.notes.name }}"
-                          >{{ form.notes.value | default_if_none:'' }}</textarea>
+                        >{{ form.notes.value | default_if_none:'' }}</textarea>
             </div>
         </div>
     </fieldset>
@@ -423,8 +489,9 @@
 
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="minutes" name="{{ form.prep_time.name }}" id="id_{{ form.prep_time.name }}"
-                                    value="{{ form.prep_time.value | default_if_none:'' }}">
+                            <input type="number" class="form-control" placeholder="minutes"
+                                   name="{{ form.prep_time.name }}" id="id_{{ form.prep_time.name }}"
+                                   value="{{ form.prep_time.value | default_if_none:'' }}">
                             <span class="input-group-addon"><span
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
@@ -437,8 +504,9 @@
 
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="minutes" name="{{ form.cook_time.name }}" id="id_{{ form.cook_time.name }}"
-                                    value="{{ form.cook_time.value | default_if_none:'' }}">
+                            <input type="number" class="form-control" placeholder="minutes"
+                                   name="{{ form.cook_time.name }}" id="id_{{ form.cook_time.name }}"
+                                   value="{{ form.cook_time.value | default_if_none:'' }}">
                             <span class="input-group-addon"><span
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
@@ -453,8 +521,9 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.serves.name }}">Serves</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'" name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
-                                    value="{{ form.serves.value | default_if_none:'' }}">
+                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'"
+                               name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
+                               value="{{ form.serves.value | default_if_none:'' }}">
                     </div>
                 </div>
             </div>
@@ -464,13 +533,13 @@
 
                     <div class="col-sm-6">
                         <select class="form-control" name="{{ form.difficult.name }}" id="id_{{ form.difficult.name }}">
-                        {% for choice in form.difficult.field.choices %}
-                        <option value="{{ choice.0 }}"
-                                {% ifequal form.difficult.value choice.0 %}
-                                selected
-                                {% endifequal %}
-                                >{{ choice.1 }}</option>
-                    {% endfor %}
+                            {% for choice in form.difficult.field.choices %}
+                                <option value="{{ choice.0 }}"
+                                        {% ifequal form.difficult.value choice.0 %}
+                                        selected
+                                        {% endifequal %}
+                                        >{{ choice.1 }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -483,17 +552,18 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">Temporality</label>
 
                     <div class="col-sm-8">
-                        <select class="form-control show-tick" data-live-search="true" multiple name="{{ form.temporality.name }}" id="id_{{ form.temporality.name }}">
+                        <select class="form-control show-tick" data-live-search="true" multiple
+                                name="{{ form.temporality.name }}" id="id_{{ form.temporality.name }}">
                             {% for choice in form.temporality.field.choices %}
-                        <option value="{{ choice.0 }}"
-                                {% for opt in form.temporality.value %}
-                                    {% ifequal opt choice.0 %}
-                                selected
-                                    {% endifequal %}
-                                {% endfor %}
-                                >{{ choice.1 }}
-                        </option>
-                    {% endfor %}
+                                <option value="{{ choice.0 }}"
+                                        {% for opt in form.temporality.value %}
+                                            {% ifequal opt choice.0 %}
+                                        selected
+                                            {% endifequal %}
+                                        {% endfor %}
+                                        >{{ choice.1 }}
+                                </option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -503,14 +573,15 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.food_type.name }}">Food type</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control show-tick" name="{{ form.food_type.name }}" id="id_{{ form.food_type.name }}">
+                        <select class="form-control show-tick" name="{{ form.food_type.name }}"
+                                id="id_{{ form.food_type.name }}">
                             {% for choice in form.food_type.field.choices %}
-                        <option value="{{ choice.0 }}"
-                                {% ifequal form.food_type.value choice.0 %}
-                                selected
-                                {% endifequal %}
-                                >{{ choice.1 }}</option>
-                    {% endfor %}
+                                <option value="{{ choice.0 }}"
+                                        {% ifequal form.food_type.value choice.0 %}
+                                        selected
+                                        {% endifequal %}
+                                        >{{ choice.1 }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -520,20 +591,22 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.special_conditions.name }}">Special conditions</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.special_conditions.name }}">Special
+                        conditions</label>
 
                     <div class="col-sm-8">
-                        <select class="form-control show-tick" data-live-search="true" multiple name="{{ form.special_conditions.name }}" id="id_{{ form.special_conditions.name }}">
+                        <select class="form-control show-tick" data-live-search="true" multiple
+                                name="{{ form.special_conditions.name }}" id="id_{{ form.special_conditions.name }}">
                             {% for choice in form.special_conditions.field.choices %}
-                        <option value="{{ choice.0 }}"
-                                {% for opt in form.special_conditions.value %}
-                                    {% ifequal opt choice.0 %}
-                                selected
-                                    {% endifequal %}
-                                {% endfor %}
-                                >{{ choice.1 }}
-                        </option>
-                    {% endfor %}
+                                <option value="{{ choice.0 }}"
+                                        {% for opt in form.special_conditions.value %}
+                                            {% ifequal opt choice.0 %}
+                                        selected
+                                            {% endifequal %}
+                                        {% endfor %}
+                                        >{{ choice.1 }}
+                                </option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -543,14 +616,15 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.languages.name }}">Language</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control show-tick" name="{{ form.language.name }}" id="id_{{ form.language.name }}">
+                        <select class="form-control show-tick" name="{{ form.language.name }}"
+                                id="id_{{ form.language.name }}">
                             {% for choice in form.language.field.choices %}
-                        <option value="{{ choice.0 }}"
-                                {% ifequal form.language.value choice.0 %}
-                                selected
-                                {% endifequal %}
-                                >{{ choice.1 }}</option>
-                    {% endfor %}
+                                <option value="{{ choice.0 }}"
+                                        {% ifequal form.language.value choice.0 %}
+                                        selected
+                                        {% endifequal %}
+                                        >{{ choice.1 }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -563,8 +637,9 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.tags.name }}">Free tags</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Comma separated tags" name="{{ form.tags.name }}" id="id_{{ form.tags.name }}"
-                                value="{{ form.tags.value | default_if_none:'' }}">
+                        <input type="text" class="form-control" placeholder="Comma separated tags"
+                               name="{{ form.tags.name }}" id="id_{{ form.tags.name }}"
+                               value="{{ form.tags.value | default_if_none:'' }}">
                     </div>
                 </div>
             </div>
@@ -573,14 +648,15 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.nationality.name }}">Nationality</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control show-tick" name="{{ form.nationality.name }}" id="id_{{ form.nationality.name }}">
+                        <select class="form-control show-tick" name="{{ form.nationality.name }}"
+                                id="id_{{ form.nationality.name }}">
                             {% for choice in form.nationality.field.choices %}
-                        <option value="{{ choice.0 }}"
-                                {% ifequal form.nationality.value choice.0 %}
-                                selected
-                                {% endifequal %}
-                                >{{ choice.1 }}</option>
-                    {% endfor %}
+                                <option value="{{ choice.0 }}"
+                                        {% ifequal form.nationality.value choice.0 %}
+                                        selected
+                                        {% endifequal %}
+                                        >{{ choice.1 }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -692,6 +768,6 @@
           style="display: none">
         {% csrf_token %}
     </form>
-</div>
-</div>
+    </div>
+    </div>
 {% endblock %}
