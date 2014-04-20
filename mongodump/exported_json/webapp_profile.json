@@ -28,6 +28,13 @@
                     "$oid": "533fb9b386c9bdaca925fee0"
                 },
                 "username": "alex"
+            },
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
             }
         ],
         "gender": "unknown",
@@ -76,6 +83,13 @@
                     "$oid": "533fb9b386c9bdaca925fee0"
                 },
                 "username": "alex"
+            },
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
             }
         ],
         "gender": "unknown",
@@ -320,6 +334,13 @@
                     "$oid": "5337f3cb144115cb2ce71e1c"
                 },
                 "username": "juan"
+            },
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
             }
         ],
         "gender": "m",

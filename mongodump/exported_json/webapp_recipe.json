@@ -876,9 +876,20 @@
                 "create_date": {
                     "$date": 1397909887677
                 },
+                "is_banned": false,
                 "text": "Creo que ya puedo pasarme a confirmarlo: \u00a1est\u00e1n riqu\u00edsimas! Aunque no han quedado demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y est\u00e1n muy buenas.",
                 "user_own_id": {
                     "$oid": "5337f440144115cb2ce71e1d"
+                }
+            },
+            {
+                "create_date": {
+                    "$date": 1398038805685
+                },
+                "is_banned": false,
+                "text": "Qu\u00e9 buenas! :D",
+                "user_own_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
                 }
             }
         ],
@@ -902,7 +913,16 @@
             "$date": 1397909887677
         },
         "nationality": "",
-        "negatives": [],
+        "negatives": [
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                }
+            }
+        ],
         "notes": "Es una receta que os har\u00e1 quedar bien con los m\u00e1s peques de casa. No os puedo decir personalmente c\u00f3mo han quedado \u00e9stas \u00faltimas porque la ni\u00f1a a la que doy clases particulares se las ha llevado para casita, pero generalmente a los ni\u00f1os les encanta, adem\u00e1s si les pon\u00e9is colores llamativos les va a llamar mucho la atenci\u00f3n y se divertir\u00e1n m\u00e1s comi\u00e9ndolas.",
         "parent_id": null,
         "pictures": [
@@ -925,7 +945,72 @@
                 "image": "images/pirus_6.persist.jpg"
             }
         ],
-        "positives": [],
+        "positives": [
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "5337f440144115cb2ce71e1d"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "533fba3786c9bdaca925fee1"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398038400000
+                },
+                "user_id": {
+                    "$oid": "533fbad086c9bdaca925fee2"
+                }
+            }
+        ],
         "savours": {
             "bitter": 5,
             "salty": 5,
