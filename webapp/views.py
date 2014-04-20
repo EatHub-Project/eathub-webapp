@@ -355,7 +355,7 @@ def receta(request, recipe_id):
         dificultad = "Media"
 
     return render(request, 'webapp/recipe_template.html', {'receta': recipe, 'total_votos': total_votos, 'difficult_value': dificultad,
-                                                           'por_pos': porcentaje_positivos, 'por_neg': porcentaje_negativos})
+                                                           'por_pos': int(porcentaje_positivos), 'por_neg': int(porcentaje_negativos)})
 
 
 def profile(request, username):
