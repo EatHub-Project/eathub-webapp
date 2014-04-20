@@ -709,6 +709,7 @@ header .container {
 
 .recipe-name {
     max-height: 120px;
+    min-height: 120px;
     text-overflow: ellipsis;
     overflow: hidden;
     margin-bottom: 20px;
@@ -1146,4 +1147,14 @@ header .container {
     -o-transform: matrix(-1, -0.1, 0, 12, 0, 0);
     -ms-transform: matrix(-1, -0.12, 0, 1, 0, 0);
     transform: matrix(-1, -0.12, 0, 1, 0, 0);
+}
+
+.main-card {
+    max-height: 520px;
+    min-height: 520px;
+}
+
+.fix-main-card-description {
+    max-height: 90px;
+    min-height: 90px;
 }

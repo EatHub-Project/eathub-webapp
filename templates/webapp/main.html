@@ -7,7 +7,7 @@
 	<div class="row">
 		{% for recipe in recipes %}
       <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+        <div class="thumbnail main-card">
 			<br />
             <a href="{% url 'recipe' recipe.id %}">
                 <img data-src="holder.js/300x200" alt="300x200" src="{{ recipe.main_image.url }}" style="width: 300px; height: 200px;">
@@ -16,7 +16,7 @@
             <div class="recipe-name">
 				<a class="recipe-title" href="{% url 'recipe' recipe.id %}">{{ recipe.title }}</a>
             </div>
-			<div class="description-recipe-main">
+			<div class="description-recipe-main fix-main-card-description">
 				<p>{{ recipe.description }}</p>
 			</div>
 			<div class="caption">
