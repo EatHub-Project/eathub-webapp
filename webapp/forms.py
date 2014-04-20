@@ -32,7 +32,7 @@ class NewAccountForm(forms.Form):
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
 
-class NewRecipeForm(forms.Form):
+class RecipeForm(forms.Form):
     LANGUAGES = [("en", "English"), ("es", "Spanish")]
     COUNTRY = [("", "--"), ("ES", "Spain"), ("FR", "France"), ("EN", "England"), ("US", "USA")]
     TEMPORALITY = [("summer", "Summer"), ("autumn", "Autumn"), ("spring", "Spring"), ("winter", "Winter")]
@@ -141,7 +141,7 @@ class NewRecipeForm(forms.Form):
                 steps_list.append({"text": step.text})
         data['steps_json'] = json.dumps(steps_list)
 
-        return NewRecipeForm(data)
+        return RecipeForm(data)
 
 
 class EditAccountForm(NewAccountForm):

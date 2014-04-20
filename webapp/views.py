@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm, EditAccountForm, NewRecipeForm, AddComment
+from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment
 from django.forms.util import ErrorList
 from datetime import datetime
 
@@ -103,13 +103,13 @@ def new_recipe(request):
     #TODO if user is authenticated redirect to main
     if request.method == 'POST':
         # else -> render respone with the obtained form, with errors and stuff
-        form = NewRecipeForm(request.POST)
+        form = RecipeForm(request.POST)
         if form.is_valid:  # else -> render respone with the obtained form, with errors and stuff
             recipe = store_recipe(form, request.user)
             if recipe:
                 return HttpResponseRedirect(reverse('recipe', kwargs={'recipe_id': recipe.id}))  # Redirect after POST
     else:
-        form = NewRecipeForm()
+        form = RecipeForm()
 
     return render(request, 'webapp/newrecipe.html', {'form': form})
 
@@ -123,7 +123,7 @@ def edit_receta(request, recipe_id, clone=False):
         return HttpResponse('Unauthorized', status=401)
 
     if request.method == 'POST':
-        form = NewRecipeForm(request.POST)
+        form = RecipeForm(request.POST)
         if form.is_valid:  # else -> render respone with the obtained form, with errors and stuff
             if clone:
                 recipe = store_recipe(form, request.user, parent=r)
@@ -135,7 +135,7 @@ def edit_receta(request, recipe_id, clone=False):
 
     else:
         # fill the form with the recipe's data
-        form = NewRecipeForm.get_filled_form(r)
+        form = RecipeForm.get_filled_form(r)
         return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
 
 
