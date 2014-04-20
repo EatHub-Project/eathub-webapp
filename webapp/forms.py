@@ -72,7 +72,7 @@ class NewRecipeForm(forms.Form):
             self.fields['step_%s' % i] = forms.CharField()
 
         for i, ingredient in enumerate(ingredients):
-            self.fields['ingredient_%s' % i] = forms.CharField()
+            self.fields['ingredient_%s' % i] = forms.CharField(required=False)
 
     def get_cleaned_steps(self):
         try:

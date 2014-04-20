@@ -203,7 +203,7 @@ def edit_receta(request, recipe_id):
             if extra_pictures:
                 pictures_list = extra_pictures.split(";")
 
-            ingredients = form.get_cleaned_ingredients()
+            #ingredients = form.get_cleaned_ingredients()
             steps = form.get_cleaned_steps()
 
             r.serves = data['serves']
@@ -225,10 +225,10 @@ def edit_receta(request, recipe_id):
             r.tags = tags
 
             r.savours = Savour(salty=data['salty'],
-                       sour=data['sour'],
-                       bitter=data['bitter'],
-                       sweet=data['sweet'],
-                       spicy=data['spicy'])
+                               sour=data['sour'],
+                               bitter=data['bitter'],
+                               sweet=data['sweet'],
+                               spicy=data['spicy'])
 
             time = Time(prep_time=prep_time, cook_time=cook_time)
             r.time = time
