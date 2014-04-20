@@ -115,7 +115,7 @@ def new_recipe(request):
 
 
 @login_required
-def edit_receta(request, recipe_id):
+def edit_receta(request, recipe_id, clone=False):
     user = request.user
     r = Recipe.objects.get(id=ObjectId(recipe_id))
 
@@ -125,7 +125,11 @@ def edit_receta(request, recipe_id):
     if request.method == 'POST':
         form = NewRecipeForm(request.POST)
         if form.is_valid:  # else -> render respone with the obtained form, with errors and stuff
-            recipe = store_recipe(form, request.user, r)
+            if clone:
+                recipe = store_recipe(form, request.user, parent=r)
+            else:
+                recipe = store_recipe(form, request.user, r)
+
             if recipe:
                 return HttpResponseRedirect(reverse('recipe', kwargs={'recipe_id': recipe.id}))  # Redirect after POST
 
@@ -135,7 +139,7 @@ def edit_receta(request, recipe_id):
         return render(request, 'webapp/newrecipe.html', {'form': form, 'edit': True})
 
 
-def store_recipe(form, user, recipe=None):
+def store_recipe(form, user, recipe=None, parent=None):
     if form.is_valid():
         # Extract the data from the form and create the User and Profile instance
         data = form.cleaned_data
@@ -176,6 +180,8 @@ def store_recipe(form, user, recipe=None):
 
         if not recipe:
             recipe = Recipe()
+        if parent:
+            recipe.parent = parent
 
         recipe.title = title
         recipe.description = description
