@@ -41,4 +41,11 @@
     <br/>
 {% endblock %}
 
+{% block custom_js %}
+    <script src="{% static 'webapp/js/jquery.dotdotdot.min.js' %}"></script>
+    <script>
+        $().ready(function () {
+            $(".main-card-description").dotdotdot();
+        });
+    </script>
 {% endblock %}
