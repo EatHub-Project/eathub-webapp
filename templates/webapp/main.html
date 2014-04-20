@@ -8,9 +8,9 @@
         {% for recipe in recipes %}
             <div class="col-sm-6 col-md-4">
                 <div class="panel panel-body main-card">
-                    <div class="main-card-picture">
+                    <div class="main-card-picture" style="background-image: url('{{ recipe.main_image.url }}')">
                         <a href="{% url 'recipe' recipe.id %}">
-                            <img src="{{ recipe.main_image.url }}" style="width: 100%; height: 200px;">
+                            <img src="{{ recipe.main_image.url }}" style="width: 100%; height: 100%; opacity: 0">
                         </a>
                     </div>
                     <div class="main-card-name">
