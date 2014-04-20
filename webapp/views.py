@@ -119,15 +119,14 @@ def edit_receta(request, recipe_id, clone=False):
     user = request.user
     r = Recipe.objects.get(id=ObjectId(recipe_id))
 
-    if r.author != user:
-        return HttpResponse('Unauthorized', status=401)
-
     if request.method == 'POST':
         form = RecipeForm(request.POST)
         if form.is_valid:  # else -> render respone with the obtained form, with errors and stuff
             if clone:
                 recipe = store_recipe(form, request.user, parent=r)
             else:
+                if r.author != user:
+                    return HttpResponse('Unauthorized', status=401)
                 recipe = store_recipe(form, request.user, r)
 
             if recipe:
