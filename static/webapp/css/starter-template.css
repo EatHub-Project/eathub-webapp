@@ -133,18 +133,14 @@ header .container {
 }
 
 .recipe-time {
-    float: left;
-}
-
-.recipe-time span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
     color: #CC3E27;
     font-size: 20px;
 }
 
-.recipe-time p {
-    display: inline;
-    font-size: 20px;
-}
 
 .recipe-image {
     padding: 30px;
@@ -379,11 +375,14 @@ header .container {
     stroke-dashoffset: 2257;
 }
 
-.description-recipe-main {
-    height: 80px;
-    text-overflow: ellipsis;
-    overflow: hidden;
+.main-card-description {
+    max-height: 100px;
 }
+
+.main-card-description p{
+    height: 100px;
+}
+
 
 #salty.progress-bar {
     background: #0480be;
@@ -608,14 +607,26 @@ header .container {
     color: #999;
 }
 
-.recipe-title {
-    font-size: 40px;
-    color: #CC3E27;
+.main-card-picture {
+    margin-bottom: 10px;
 }
 
-.recipe-title:hover {
-    text-decoration: None;
+.main-card-name {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.main-card-name span  {
+    font-size: 30px;
+    font-weight: 400;
     color: #CC3E27;
+    max-height: 120px;
+    text-overflow: ellipsis;
+    line-height: 100%;
+}
+
+.main-card-name a:hover {
+    text-decoration: None;
 }
 
 
@@ -709,7 +720,6 @@ header .container {
 
 .recipe-name {
     max-height: 120px;
-    min-height: 120px;
     text-overflow: ellipsis;
     overflow: hidden;
     margin-bottom: 20px;
@@ -763,7 +773,10 @@ header .container {
 }
 
 .recipe-author-main {
-    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
 }
 
 .recipe-link-main {
@@ -1150,11 +1163,6 @@ header .container {
 }
 
 .main-card {
-    max-height: 520px;
-    min-height: 520px;
-}
-
-.fix-main-card-description {
-    max-height: 90px;
-    min-height: 90px;
+    height: 430px;
+    position: relative;
 }
