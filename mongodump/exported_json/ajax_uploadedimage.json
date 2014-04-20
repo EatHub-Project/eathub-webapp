@@ -103,5 +103,54 @@
         },
         "image": "images/torrijas_de_leche.persist.jpg",
         "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7c9c54d2d14a6e64399"
+        },
+        "image": "images/pirus_0.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7cac54d2d14a6e6439a"
+        },
+        "image": "images/pirus_1.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7cdc54d2d14a6e6439b"
+        },
+        "image": "images/pirus_2.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7cfc54d2d14a6e6439c"
+        },
+        "image": "images/pirus_3.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7d1c54d2d14a6e6439d"
+        },
+        "image": "images/pirus_4.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7d3c54d2d14a6e6439e"
+        },
+        "image": "images/pirus_5.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7d5c54d2d14a6e6439f"
+        },
+        "image": "images/pirus_6.persist.jpg",
+        "persist": true
     }
 ]
