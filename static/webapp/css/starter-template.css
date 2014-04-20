@@ -376,7 +376,8 @@ header .container {
 }
 
 .main-card-description {
-    max-height: 100px;
+    max-height: 60px;
+    overflow: hidden;
 }
 
 .main-card-description p{
@@ -1191,6 +1192,6 @@ header .container {
 }
 
 .main-card {
-    height: 430px;
+    height: 390px;
     position: relative;
 }
