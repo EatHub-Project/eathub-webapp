@@ -340,12 +340,12 @@ def logout_user(request):
 def receta(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
 
-    total_votos = len(recipe.positives) + len(recipe.positives)
+    total_votos = len(recipe.positives) + len(recipe.negatives)
     porcentaje_positivos = 50
     porcentaje_negativos = 50
     if total_votos != 0:
         porcentaje_positivos = (len(recipe.positives) / total_votos)*100
-        porcentaje_negativos = (len(recipe.negativos) / total_votos)*100
+        porcentaje_negativos = (len(recipe.negatives) / total_votos)*100
 
     num = recipe.difficult
     dificultad = "Dificil"
