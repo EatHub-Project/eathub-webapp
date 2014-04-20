@@ -157,14 +157,14 @@ def recipe_votes(request, recipe_id):
     porcentaje_positivos = 50
     porcentaje_negativos = 50
     if total_votos != 0:
-        porcentaje_positivos = (len(recipe.positives) / total_votos)*100
-        porcentaje_negativos = (len(recipe.negatives) / total_votos)*100
+        porcentaje_positivos = (len(recipe.positives) / float(total_votos))*100
+        porcentaje_negativos = (len(recipe.negatives) / float(total_votos))*100
 
     context= {"positives": len(recipe.positives),
               "negatives": len(recipe.negatives),
               "total": total_votos,
               "por_pos": porcentaje_positivos,
-              "por_neg": porcentaje_negativos,}
+              "por_neg": porcentaje_negativos}
 
 
 

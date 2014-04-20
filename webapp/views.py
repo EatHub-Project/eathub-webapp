@@ -344,8 +344,8 @@ def receta(request, recipe_id):
     porcentaje_positivos = 50
     porcentaje_negativos = 50
     if total_votos != 0:
-        porcentaje_positivos = (len(recipe.positives) / total_votos)*100
-        porcentaje_negativos = (len(recipe.negatives) / total_votos)*100
+        porcentaje_positivos = (len(recipe.positives) / float(total_votos))*100
+        porcentaje_negativos = (len(recipe.negatives) / float(total_votos))*100
 
     num = recipe.difficult
     dificultad = "Dificil"
