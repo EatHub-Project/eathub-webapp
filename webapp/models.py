@@ -92,6 +92,7 @@ class Following(models.Model):
 
 # Validators
 
+
 def validate_tags(tags):
     if len(tags) > 10:
         raise ValidationError("Max number of tags is 10")
@@ -101,26 +102,36 @@ def validate_difficult(difficult):
     if difficult <= 0 or difficult >= 4:
         raise ValidationError("Difficult must be in range 1 to 3")
 
+
 def validate_time(time):
     if time.prep_time is None and time.cook_time is None:
         raise ValidationError("Preparation time and cook time can't be None at same time")
     if time.prep_time < 0 or time.cook_time < 0:
         raise ValidationError("No negative time is allowed")
 
+
 def validate_temporality(temporality):
-    if len(temporality) == 0:
+    if len(temporality)==0:
         raise ValidationError("It must be at least one temporality")
-    for season in temporality:
-        if season is None:
-            raise ValidationError("A temporality is not allowed to be None")
+    else:
+        for season in temporality:
+            if season is None:
+                raise ValidationError("A temporality is not allowed to be None")
 
 
 def validate_ingredients(ingredients):
-    if len(ingredients) == 0:
-        raise ValidationError("It must be at least one step")
-    for ingredient in ingredients:
-        if ingredient is None:
-            raise ValidationError("An ingredient is not allowed to be None")
+    if len(ingredients)==0:
+        raise ValidationError("It must be at least one ingredient")
+    else:
+        for ingredient in ingredients:
+            if ingredient is None:
+                raise ValidationError("An ingredient is not allowed to be None")
+
+
+def validate_steps(steps):
+    for step in steps:
+        if step is None:
+            raise ValidationError("A step is not allowed to be None")
 # Models
 
 class Comment(models.Model):
@@ -165,14 +176,14 @@ class Step(models.Model):
 
 
 class Picture(models.Model):
-    image = models.ImageField(upload_to="images/",null=False)
+    image = models.ImageField(upload_to="images/",null=True)
 
 
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
     description = TextField(blank=False)
     creation_date = DateTimeField(auto_now_add=True)
-    main_image = models.ImageField(upload_to="images/recipe/", null=False)
+    main_image = models.ImageField(upload_to="images/recipe/", null=True)
     modification_date = DateTimeField(auto_now_add=True, null=True)
     ingredients = ListField(blank=False, validators=[validate_ingredients])
     serves = CharField(max_length=50, blank=False)
@@ -188,10 +199,10 @@ class Recipe(models.Model):
     is_published = BooleanField()
     parent = ForeignKey('self', null=True, blank=True)
     #embedded
-    steps = ListField(EmbeddedModelField('Step'), null=False)
+    steps = ListField(EmbeddedModelField('Step'), null=False, validators=[validate_steps])
     author = ForeignKey(User)
-    pictures = ListField(EmbeddedModelField('Picture'))
-    time = EmbeddedModelField('Time')
+    pictures = ListField(EmbeddedModelField('Picture'), null=True) #null=True para poder hacer los tests de recipe sin tener en cuenta las Pictures
+    time = EmbeddedModelField('Time', validators=[validate_time])
     savours = EmbeddedModelField('Savour')
     comments = ListField(EmbeddedModelField('Comment'), blank=True)
 
