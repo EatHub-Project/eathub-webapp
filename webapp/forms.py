@@ -1,4 +1,5 @@
 import json
+from ajax.models import UploadedImage
 from django import forms
 from models import Recipe
 
@@ -97,6 +98,51 @@ class NewRecipeForm(forms.Form):
         except KeyError:
             return None
 
+    @staticmethod
+    def get_filled_form(r):
+        data = {
+            'title': r.title,
+            'description': r.description,
+            'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
+            #todo modification?
+            'serves': r.serves,
+            'language': r.language,
+            'temporality': r.temporality,
+            'special_conditions': r.special_conditions,
+            'nationality': r.nationality,
+            'notes': r.notes,
+            'difficult': r.difficult,
+            'food_type': r.food_type,
+            'tags': ",".join(r.tags),
+            'cook_time': r.time.cook_time,
+            'prep_time': r.time.prep_time,
+            'sour': r.savours.sour,
+            'sweet': r.savours.sweet,
+            'salty': r.savours.salty,
+            'bitter': r.savours.bitter,
+            'spicy': r.savours.spicy,
+        }
+        #ingredients
+        ingredients_list = r.ingredients
+        data['ingredients_json'] = json.dumps(ingredients_list)
+
+        #pictures
+        pictures_ids_list = list()
+        for pic in r.pictures:
+            pictures_ids_list.append(UploadedImage.objects.get(image=pic.image).id)
+        data['pictures_ids_json'] = json.dumps(pictures_ids_list)
+
+        #steps
+        steps_list = list()
+        for step in r.steps:
+            if step.image:
+                steps_list.append({"text": step.text, "picture": UploadedImage.objects.get(image=step.image).id})
+            else:
+                steps_list.append({"text": step.text})
+        data['steps_json'] = json.dumps(steps_list)
+
+        return NewRecipeForm(data)
+
 
 class EditAccountForm(NewAccountForm):
     def __init__(self, *args, **kwargs):
@@ -105,6 +151,7 @@ class EditAccountForm(NewAccountForm):
         self.fields['email'].required = False
         self.fields['password'].required = False
         self.fields['password_repeat'].required = False
+
 
 class AddComment(forms.Form):
     text = forms.CharField(required=True)
