@@ -17,35 +17,37 @@ def validate_savour(savour):
         raise ValidationError("Value is not in range 0 to 99")
 
 
-#TODO: decidir que hacemos con la validacion de idiomas, si aqui o si en las vistas
-def validate_main_language(main_language):
-    pass
-
-
-def validate_additional_languages(additional_languages):
-    pass
-
-
 def validate_last_login(last_login):
     if type(last_login) is not datetime:
-        raise ValidationError(u'last login type must be date')
+        raise ValidationError("last login type must be date")
     if last_login is None:
-        raise ValidationError(u'last login cannot be None')
+        raise ValidationError("last login cannot be None")
     date = datetime.today()
     if last_login > date:
-        raise ValidationError(u'last_login date cannot be after current date')
+        raise ValidationError("last_login date cannot be after current date")
 
 
 def validate_gender(gender):
     if not (gender == "u" or gender == "m" or gender == "f"):
-        raise ValidationError(u'%s is not a valid gender' % gender)
+        raise ValidationError("is not a valid gender")
 
 
 def validate_past_date(date):
     now = datetime.now()
     if now > date:
-        raise ValidationError(u'date cannot be future')
+        raise ValidationError("date cannot be future")
 
+
+def validate_additional_language_not_none(additional_languages):
+    for language in additional_languages:
+        if language is None:
+            raise ValidationError("An additional language is not allowed to be none")
+
+def validate_website_is_url(website):
+    start = "http://"
+    start_sec = "https://"
+    if website[:7] != start and website[:8] != start_sec:
+        raise ValidationError("Not a valid URL in website")
 
 class Tastes(models.Model):
     salty = models.IntegerField(validators=[validate_savour])
@@ -61,11 +63,11 @@ class Tastes(models.Model):
 class Profile(models.Model):
     display_name = models.CharField(max_length=50, blank=False)
     modification_date = models.DateTimeField(null=True)  #TODO: debe ser pasado, falta meter esta restriccion
-    main_language = models.CharField(max_length=50, validators=["""validate_main_language"""])
-    additional_languages = ListField(validators=["""validate_additional_languages"""], null=True, blank=False)
+    main_language = models.CharField(max_length=50)
+    additional_languages = ListField(null=True, blank=False, validators=[validate_additional_language_not_none])
     avatar = models.ImageField(upload_to='avatars/', null=True)
-    website = models.URLField(null=True)
-    gender = models.CharField(max_length=1, validators=[validate_gender], null=True)
+    website = models.URLField(null=True, validators=[validate_website_is_url])
+    gender = models.CharField(max_length=1, null=True,validators=[validate_gender])
     birth_date = models.DateField(null=True)
     location = models.CharField(max_length=50, blank=False)
     tastes = EmbeddedModelField('Tastes', null=True)
