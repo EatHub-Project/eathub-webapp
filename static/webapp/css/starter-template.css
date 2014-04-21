@@ -141,6 +141,11 @@ header .container {
     font-size: 20px;
 }
 
+.recipe-list-time {
+    color: #CC3E27;
+    font-size: 18px;
+}
+
 
 .recipe-image {
     padding: 30px;
