@@ -10,7 +10,7 @@
     <div class="col-md-8 col-md-offset-2">
     <h1 class="recipe-name">{{ receta.title }}</h1>
     {% if receta.parent %}
-        <h5 class="recipe-parent"><a href="{% url 'recipe' receta.parent.id %}"><i class="fa fa-code-fork"></i> Cloned from: <span class="recipe-parent-name">{{ receta.parent.author.profile.get.display_name }} - {{ receta.parent.title }}</span></a></h5>
+        <h5 class="recipe-parent"><a href="{% url 'recipe' receta.parent.id %}"><i class="fa fa-code-fork"></i> {% trans "Cloned from:" %} <span class="recipe-parent-name">{{ receta.parent.author.profile.get.display_name }} - {{ receta.parent.title }}</span></a></h5>
     {% endif %}
 
     <div class="panel main-picture-padding row">
@@ -65,7 +65,7 @@
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Recipes derived from this:</h4>
+                            <h4 class="modal-title">{% trans "Recipes derived from this:" %}</h4>
                         </div>
                         <div class="modal-body">
                             {% if children %}
@@ -78,9 +78,9 @@
                             </ul>
                         {% else %}
                                 <div class="recipe-modal-children-empty">
-                                    <span>No derived recipes yet</span>
+                                    <span>{% trans "No derived recipes yet" %}</span>
                                     <div>
-                                        <a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default btn-eathub"><i class="fa fa-code-fork"></i> Clone it yourself</a>
+                                        <a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default btn-eathub"><i class="fa fa-code-fork"></i> {% trans "Clone it yourself" %}</a>
                                     </div>
                                 </div>
 
