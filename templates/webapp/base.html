@@ -41,14 +41,16 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="{% navactive request 'main' %}"><a href="{% url 'main' %}">{% trans "Home" %}</a></li>
+                        <li class="{% navactive request 'main' %}"><a href="{% url 'main' %}">{% trans "Home" %}</a>
+                        </li>
                         <li><a class="" href="#">{% trans "Recipes" %}</a></li>
                         <li><a class="" href="#">{% trans "Explore" %}</a></li>
                     </ul>
 
                     <div class="input-group navbar-input-group">
                         <form class="navbar-form navbar-left" role="search">
-                            <input type="text" class="form-control border-search border-rect" placeholder="Search..." name="srch-term"
+                            <input type="text" class="form-control border-search border-rect" placeholder="Search..."
+                                   name="srch-term"
                                    id="srch-term">
                                 <span class="input-group-btn navbar-input-group-btn">
                                     <button class="btn btn-default border-default" type="submit">
@@ -109,33 +111,36 @@
 
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback" aria-hidden="true">
+    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback"
+         aria-hidden="true">
 
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
-          </div>
-          <div class="modal-body">
-            <p>Esta web se encuentra en desarrollo por parte de los miembros del grupo 5 de la asignatura de
-            Ingenier&iacute;a del Software y P&aacute;ctica Profesional.</p>
-
-
-            <p>Como tal, todo el feedback que nos puedan aportan es de gran utilidad, ya sea para sugerencias,
-            bugs, etc. Para ello, env&iacute;e el correo a la direcci&oacute;n <b>eathub.contact@gmail.com</b> o pulse
-              el bot&oacute;n de la parte inferior d&oacute;nde se abrir&aacute; su cliente de correo
-            y podr&aacute; enviarnos su feedback.</p>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Esta web se encuentra en desarrollo por parte de los miembros del grupo 5 de la asignatura de
+                        Ingenier&iacute;a del Software y P&aacute;ctica Profesional.</p>
 
 
-           <p>Gracias por su feedback</p>
+                    <p>Como tal, todo el feedback que nos puedan aportan es de gran utilidad, ya sea para sugerencias,
+                        bugs, etc. Para ello, env&iacute;e el correo a la direcci&oacute;n
+                        <b>eathub.contact@gmail.com</b> o pulse
+                        el bot&oacute;n de la parte inferior d&oacute;nde se abrir&aacute; su cliente de correo
+                        y podr&aacute; enviarnos su feedback.</p>
 
-          </div>
-          <div class="modal-footer">
-            <a class="plus btn btn-default" href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!">Enviar correo</a>
-          </div>
+
+                    <p>Gracias por su feedback</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a class="plus btn btn-default"
+                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!">Enviar correo</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <!-- /.container -->
 </main>
