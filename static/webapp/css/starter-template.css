@@ -381,14 +381,16 @@ header .container {
 }
 
 .main-card-description {
-    max-height: 60px;
     overflow: hidden;
 }
 
 .main-card-description p{
-    height: 100px;
 }
 
+.main-card-content {
+    height: 130px;
+
+}
 
 #salty.progress-bar {
     background: #0480be;
@@ -1265,6 +1267,6 @@ header .container {
 }
 
 .main-card {
-    height: 390px;
+    height: 400px;
     position: relative;
 }
