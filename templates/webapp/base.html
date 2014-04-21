@@ -57,19 +57,25 @@
                                 </span>
                         </form>
                     </div>
+                    <!-- Button trigger modal -->
+                    <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
+                        <i class="fa fa-comment"></i> Feedback
+                    </button>
 
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
                             <li><p class="navbar-text text-red">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
                             </li>
                             <li class="dropdown">
-                                <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="/profile/{{ user.username }}"> <!--TODO: no se si user.username saca el nombre de usuario correcto (el mismo que el de Author)-->
+                                <a class="profile-image dropdown-toggle" data-toggle="dropdown"
+                                   href="/profile/{{ user.username }}">
+                                    <!--TODO: no se si user.username saca el nombre de usuario correcto (el mismo que el de Author)-->
                                     <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
                                     {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'profile' user.username %}">{% trans "Profile" %}</a></li>
-                                    <li><a href="">Settings</a> </li>
+                                    <li><a href="">Settings</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                                 </ul>
@@ -79,19 +85,13 @@
                                     <a type="button" class="plus btn btn-default" href="{% url 'newrecipe' %}">
                                         <span class="glyphicon glyphicon-plus"></span>{% trans "Add recipe" %}
                                     </a>
-                                    <!-- Button trigger modal -->
-                                    <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
-                                      Feedback
-                                    </button>
                                 </div>
                             </li>
                         {% else %}
-                            <a class="btn btn-default btn-eathub" href="{% url 'login' %}" role="button">{% trans "Sign in" %}</a>
-                            <a class="btn btn-default btn-eathub-inverted" href="{% url 'newaccount' %}">{% trans "Create account" %}</a>
-                            <!-- Button trigger modal -->
-                            <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
-                              Feedback
-                            </button>
+                            <a class="btn btn-default btn-eathub" href="{% url 'login' %}"
+                               role="button">{% trans "Sign in" %}</a>
+                            <a class="btn btn-default btn-eathub-inverted"
+                               href="{% url 'newaccount' %}">{% trans "Create account" %}</a>
                         {% endif %}
 
 
