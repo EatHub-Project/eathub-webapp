@@ -79,12 +79,22 @@
                                     <a type="button" class="plus btn btn-default" href="{% url 'newrecipe' %}">
                                         <span class="glyphicon glyphicon-plus"></span>{% trans "Add recipe" %}
                                     </a>
+                                    <!-- Button trigger modal -->
+                                    <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
+                                      Feedback
+                                    </button>
                                 </div>
                             </li>
                         {% else %}
                             <a class="btn btn-default btn-eathub" href="{% url 'login' %}" role="button">{% trans "Sign in" %}</a>
                             <a class="btn btn-default btn-eathub-inverted" href="{% url 'newaccount' %}">{% trans "Create account" %}</a>
+                            <!-- Button trigger modal -->
+                            <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
+                              Feedback
+                            </button>
                         {% endif %}
+
+
                     </ul>
                 </div>
             </div>
@@ -97,6 +107,35 @@
 
         {% block container %}{% endblock %}
 
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback" aria-hidden="true">
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
+          </div>
+          <div class="modal-body">
+            <p>Esta web se encuentra en desarrollo por parte de los miembros del grupo 5 de la asignatura de
+            Ingenier&iacute;a del Software y P&aacute;ctica Profesional.</p>
+
+
+            <p>Como tal, todo el feedback que nos puedan aportan es de gran utilidad, ya sea para sugerencias,
+            bugs, etc. Para ello, env&iacute;e el correo a la direcci&oacute;n <b>eathub.contact@gmail.com</b> o pulse
+              el bot&oacute;n de la parte inferior d&oacute;nde se abrir&aacute; su cliente de correo
+            y podr&aacute; enviarnos su feedback.</p>
+
+
+           <p>Gracias por su feedback</p>
+
+          </div>
+          <div class="modal-footer">
+            <a class="plus btn btn-default" href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!">Enviar correo</a>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.container -->
 </main>
