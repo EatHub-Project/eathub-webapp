@@ -1290,16 +1290,26 @@ header .container {
 
 .footer-link {
     color: #aaa;
-    text-decoration: None;
     font-weight: 200;
     font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .footer-link:hover {
     color: #eee;
-    text-decoration: None;
 }
 
 .footer-logo {
-    margin-top: 22px;
+    margin-bottom: -35px;
+    vertical-align: middle;
+}
+
+.footer-logo-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.footer-logo-container {
+    height: 100%;
+    text-align: center;
 }

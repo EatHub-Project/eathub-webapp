@@ -148,19 +148,18 @@
 </main>
 <footer>
     <div class="footer">
-            <div class="col-md-4">
-                <div class="text-center">
-                    <img class="footer-logo" src="{% static 'webapp/image/logo_footer.png' %}" class="img-circle">
-                </div>
+        <div class="col-md-4 footer-logo-container">
+            <span class="footer-logo-helper"></span>
+            <img class="footer-logo" src="{% static 'webapp/image/logo_footer.png' %}" class="img-circle">
+        </div>
+        <div class="col-md-8 footer-content">
+            <div class="row">
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">Terms & conditions</a></div>
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">Our goals</a></div>
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">The team</a></div>
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">Contact</a></div>
             </div>
-            <div class="col-md-8 footer-content">
-                <div class="row">
-                    <div class="col-md-2 text-center"><a href="#" class="footer-link">Terms & conditions</a></div>
-                    <div class="col-md-2 text-center"><a href="#" class="footer-link">Our goals</a></div>
-                    <div class="col-md-2 text-center"><a href="#" class="footer-link">The team</a></div>
-                    <div class="col-md-2 text-center"><a href="#" class="footer-link">Contact</a></div>
-                </div>
-            </div>
+        </div>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -171,14 +170,14 @@
     <script>
         $().ready(function () {
             //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
-            $(".footer-logo").hover(
-                    function () {
-                        $(".footer-logo").animate({"margin-top": "7px"}, 150)
-                    },
-                    function () {
-                        $(".footer-logo").animate({"margin-top": "22px"}, 150)
-                    }
-            );
+                        $(".footer-logo").hover(
+                                function () {
+                                    $(".footer-logo").animate({"margin-bottom": 0}, 150)
+                                },
+                                function () {
+                                    $(".footer-logo").animate({"margin-bottom": "-35px"}, 150)
+                                }
+                        );
         });
     </script>
     {% block custom_js %} {% endblock %}
