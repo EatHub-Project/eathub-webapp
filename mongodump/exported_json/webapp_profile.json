@@ -30,6 +30,13 @@
                 "username": "alex"
             },
             {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
+            },
+            {
                 "display_name": "Virgi",
                 "user_id": {
                     "$oid": "53524b1bc54d2d0800ca5bbe"
@@ -85,6 +92,13 @@
                 "username": "alex"
             },
             {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
+            },
+            {
                 "display_name": "Virgi",
                 "user_id": {
                     "$oid": "53524b1bc54d2d0800ca5bbe"
@@ -137,6 +151,13 @@
                 "username": "juanma"
             },
             {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
+            },
+            {
                 "display_name": "Alex",
                 "user_id": {
                     "$oid": "533fb9b386c9bdaca925fee0"
@@ -182,6 +203,13 @@
                 "username": "juan"
             },
             {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
+            },
+            {
                 "display_name": "Juanma",
                 "user_id": {
                     "$oid": "53511955b88bbe11b48fcdd7"
@@ -220,7 +248,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/alexis.persist.jpg",
+        "avatar": null,
         "birth_date": {
             "$date": 687139200000
         },
@@ -232,6 +260,13 @@
                     "$oid": "5337f4b4144115cb2ce71e1e"
                 },
                 "username": "franhg"
+            },
+            {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
             },
             {
                 "display_name": "Juhani L.",
@@ -265,7 +300,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/james.persist.jpg",
+        "avatar": "images/false.png",
         "birth_date": {
             "$date": 687139200000
         },
@@ -284,6 +319,13 @@
                     "$oid": "533fb9b386c9bdaca925fee0"
                 },
                 "username": "alex"
+            },
+            {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
             },
             {
                 "display_name": "francisco",
@@ -317,7 +359,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/Tomas.persist_1.jpg",
+        "avatar": "images/Chicken-Recipes-011_1.jpg",
         "birth_date": null,
         "display_name": "Tomas",
         "following": [
@@ -341,6 +383,48 @@
                     "$oid": "53524b1bc54d2d0800ca5bbe"
                 },
                 "username": "virsfc"
+            },
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "francisco"
+            },
+            {
+                "display_name": "Mar\u00eda",
+                "user_id": {
+                    "$oid": "5352494f18085d15c08181d1"
+                },
+                "username": "mariarojas"
+            },
+            {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
+            },
+            {
+                "display_name": "Pedro Verd",
+                "user_id": {
+                    "$oid": "5337f440144115cb2ce71e1d"
+                },
+                "username": "pedro"
+            },
+            {
+                "display_name": "James",
+                "user_id": {
+                    "$oid": "533fba3786c9bdaca925fee1"
+                },
+                "username": "james17"
             }
         ],
         "gender": "m",
@@ -386,6 +470,13 @@
                     "$oid": "5337f3cb144115cb2ce71e1c"
                 },
                 "username": "juan"
+            },
+            {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
             },
             {
                 "display_name": "Alex",
@@ -479,22 +570,7 @@
             "$date": 605750400000
         },
         "display_name": "Ted",
-        "following": [
-            {
-                "display_name": "Juanma",
-                "user_id": {
-                    "$oid": "53511955b88bbe11b48fcdd7"
-                },
-                "username": "juanma"
-            },
-            {
-                "display_name": "Juhani L.",
-                "user_id": {
-                    "$oid": "5337f3cb144115cb2ce71e1c"
-                },
-                "username": "juan"
-            }
-        ],
+        "following": [],
         "gender": "unknown",
         "karma": 6,
         "location": "London",
@@ -584,6 +660,32 @@
         },
         "user_id": {
             "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "5354fccc18085d1b70f96c44"
+        },
+        "additional_languages": [],
+        "avatar": "images/photo.jpg",
+        "birth_date": null,
+        "display_name": "Cocinillas.es",
+        "following": [],
+        "gender": "unknown",
+        "karma": 6,
+        "location": "",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 50,
+            "salty": 50,
+            "sour": 50,
+            "spicy": 50,
+            "sweet": 50
+        },
+        "user_id": {
+            "$oid": "5354fccc18085d1b70f96c43"
         },
         "website": ""
     }

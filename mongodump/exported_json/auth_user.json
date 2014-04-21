@@ -107,7 +107,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397904475378
+            "$date": 1398085542970
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -126,7 +126,7 @@
         "is_staff": true,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397902571064
+            "$date": 1398085995834
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -199,13 +199,13 @@
         "email": "mariarojas@hotmail.es",
         "first_name": "",
         "is_active": true,
-        "is_staff": false,
+        "is_staff": true,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397908847322
+            "$date": 1398084663817
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
+        "password": "pbkdf2_sha256$10000$9bB2towojvxw$Avup4rkvuoHBrEK9l+HnsNr+lGUFDOEUVY6nmTL0aXA=",
         "username": "mariarojas"
     },
     {
@@ -226,5 +226,24 @@
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "virsfc"
+    },
+    {
+        "_id": {
+            "$oid": "5354fccc18085d1b70f96c43"
+        },
+        "date_joined": {
+            "$date": 1398085868561
+        },
+        "email": "cocinillasblog@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1398085869078
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$slfaiWfLyy2T$IwUHR7n59N/Szg2qMCqttqVqde+mRmS/3YIBSKU1Dss=",
+        "username": "Cocinillases"
     }
 ]
