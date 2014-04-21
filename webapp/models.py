@@ -184,6 +184,9 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+    def get_child_recipes(self):
+        return Recipe.objects.filter(parent=self.id)
+
 
 #enum to entity
 

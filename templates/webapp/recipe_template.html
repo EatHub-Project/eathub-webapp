@@ -6,8 +6,15 @@
     <!-- Start Recipe -->
     <!-- Column Left -->
 
+    <!-- Title -->
     <div class="col-md-8 col-md-offset-2">
     <h1 class="recipe-name">{{ receta.title }}</h1>
+    {% if receta.parent %}
+        <h5 class="recipe-parent"><a href="{% url 'recipe' receta.parent.id %}"><i
+                class="fa fa-code-fork"></i> {% trans "Cloned from:" %} <span
+                class="recipe-parent-name">{{ receta.parent.author.profile.get.display_name }} - {{ receta.parent.title }}</span></a>
+        </h5>
+    {% endif %}
 
     <div class="panel main-picture-padding row">
         <div id="carousel-example-generic" class="main-picture-carousel carousel slide"
@@ -24,7 +31,8 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner recipe-carousel-wrapper">
-                <div class="item active recipe-carousel-item" style="background-image: url('{{ receta.main_image.url }}')">
+                <div class="item active recipe-carousel-item"
+                     style="background-image: url('{{ receta.main_image.url }}')">
                     <img src="{{ receta.main_image.url }}">
 
                     <div class="carousel-caption"></div>
@@ -48,11 +56,47 @@
         </div>
 
         <!-- Fork overlay -->
-        <div class="recipe-fork">
-            <a href="#" class="btn btn-default recipe-fork-count"><i class="fa fa-code-fork"></i> 5</a>
-            {% if user.is_authenticated %}<a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default recipe-fork-clone">{% trans "Clone" %}
-                </a>{% endif %}
-        </div>
+        {% with children=receta.get_child_recipes %}
+            <div class="recipe-fork">
+                <a data-toggle="modal" data-target=".recipe-modal-children" class="btn btn-default recipe-fork-count"><i
+                        class="fa fa-code-fork"></i> {{ children|length }}</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default recipe-fork-clone">
+                        {% trans "Clone" %}
+                    </a>{% endif %}
+            </div>
+            <div class="modal fade recipe-modal-children" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">{% trans "Recipes derived from this:" %}</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% if children %}
+                                <ul>
+                                    {% for hija in children %}
+                                        <li><a href="{% url 'recipe' hija.id %}"><i class="fa fa-code-fork"></i>
+                                            <span class="recipe-modal-children-author">{{ hija.author.profile.get.display_name }}</span>
+                                            - {{ hija.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <div class="recipe-modal-children-empty">
+                                    <span>{% trans "No derived recipes yet" %}</span>
+
+                                    <div>
+                                        <a href="{% url 'clonerecipe' receta.id %}"
+                                           class="btn btn-default btn-eathub"><i
+                                                class="fa fa-code-fork"></i> {% trans "Clone it yourself" %}</a>
+                                    </div>
+                                </div>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endwith %}
 
         <!-- Author overlay -->
         <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
@@ -71,9 +115,11 @@
             <div class="recipe-votes">
                 <div class="recipe-votes-indicators">
                     <span class="recipe-votes-indicator"><i
-                            class="fa fa-thumbs-up"></i><span id="positive_votes">{{ receta.positives|length }}</span></span>
+                            class="fa fa-thumbs-up"></i><span
+                            id="positive_votes">{{ receta.positives|length }}</span></span>
                         <span class="recipe-votes-indicator"><i
-                                class="fa fa-thumbs-down"></i><span id="negative_votes">{{ receta.negatives|length }}</span></span>
+                                class="fa fa-thumbs-down"></i><span
+                                id="negative_votes">{{ receta.negatives|length }}</span></span>
                     <span id="recipe-votes-count" class="recipe-votes-count">{{ total_votos }}</span>
                 </div>
 
@@ -85,7 +131,8 @@
                 </div>
 
                 <div class="recipe-votes-buttons">
-                    <a id="btn-positive" class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-up"></i> {% trans "Like" %}</a>
+                    <a id="btn-positive" class="btn btn-default recipe-votes-like-btn"><i
+                            class="fa fa-thumbs-up"></i> {% trans "Like" %}</a>
                     <a id="btn-negative" class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
                 </div>
             </div>
@@ -357,7 +404,7 @@
             // TODO: Mostrar mensaje de error
         }
 
-        function vote_refresh (jqXHR, textStatus, errorThrown) {
+        function vote_refresh(jqXHR, textStatus, errorThrown) {
             //actualizar conteo de votos sin necesidad de recargar la pagina
             $.get('{% url 'recipe_votes' receta.id %}', function (data) {
                 var result = $.parseJSON(data);
@@ -365,8 +412,8 @@
                 $positive_votes.html(result.positives);
                 $negative_votes.html(result.negatives);
                 $total_count.html(result.total);
-                $por_pos.css( "width", result.por_pos + '%' );
-                $por_neg.css( "width", result.por_neg + '%' );
+                $por_pos.css("width", result.por_pos + '%');
+                $por_neg.css("width", result.por_neg + '%');
             })
         }
 

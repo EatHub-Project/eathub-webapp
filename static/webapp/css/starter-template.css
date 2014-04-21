@@ -737,6 +737,29 @@ header .container {
     font-size: 3em;
 }
 
+.recipe-parent {
+    margin-top: -15px;
+    color: #CC3E27;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.recipe-parent:hover {
+    opacity: 1;
+}
+
+.recipe-parent a {
+    color: #CC3E27;
+}
+
+.recipe-parent a:hover {
+    text-decoration: none;
+}
+
+.recipe-parent-name {
+    font-style: italic;
+}
+
 .main-picture-padding {
     height: 400px;
     padding: 10px;
@@ -872,6 +895,47 @@ header .container {
     padding-top: 2px;
     padding-bottom: 2px;
     border: 1px solid #e3e3e3;
+}
+
+.recipe-modal-children .modal-title {
+    color: #CC3E27;
+    font-size: 22px;
+}
+
+.recipe-modal-children .modal-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recipe-modal-children .modal-body ul a {
+    color: #CC3E27;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.recipe-modal-children .modal-body ul a i {
+    font-size: 18px;
+}
+
+.recipe-modal-children .modal-body a .recipe-modal-children-author {
+    font-style: italic;
+}
+
+.recipe-modal-children-empty {
+    text-align: center;
+}
+
+.recipe-modal-children-empty span {
+    font-style: italic;
+    color: #CC3E27;
+}
+
+.recipe-modal-children-empty a {
+    margin-top: 10px;
+}
+
+.recipe-modal-children-empty a i{
+    font-size: 18px;
 }
 
 .recipe-data p.recipe-data-secondary {
