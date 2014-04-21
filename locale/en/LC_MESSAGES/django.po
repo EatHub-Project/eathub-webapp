@@ -444,21 +444,9 @@ msgstr ""
 msgid "Send"
 msgstr "Gender"
 
-#: .\templates\webapp\recipe_template.html.py:328
-msgid "Want to comment?"
-msgstr ""
-
-#: .\templates\webapp\recipe_template.html.py:330
-#, fuzzy
-msgid "Log in first"
-msgstr "Last login"
-
-#: .\templates\webapp\recipe_template.html.py:331
+#: templates/webapp/recipe_template.html:330
 #, python-format
-msgid ""
-"\n"
-"                    <a href=\"%(the_url)s\"> %(login)s</a>.\n"
-"                    "
+msgid "Want to comment? <a href=\"%(the_url)s\">Log in</a> first."
 msgstr ""
 
 #: .\templates\webapp\recipes.html.py:37
@@ -474,6 +462,3 @@ msgstr "Passwords don't match"
 #, fuzzy
 msgid "Username alerady taken"
 msgstr "Username aleready taken"
-
-#~ msgid "Remember me"
-#~ msgstr "Remember me"

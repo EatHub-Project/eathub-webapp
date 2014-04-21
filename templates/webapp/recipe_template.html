@@ -325,12 +325,9 @@
                     </form>
                 </div>
             {% else %}
-                <div class="recipe-comment-login text-soft">{% trans "Want to comment?" %}
+                <div class="recipe-comment-login text-soft">
                     {% url 'login' as the_url %}
-                    {% trans "Log in first" as login %}
-                    {% blocktrans %}
-                    <a href="{{ the_url }}"> {{ login }}</a>.
-                    {% endblocktrans %}
+                    {% blocktrans %}Want to comment? <a href="{{ the_url }}">Log in</a> first.{% endblocktrans %}
                 </div>
             {% endif %}
         </div>

@@ -435,21 +435,10 @@ msgstr "Escribe un comentario sobre la receta..."
 msgid "Send"
 msgstr "Enviar"
 
-#: .\templates\webapp\recipe_template.html.py:328
-msgid "Want to comment?"
-msgstr "¿Quieres comentar?"
-
-#: .\templates\webapp\recipe_template.html.py:330
-msgid "Log in first"
-msgstr "¡Entra!"
-
-#: .\templates\webapp\recipe_template.html.py:331
+#: templates/webapp/recipe_template.html:330
 #, python-format
-msgid ""
-"\n"
-"                    <a href=\"%(the_url)s\"> %(login)s</a>.\n"
-"                    "
-msgstr ""
+msgid "Want to comment? <a href=\"%(the_url)s\">Log in</a> first."
+msgstr "¿Quieres comentar algo? <a href=\"%(the_url)s\">Entra</a> primero."
 
 #: .\templates\webapp\recipes.html.py:37
 msgid "Don't you have recipes? Let's make yourself one!"
@@ -462,6 +451,3 @@ msgstr "Las contraseñas no coinciden"
 #: .\webapp\views.py:63
 msgid "Username alerady taken"
 msgstr "Ese nombre de usuario ya está en uso"
-
-#~ msgid "first"
-#~ msgstr "primero"
