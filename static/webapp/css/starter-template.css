@@ -1270,3 +1270,46 @@ header .container {
     height: 400px;
     position: relative;
 }
+
+.footer {
+    background-color: #333333;
+    display: block;
+    width: auto;
+    overflow: hidden;
+    height: 60px;
+}
+
+.footer-content {
+    padding: 20px 0;
+}
+
+.ul-footer {
+    list-style: none;
+
+}
+
+.footer-link {
+    color: #aaa;
+    font-weight: 200;
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.footer-link:hover {
+    color: #eee;
+}
+
+.footer-logo {
+    margin-bottom: -35px;
+    vertical-align: middle;
+}
+
+.footer-logo-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.footer-logo-container {
+    height: 100%;
+    text-align: center;
+}
