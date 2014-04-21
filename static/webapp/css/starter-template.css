@@ -748,13 +748,16 @@ header .container {
     opacity: 1;
 }
 
-.recipe-parent span{
-}
-.recipe-parent a{
+.recipe-parent a {
     color: #CC3E27;
 }
+
 .recipe-parent a:hover {
     text-decoration: none;
+}
+
+.recipe-parent-name {
+    font-style: italic;
 }
 
 .main-picture-padding {
