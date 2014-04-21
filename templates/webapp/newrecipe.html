@@ -227,7 +227,7 @@
     {{ form.non_field_errors }}
     {{ form.errors }}
 
-    <h3 class="col-lg-offset-1">Basic information</h3>
+    <h3 class="col-lg-offset-1">{% trans "Basic information" %}</h3>
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
 
         <!-- Title -->
@@ -248,10 +248,10 @@
             <div class="col-sm-12">
                 <div class="main-picture drop-target" id="main-picture">
                     <div id="main-picture-indicator">
-                        <p>Add main picture</p>
+                        <p>{% trans "Add main picture" %}</p>
                         <span class="glyphicon glyphicon-camera"></span>
 
-                        <p>Drag and drop an image here</p>
+                        <p>{% trans "Drag and drop an image here" %}</p>
                     </div>
                 </div>
             </div>
@@ -279,7 +279,7 @@
                              src="http://www.cocinillas.es/wp-content/uploads/2011/05/DSC08380-1600x1200.jpg">
                     </div>{% endcomment %}
                     <div id="gallery-indicator">
-                        <p>Add more pictures</p>
+                        <p>{% trans "Add more pictures" %}</p>
                         <span class="glyphicon glyphicon-plus"></span>
                     </div>
                 </div>
@@ -302,10 +302,10 @@
 
     <span class="clearfix"></span>
 
-    <h3 class="col-lg-offset-1">How to make it</h3>
+    <h3 class="col-lg-offset-1">{% trans "How to make it" %}</h3>
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
         <!-- Ingredients -->
-        <h4>Ingredients list</h4>
+        <h4>{% trans "Ingredients list" %}</h4>
 
         <input type="hidden" id="id_{{ form.ingredients_list.name }}" name="{{ form.ingredients_list.name }}">
 
@@ -355,13 +355,13 @@
                 </div>
                 <div class="form-group ingredient-item ">
                     <div class="col-sm-8 col-sm-offset-2">
-                        <span class="form-control repeatable-add">Add an ingredient…</span>
+                        <span class="form-control repeatable-add">{% trans "Add an ingredient..." %}</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h4>Step by step</h4>
+        <h4>{% trans "Step by Step" %}</h4>
 
         <div class="repeat">
             <div class="form-group repeatable-wrapper step-list">
@@ -444,7 +444,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Pick a picture</h4>
+                        <h4 class="modal-title" id="myModalLabel">{% trans "Pick a picture" %}</h4>
                     </div>
                     <div class="modal-body">
                         <div class="col-sm-12">
@@ -458,7 +458,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Cancel" %}</button>
                     </div>
                 </div>
             </div>
@@ -479,13 +479,13 @@
 
     <span class="clearfix"></span>
 
-    <h3 class="col-lg-offset-1">Extra information</h3>
+    <h3 class="col-lg-offset-1">{% trans "Extra information" %}</h3>
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
 
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.prep_time.name }}">Preparation time</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.prep_time.name }}">{% trans "Preparation time" %}</label>
 
                     <div class="col-sm-5">
                         <div class="input-group">
@@ -500,7 +500,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.cook_time.name }}">Cooking time</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.cook_time.name }}">{% trans "Cooking time" %}</label>
 
                     <div class="col-sm-5">
                         <div class="input-group">
@@ -518,7 +518,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.serves.name }}">Serves</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.serves.name }}">{% trans "Serves" %}</label>
 
                     <div class="col-sm-8">
                         <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'"
@@ -529,7 +529,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.difficult.name }}">Difficulty</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.difficult.name }}">{% trans "Difficulty" %}</label>
 
                     <div class="col-sm-6">
                         <select class="form-control" name="{{ form.difficult.name }}" id="id_{{ form.difficult.name }}">
@@ -549,7 +549,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">Temporality</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">{% trans "Temporality" %}</label>
 
                     <div class="col-sm-8">
                         <select class="form-control show-tick" data-live-search="true" multiple
@@ -570,7 +570,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.food_type.name }}">Food type</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.food_type.name }}">{% trans "Food type" %}</label>
 
                     <div class="col-sm-6">
                         <select class="form-control show-tick" name="{{ form.food_type.name }}"
@@ -591,8 +591,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.special_conditions.name }}">Special
-                        conditions</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.special_conditions.name }}">{% trans "Special conditions" %}</label>
 
                     <div class="col-sm-8">
                         <select class="form-control show-tick" data-live-search="true" multiple
@@ -613,7 +612,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.languages.name }}">Language</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.languages.name }}">{% trans "Language" %}</label>
 
                     <div class="col-sm-6">
                         <select class="form-control show-tick" name="{{ form.language.name }}"
@@ -634,7 +633,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.tags.name }}">Free tags</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.tags.name }}">{% trans "Free tags" %}</label>
 
                     <div class="col-sm-8">
                         <input type="text" class="form-control" placeholder="Comma separated tags"
@@ -645,7 +644,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.nationality.name }}">Nationality</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.nationality.name }}">{% trans "Nationality" %}</label>
 
                     <div class="col-sm-6">
                         <select class="form-control show-tick" name="{{ form.nationality.name }}"
@@ -666,7 +665,7 @@
 
     <span class="clearfix"></span>
 
-    <h3 class="col-lg-offset-1">Savours</h3>
+    <h3 class="col-lg-offset-1">{% trans "Savours" %}</h3>
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
         <!-- Savours-->
         <div class="col-sm-6">
@@ -742,9 +741,7 @@
         </div>
 
         <div class="col-sm-6">
-            <p class="savours-help">Savour values defines the savour of your recipe and stuff. This way we can better
-                recommend people your recipe based on ther personal tastes and so on, you know. Savours are measured in
-                a relative way, of course. For more information, check Wikipedia or something, dude.</p>
+            <p class="savours-help">{% trans "Savour values defines the savour of your recipe and stuff. This way we can better recommend people your recipe based on ther personal tastes and so on, you know. Savours are measured in a relative way, of course. For more information, check Wikipedia or something, dude." %}</p>
         </div>
     </fieldset>
 
@@ -757,7 +754,7 @@
                 <input type="submit" class="btn btn-success" value="Publish recipe"/>
             </div>
             <div class="col-sm-3">
-                <a class="btn btn-info">Save as draft</a>
+                <a class="btn btn-info">{% trans "Save as draft"}</a>
             </div>
         </div>
     </fieldset>
