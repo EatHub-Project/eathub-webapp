@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-21 15:11+0200\n"
+"POT-Creation-Date: 2014-04-21 17:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -448,13 +448,17 @@ msgstr "Gender"
 msgid "Want to comment?"
 msgstr ""
 
-#: .\templates\webapp\recipe_template.html.py:329
+#: .\templates\webapp\recipe_template.html.py:330
 #, fuzzy
-msgid "Log in"
+msgid "Log in first"
 msgstr "Last login"
 
-#: .\templates\webapp\recipe_template.html.py:329
-msgid "first"
+#: .\templates\webapp\recipe_template.html.py:331
+#, python-format
+msgid ""
+"\n"
+"                    <a href=\"%(the_url)s\"> %(login)s</a>.\n"
+"                    "
 msgstr ""
 
 #: .\templates\webapp\recipes.html.py:37

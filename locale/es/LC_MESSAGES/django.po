@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-21 15:11+0200\n"
+"POT-Creation-Date: 2014-04-21 17:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -439,13 +439,17 @@ msgstr "Enviar"
 msgid "Want to comment?"
 msgstr "¿Quieres comentar?"
 
-#: .\templates\webapp\recipe_template.html.py:329
-msgid "Log in"
-msgstr "Entrar"
+#: .\templates\webapp\recipe_template.html.py:330
+msgid "Log in first"
+msgstr "¡Entra!"
 
-#: .\templates\webapp\recipe_template.html.py:329
-msgid "first"
-msgstr "primero"
+#: .\templates\webapp\recipe_template.html.py:331
+#, python-format
+msgid ""
+"\n"
+"                    <a href=\"%(the_url)s\"> %(login)s</a>.\n"
+"                    "
+msgstr ""
 
 #: .\templates\webapp\recipes.html.py:37
 msgid "Don't you have recipes? Let's make yourself one!"
@@ -458,3 +462,6 @@ msgstr "Las contraseñas no coinciden"
 #: .\webapp\views.py:63
 msgid "Username alerady taken"
 msgstr "Ese nombre de usuario ya está en uso"
+
+#~ msgid "first"
+#~ msgstr "primero"
