@@ -51,11 +51,44 @@
         </div>
 
         <!-- Fork overlay -->
-        <div class="recipe-fork">
-            <a href="#" class="btn btn-default recipe-fork-count"><i class="fa fa-code-fork"></i> 5</a>
-            {% if user.is_authenticated %}<a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default recipe-fork-clone">{% trans "Clone" %}
-                </a>{% endif %}
-        </div>
+        {% with children=receta.get_child_recipes%}
+            <div class="recipe-fork">
+                <a data-toggle="modal" data-target=".recipe-modal-children" class="btn btn-default recipe-fork-count"><i
+                        class="fa fa-code-fork"></i> {{ children|length }}</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default recipe-fork-clone">
+                        {% trans "Clone" %}
+                    </a>{% endif %}
+            </div>
+            <div class="modal fade recipe-modal-children" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Recipes derived from this:</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% if children %}
+                            <ul>
+                                {% for hija in children %}
+                                    <li><a href="{% url 'recipe' hija.id %}"><i class="fa fa-code-fork"></i>
+                                        <span class="recipe-modal-children-author">{{ hija.author.profile.get.display_name }}</span>
+                                        - {{ hija.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                                <div class="recipe-modal-children-empty">
+                                    <span>No derived recipes yet</span>
+                                    <div>
+                                        <a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default btn-eathub"><i class="fa fa-code-fork"></i> Clone it yourself</a>
+                                    </div>
+                                </div>
+
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endwith %}
 
         <!-- Author overlay -->
         <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
