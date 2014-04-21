@@ -632,7 +632,7 @@ header .container {
     color: #CC3E27;
     max-height: 120px;
     text-overflow: ellipsis;
-    line-height: 100%;
+    line-height: 120%;
 }
 
 .main-card-name a:hover {
@@ -825,7 +825,7 @@ header .container {
     font-size: 18px;
     margin-bottom: 20px;
     margin-right: 44px;
-    padding: 8px 44px 10px 10px;
+    padding: 8px 48px 10px 10px;
     border-radius: 5px;
 }
 
