@@ -902,6 +902,10 @@ header .container {
     font-size: 22px;
 }
 
+.recipe-modal-children .modal-dialog {
+    width: 500px;
+}
+
 .recipe-modal-children .modal-body ul {
     list-style: none;
     padding: 0;
