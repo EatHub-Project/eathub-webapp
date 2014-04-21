@@ -1276,8 +1276,11 @@ header .container {
     display: block;
     width: auto;
     overflow: hidden;
-    padding: 20px 0;
     height: 60px;
+}
+
+.footer-content {
+    padding: 20px 0;
 }
 
 .ul-footer {
@@ -1298,5 +1301,5 @@ header .container {
 }
 
 .footer-logo {
-
+    margin-top: 22px;
 }
