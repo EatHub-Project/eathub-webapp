@@ -737,6 +737,26 @@ header .container {
     font-size: 3em;
 }
 
+.recipe-parent {
+    margin-top: -15px;
+    color: #CC3E27;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.recipe-parent:hover {
+    opacity: 1;
+}
+
+.recipe-parent span{
+}
+.recipe-parent a{
+    color: #CC3E27;
+}
+.recipe-parent a:hover {
+    text-decoration: none;
+}
+
 .main-picture-padding {
     height: 400px;
     padding: 10px;

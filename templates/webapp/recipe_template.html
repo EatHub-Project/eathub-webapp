@@ -8,6 +8,9 @@
 
     <div class="col-md-8 col-md-offset-2">
     <h1 class="recipe-name">{{ receta.title }}</h1>
+    {% if receta.parent %}
+        <h5 class="recipe-parent"><span><i class="fa fa-code-fork"></i> Cloned from: </span><a href="{% url 'recipe' receta.parent.id %}">{{ receta.parent.author.profile.get.display_name }} - {{ receta.parent.title }}</a></h5>
+    {% endif %}
 
     <div class="panel main-picture-padding row">
         <div id="carousel-example-generic" class="main-picture-carousel carousel slide"
