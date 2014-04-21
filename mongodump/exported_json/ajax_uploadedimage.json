@@ -106,121 +106,51 @@
     },
     {
         "_id": {
-            "$oid": "5354e376b88bbe061450845f"
-        },
-        "image": "images/Tomas.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e3f1b88bbe0614508460"
-        },
-        "image": "images/juanma.persist.JPG",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e5aab88bbe0614508461"
-        },
-        "image": "images/alexis.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e603b88bbe0614508462"
-        },
-        "image": "images/Fran_Benavente.persist.JPG",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e65bb88bbe0614508463"
-        },
-        "image": "images/james.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e69cb88bbe0614508464"
-        },
-        "image": "images/ted.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e6a0b88bbe0614508465"
-        },
-        "image": "images/Juhani_Tamminen.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e6a5b88bbe0614508466"
-        },
-        "image": "images/maria.persist.jpeg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e6a9b88bbe0614508467"
-        },
-        "image": "images/mario.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e6adb88bbe0614508468"
-        },
-        "image": "images/paco.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e806b88bbe0614508469"
-        },
-        "image": "images/pirus_6.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
-            "$oid": "5354e80ab88bbe061450846a"
+            "$oid": "5353d7c9c54d2d14a6e64399"
         },
         "image": "images/pirus_0.persist.jpg",
         "persist": true
     },
     {
         "_id": {
-            "$oid": "5354e80fb88bbe061450846b"
+            "$oid": "5353d7cac54d2d14a6e6439a"
         },
         "image": "images/pirus_1.persist.jpg",
         "persist": true
     },
     {
         "_id": {
-            "$oid": "5354e814b88bbe061450846c"
+            "$oid": "5353d7cdc54d2d14a6e6439b"
         },
         "image": "images/pirus_2.persist.jpg",
         "persist": true
     },
     {
         "_id": {
-            "$oid": "5354e819b88bbe061450846d"
+            "$oid": "5353d7cfc54d2d14a6e6439c"
         },
         "image": "images/pirus_3.persist.jpg",
         "persist": true
     },
     {
         "_id": {
-            "$oid": "5354e81db88bbe061450846e"
+            "$oid": "5353d7d1c54d2d14a6e6439d"
         },
         "image": "images/pirus_4.persist.jpg",
         "persist": true
     },
     {
         "_id": {
-            "$oid": "5354e822b88bbe061450846f"
+            "$oid": "5353d7d3c54d2d14a6e6439e"
         },
         "image": "images/pirus_5.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5353d7d5c54d2d14a6e6439f"
+        },
+        "image": "images/pirus_6.persist.jpg",
         "persist": true
     }
 ]

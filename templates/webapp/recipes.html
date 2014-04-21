@@ -11,7 +11,7 @@
 
                 <div class="col-md-3 panel follow-list-item recipe-max-height">
                     <img class="img-rounded"
-                         src="{{ recipe.pictures.0 }}"/>
+                         src="{{ recipe.main_image.url }}"/>
 
                     <div class="limit-text recipe-title-max-height">
                         <h3 class="user-name"><a href="{% url 'recipe' recipe.id %}">
@@ -20,9 +20,9 @@
 
                     <br />
 
-                    <div class="recipe-time panel-body pull-right">
+                    <div class="recipe-list-time panel-body pull-right">
                         <span class="glyphicon glyphicon-time"></span>
-                        <p>{{ recipe.time.prep_time }}</p>
+                        <span>{{ recipe.time.prep_time }}</span>
                     </div>
                     <!--<p class="location">
                         <span class="glyphicon glyphicon-map-marker"></span><span>{{ friend_profile.location }}</span>

@@ -1,3 +1,5 @@
+import json
+from ajax.models import UploadedImage
 from django import forms
 from models import Recipe
 
@@ -30,7 +32,7 @@ class NewAccountForm(forms.Form):
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
 
-class NewRecipeForm(forms.Form):
+class RecipeForm(forms.Form):
     LANGUAGES = [("en", "English"), ("es", "Spanish")]
     COUNTRY = [("", "--"), ("ES", "Spain"), ("FR", "France"), ("EN", "England"), ("US", "USA")]
     TEMPORALITY = [("summer", "Summer"), ("autumn", "Autumn"), ("spring", "Spring"), ("winter", "Winter")]
@@ -40,10 +42,11 @@ class NewRecipeForm(forms.Form):
 
     title = forms.CharField(max_length=50, required=False)
     main_picture_id = forms.CharField(required=True)
-    pictures_ids_list = forms.CharField(required=False)
+    pictures_ids_json = forms.CharField(required=False)
     description = forms.CharField(required=False)
 
-    #ingredients_list = forms.CharField(required=True)
+    ingredients_json = forms.CharField(required=True)
+    steps_json = forms.CharField(required=True)
 
     serves = forms.CharField(max_length=50, required=False)
     language = forms.ChoiceField(choices=LANGUAGES, required=False)
@@ -63,32 +66,82 @@ class NewRecipeForm(forms.Form):
     sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
-    def __init__(self, *args, **kwargs):
-        steps = kwargs.pop('steps')
-        ingredients = kwargs.pop('ingredients')
-        super(NewRecipeForm, self).__init__(*args, **kwargs)
+    def get_ingredients_list(self):
+        try:
+            json_data = self.cleaned_data['ingredients_json']
+            data = json.loads(json_data)
+            return data
+        except AttributeError:
+            return None
+        except KeyError:
+            return None
 
-        for i, step in enumerate(steps):
-            self.fields['step_%s' % i] = forms.CharField()
+    def get_pictures_ids_list(self):
+        try:
+            json_data = self.cleaned_data['pictures_ids_json']
+            if json_data:
+                data = json.loads(json_data)
+                return data
+        except AttributeError:
+            return None
+        except KeyError:
+            return None
+        return None
 
-        for i, ingredient in enumerate(ingredients):
-            self.fields['ingredient_%s' % i] = forms.CharField()
+    def get_steps_list(self):
+        try:
+            json_data = self.cleaned_data['steps_json']
+            data = json.loads(json_data)
+            return data
+        except AttributeError:
+            return None
+        except KeyError:
+            return None
 
-    def get_cleaned_steps(self):
-        steps = list()
-        for field in self.cleaned_data:
-            if field.startswith('step_'):
-                steps.append(self.cleaned_data[field])
-        return steps
+    @staticmethod
+    def get_filled_form(r):
+        data = {
+            'title': r.title,
+            'description': r.description,
+            'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
+            #todo modification?
+            'serves': r.serves,
+            'language': r.language,
+            'temporality': r.temporality,
+            'special_conditions': r.special_conditions,
+            'nationality': r.nationality,
+            'notes': r.notes,
+            'difficult': r.difficult,
+            'food_type': r.food_type,
+            'tags': ",".join(r.tags),
+            'cook_time': r.time.cook_time,
+            'prep_time': r.time.prep_time,
+            'sour': r.savours.sour,
+            'sweet': r.savours.sweet,
+            'salty': r.savours.salty,
+            'bitter': r.savours.bitter,
+            'spicy': r.savours.spicy,
+        }
+        #ingredients
+        ingredients_list = r.ingredients
+        data['ingredients_json'] = json.dumps(ingredients_list)
 
-    def get_cleaned_ingredients(self):
-        ingredients = list()
-        for field in self.cleaned_data:
-            if field.startswith('ingredient_'):
-                ingredients.append(self.cleaned_data[field])
-        return ingredients
+        #pictures
+        pictures_ids_list = list()
+        for pic in r.pictures:
+            pictures_ids_list.append(UploadedImage.objects.get(image=pic.image).id)
+        data['pictures_ids_json'] = json.dumps(pictures_ids_list)
 
+        #steps
+        steps_list = list()
+        for step in r.steps:
+            if step.image:
+                steps_list.append({"text": step.text, "picture": UploadedImage.objects.get(image=step.image).id})
+            else:
+                steps_list.append({"text": step.text})
+        data['steps_json'] = json.dumps(steps_list)
 
+        return RecipeForm(data)
 
 
 class EditAccountForm(NewAccountForm):
@@ -98,6 +151,7 @@ class EditAccountForm(NewAccountForm):
         self.fields['email'].required = False
         self.fields['password'].required = False
         self.fields['password_repeat'].required = False
+
 
 class AddComment(forms.Form):
     text = forms.CharField(required=True)
