@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-21 18:38+0200\n"
+"POT-Creation-Date: 2014-04-21 21:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -254,6 +254,10 @@ msgid ""
 "better recommend people your recipe based on ther personal tastes and so on, "
 "you know. Savours are measured in a relative way, of course. For more "
 "information, check Wikipedia or something, dude."
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:760
+msgid "Save as draft"
 msgstr ""
 
 #: .\templates\webapp\profile.html.py:22
