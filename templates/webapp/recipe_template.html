@@ -169,8 +169,10 @@
                     </div>
                 </div>
                 {% if step.image %}
-                    <img class="img-rounded recipe-step-picture img-thumbnail center-block"
-                         src="{{ step.image.url }}">
+                    <a class="" href="{{ step.image.url }}" data-lightbox="steplightbox2-{{ forloop.counter }}">
+                        <img class="img-rounded recipe-step-picture img-thumbnail center-block"
+                             src="{{ step.image.url }}">
+                    </a>
                 {% endif %}
             </div>
 
