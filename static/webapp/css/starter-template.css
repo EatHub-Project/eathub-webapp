@@ -1270,3 +1270,34 @@ header .container {
     height: 400px;
     position: relative;
 }
+
+.color-footer {
+    background-color: #333333;
+    display: block;
+    width: auto;
+    overflow: hidden;
+    padding: 20px 0;
+    height: 60px;
+}
+
+.ul-footer {
+    list-style: none;
+
+}
+
+.link-footer {
+    color: #F8F8F8;
+    text-decoration: None;
+    font-weight: lighter;
+}
+
+.link-footer:hover {
+    color: #CC3E27;
+    font-weight: bold;
+    text-decoration: None;
+}
+
+.footer-logo {
+    width: 61px;
+    height: 52px;
+}
