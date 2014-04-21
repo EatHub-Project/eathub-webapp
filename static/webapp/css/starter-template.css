@@ -1271,7 +1271,7 @@ header .container {
     position: relative;
 }
 
-.color-footer {
+.footer {
     background-color: #333333;
     display: block;
     width: auto;
@@ -1285,19 +1285,18 @@ header .container {
 
 }
 
-.link-footer {
-    color: #F8F8F8;
+.footer-link {
+    color: #aaa;
     text-decoration: None;
-    font-weight: lighter;
+    font-weight: 200;
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.link-footer:hover {
-    color: #CC3E27;
-    font-weight: bold;
+.footer-link:hover {
+    color: #eee;
     text-decoration: None;
 }
 
 .footer-logo {
-    width: 61px;
-    height: 52px;
+
 }
