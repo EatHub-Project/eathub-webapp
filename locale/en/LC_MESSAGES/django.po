@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-22 12:35+0200\n"
+"POT-Creation-Date: 2014-04-22 12:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -430,11 +430,11 @@ msgstr ""
 msgid "Save as draft"
 msgstr ""
 
-#: .\templates\webapp\profile.html.py:22
+#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:430
 msgid "Followers"
 msgstr "Followers"
 
-#: .\templates\webapp\profile.html.py:24
+#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:413
 msgid "Following"
 msgstr "Following"
 
