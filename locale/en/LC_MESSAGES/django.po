@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-22 09:38+0200\n"
+"POT-Creation-Date: 2014-04-22 12:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,6 +59,24 @@ msgstr "Sign in"
 #: .\templates\webapp\newaccount.html.py:412
 msgid "Create account"
 msgstr "Create account"
+
+#: .\templates\webapp\base.html.py:125
+msgid "This web is under development by the members of fifth group of ISPP."
+msgstr ""
+
+#: .\templates\webapp\base.html.py:128
+msgid ""
+"Any feedback, suggestion, bug reports or similar given from you is "
+"appretiated, so please use the following button to contact us."
+msgstr ""
+
+#: .\templates\webapp\base.html.py:132
+msgid "Thank you for your feedback"
+msgstr ""
+
+#: .\templates\webapp\base.html.py:137
+msgid "Send email"
+msgstr ""
 
 #: .\templates\webapp\following.html.py:23
 #: .\templates\webapp\recipes.html.py:31
@@ -228,30 +246,35 @@ msgid "Tastes"
 msgstr ""
 
 #: .\templates\webapp\newaccount.html.py:337
+#: .\templates\webapp\newrecipe.html.py:686
 #: .\templates\webapp\profile.html.py:231
 #: .\templates\webapp\recipe_template.html.py:273
 msgid "Salty"
 msgstr "Salty"
 
 #: .\templates\webapp\newaccount.html.py:352
+#: .\templates\webapp\newrecipe.html.py:701
 #: .\templates\webapp\profile.html.py:240
 #: .\templates\webapp\recipe_template.html.py:283
 msgid "Sour"
 msgstr "Sour"
 
 #: .\templates\webapp\newaccount.html.py:365
+#: .\templates\webapp\newrecipe.html.py:714
 #: .\templates\webapp\profile.html.py:249
 #: .\templates\webapp\recipe_template.html.py:293
 msgid "Bitter"
 msgstr "Bitter"
 
 #: .\templates\webapp\newaccount.html.py:378
+#: .\templates\webapp\newrecipe.html.py:727
 #: .\templates\webapp\profile.html.py:258
 #: .\templates\webapp\recipe_template.html.py:303
 msgid "Sweet"
 msgstr "Sweet"
 
 #: .\templates\webapp\newaccount.html.py:391
+#: .\templates\webapp\newrecipe.html.py:740
 #: .\templates\webapp\profile.html.py:267
 #: .\templates\webapp\recipe_template.html.py:313
 msgid "Spicy"
@@ -266,120 +289,136 @@ msgstr "Save changes"
 msgid "Basic information"
 msgstr "Basic info"
 
-#: .\templates\webapp\newrecipe.html.py:252
+#: .\templates\webapp\newrecipe.html.py:237
+#, fuzzy
+msgid "Name your recipe"
+msgstr "No recipes yet"
+
+#: .\templates\webapp\newrecipe.html.py:253
 msgid "Add main picture"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:255
+#: .\templates\webapp\newrecipe.html.py:256
 msgid "Drag and drop an image here"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:284
+#: .\templates\webapp\newrecipe.html.py:285
 msgid "Add more pictures"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:296
+#: .\templates\webapp\newrecipe.html.py:297
 msgid "Write a short description. What is your recipe about?"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:308
+#: .\templates\webapp\newrecipe.html.py:309
 msgid "How to make it"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:311
+#: .\templates\webapp\newrecipe.html.py:312
 msgid "Ingredients list"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:361
+#: .\templates\webapp\newrecipe.html.py:362
 msgid "Add an ingredient..."
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:367
+#: .\templates\webapp\newrecipe.html.py:368
 msgid "Step by Step"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:379
+#: .\templates\webapp\newrecipe.html.py:380
 msgid "What is the step?…"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:405
-#: .\templates\webapp\newrecipe.html.py:437
+#: .\templates\webapp\newrecipe.html.py:406
+#: .\templates\webapp\newrecipe.html.py:438
 msgid "What are we doing now?"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:454
+#: .\templates\webapp\newrecipe.html.py:455
 msgid "Pick a picture"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:469
+#: .\templates\webapp\newrecipe.html.py:470
 msgid "Cancel"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:475
+#: .\templates\webapp\newrecipe.html.py:476
 msgid "Additional notes"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:479
+#: .\templates\webapp\newrecipe.html.py:480
 msgid "Anything else you want to point out about your recipe?"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:491
+#: .\templates\webapp\newrecipe.html.py:492
 #, fuzzy
 msgid "Extra information"
 msgstr "Account information"
 
-#: .\templates\webapp\newrecipe.html.py:497
+#: .\templates\webapp\newrecipe.html.py:498
 msgid "Preparation time"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:512
+#: .\templates\webapp\newrecipe.html.py:502
+#: .\templates\webapp\newrecipe.html.py:518
+#, fuzzy
+msgid "minutes"
+msgstr "Bitter"
+
+#: .\templates\webapp\newrecipe.html.py:514
 msgid "Cooking time"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:530
+#: .\templates\webapp\newrecipe.html.py:533
 msgid "Serves"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:533
+#: .\templates\webapp\newrecipe.html.py:536
 msgid "Two persons or Five units"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:542
+#: .\templates\webapp\newrecipe.html.py:545
 msgid "Difficulty"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:562
-msgid "Temporality"
+#: .\templates\webapp\newrecipe.html.py:565
+#: .\templates\webapp\recipe_template.html.py:239
+msgid "Occasions"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:583
+#: .\templates\webapp\newrecipe.html.py:586
 msgid "Food type"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:604
+#: .\templates\webapp\newrecipe.html.py:607
 msgid "Special conditions"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:625
+#: .\templates\webapp\newrecipe.html.py:628
 #: .\templates\webapp\profile.html.py:65
 msgid "Language"
 msgstr "Language"
 
-#: .\templates\webapp\newrecipe.html.py:646
+#: .\templates\webapp\newrecipe.html.py:649
 msgid "Free tags"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:657
+#: .\templates\webapp\newrecipe.html.py:652
+msgid "Comma separated tags"
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:661
 msgid "Nationality"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:678
+#: .\templates\webapp\newrecipe.html.py:682
 #: .\templates\webapp\recipe_template.html.py:269
 #, fuzzy
 msgid "Savours"
 msgstr "Sour"
 
-#: .\templates\webapp\newrecipe.html.py:754
+#: .\templates\webapp\newrecipe.html.py:758
 msgid ""
 "Savour values defines the savour of your recipe and stuff. This way we can "
 "better recommend people your recipe based on ther personal tastes and so on, "
@@ -387,7 +426,7 @@ msgid ""
 "information, check Wikipedia or something, dude."
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:767
+#: .\templates\webapp\newrecipe.html.py:771
 msgid "Save as draft"
 msgstr ""
 
@@ -522,10 +561,6 @@ msgstr ""
 #, fuzzy
 msgid "More information"
 msgstr "Profile information"
-
-#: .\templates\webapp\recipe_template.html.py:239
-msgid "Occasions"
-msgstr ""
 
 #: .\templates\webapp\recipe_template.html.py:246
 msgid "Food Type"

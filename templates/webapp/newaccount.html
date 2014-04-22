@@ -138,7 +138,7 @@
                     visualización como responsabilidad de la plantilla.
                     Visto en: http://stackoverflow.com/questions/18805999/how-to-style-a-django-form-bootstrap
                     {% endcomment %}
-                <input type="text" class="form-control" placeholder={{ user_name }}
+                <input type="text" class="form-control" placeholder="{{ user_name }}"
                        name="{{ form.username.name }}" id="id_{{ form.username.name }}"
                        value="{{ form.username.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
@@ -152,7 +152,7 @@
 
             <div class="col-sm-3">
                 {% trans "youremail@example.com" as your_email %}
-                <input type="email" class="form-control" placeholder={{ your_email }}
+                <input type="email" class="form-control" placeholder="{{ your_email }}"
                        name="{{ form.email.name }}" id="id_{{ form.email.name }}"
                        value="{{ form.email.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
@@ -166,7 +166,7 @@
 
             <div class="col-sm-3">
                 {% trans "Your password" as your_pass %}
-                <input type="password" class="form-control" placeholder={{ your_pass }}
+                <input type="password" class="form-control" placeholder="{{ your_pass }}"
                        name="{{ form.password.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password.value | default_if_none:'' }}">
             </div>
@@ -180,7 +180,7 @@
 
             <div class="col-sm-3">
                 {% trans "Repeat your password" as repeat_your_pass %}
-                <input type="password" class="form-control" placeholder={{ repeat_your_pass }}
+                <input type="password" class="form-control" placeholder="{{ repeat_your_pass }}"
                        name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password_repeat.value | default_if_none:'' }}">
             </div>
@@ -197,7 +197,7 @@
 
             <div class="col-sm-3">
                 {% trans "Your public name" as your_public_name %}
-                <input type="text" class="form-control" placeholder={{ your_public_name }}
+                <input type="text" class="form-control" placeholder="{{ your_public_name }}"
                        name="{{ form.display_name.name }}" id="id_{{ form.display_name.name }}"
                        value="{{ form.display_name.value | default_if_none:'' }}">
             </div>
@@ -274,7 +274,7 @@
 
             <div class="col-sm-3">
                 {% trans "Your city, country or else" as your_city %}
-                <input type="text" class="form-control" placeholder={{ your_city }}
+                <input type="text" class="form-control" placeholder="{{ your_city }}"
                        name="{{ form.location.name }}" id="id_{{ form.location.name }}"
                        value="{{ form.location.value | default_if_none:'' }}">
             </div>
@@ -287,7 +287,7 @@
 
             <div class="col-sm-3">
                 {% trans "Your page's URL" as your_URL %}
-                <input type="text" class="form-control" placeholder={{ your_URL }}
+                <input type="text" class="form-control" placeholder="{{ your_URL }}"
                        name="{{ form.website.name }}" id="id_{{ form.website.name }}"
                        value="{{ form.website.value | default_if_none:'' }}">
             </div>

@@ -122,23 +122,19 @@
                     <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Esta web se encuentra en desarrollo por parte de los miembros del grupo 5 de la asignatura de
-                        Ingenier&iacute;a del Software y P&aacute;ctica Profesional.</p>
+                    <p>{% trans "This web is under development by the members of fifth group of ISPP." %}</p>
 
 
-                    <p>Como tal, todo el feedback que nos puedan aportan es de gran utilidad, ya sea para sugerencias,
-                        bugs, etc. Para ello, env&iacute;e el correo a la direcci&oacute;n
-                        <b>eathub.contact@gmail.com</b> o pulse
-                        el bot&oacute;n de la parte inferior d&oacute;nde se abrir&aacute; su cliente de correo
-                        y podr&aacute; enviarnos su feedback.</p>
+                    <p>{% trans "Any feedback, suggestion, bug reports or similar given from you is appretiated, so please use the following button to contact us."  %}
+                        </p>
 
 
-                    <p>Gracias por su feedback</p>
+                    <p>{% trans "Thank you for your feedback" %}</p>
 
                 </div>
                 <div class="modal-footer">
                     <a class="plus btn btn-default"
-                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!">Enviar correo</a>
+                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!">{% trans "Send email" %}</a>
                 </div>
             </div>
         </div>
