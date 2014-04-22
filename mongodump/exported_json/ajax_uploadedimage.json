@@ -8,13 +8,6 @@
     },
     {
         "_id": {
-            "$oid": "53513316b88bbe140cb839e9"
-        },
-        "image": "images/fotocarne_recortada.persist.jpg",
-        "persist": true
-    },
-    {
-        "_id": {
             "$oid": "5352b559b88bbe0550a704dd"
         },
         "image": "images/ensalada_de_arroz.persist.jpg",
@@ -151,6 +144,34 @@
             "$oid": "5353d7d5c54d2d14a6e6439f"
         },
         "image": "images/pirus_6.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5356a6f518085d079c7ef9fd"
+        },
+        "image": "images/pesti\u00f1os.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5356caadb88bbe0b08ddf9d5"
+        },
+        "image": "images/patatas.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5356a7cb18085d079c7ef9fe"
+        },
+        "image": "images/pesti\u00f1os_de_chocolate.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5354f89818085d1b70f96c3f"
+        },
+        "image": "images/pesti\u00f1os2.persist.jpg",
         "persist": true
     }
 ]
