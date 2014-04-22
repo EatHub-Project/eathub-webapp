@@ -166,5 +166,12 @@
         },
         "image": "images/pesti\u00f1oschoco.persist.jpg",
         "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5354f89818085d1b70f96c3f"
+        },
+        "image": "images/picassa8.persist.jpg",
+        "persist": true
     }
 ]
