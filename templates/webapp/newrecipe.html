@@ -291,8 +291,9 @@
             <div class="col-sm-12">
                 <!-- <label for="id_{{ form.description.name }}"
                class="col-sm-2 ">{{ form.description.label }}</label> -->
+                {% trans "Write a short description. What is your recipe about?" as description_text %}
                 <textarea class="form-control input-lg"
-                          placeholder="Write a short description. What is your recipe about?"
+                          placeholder={{ description_text }}
                           rows="4"
                           name="{{ form.description.name }}" id="id_{{ form.description.name }}"
                         >{{ form.description.value | default_if_none:'' }}</textarea>
@@ -373,10 +374,12 @@
                                 <span>{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
+                                {% trans "What is the step?…" as step_description %}
                                 <textarea class="form-control input-lg step-input"
-                                          placeholder="What is the first step?…"
+                                          placeholder={{ step_description }}
                                           rows="4"
                                           name="step_{row-count-placeholder}" id="id_step_{row-count-placeholder}"
+                                        ></textarea>
                                         ></textarea>
                             </div>
                             <div class="col-sm-2 step-picture" data-step-index="{row-count-placeholder}">
@@ -464,12 +467,13 @@
             </div>
         </div>
 
-        <h5>Additional notes</h5>
+        <h5>{% trans "Additional notes" %}</h5>
 
         <div class="form-group">
             <div class="col-sm-12">
+                {% trans "Anything else you want to point out about your recipe?" as place_holder %}
                 <textarea class="form-control input-lg"
-                          placeholder="Anything else you want to point out about your recipe?"
+                          placeholder={{ place_holder }}
                           rows="3"
                           name="{{ form.notes.name }}" id="id_{{ form.notes.name }}"
                         >{{ form.notes.value | default_if_none:'' }}</textarea>

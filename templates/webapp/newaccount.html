@@ -131,13 +131,14 @@
                    class="col-sm-2 control-label">{{ form.username.label }}</label>
 
             <div class="col-sm-3">
+            {% trans "Username" as user_name %}
                 {% comment %}
                     Utilizo esta técnica en vez de poner {{ form.username }} para permitir estilos personalizados.
                     Se pueden añadir estilos en la clase NewAccountForm, pero de esta forma es más flexible y deja la
                     visualización como responsabilidad de la plantilla.
                     Visto en: http://stackoverflow.com/questions/18805999/how-to-style-a-django-form-bootstrap
                     {% endcomment %}
-                <input type="text" class="form-control" placeholder="Username"
+                <input type="text" class="form-control" placeholder={{ user_name }}
                        name="{{ form.username.name }}" id="id_{{ form.username.name }}"
                        value="{{ form.username.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
@@ -150,7 +151,8 @@
             <label for="id_{{ form.email.name }}" class="col-sm-2 control-label">{{ form.email.label }}</label>
 
             <div class="col-sm-3">
-                <input type="email" class="form-control" placeholder="youremail@example.com"
+                {% trans "youremail@example.com" as your_email %}
+                <input type="email" class="form-control" placeholder={{ your_email }}
                        name="{{ form.email.name }}" id="id_{{ form.email.name }}"
                        value="{{ form.email.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
@@ -163,7 +165,8 @@
                    class="col-sm-2 control-label">{{ form.password.label }}</label>
 
             <div class="col-sm-3">
-                <input type="password" class="form-control" placeholder="Your password"
+                {% trans "Your password" as your_pass %}
+                <input type="password" class="form-control" placeholder={{ your_pass }}
                        name="{{ form.password.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password.value | default_if_none:'' }}">
             </div>
@@ -176,7 +179,8 @@
                    class="col-sm-2 control-label">{{ form.password_repeat.label }}</label>
 
             <div class="col-sm-3">
-                <input type="password" class="form-control" placeholder="Repeat your password"
+                {% trans "Repeat your password" as repeat_your_pass %}
+                <input type="password" class="form-control" placeholder={{ repeat_your_pass }}
                        name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password_repeat.value | default_if_none:'' }}">
             </div>
@@ -192,7 +196,8 @@
                    class="col-sm-2 control-label">{{ form.display_name.label }}</label>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="Your public name"
+                {% trans "Your public name" as your_public_name %}
+                <input type="text" class="form-control" placeholder={{ your_public_name }}
                        name="{{ form.display_name.name }}" id="id_{{ form.display_name.name }}"
                        value="{{ form.display_name.value | default_if_none:'' }}">
             </div>
@@ -268,7 +273,8 @@
                    class="col-sm-2 control-label">{{ form.location.label }}</label>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="Your city, country or reference location"
+                {% trans "Your city, country or else" as your_city %}
+                <input type="text" class="form-control" placeholder={{ your_city }}
                        name="{{ form.location.name }}" id="id_{{ form.location.name }}"
                        value="{{ form.location.value | default_if_none:'' }}">
             </div>
@@ -280,7 +286,8 @@
                    class="col-sm-2 control-label">{{ form.website.label }}</label>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="Your page's URL"
+                {% trans "Your page's URL" as your_URL %}
+                <input type="text" class="form-control" placeholder={{ your_URL }}
                        name="{{ form.website.name }}" id="id_{{ form.website.name }}"
                        value="{{ form.website.value | default_if_none:'' }}">
             </div>
@@ -323,7 +330,7 @@
 
         <!-- Tastes -->
         <div class="col-sm-5">
-            <h3>Tastes</h3>
+            <h3>{% trans "Tastes"%}</h3>
             <label for="id_{{ form.salty.name }}" class="slider-label">{{ form.salty.label }}</label>
 
             <div class="control-group">

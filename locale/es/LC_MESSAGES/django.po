@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-21 21:45+0200\n"
+"POT-Creation-Date: 2014-04-22 08:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "Entrar"
 
 #: .\templates\webapp\base.html.py:97
 #: .\templates\webapp\newaccount.html.py:104
-#: .\templates\webapp\newaccount.html.py:405
+#: .\templates\webapp\newaccount.html.py:412
 msgid "Create account"
 msgstr "Nueva cuenta"
 
@@ -101,6 +101,7 @@ msgid "Please sign in"
 msgstr "Inicia sesión"
 
 #: .\templates\webapp\login.html.py:50
+#: .\templates\webapp\newaccount.html.py:135
 msgid "Username"
 msgstr "Nombre de usuario"
 
@@ -133,24 +134,48 @@ msgstr "Editar perfil"
 msgid "Account information"
 msgstr "información de la cuenta"
 
-#: .\templates\webapp\newaccount.html.py:146
-#: .\templates\webapp\newaccount.html.py:159
-#: .\templates\webapp\newaccount.html.py:172
-#: .\templates\webapp\newaccount.html.py:185
-#: .\templates\webapp\newaccount.html.py:201
-#: .\templates\webapp\newaccount.html.py:224
+#: .\templates\webapp\newaccount.html.py:147
+#: .\templates\webapp\newaccount.html.py:161
+#: .\templates\webapp\newaccount.html.py:175
+#: .\templates\webapp\newaccount.html.py:189
+#: .\templates\webapp\newaccount.html.py:206
+#: .\templates\webapp\newaccount.html.py:229
 msgid "Required"
 msgstr "Requerido"
 
-#: .\templates\webapp\newaccount.html.py:189
+#: .\templates\webapp\newaccount.html.py:156
+msgid "youremail@example.com"
+msgstr "tuemail@ejemplo.com"
+
+#: .\templates\webapp\newaccount.html.py:170
+msgid "Your password"
+msgstr "Contraseña"
+
+#: .\templates\webapp\newaccount.html.py:184
+msgid "Repeat your password"
+msgstr "Repítela"
+
+#: .\templates\webapp\newaccount.html.py:193
 msgid "Profile information"
 msgstr "Información del perfil"
 
-#: .\templates\webapp\newaccount.html.py:323
+#: .\templates\webapp\newaccount.html.py:201
+msgid "Your public name"
+msgstr "Nombre público"
+
+#: .\templates\webapp\newaccount.html.py:279
+msgid "Your city, country or else"
+msgstr "Tu ciudad, país u otra referencia"
+
+#: .\templates\webapp\newaccount.html.py:292
+msgid "Your page's URL"
+msgstr "URL de tu página"
+
+#: .\templates\webapp\newaccount.html.py:330
 msgid "Consumer preferences"
 msgstr "Preferencias de los usuarios"
 
-#: .\templates\webapp\newaccount.html.py:403
+#: .\templates\webapp\newaccount.html.py:410
 msgid "Save changes"
 msgstr "Guardar los cambios"
 
@@ -170,81 +195,97 @@ msgstr "Arrastra una imagen aquí"
 msgid "Add more pictures"
 msgstr "Añade más imágenes"
 
-#: .\templates\webapp\newrecipe.html.py:307
+#: .\templates\webapp\newrecipe.html.py:296
+msgid "Write a short description. What is your recipe about?"
+msgstr "Escribe una descripción corta. ¿De qué va tu receta?"
+
+#: .\templates\webapp\newrecipe.html.py:308
 msgid "How to make it"
 msgstr "Cómo hacerlo"
 
-#: .\templates\webapp\newrecipe.html.py:310
+#: .\templates\webapp\newrecipe.html.py:311
 msgid "Ingredients list"
 msgstr "Lista de ingredientes"
 
-#: .\templates\webapp\newrecipe.html.py:360
+#: .\templates\webapp\newrecipe.html.py:361
 msgid "Add an ingredient..."
 msgstr "Añadir un ingrediente..."
 
-#: .\templates\webapp\newrecipe.html.py:366
+#: .\templates\webapp\newrecipe.html.py:367
 msgid "Step by Step"
 msgstr "Paso a paso"
 
-#: .\templates\webapp\newrecipe.html.py:449
+#: .\templates\webapp\newrecipe.html.py:379
+msgid "What is the step?…"
+msgstr "¿Qúe hacemos ahora?"
+
+#: .\templates\webapp\newrecipe.html.py:452
 msgid "Pick a picture"
 msgstr "Escoge una foto"
 
-#: .\templates\webapp\newrecipe.html.py:464
+#: .\templates\webapp\newrecipe.html.py:467
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: .\templates\webapp\newrecipe.html.py:485
+#: .\templates\webapp\newrecipe.html.py:473
+msgid "Additional notes"
+msgstr "Notas adicionales"
+
+#: .\templates\webapp\newrecipe.html.py:477
+msgid "Anything else you want to point out about your recipe?"
+msgstr "¿Qúe más quieres decir sobre tu receta?"
+
+#: .\templates\webapp\newrecipe.html.py:489
 msgid "Extra information"
 msgstr "Información de la cuenta"
 
-#: .\templates\webapp\newrecipe.html.py:491
+#: .\templates\webapp\newrecipe.html.py:495
 msgid "Preparation time"
 msgstr "Tiempo de preparación"
 
-#: .\templates\webapp\newrecipe.html.py:506
+#: .\templates\webapp\newrecipe.html.py:510
 msgid "Cooking time"
 msgstr "Tiempo cocinándolo"
 
-#: .\templates\webapp\newrecipe.html.py:524
+#: .\templates\webapp\newrecipe.html.py:528
 msgid "Serves"
 msgstr "Comensales"
 
-#: .\templates\webapp\newrecipe.html.py:535
+#: .\templates\webapp\newrecipe.html.py:539
 msgid "Difficulty"
 msgstr "Dificultad"
 
-#: .\templates\webapp\newrecipe.html.py:555
+#: .\templates\webapp\newrecipe.html.py:559
 msgid "Temporality"
 msgstr "Temporada"
 
-#: .\templates\webapp\newrecipe.html.py:576
+#: .\templates\webapp\newrecipe.html.py:580
 msgid "Food type"
 msgstr "Tipo de comida"
 
-#: .\templates\webapp\newrecipe.html.py:597
+#: .\templates\webapp\newrecipe.html.py:601
 msgid "Special conditions"
 msgstr "Condiciones especiales"
 
-#: .\templates\webapp\newrecipe.html.py:618
+#: .\templates\webapp\newrecipe.html.py:622
 #: .\templates\webapp\profile.html.py:65
 msgid "Language"
 msgstr "Idioma"
 
-#: .\templates\webapp\newrecipe.html.py:639
+#: .\templates\webapp\newrecipe.html.py:643
 msgid "Free tags"
 msgstr "Etiquetas libres"
 
-#: .\templates\webapp\newrecipe.html.py:650
+#: .\templates\webapp\newrecipe.html.py:654
 msgid "Nationality"
 msgstr "Nacionalidad"
 
-#: .\templates\webapp\newrecipe.html.py:671
+#: .\templates\webapp\newrecipe.html.py:675
 #: .\templates\webapp\recipe_template.html.py:269
 msgid "Savours"
 msgstr "Sabores"
 
-#: .\templates\webapp\newrecipe.html.py:747
+#: .\templates\webapp\newrecipe.html.py:751
 msgid ""
 "Savour values defines the savour of your recipe and stuff. This way we can "
 "better recommend people your recipe based on ther personal tastes and so on, "
@@ -255,7 +296,7 @@ msgstr ""
 "modopodemosrecomendar mejor tu receta a los gustos personales de cada "
 "persona.Los valores de estos sabores son evidentemente relativos"
 
-#: .\templates\webapp\newrecipe.html.py:760
+#: .\templates\webapp\newrecipe.html.py:764
 msgid "Save as draft"
 msgstr "Guardar como borrador"
 
@@ -274,6 +315,10 @@ msgstr "¡Este eres tú!"
 #: .\templates\webapp\profile.html.py:30
 msgid "Unfollow"
 msgstr "Dejar de seguir"
+
+#: .\templates\webapp\profile.html.py:32
+msgid "Follow"
+msgstr "Seguir"
 
 #: .\templates\webapp\profile.html.py:37
 msgid "Unknown error"
@@ -361,9 +406,8 @@ msgid "Recipes derived from this:"
 msgstr "Recetas derivadas de:"
 
 #: .\templates\webapp\recipe_template.html.py:85
-#, fuzzy
 msgid "No derived recipes yet"
-msgstr "Aún no hay recetas"
+msgstr "Aún no hay recetas derivadas de ésta"
 
 #: .\templates\webapp\recipe_template.html.py:90
 msgid "Clone it yourself"
@@ -465,9 +509,8 @@ msgid "Want to comment? <a href=\"%(the_url)s\">Log in</a> first."
 msgstr "¿Quieres comentar algo? <a href=\"%(the_url)s\">Entra</a> primero."
 
 #: .\templates\webapp\recipes.html.py:38
-#, fuzzy
 msgid "You do not have any recipe yet"
-msgstr "Este usuario no tiene ninguna receta todavía"
+msgstr "Aún no tienes recetas"
 
 #: .\templates\webapp\recipes.html.py:42
 msgid "This user does not has any recipe yet"

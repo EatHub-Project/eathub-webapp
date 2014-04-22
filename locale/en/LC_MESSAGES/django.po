@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-21 21:45+0200\n"
+"POT-Creation-Date: 2014-04-22 08:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,7 +56,7 @@ msgstr "Sign in"
 
 #: .\templates\webapp\base.html.py:97
 #: .\templates\webapp\newaccount.html.py:104
-#: .\templates\webapp\newaccount.html.py:405
+#: .\templates\webapp\newaccount.html.py:412
 msgid "Create account"
 msgstr "Create account"
 
@@ -101,6 +101,7 @@ msgid "Please sign in"
 msgstr "Please sign in"
 
 #: .\templates\webapp\login.html.py:50
+#: .\templates\webapp\newaccount.html.py:135
 msgid "Username"
 msgstr "Username"
 
@@ -134,24 +135,50 @@ msgstr "Edit profile"
 msgid "Account information"
 msgstr "Account information"
 
-#: .\templates\webapp\newaccount.html.py:146
-#: .\templates\webapp\newaccount.html.py:159
-#: .\templates\webapp\newaccount.html.py:172
-#: .\templates\webapp\newaccount.html.py:185
-#: .\templates\webapp\newaccount.html.py:201
-#: .\templates\webapp\newaccount.html.py:224
+#: .\templates\webapp\newaccount.html.py:147
+#: .\templates\webapp\newaccount.html.py:161
+#: .\templates\webapp\newaccount.html.py:175
+#: .\templates\webapp\newaccount.html.py:189
+#: .\templates\webapp\newaccount.html.py:206
+#: .\templates\webapp\newaccount.html.py:229
 msgid "Required"
 msgstr "Required"
 
-#: .\templates\webapp\newaccount.html.py:189
+#: .\templates\webapp\newaccount.html.py:156
+msgid "youremail@example.com"
+msgstr ""
+
+#: .\templates\webapp\newaccount.html.py:170
+#, fuzzy
+msgid "Your password"
+msgstr "Forgot your password?"
+
+#: .\templates\webapp\newaccount.html.py:184
+#, fuzzy
+msgid "Repeat your password"
+msgstr "Forgot your password?"
+
+#: .\templates\webapp\newaccount.html.py:193
 msgid "Profile information"
 msgstr "Profile information"
 
-#: .\templates\webapp\newaccount.html.py:323
+#: .\templates\webapp\newaccount.html.py:201
+msgid "Your public name"
+msgstr ""
+
+#: .\templates\webapp\newaccount.html.py:279
+msgid "Your city, country or else"
+msgstr ""
+
+#: .\templates\webapp\newaccount.html.py:292
+msgid "Your page's URL"
+msgstr ""
+
+#: .\templates\webapp\newaccount.html.py:330
 msgid "Consumer preferences"
 msgstr "Consumer preferences"
 
-#: .\templates\webapp\newaccount.html.py:403
+#: .\templates\webapp\newaccount.html.py:410
 msgid "Save changes"
 msgstr "Save changes"
 
@@ -172,83 +199,99 @@ msgstr ""
 msgid "Add more pictures"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:307
+#: .\templates\webapp\newrecipe.html.py:296
+msgid "Write a short description. What is your recipe about?"
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:308
 msgid "How to make it"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:310
+#: .\templates\webapp\newrecipe.html.py:311
 msgid "Ingredients list"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:360
+#: .\templates\webapp\newrecipe.html.py:361
 msgid "Add an ingredient..."
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:366
+#: .\templates\webapp\newrecipe.html.py:367
 msgid "Step by Step"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:449
+#: .\templates\webapp\newrecipe.html.py:379
+msgid "What is the step?…"
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:452
 msgid "Pick a picture"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:464
+#: .\templates\webapp\newrecipe.html.py:467
 msgid "Cancel"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:485
+#: .\templates\webapp\newrecipe.html.py:473
+msgid "Additional notes"
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:477
+msgid "Anything else you want to point out about your recipe?"
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:489
 #, fuzzy
 msgid "Extra information"
 msgstr "Account information"
 
-#: .\templates\webapp\newrecipe.html.py:491
+#: .\templates\webapp\newrecipe.html.py:495
 msgid "Preparation time"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:506
+#: .\templates\webapp\newrecipe.html.py:510
 msgid "Cooking time"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:524
+#: .\templates\webapp\newrecipe.html.py:528
 msgid "Serves"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:535
+#: .\templates\webapp\newrecipe.html.py:539
 msgid "Difficulty"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:555
+#: .\templates\webapp\newrecipe.html.py:559
 msgid "Temporality"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:576
+#: .\templates\webapp\newrecipe.html.py:580
 msgid "Food type"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:597
+#: .\templates\webapp\newrecipe.html.py:601
 msgid "Special conditions"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:618
+#: .\templates\webapp\newrecipe.html.py:622
 #: .\templates\webapp\profile.html.py:65
 msgid "Language"
 msgstr "Language"
 
-#: .\templates\webapp\newrecipe.html.py:639
+#: .\templates\webapp\newrecipe.html.py:643
 msgid "Free tags"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:650
+#: .\templates\webapp\newrecipe.html.py:654
 msgid "Nationality"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:671
+#: .\templates\webapp\newrecipe.html.py:675
 #: .\templates\webapp\recipe_template.html.py:269
 #, fuzzy
 msgid "Savours"
 msgstr "Sour"
 
-#: .\templates\webapp\newrecipe.html.py:747
+#: .\templates\webapp\newrecipe.html.py:751
 msgid ""
 "Savour values defines the savour of your recipe and stuff. This way we can "
 "better recommend people your recipe based on ther personal tastes and so on, "
@@ -256,7 +299,7 @@ msgid ""
 "information, check Wikipedia or something, dude."
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:760
+#: .\templates\webapp\newrecipe.html.py:764
 msgid "Save as draft"
 msgstr ""
 
@@ -275,6 +318,11 @@ msgstr "That's you!"
 #: .\templates\webapp\profile.html.py:30
 msgid "Unfollow"
 msgstr "Unfollow"
+
+#: .\templates\webapp\profile.html.py:32
+#, fuzzy
+msgid "Follow"
+msgstr "Followers"
 
 #: .\templates\webapp\profile.html.py:37
 msgid "Unknown error"
