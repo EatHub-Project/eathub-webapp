@@ -300,7 +300,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/paisaje.persist.jpg",
+        "avatar": "images/false.png",
         "birth_date": {
             "$date": 687139200000
         },
@@ -686,58 +686,6 @@
         },
         "user_id": {
             "$oid": "5354fccc18085d1b70f96c43"
-        },
-        "website": ""
-    },
-    {
-        "_id": {
-            "$oid": "53558989b88bbe10d0809639"
-        },
-        "additional_languages": [],
-        "avatar": "",
-        "birth_date": null,
-        "display_name": "Roberto",
-        "following": [],
-        "gender": "unknown",
-        "karma": 6,
-        "location": "",
-        "main_language": "en",
-        "modification_date": null,
-        "tastes": {
-            "bitter": 50,
-            "salty": 50,
-            "sour": 50,
-            "spicy": 50,
-            "sweet": 50
-        },
-        "user_id": {
-            "$oid": "53558989b88bbe10d0809638"
-        },
-        "website": ""
-    },
-    {
-        "_id": {
-            "$oid": "53558a6fb88bbe10d080963b"
-        },
-        "additional_languages": [],
-        "avatar": "images/kiko.persist.jpg",
-        "birth_date": null,
-        "display_name": "Kiko",
-        "following": [],
-        "gender": "m",
-        "karma": 6,
-        "location": "Madrid",
-        "main_language": "en",
-        "modification_date": null,
-        "tastes": {
-            "bitter": 50,
-            "salty": 50,
-            "sour": 50,
-            "spicy": 50,
-            "sweet": 50
-        },
-        "user_id": {
-            "$oid": "53558a6fb88bbe10d080963a"
         },
         "website": ""
     }

@@ -465,6 +465,18 @@
         "author_id": {
             "$oid": "53511955b88bbe11b48fcdd7"
         },
+        "comments": [
+            {
+                "create_date": {
+                    "$date": 1398193869704
+                },
+                "is_banned": false,
+                "text": "Muy buenos! Los har\u00e9 esta noche :)",
+                "user_own_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
+                }
+            }
+        ],
         "creation_date": {
             "$date": 1397212214154
         },
@@ -480,7 +492,9 @@
         "is_published": true,
         "language": "spanish",
         "main_image": "images/macarrones_con_tomate.persist.jpg",
+        "modification_date": null,
         "nationality": "italian",
+        "negatives": [],
         "notes": "Uno de los grandes aportes de la cocina italiana.",
         "parent_id": null,
         "pictures": [
@@ -488,6 +502,7 @@
                 "image": "images/macarrones_con_tomate.persist.jpg"
             }
         ],
+        "positives": [],
         "savours": {
             "bitter": 10,
             "salty": 10,
@@ -627,6 +642,7 @@
         "author_id": {
             "$oid": "53511955b88bbe11b48fcdd7"
         },
+        "comments": [],
         "creation_date": {
             "$date": 1397226194154
         },
@@ -642,12 +658,89 @@
         "is_published": true,
         "language": "spanish",
         "main_image": "images/tarta_de_flan_y_galletas.persist.jpg",
+        "modification_date": null,
         "nationality": "spanish",
+        "negatives": [
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5352494f18085d15c08181d1"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "533fbad086c9bdaca925fee2"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5337f440144115cb2ce71e1d"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
+                }
+            }
+        ],
         "notes": "F\u00e1cil de preparar y muy rica.",
         "parent_id": null,
         "pictures": [
             {
                 "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                }
+            },
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "533fba3786c9bdaca925fee1"
+                }
             }
         ],
         "savours": {
@@ -709,6 +802,18 @@
         "author_id": {
             "$oid": "53511955b88bbe11b48fcdd7"
         },
+        "comments": [
+            {
+                "create_date": {
+                    "$date": 1398192709323
+                },
+                "is_banned": false,
+                "text": "\u00a1Me encanta!",
+                "user_own_id": {
+                    "$oid": "5352494f18085d15c08181d1"
+                }
+            }
+        ],
         "creation_date": {
             "$date": 1397298614154
         },
@@ -725,12 +830,24 @@
         "is_published": true,
         "language": "spanish",
         "main_image": "images/solomillo_al_whisky.persist.jpg",
+        "modification_date": null,
         "nationality": "spanish",
+        "negatives": [],
         "notes": "",
         "parent_id": null,
         "pictures": [
             {
                 "image": "images/solomillo_al_whisky.persist.jpg"
+            }
+        ],
+        "positives": [
+            {
+                "date": {
+                    "$date": 1398124800000
+                },
+                "user_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
+                }
             }
         ],
         "savours": {
@@ -890,6 +1007,36 @@
                 "text": "Qu\u00e9 buenas! :D",
                 "user_own_id": {
                     "$oid": "5337f520144115cb2ce71e1f"
+                }
+            },
+            {
+                "create_date": {
+                    "$date": 1398194613023
+                },
+                "is_banned": false,
+                "text": "Me acabo de enamorar de tu receta!!!...",
+                "user_own_id": {
+                    "$oid": "5352494f18085d15c08181d1"
+                }
+            },
+            {
+                "create_date": {
+                    "$date": 1398194656147
+                },
+                "is_banned": false,
+                "text": "No sab\u00eda que hacer esta noche de postre. Muchas gracias.",
+                "user_own_id": {
+                    "$oid": "533fbad086c9bdaca925fee2"
+                }
+            },
+            {
+                "create_date": {
+                    "$date": 1398194731686
+                },
+                "is_banned": false,
+                "text": "\u00a1Muchas gracias a todos!",
+                "user_own_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
                 }
             }
         ],
@@ -1066,7 +1213,18 @@
         "author_id": {
             "$oid": "5352494f18085d15c08181d1"
         },
-        "comments": [],
+        "comments": [
+            {
+                "create_date": {
+                    "$date": 1398193926801
+                },
+                "is_banned": false,
+                "text": "Que buenos! No s\u00e9 c\u00f3mo he podido vivir sin ellos!",
+                "user_own_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
+                }
+            }
+        ],
         "creation_date": {
             "$date": 1398085438051
         },
@@ -1162,6 +1320,281 @@
             {
                 "image": "",
                 "text": "Si quer\u00e9is que el sabor sea aun mas rico, el an\u00eds en grano y el s\u00e9samo comprarlos en semiller\u00edas o en herbolarios, son de mejor calidad y el sabor nada tiene que ver con los botes de los supermercados."
+            }
+        ],
+        "tags": [
+            "Semana Santa"
+        ],
+        "temporality": [
+            "spring"
+        ],
+        "time": {
+            "cook_time": 50,
+            "prep_time": 15
+        },
+        "title": "Pesti\u00f1os"
+    },
+    {
+        "_id": {
+            "$oid": "5356a33b18085d079c7ef9fb"
+        },
+        "author_id": {
+            "$oid": "5337f520144115cb2ce71e1f"
+        },
+        "comments": [
+            {
+                "create_date": {
+                    "$date": 1398194461363
+                },
+                "is_banned": false,
+                "text": "Me gusta pero no estoy de acuerdo con lo de quitar las bolitas",
+                "user_own_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                }
+            },
+            {
+                "create_date": {
+                    "$date": 1398194478996
+                },
+                "is_banned": false,
+                "text": "Bueno si, pero voy a ponerle chocolate. Te la copio! :P",
+                "user_own_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                }
+            },
+            {
+                "create_date": {
+                    "$date": 1398194547595
+                },
+                "is_banned": false,
+                "text": "Vale, lo que tu digas \u00ac\u00ac",
+                "user_own_id": {
+                    "$oid": "5337f520144115cb2ce71e1f"
+                }
+            }
+        ],
+        "creation_date": {
+            "$date": 1398194011202
+        },
+        "description": "La entrada de hoy va dedicada a los pesti\u00f1os, esos peque\u00f1os dulces t\u00edpicos de navidad aunque en muchos lugares se hacen tambi\u00e9n por Semana Santa. Ya en su d\u00eda os compart\u00ed la receta y el mismo v\u00eddeo que os pongo, repetimos pero hoy me voy a centrar en esos trucos y consejos, en esas dudas que todos me pregunt\u00e1is y que siempre os contesto gustosamente.\r\n\r\nSon muy sencillos de hacer pero para que el resultado sea espectacular, a parte de la receta os voy a ir desvelando esos secretos, trucos o consejos que, generaci\u00f3n tras generaci\u00f3n, ha ido pasando de madres a hijas en mi familia.\r\n\r\nOs dejos el v\u00eddeo que hice hace ya un par de a\u00f1os mas o menos para que os resulte mucho mas f\u00e1cil seguir la receta, espero que os ayude.\r\n\r\nEn el cuerpo de la receta os voy detallando esos consejos de los que os hablo.",
+        "difficult": 2,
+        "food_type": "snack",
+        "ingredients": [
+            "1 kilo de harina de pesti\u00f1os",
+            "1 naranja de zumo",
+            "2 vasos de aceite de oliva virgen extra",
+            "2 vasos de vino fino, el vino que sea bueno",
+            "sal una pizca",
+            "75 gr de s\u00e9samo",
+            "75 gr de an\u00eds en grano",
+            "200 gr de almendra molida, si no encontr\u00e1is almendra molida, comprar la almendra entera y la mol\u00e9is en casa, OJO, la almendra cruda y sin piel.",
+            "1 sobre de levadura tipo royal",
+            "Una cucharada peque\u00f1a de canela molida",
+            "2 o 3 de pu\u00f1ados de az\u00facar",
+            "Miel para enmelarlos, aqu\u00ed tambi\u00e9n os tengo que decir que miel buena, a poder ser pura, no nos sirve la miel que venden en los supermercados en botecitos que est\u00e1 muy l\u00edquida.",
+            "Aceite de oliva virgen extra para fre\u00edr. "
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/pesti\u00f1os.persist.jpg",
+        "modification_date": {
+            "$date": 1398194011202
+        },
+        "nationality": "ES",
+        "negatives": [],
+        "notes": "",
+        "parent_id": {
+            "$oid": "5354fb1e18085d1b70f96c40"
+        },
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 21,
+            "salty": 23,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 99
+        },
+        "serves": "Four persons",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Comenzamos poniendo los dos vasos de aceite en una sart\u00e9n a fuego medio."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adimos el an\u00eds en grano y el s\u00e9samo."
+            },
+            {
+                "image": "",
+                "text": "Partimos la naranjas por la mitad y ponemos las dos mitades con la pulpa hacia abajo en la sart\u00e9n."
+            },
+            {
+                "image": "",
+                "text": "Mientras esto va cogiendo calor, en un cazo ponemos el vino con una pizca de sal y lo ponemos a templar, no tienen que hervir solo tiene que derretirse la sal."
+            },
+            {
+                "image": "",
+                "text": "En un barre\u00f1o grande, de esos que utilizamos para la ropa, ponemos la harina, las almendras molidas, la levadura y la canela molida. Ligamos con las manos para que se mezclen bien.\nEn el centro de la harina exprimimos las naranjas con ayuda de dos platos para no quemarnos, recordar que estaban en el fuego. Al fuego se pone las naranjas para que el calor ablande la piel y saquemos mas jugos y mas sabor."
+            },
+            {
+                "image": "",
+                "text": "Volcamos el aceite colado pero dejamos que alguna de las especias caigan tambi\u00e9n. No hace falta que caigan muchas, sobre un par de cucharaditas aunque eso va a ir al gusto de cada uno, lo que le guste tropezarse en el bocado al pesti\u00f1o de las especias.\nCon cuidado, porque el aceite quema, vamos ligando la harina con el aceite y el zumo de las naranjas. Para no quemarnos hacemos un hueco en el centro de la harina a modo de volc\u00e1n y en ese hueco es donde agregamos el aceite y el zumo. Vamos echando la harina de los filos para el centro donde est\u00e1n los l\u00edquidos, de esa manera vamos ligando sin quemarnos y se va enfriando el aceite.\nVamos amasando. Hay que amasar bien para que la masa vaya quedando fina."
+            },
+            {
+                "image": "",
+                "text": "El vino lo vamos a ir agregando poco a poco por una sencilla raz\u00f3n, todas las harinas no absorben de la misma manera los l\u00edquidos as\u00ed que si agregamos el vino poco a poco vamos a parar de echar vino en el momento justo que la harina ya no admita mas l\u00edquido. Nos daremos cuenta porque la masa debe de quedar que no se nos pegue en las manos, suave, lisa y compacta.\nAmasamos y amasamos.\nDejamos la masa reposar un rato, como 30 minutos."
+            },
+            {
+                "image": "",
+                "text": "Una vez que la masa ha reposado, comenzamos haciendo pesti\u00f1os. Los haremos primero todos a la vez y luego fre\u00edmos todos a la vez. Para ello usaremos bandejas para ir colocando los pestillos ya liados.\nEl tama\u00f1o del pesti\u00f1o es a gusto de cada uno, en casa gusta el pesti\u00f1o peque\u00f1o que se come de un bocado. Para hacerlo solo hay que pellizcar una bolita peque\u00f1a de masa, un pellizco peque\u00f1o, lo justo para que hacer una bola entre las manos y colocar esa bola entre los dedos de la mano. Con la otra mano apretamos y de esa manera se extiende la masa entre los dedos, quedando la mueca de los dedos por la parte bonita del pesti\u00f1o.\nUna vez extendida la masa, enrollamos, pero enrollamos de manera que el pesti\u00f1o no quede apretado sino mas bien hueco por dentro para que a la hora de fre\u00edr los pesti\u00f1os, no se queden duros o crudos por dentro. En el v\u00eddeo lo veis estupendamente"
+            },
+            {
+                "image": "",
+                "text": "Una vez que tengamos liado todos los pesti\u00f1os, los fre\u00edmos. Los pesti\u00f1os se fr\u00eden en aceite de oliva virgen extra para que tengan un sabor mas rico, ese aceite luego tiene el sabor al an\u00eds y al s\u00e9samo as\u00ed que tiene poca reutilizaci\u00f3n. Es preferible ir agregando el aceite poco a poco para no desperdiciar mucho pero OJO, los pesti\u00f1os se deben de fre\u00edr en abundante aceite caliente as\u00ed que usamos un perol mediano y a medida que el aceite se vaya consumiendo, vamos agregando mas aceite y siempre habr\u00e1 de dejar que se caliente antes de echar otra tanda de pesti\u00f1os."
+            },
+            {
+                "image": "",
+                "text": "Una vez tengamos todos los pesti\u00f1os fritos hay que pasarlos por la miel.\nPonemos la miel en una cazuela ancha y bajita, por cada bote de miel ponemos media medida de ese mismo bote de agua.\nCalentamos y cuando la miel comience a hervir vamos echando tandas de pesti\u00f1os y sacando a fuentes. Los pesti\u00f1os es un entra y sale de la miel, no dejar mucho tiempo dentro que se abren y rompen."
+            },
+            {
+                "image": "",
+                "text": "La miel, al igual que os digo del aceite, es aconsejable ir agregando a la cazuela a medida que se va gastando. Para que teng\u00e1is un c\u00e1lculo, para un kilo de pesti\u00f1os, comprar como m\u00ednimo medio kilo de miel pura, entre medio kilo y un kilo. Si sobra, se guarda que no pasa nada.\nPensar bien donde vais a poner los pesti\u00f1os porque se ir\u00e1n pegando levemente unos con otros cuando la miel enfr\u00ede y si luego queremos pasarlo a otro recipiente podemos tener bastante trabajo.\nLos pesti\u00f1os, una vez emelados, se decoran con bolitas de caramelo. Pero a mi no me gustan con bolitas, as\u00ed que no se las echo. Lo siento Mar\u00eda ;).\nEN RESUMEN: Para tener \u00e9xito con los pesti\u00f1os hay que usar vino, miel y aceite de buena calidad.\nLa harina tiene que ser especial de pesti\u00f1o o una mezcla al 50% de harina de reposter\u00eda con harina semolina.\nLa almendra siempre molida hecha polvo y cruda. La encontrar\u00e9is sin problemas en semiller\u00edas o en herbolarios."
+            },
+            {
+                "image": "",
+                "text": "Liar el pesti\u00f1o con mimo y delicadeza. Dejar el pesti\u00f1o peque\u00f1ito, es una delicia cuando son del tama\u00f1o bocadito porque quedan crujientes y tiernos a la vez. Si los hacemos muy grandes y gordos, el pesti\u00f1o no queda crujiente sino blando.\nDarle el punto exacto de fritura, ni muy blancos que queden crudos ni muy oscuros que queden duros.\nSi pens\u00e1is regalar algunas bandejitas, poner el pesti\u00f1o una vez pasado por la miel directamente en esas bandejitas porque as\u00ed quedar\u00e1n perfecto de aspecto, no los manipul\u00e9is mucho despu\u00e9s de pasar por la miel. Usar bandejas que aguanten bien la miel, no usar las de cart\u00f3n a no ser que est\u00e9n plastificadas."
+            },
+            {
+                "image": "",
+                "text": "Si quer\u00e9is que el sabor sea aun mas rico, el an\u00eds en grano y el s\u00e9samo comprarlos en semiller\u00edas o en herbolarios, son de mejor calidad y el sabor nada tiene que ver con los botes de los supermercados."
+            }
+        ],
+        "tags": [
+            "Semana Santa"
+        ],
+        "temporality": [
+            "spring"
+        ],
+        "time": {
+            "cook_time": 50,
+            "prep_time": 15
+        },
+        "title": "Pesti\u00f1os"
+    },
+    {
+        "_id": {
+            "$oid": "5356a46718085d079c7ef9fc"
+        },
+        "author_id": {
+            "$oid": "5352390a18085d15c08181ce"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398194311910
+        },
+        "description": "La entrada de hoy va dedicada a los pesti\u00f1os, esos peque\u00f1os dulces t\u00edpicos de navidad aunque en muchos lugares se hacen tambi\u00e9n por Semana Santa. Ya en su d\u00eda os compart\u00ed la receta y el mismo v\u00eddeo que os pongo, repetimos pero hoy me voy a centrar en esos trucos y consejos, en esas dudas que todos me pregunt\u00e1is y que siempre os contesto gustosamente.\r\n\r\nSon muy sencillos de hacer pero para que el resultado sea espectacular, a parte de la receta os voy a ir desvelando esos secretos, trucos o consejos que, generaci\u00f3n tras generaci\u00f3n, ha ido pasando de madres a hijas en mi familia.\r\n\r\nOs dejos el v\u00eddeo que hice hace ya un par de a\u00f1os mas o menos para que os resulte mucho mas f\u00e1cil seguir la receta, espero que os ayude.\r\n\r\nEn el cuerpo de la receta os voy detallando esos consejos de los que os hablo.",
+        "difficult": 2,
+        "food_type": "snack",
+        "ingredients": [
+            "1 kilo de harina de pesti\u00f1os",
+            "1 naranja de zumo",
+            "2 vasos de aceite de oliva virgen extra",
+            "2 vasos de vino fino, el vino que sea bueno",
+            "sal una pizca",
+            "75 gr de s\u00e9samo",
+            "75 gr de an\u00eds en grano",
+            "200 gr de almendra molida, si no encontr\u00e1is almendra molida, comprar la almendra entera y la mol\u00e9is en casa, OJO, la almendra cruda y sin piel.",
+            "1 sobre de levadura tipo royal",
+            "Una cucharada peque\u00f1a de canela molida",
+            "2 o 3 de pu\u00f1ados de az\u00facar",
+            "Miel para enmelarlos, aqu\u00ed tambi\u00e9n os tengo que decir que miel buena, a poder ser pura, no nos sirve la miel que venden en los supermercados en botecitos que est\u00e1 muy l\u00edquida.",
+            "Aceite de oliva virgen extra para fre\u00edr. "
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/pesti\u00f1oschoco.persist.jpg",
+        "modification_date": {
+            "$date": 1398194311910
+        },
+        "nationality": "ES",
+        "negatives": [],
+        "notes": "",
+        "parent_id": {
+            "$oid": "5356a33b18085d079c7ef9fb"
+        },
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 21,
+            "salty": 23,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 99
+        },
+        "serves": "Four persons",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Comenzamos poniendo los dos vasos de aceite en una sart\u00e9n a fuego medio."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adimos el an\u00eds en grano y el s\u00e9samo."
+            },
+            {
+                "image": "",
+                "text": "Partimos la naranjas por la mitad y ponemos las dos mitades con la pulpa hacia abajo en la sart\u00e9n."
+            },
+            {
+                "image": "",
+                "text": "Mientras esto va cogiendo calor, en un cazo ponemos el vino con una pizca de sal y lo ponemos a templar, no tienen que hervir solo tiene que derretirse la sal."
+            },
+            {
+                "image": "",
+                "text": "En un barre\u00f1o grande, de esos que utilizamos para la ropa, ponemos la harina, las almendras molidas, la levadura y la canela molida. Ligamos con las manos para que se mezclen bien.\nEn el centro de la harina exprimimos las naranjas con ayuda de dos platos para no quemarnos, recordar que estaban en el fuego. Al fuego se pone las naranjas para que el calor ablande la piel y saquemos mas jugos y mas sabor."
+            },
+            {
+                "image": "",
+                "text": "Volcamos el aceite colado pero dejamos que alguna de las especias caigan tambi\u00e9n. No hace falta que caigan muchas, sobre un par de cucharaditas aunque eso va a ir al gusto de cada uno, lo que le guste tropezarse en el bocado al pesti\u00f1o de las especias.\nCon cuidado, porque el aceite quema, vamos ligando la harina con el aceite y el zumo de las naranjas. Para no quemarnos hacemos un hueco en el centro de la harina a modo de volc\u00e1n y en ese hueco es donde agregamos el aceite y el zumo. Vamos echando la harina de los filos para el centro donde est\u00e1n los l\u00edquidos, de esa manera vamos ligando sin quemarnos y se va enfriando el aceite.\nVamos amasando. Hay que amasar bien para que la masa vaya quedando fina."
+            },
+            {
+                "image": "",
+                "text": "El vino lo vamos a ir agregando poco a poco por una sencilla raz\u00f3n, todas las harinas no absorben de la misma manera los l\u00edquidos as\u00ed que si agregamos el vino poco a poco vamos a parar de echar vino en el momento justo que la harina ya no admita mas l\u00edquido. Nos daremos cuenta porque la masa debe de quedar que no se nos pegue en las manos, suave, lisa y compacta.\nAmasamos y amasamos.\nDejamos la masa reposar un rato, como 30 minutos."
+            },
+            {
+                "image": "",
+                "text": "Una vez que la masa ha reposado, comenzamos haciendo pesti\u00f1os. Los haremos primero todos a la vez y luego fre\u00edmos todos a la vez. Para ello usaremos bandejas para ir colocando los pestillos ya liados.\nEl tama\u00f1o del pesti\u00f1o es a gusto de cada uno, en casa gusta el pesti\u00f1o peque\u00f1o que se come de un bocado. Para hacerlo solo hay que pellizcar una bolita peque\u00f1a de masa, un pellizco peque\u00f1o, lo justo para que hacer una bola entre las manos y colocar esa bola entre los dedos de la mano. Con la otra mano apretamos y de esa manera se extiende la masa entre los dedos, quedando la mueca de los dedos por la parte bonita del pesti\u00f1o.\nUna vez extendida la masa, enrollamos, pero enrollamos de manera que el pesti\u00f1o no quede apretado sino mas bien hueco por dentro para que a la hora de fre\u00edr los pesti\u00f1os, no se queden duros o crudos por dentro. En el v\u00eddeo lo veis estupendamente"
+            },
+            {
+                "image": "",
+                "text": "Una vez que tengamos liado todos los pesti\u00f1os, los fre\u00edmos. Los pesti\u00f1os se fr\u00eden en aceite de oliva virgen extra para que tengan un sabor mas rico, ese aceite luego tiene el sabor al an\u00eds y al s\u00e9samo as\u00ed que tiene poca reutilizaci\u00f3n. Es preferible ir agregando el aceite poco a poco para no desperdiciar mucho pero OJO, los pesti\u00f1os se deben de fre\u00edr en abundante aceite caliente as\u00ed que usamos un perol mediano y a medida que el aceite se vaya consumiendo, vamos agregando mas aceite y siempre habr\u00e1 de dejar que se caliente antes de echar otra tanda de pesti\u00f1os."
+            },
+            {
+                "image": "",
+                "text": "Una vez tengamos todos los pesti\u00f1os fritos hay que pasarlos por la miel.\nPonemos la miel en una cazuela ancha y bajita, por cada bote de miel ponemos media medida de ese mismo bote de agua.\nCalentamos y cuando la miel comience a hervir vamos echando tandas de pesti\u00f1os y sacando a fuentes. Los pesti\u00f1os es un entra y sale de la miel, no dejar mucho tiempo dentro que se abren y rompen."
+            },
+            {
+                "image": "",
+                "text": "La miel, al igual que os digo del aceite, es aconsejable ir agregando a la cazuela a medida que se va gastando. Para que teng\u00e1is un c\u00e1lculo, para un kilo de pesti\u00f1os, comprar como m\u00ednimo medio kilo de miel pura, entre medio kilo y un kilo. Si sobra, se guarda que no pasa nada.\nPensar bien donde vais a poner los pesti\u00f1os porque se ir\u00e1n pegando levemente unos con otros cuando la miel enfr\u00ede y si luego queremos pasarlo a otro recipiente podemos tener bastante trabajo.\nLos pesti\u00f1os, una vez emelados, se decoran con bolitas de caramelo.\nEN RESUMEN: Para tener \u00e9xito con los pesti\u00f1os hay que usar vino, miel y aceite de buena calidad.\nLa harina tiene que ser especial de pesti\u00f1o o una mezcla al 50% de harina de reposter\u00eda con harina semolina.\nLa almendra siempre molida hecha polvo y cruda. La encontrar\u00e9is sin problemas en semiller\u00edas o en herbolarios."
+            },
+            {
+                "image": "",
+                "text": "Liar el pesti\u00f1o con mimo y delicadeza. Dejar el pesti\u00f1o peque\u00f1ito, es una delicia cuando son del tama\u00f1o bocadito porque quedan crujientes y tiernos a la vez. Si los hacemos muy grandes y gordos, el pesti\u00f1o no queda crujiente sino blando.\nDarle el punto exacto de fritura, ni muy blancos que queden crudos ni muy oscuros que queden duros.\nSi pens\u00e1is regalar algunas bandejitas, poner el pesti\u00f1o una vez pasado por la miel directamente en esas bandejitas porque as\u00ed quedar\u00e1n perfecto de aspecto, no los manipul\u00e9is mucho despu\u00e9s de pasar por la miel. Usar bandejas que aguanten bien la miel, no usar las de cart\u00f3n a no ser que est\u00e9n plastificadas."
+            },
+            {
+                "image": "",
+                "text": "Si quer\u00e9is que el sabor sea aun mas rico, el an\u00eds en grano y el s\u00e9samo comprarlos en semiller\u00edas o en herbolarios, son de mejor calidad y el sabor nada tiene que ver con los botes de los supermercados."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo, rallamos un poco de chocolate y lo echamos por encima de los pesti\u00f1os."
+            },
+            {
+                "image": "",
+                "text": "Calentamos un poco en el horno para que se derrita el chocolate y acabamos."
             }
         ],
         "tags": [
