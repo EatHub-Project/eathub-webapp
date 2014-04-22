@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-22 08:53+0200\n"
+"POT-Creation-Date: 2014-04-22 09:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -340,42 +340,46 @@ msgstr ""
 msgid "Serves"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:541
+#: .\templates\webapp\newrecipe.html.py:533
+msgid "Two persons or Five units"
+msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:542
 msgid "Difficulty"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:561
+#: .\templates\webapp\newrecipe.html.py:562
 msgid "Temporality"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:582
+#: .\templates\webapp\newrecipe.html.py:583
 msgid "Food type"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:603
+#: .\templates\webapp\newrecipe.html.py:604
 msgid "Special conditions"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:624
+#: .\templates\webapp\newrecipe.html.py:625
 #: .\templates\webapp\profile.html.py:65
 msgid "Language"
 msgstr "Language"
 
-#: .\templates\webapp\newrecipe.html.py:645
+#: .\templates\webapp\newrecipe.html.py:646
 msgid "Free tags"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:656
+#: .\templates\webapp\newrecipe.html.py:657
 msgid "Nationality"
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:677
+#: .\templates\webapp\newrecipe.html.py:678
 #: .\templates\webapp\recipe_template.html.py:269
 #, fuzzy
 msgid "Savours"
 msgstr "Sour"
 
-#: .\templates\webapp\newrecipe.html.py:753
+#: .\templates\webapp\newrecipe.html.py:754
 msgid ""
 "Savour values defines the savour of your recipe and stuff. This way we can "
 "better recommend people your recipe based on ther personal tastes and so on, "
@@ -383,7 +387,7 @@ msgid ""
 "information, check Wikipedia or something, dude."
 msgstr ""
 
-#: .\templates\webapp\newrecipe.html.py:766
+#: .\templates\webapp\newrecipe.html.py:767
 msgid "Save as draft"
 msgstr ""
 
@@ -578,6 +582,113 @@ msgstr "No recipes yet"
 msgid "This user does not has any recipe yet"
 msgstr ""
 
+#: .\webapp\forms.py:9 .\webapp\forms.py:39
+msgid "English"
+msgstr ""
+
+#: .\webapp\forms.py:10 .\webapp\forms.py:39
+msgid "Spanish"
+msgstr ""
+
+#: .\webapp\forms.py:12
+msgid "Unspecified"
+msgstr ""
+
+#: .\webapp\forms.py:12
+msgid "Male"
+msgstr ""
+
+#: .\webapp\forms.py:12
+msgid "Female"
+msgstr ""
+
+#: .\webapp\forms.py:13 .\webapp\forms.py:40
+#, fuzzy
+msgid "Spain"
+msgstr "Spicy"
+
+#: .\webapp\forms.py:13 .\webapp\forms.py:40
+msgid "France"
+msgstr ""
+
+#: .\webapp\forms.py:13 .\webapp\forms.py:40
+msgid "England"
+msgstr ""
+
+#: .\webapp\forms.py:13 .\webapp\forms.py:40
+msgid "USA"
+msgstr ""
+
+#: .\webapp\forms.py:41
+#, fuzzy
+msgid "Summer"
+msgstr "Sour"
+
+#: .\webapp\forms.py:41
+msgid "Autumn"
+msgstr ""
+
+#: .\webapp\forms.py:41
+msgid "Spring"
+msgstr ""
+
+#: .\webapp\forms.py:41
+#, fuzzy
+msgid "Winter"
+msgstr "Bitter"
+
+#: .\webapp\forms.py:42
+msgid "Dinner"
+msgstr ""
+
+#: .\webapp\forms.py:42
+msgid "Lunch"
+msgstr ""
+
+#: .\webapp\forms.py:42
+msgid "Breakfast"
+msgstr ""
+
+#: .\webapp\forms.py:42
+msgid "Picnic"
+msgstr ""
+
+#: .\webapp\forms.py:43
+msgid "Snack"
+msgstr ""
+
+#: .\webapp\forms.py:43
+msgid "Drink"
+msgstr ""
+
+#: .\webapp\forms.py:43
+msgid "Dessert"
+msgstr ""
+
+#: .\webapp\forms.py:44
+msgid "Diabetic"
+msgstr ""
+
+#: .\webapp\forms.py:44
+msgid "Celiac"
+msgstr ""
+
+#: .\webapp\forms.py:44
+msgid "Vegetarian"
+msgstr ""
+
+#: .\webapp\forms.py:45
+msgid "Easy"
+msgstr ""
+
+#: .\webapp\forms.py:45
+msgid "Medium"
+msgstr ""
+
+#: .\webapp\forms.py:45
+msgid "Hard"
+msgstr ""
+
 #: .\webapp\views.py:58 .\webapp\views.py:261
 msgid "Passwords don't match"
 msgstr "Passwords don't match"
@@ -586,6 +697,10 @@ msgstr "Passwords don't match"
 #, fuzzy
 msgid "Username alerady taken"
 msgstr "Username aleready taken"
+
+#, fuzzy
+#~ msgid "Spanish)"
+#~ msgstr "Spicy"
 
 #, fuzzy
 #~ msgid "Don't you have recipes? Let's make yourself one!"

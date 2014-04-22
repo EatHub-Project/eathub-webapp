@@ -527,7 +527,8 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.serves.name }}">{% trans "Serves" %}</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'"
+                        {% trans "Two persons or Five units" as serves_number %}
+                        <input type="text" class="form-control" placeholder={{ serves_number }}
                                name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
                                value="{{ form.serves.value | default_if_none:'' }}">
                     </div>
