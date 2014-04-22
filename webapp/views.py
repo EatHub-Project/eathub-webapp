@@ -1,4 +1,6 @@
 # coding=utf-8
+from django.forms import ImageField
+from django.templatetags.static import static
 from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
@@ -314,13 +316,16 @@ def modification_account(request, username):
             'location': p.location,
             'website': p.website,
             'birth_date': p.birth_date,
-            'avatar_url': p.avatar.url,
             'salty': p.tastes.salty,
             'sour': p.tastes.sour,
             'bitter': p.tastes.bitter,
             'sweet': p.tastes.sweet,
             'spicy': p.tastes.spicy,
         }
+        if p.avatar:
+            data['avatar_url']=p.avatar.url
+        else:
+            data['avatar_url']=static("webapp/image/profile_pic_anon.png")
         form = EditAccountForm(initial=data)
 
     return render(request, 'webapp/newaccount.html', {'form': form, 'edit': True})

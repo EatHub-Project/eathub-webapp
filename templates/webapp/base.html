@@ -75,8 +75,7 @@
                                 <a class="profile-image dropdown-toggle" data-toggle="dropdown"
                                    href="/profile/{{ user.username }}">
                                     <!--TODO: no se si user.username saca el nombre de usuario correcto (el mismo que el de Author)-->
-                                    <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
-                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
+                                    <img src="{% avatar user.profile.get.avatar %}"/>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'profile' user.username %}">{% trans "Profile" %}</a></li>

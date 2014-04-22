@@ -1,6 +1,7 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% load tags %}
 
 {% block container %}
 {% if follows %}
@@ -11,7 +12,7 @@
             {% with friend_profile=follow.user.profile.get %}
                 <div class="col-md-3 panel follow-list-item">
                     <img class="img-rounded"
-                         src="{% if friend_profile.user.profile.get.avatar %}{{ friend_profile.user.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
+                         src="{% avatar friend_profile.avatar %}"/>
 
                     <h3 class="user-name"><a href="{% url 'profile' friend_profile.user.username %}">
                         {{ friend_profile.display_name }}</a></h3>
