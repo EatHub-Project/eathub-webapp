@@ -23,6 +23,7 @@
     {% endblock %}
 </head>
 <body>
+<div id="container">
 <header>
     {% block navbar %}
         {% load tags %}
@@ -172,15 +173,16 @@
             //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
                         $(".footer-logo").hover(
                                 function () {
-                                    $(".footer-logo").animate({"margin-bottom": 0}, 150)
+                                    $(".footer-logo").animate({"margin-bottom": "-35px"}, 150)
                                 },
                                 function () {
-                                    $(".footer-logo").animate({"margin-bottom": "-35px"}, 150)
+                                    $(".footer-logo").animate({"margin-bottom": "-70px"}, 150)
                                 }
                         );
         });
     </script>
     {% block custom_js %} {% endblock %}
 </footer>
+</div>
 </body>
 </html>

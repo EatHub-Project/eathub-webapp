@@ -1,6 +1,7 @@
 body {
     padding-top: 90px;
     background-color: #eeeeee;
+    padding-bottom: 80px;
 }
 
 .starter-template {
@@ -1271,13 +1272,8 @@ header .container {
     position: relative;
 }
 
-.footer {
-    background-color: #333333;
-    display: block;
-    width: auto;
-    overflow: hidden;
-    height: 60px;
-}
+
+/* Footer shit */
 
 .footer-content {
     padding: 20px 0;
@@ -1285,7 +1281,6 @@ header .container {
 
 .ul-footer {
     list-style: none;
-
 }
 
 .footer-link {
@@ -1299,7 +1294,7 @@ header .container {
 }
 
 .footer-logo {
-    margin-bottom: -35px;
+    margin-bottom: -75px;
     vertical-align: middle;
 }
 
@@ -1312,4 +1307,28 @@ header .container {
 .footer-logo-container {
     height: 100%;
     text-align: center;
+}
+
+
+#container {
+    position: relative;
+    min-height: 100%;
+}
+
+main {
+    padding-bottom: 60px;
+}
+
+html, body {
+    height: 100%;
+    padding-bottom: 0;
+}
+
+footer {
+    background-color: #333333;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
 }
