@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-22 08:35+0200\n"
+"POT-Creation-Date: 2014-04-22 08:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,11 +101,13 @@ msgid "Please sign in"
 msgstr "Inicia sesión"
 
 #: .\templates\webapp\login.html.py:50
+#: .\templates\webapp\newaccount.html.py:132
 #: .\templates\webapp\newaccount.html.py:135
 msgid "Username"
 msgstr "Nombre de usuario"
 
 #: .\templates\webapp\login.html.py:55
+#: .\templates\webapp\newaccount.html.py:167
 msgid "Password"
 msgstr "Contraseña"
 
@@ -143,6 +145,11 @@ msgstr "información de la cuenta"
 msgid "Required"
 msgstr "Requerido"
 
+#: .\templates\webapp\newaccount.html.py:153
+#: .\templates\webapp\profile.html.py:57
+msgid "Email"
+msgstr "Email"
+
 #: .\templates\webapp\newaccount.html.py:156
 msgid "youremail@example.com"
 msgstr "tuemail@ejemplo.com"
@@ -151,6 +158,7 @@ msgstr "tuemail@ejemplo.com"
 msgid "Your password"
 msgstr "Contraseña"
 
+#: .\templates\webapp\newaccount.html.py:181
 #: .\templates\webapp\newaccount.html.py:184
 msgid "Repeat your password"
 msgstr "Repítela"
@@ -159,21 +167,88 @@ msgstr "Repítela"
 msgid "Profile information"
 msgstr "Información del perfil"
 
+#: .\templates\webapp\newaccount.html.py:198
+msgid "Display name"
+msgstr "Nombre público"
+
 #: .\templates\webapp\newaccount.html.py:201
 msgid "Your public name"
 msgstr "Nombre público"
+
+#: .\templates\webapp\newaccount.html.py:212
+msgid "Preferred Language"
+msgstr "Idioma preferente"
+
+#: .\templates\webapp\newaccount.html.py:235
+msgid "Additional Language"
+msgstr "Notas adicionales"
+
+#: .\templates\webapp\newaccount.html.py:257
+#: .\templates\webapp\profile.html.py:142
+msgid "Gender"
+msgstr "Género"
+
+#: .\templates\webapp\newaccount.html.py:276
+msgid "Location"
+msgstr "Ubicación"
 
 #: .\templates\webapp\newaccount.html.py:279
 msgid "Your city, country or else"
 msgstr "Tu ciudad, país u otra referencia"
 
+#: .\templates\webapp\newaccount.html.py:289
+msgid "Website"
+msgstr "Sitio web"
+
 #: .\templates\webapp\newaccount.html.py:292
 msgid "Your page's URL"
 msgstr "URL de tu página"
 
+#: .\templates\webapp\newaccount.html.py:302
+msgid "Birth date"
+msgstr "Fecha de nacimiento"
+
+#: .\templates\webapp\newaccount.html.py:313
+msgid "Profile picture"
+msgstr "Foto de perfil"
+
 #: .\templates\webapp\newaccount.html.py:330
 msgid "Consumer preferences"
-msgstr "Preferencias de los usuarios"
+msgstr "Preferencias de usuario"
+
+#: .\templates\webapp\newaccount.html.py:336
+msgid "Tastes"
+msgstr "Gustos"
+
+#: .\templates\webapp\newaccount.html.py:337
+#: .\templates\webapp\profile.html.py:231
+#: .\templates\webapp\recipe_template.html.py:273
+msgid "Salty"
+msgstr "Salado"
+
+#: .\templates\webapp\newaccount.html.py:352
+#: .\templates\webapp\profile.html.py:240
+#: .\templates\webapp\recipe_template.html.py:283
+msgid "Sour"
+msgstr "Agrio"
+
+#: .\templates\webapp\newaccount.html.py:365
+#: .\templates\webapp\profile.html.py:249
+#: .\templates\webapp\recipe_template.html.py:293
+msgid "Bitter"
+msgstr "Amargo"
+
+#: .\templates\webapp\newaccount.html.py:378
+#: .\templates\webapp\profile.html.py:258
+#: .\templates\webapp\recipe_template.html.py:303
+msgid "Sweet"
+msgstr "Dulce"
+
+#: .\templates\webapp\newaccount.html.py:391
+#: .\templates\webapp\profile.html.py:267
+#: .\templates\webapp\recipe_template.html.py:313
+msgid "Spicy"
+msgstr "Picante"
 
 #: .\templates\webapp\newaccount.html.py:410
 msgid "Save changes"
@@ -219,73 +294,78 @@ msgstr "Paso a paso"
 msgid "What is the step?…"
 msgstr "¿Qúe hacemos ahora?"
 
-#: .\templates\webapp\newrecipe.html.py:452
+#: .\templates\webapp\newrecipe.html.py:405
+#: .\templates\webapp\newrecipe.html.py:437
+msgid "What are we doing now?"
+msgstr "¿Qúe vamos a hacer?"
+
+#: .\templates\webapp\newrecipe.html.py:454
 msgid "Pick a picture"
 msgstr "Escoge una foto"
 
-#: .\templates\webapp\newrecipe.html.py:467
+#: .\templates\webapp\newrecipe.html.py:469
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: .\templates\webapp\newrecipe.html.py:473
+#: .\templates\webapp\newrecipe.html.py:475
 msgid "Additional notes"
 msgstr "Notas adicionales"
 
-#: .\templates\webapp\newrecipe.html.py:477
+#: .\templates\webapp\newrecipe.html.py:479
 msgid "Anything else you want to point out about your recipe?"
 msgstr "¿Qúe más quieres decir sobre tu receta?"
 
-#: .\templates\webapp\newrecipe.html.py:489
+#: .\templates\webapp\newrecipe.html.py:491
 msgid "Extra information"
 msgstr "Información de la cuenta"
 
-#: .\templates\webapp\newrecipe.html.py:495
+#: .\templates\webapp\newrecipe.html.py:497
 msgid "Preparation time"
 msgstr "Tiempo de preparación"
 
-#: .\templates\webapp\newrecipe.html.py:510
+#: .\templates\webapp\newrecipe.html.py:512
 msgid "Cooking time"
 msgstr "Tiempo cocinándolo"
 
-#: .\templates\webapp\newrecipe.html.py:528
+#: .\templates\webapp\newrecipe.html.py:530
 msgid "Serves"
 msgstr "Comensales"
 
-#: .\templates\webapp\newrecipe.html.py:539
+#: .\templates\webapp\newrecipe.html.py:541
 msgid "Difficulty"
 msgstr "Dificultad"
 
-#: .\templates\webapp\newrecipe.html.py:559
+#: .\templates\webapp\newrecipe.html.py:561
 msgid "Temporality"
 msgstr "Temporada"
 
-#: .\templates\webapp\newrecipe.html.py:580
+#: .\templates\webapp\newrecipe.html.py:582
 msgid "Food type"
 msgstr "Tipo de comida"
 
-#: .\templates\webapp\newrecipe.html.py:601
+#: .\templates\webapp\newrecipe.html.py:603
 msgid "Special conditions"
 msgstr "Condiciones especiales"
 
-#: .\templates\webapp\newrecipe.html.py:622
+#: .\templates\webapp\newrecipe.html.py:624
 #: .\templates\webapp\profile.html.py:65
 msgid "Language"
 msgstr "Idioma"
 
-#: .\templates\webapp\newrecipe.html.py:643
+#: .\templates\webapp\newrecipe.html.py:645
 msgid "Free tags"
 msgstr "Etiquetas libres"
 
-#: .\templates\webapp\newrecipe.html.py:654
+#: .\templates\webapp\newrecipe.html.py:656
 msgid "Nationality"
 msgstr "Nacionalidad"
 
-#: .\templates\webapp\newrecipe.html.py:675
+#: .\templates\webapp\newrecipe.html.py:677
 #: .\templates\webapp\recipe_template.html.py:269
 msgid "Savours"
 msgstr "Sabores"
 
-#: .\templates\webapp\newrecipe.html.py:751
+#: .\templates\webapp\newrecipe.html.py:753
 msgid ""
 "Savour values defines the savour of your recipe and stuff. This way we can "
 "better recommend people your recipe based on ther personal tastes and so on, "
@@ -296,7 +376,7 @@ msgstr ""
 "modopodemosrecomendar mejor tu receta a los gustos personales de cada "
 "persona.Los valores de estos sabores son evidentemente relativos"
 
-#: .\templates\webapp\newrecipe.html.py:764
+#: .\templates\webapp\newrecipe.html.py:766
 msgid "Save as draft"
 msgstr "Guardar como borrador"
 
@@ -332,10 +412,6 @@ msgstr "¡Hecho!"
 msgid "Basic info"
 msgstr "Información básica"
 
-#: .\templates\webapp\profile.html.py:57
-msgid "Email"
-msgstr "Email"
-
 #: .\templates\webapp\profile.html.py:95
 msgid "Check-in date"
 msgstr "Fecha de registro"
@@ -347,10 +423,6 @@ msgstr "Información del usuario"
 #: .\templates\webapp\profile.html.py:134
 msgid "website"
 msgstr "Sitio web"
-
-#: .\templates\webapp\profile.html.py:142
-msgid "Gender"
-msgstr "Género"
 
 #: .\templates\webapp\profile.html.py:188
 msgid "Personal info"
@@ -367,31 +439,6 @@ msgstr "Último login"
 #: .\templates\webapp\profile.html.py:229
 msgid "Savours profile"
 msgstr "Perfil de sabores"
-
-#: .\templates\webapp\profile.html.py:231
-#: .\templates\webapp\recipe_template.html.py:273
-msgid "Salty"
-msgstr "Salado"
-
-#: .\templates\webapp\profile.html.py:240
-#: .\templates\webapp\recipe_template.html.py:283
-msgid "Sour"
-msgstr "Agrio"
-
-#: .\templates\webapp\profile.html.py:249
-#: .\templates\webapp\recipe_template.html.py:293
-msgid "Bitter"
-msgstr "Amargo"
-
-#: .\templates\webapp\profile.html.py:258
-#: .\templates\webapp\recipe_template.html.py:303
-msgid "Sweet"
-msgstr "Dulce"
-
-#: .\templates\webapp\profile.html.py:267
-#: .\templates\webapp\recipe_template.html.py:313
-msgid "Spicy"
-msgstr "Picante"
 
 #: .\templates\webapp\recipe_template.html.py:14
 msgid "Cloned from:"

@@ -400,8 +400,9 @@
                                     <span>{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
+                                    {% trans "What are we doing now?" as the_description %}
                                     <textarea class="form-control input-lg step-input"
-                                              placeholder="What is the first step?…"
+                                              placeholder={{ the_description }}
                                               rows="4"
                                               name="step_{{ forloop.counter0 }}" id="id_step_{{ forloop.counter0 }}"
                                             >{{ step.text }}</textarea>
@@ -431,8 +432,9 @@
                         <span>+</span>
                     </div>
                     <div class="col-sm-9">
+                        {% trans "What are we doing now?" as the_new_desc %}
                         <textarea class="form-control input-lg repeatable-add"
-                                  placeholder="What is the first step?…"
+                                  placeholder={{ the_new_desc }}
                                   rows="4"
                                   name="step" id="id_step"
                                 ></textarea>
