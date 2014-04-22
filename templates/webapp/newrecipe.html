@@ -233,7 +233,8 @@
         <!-- Title -->
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="text" class="form-control input-xlg" placeholder="Name your recipe"
+                {% trans "Name your recipe" as pl_name_recipe %}
+                <input type="text" class="form-control input-xlg" placeholder="{{ pl_name_recipe }}"
                        name="{{ form.title.name }}" id="id_{{ form.title.name }}"
                        value="{{ form.title.value | default_if_none:'' }}">
             </div>
@@ -291,8 +292,9 @@
             <div class="col-sm-12">
                 <!-- <label for="id_{{ form.description.name }}"
                class="col-sm-2 ">{{ form.description.label }}</label> -->
+                {% trans "Write a short description. What is your recipe about?" as description_text %}
                 <textarea class="form-control input-lg"
-                          placeholder="Write a short description. What is your recipe about?"
+                          placeholder="{{ description_text }}"
                           rows="4"
                           name="{{ form.description.name }}" id="id_{{ form.description.name }}"
                         >{{ form.description.value | default_if_none:'' }}</textarea>
@@ -373,10 +375,12 @@
                                 <span>{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
+                                {% trans "What is the step?…" as step_description %}
                                 <textarea class="form-control input-lg step-input"
-                                          placeholder="What is the first step?…"
+                                          placeholder="{{ step_description }}"
                                           rows="4"
                                           name="step_{row-count-placeholder}" id="id_step_{row-count-placeholder}"
+                                        ></textarea>
                                         ></textarea>
                             </div>
                             <div class="col-sm-2 step-picture" data-step-index="{row-count-placeholder}">
@@ -397,8 +401,9 @@
                                     <span>{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
+                                    {% trans "What are we doing now?" as the_description %}
                                     <textarea class="form-control input-lg step-input"
-                                              placeholder="What is the first step?…"
+                                              placeholder="{{ the_description }}"
                                               rows="4"
                                               name="step_{{ forloop.counter0 }}" id="id_step_{{ forloop.counter0 }}"
                                             >{{ step.text }}</textarea>
@@ -428,8 +433,9 @@
                         <span>+</span>
                     </div>
                     <div class="col-sm-9">
+                        {% trans "What are we doing now?" as the_new_desc %}
                         <textarea class="form-control input-lg repeatable-add"
-                                  placeholder="What is the first step?…"
+                                  placeholder="{{ the_new_desc }}"
                                   rows="4"
                                   name="step" id="id_step"
                                 ></textarea>
@@ -464,12 +470,13 @@
             </div>
         </div>
 
-        <h5>Additional notes</h5>
+        <h5>{% trans "Additional notes" %}</h5>
 
         <div class="form-group">
             <div class="col-sm-12">
+                {% trans "Anything else you want to point out about your recipe?" as place_holder %}
                 <textarea class="form-control input-lg"
-                          placeholder="Anything else you want to point out about your recipe?"
+                          placeholder="{{ place_holder }}"
                           rows="3"
                           name="{{ form.notes.name }}" id="id_{{ form.notes.name }}"
                         >{{ form.notes.value | default_if_none:'' }}</textarea>
@@ -489,7 +496,8 @@
 
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="minutes"
+                            {% trans "minutes" as pl_minutes %}
+                            <input type="number" class="form-control" placeholder="{{pl_minutes}}"
                                    name="{{ form.prep_time.name }}" id="id_{{ form.prep_time.name }}"
                                    value="{{ form.prep_time.value | default_if_none:'' }}">
                             <span class="input-group-addon"><span
@@ -504,7 +512,8 @@
 
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="minutes"
+                            {%  trans "minutes" as pl_min %}
+                            <input type="number" class="form-control" placeholder="{{ pl_min }}"
                                    name="{{ form.cook_time.name }}" id="id_{{ form.cook_time.name }}"
                                    value="{{ form.cook_time.value | default_if_none:'' }}">
                             <span class="input-group-addon"><span
@@ -521,7 +530,8 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.serves.name }}">{% trans "Serves" %}</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="'Two persons' or 'Five units'"
+                        {% trans "Two persons or Five units" as serves_number %}
+                        <input type="text" class="form-control" placeholder="{{ serves_number }}"
                                name="{{ form.serves.name }}" id="id_{{ form.serves.name }}"
                                value="{{ form.serves.value | default_if_none:'' }}">
                     </div>
@@ -549,7 +559,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">{% trans "Temporality" %}</label>
+                    <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">{% trans "Occasions" %}</label>
 
                     <div class="col-sm-8">
                         <select class="form-control show-tick" data-live-search="true" multiple
@@ -636,7 +646,8 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.tags.name }}">{% trans "Free tags" %}</label>
 
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Comma separated tags"
+                        {% trans "Comma separated tags" as pl_comma %}
+                        <input type="text" class="form-control" placeholder="{{ pl_comma }}"
                                name="{{ form.tags.name }}" id="id_{{ form.tags.name }}"
                                value="{{ form.tags.value | default_if_none:'' }}">
                     </div>
@@ -669,7 +680,7 @@
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
         <!-- Savours-->
         <div class="col-sm-6">
-            <label for="id_{{ form.salty.name }}" class="slider-label">{{ form.salty.label }}</label>
+            <label for="id_{{ form.salty.name }}" class="slider-label">{% trans "Salty" %}</label>
 
             <div class="control-group">
                 <input type="number" class="form-control slider"
@@ -684,7 +695,7 @@
             </div>
 
             <div class="control-group">
-                <label for="id_{{ form.sour.name }}" class="slider-label">{{ form.sour.label }}</label>
+                <label for="id_{{ form.sour.name }}" class="slider-label">{% trans "Sour" %}</label>
                 <input type="number" class="form-control slider"
                        name="{{ form.sour.name }}" id="id_{{ form.sour.name }}"
                        data-slider-min="0"
@@ -697,7 +708,7 @@
             </div>
 
             <div class="control-group">
-                <label for="id_{{ form.bitter.name }}" class="slider-label">{{ form.bitter.label }}</label>
+                <label for="id_{{ form.bitter.name }}" class="slider-label">{% trans "Bitter" %}</label>
                 <input type="number" class="form-control slider"
                        name="{{ form.bitter.name }}" id="id_{{ form.bitter.name }}"
                        data-slider-min="0"
@@ -710,7 +721,7 @@
             </div>
 
             <div class="control-group">
-                <label for="id_{{ form.sweet.name }}" class="slider-label">{{ form.sweet.label }}</label>
+                <label for="id_{{ form.sweet.name }}" class="slider-label"> {% trans "Sweet" %}</label>
                 <input type="number" class="form-control slider"
                        name="{{ form.sweet.name }}" id="id_{{ form.sweet.name }}"
                        data-slider-min="0"
@@ -723,7 +734,7 @@
             </div>
 
             <div class="control-group">
-                <label for="id_{{ form.spicy.name }}" class="slider-label">{{ form.spicy.label }}</label>
+                <label for="id_{{ form.spicy.name }}" class="slider-label">{% trans "Spicy" %}</label>
                 <input type="number" class="form-control slider"
                        name="{{ form.spicy.name }}" id="id_{{ form.spicy.name }}"
                        data-slider-min="0"

@@ -1,13 +1,16 @@
 import json
 from ajax.models import UploadedImage
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 from models import Recipe
 
 
 class NewAccountForm(forms.Form):
-    LANGUAGES = [("en", "English"), ("es", "Spanish")]
-    GENDERS = [("unknown", "Unspecified"), ("m", "Male"), ("f", "Female")]
-    COUNTRY = [("", "--"), ("ES", "Spain"), ("FR", "France"), ("EN", "England"), ("US", "USA")]
+    english = _("English")
+    spanish = _("Spanish")
+    LANGUAGES = [("en", english), ("es", spanish)]
+    GENDERS = [("unknown", _("Unspecified")), ("m", _("Male")), ("f", _("Female"))]
+    COUNTRY = [("", "--"), ("ES", _("Spain")), ("FR", _("France")), ("EN", _("England")), ("US", _("USA"))]
 
     username = forms.CharField(max_length=20)
     email = forms.EmailField()
@@ -33,12 +36,13 @@ class NewAccountForm(forms.Form):
 
 
 class RecipeForm(forms.Form):
-    LANGUAGES = [("en", "English"), ("es", "Spanish")]
-    COUNTRY = [("", "--"), ("ES", "Spain"), ("FR", "France"), ("EN", "England"), ("US", "USA")]
-    TEMPORALITY = [("summer", "Summer"), ("autumn", "Autumn"), ("spring", "Spring"), ("winter", "Winter")]
-    FOOD_TYPE = [("dinner","Dinner"),("lunch","Lunch"),("breakfast","Breakfast"),("picnic","Picnic"),("snack","Snack"),("drink","Drink"),("dessert","Dessert")]
-    SPECIAL_CONDITIONS = [("diabetic", "Diabetic"), ("celiac", "Celiac"), ("vegetarian", "Vegetarian")]
-    DIFFICULT = [(1, "Easy"), (2, "Medium"), (3, "Hard")]
+    LANGUAGES = [("en", _("English")), ("es", _("Spanish"))]
+    COUNTRY = [("", "--"), ("ES", _("Spain")), ("FR", _("France")), ("EN", _("England")), ("US", _("USA"))]
+    TEMPORALITY = [("summer", _("Summer")), ("autumn", _("Autumn")), ("spring", _("Spring")), ("winter", _("Winter"))]
+    FOOD_TYPE = [("dinner", _("Dinner")),("lunch", _("Lunch")), ("breakfast", _("Breakfast")), ("picnic", _("Picnic")),
+                 ("snack", _("Snack")), ("drink", _("Drink")), ("dessert", _("Dessert"))]
+    SPECIAL_CONDITIONS = [("diabetic", _("Diabetic")), ("celiac", _("Celiac")), ("vegetarian", _("Vegetarian"))]
+    DIFFICULT = [(1, _("Easy")), (2, _("Medium")), (3, _("Hard"))]
 
     title = forms.CharField(max_length=50, required=False)
     main_picture_id = forms.CharField(required=True)

@@ -410,7 +410,7 @@ def following(request, username):
         is_owner = True
 
     user_profile = Profile.objects.get(user=user)
-    tag = "Following"
+    tag = _("Following")
     return render(request, 'webapp/following.html',
                   {'follows': user_profile.following, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
@@ -427,7 +427,7 @@ def followers(request, username):
 
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
     user_profile = Profile.objects.get(user=user)
-    tag = "Followers"
+    tag = _("Followers")
     return render(request, 'webapp/following.html',
                   {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
