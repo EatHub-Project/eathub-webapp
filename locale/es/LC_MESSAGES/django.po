@@ -73,8 +73,8 @@ msgid ""
 "appretiated, so please use the following button to contact us."
 msgstr ""
 "Como tal, todo el feedback que nos puedan aportan es de gran utilidad, ya "
-"sea para sugerencias,bugs, etc. Para ello, envíe un correo a la dirección "
-"<b>eathub.contact@gmail.com</b> o pulseel botón de la parte inferior dónde "
+"sea para sugerencias, bugs, etc. Para ello, envíe un correo a la dirección "
+"<b>eathub.contact@gmail.com</b> o pulse el botón de la parte inferior donde "
 "se abrirá su cliente de correo y podrá enviarnos su feedback."
 
 #: .\templates\webapp\base.html.py:132
@@ -421,8 +421,8 @@ msgid ""
 "information, check Wikipedia or something, dude."
 msgstr ""
 "Los niveles de los sabores definen el sabor de tu receta. De este "
-"modopodemosrecomendar mejor tu receta a los gustos personales de cada "
-"persona.Los valores de estos sabores son evidentemente relativos"
+"modopodemos recomendar mejor tu receta a los gustos personales de cada "
+"persona. Los valores de estos sabores son evidentemente relativos"
 
 #: .\templates\webapp\newrecipe.html.py:771
 msgid "Save as draft"
