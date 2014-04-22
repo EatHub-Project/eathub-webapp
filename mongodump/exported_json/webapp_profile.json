@@ -446,65 +446,6 @@
     },
     {
         "_id": {
-            "$oid": "53412d1e18085d03fc51b72e"
-        },
-        "additional_languages": [
-            "en"
-        ],
-        "avatar": "images/mario.persist.jpg",
-        "birth_date": {
-            "$date": 687139200000
-        },
-        "display_name": "Mario",
-        "following": [
-            {
-                "display_name": "francisco",
-                "user_id": {
-                    "$oid": "5337f4b4144115cb2ce71e1e"
-                },
-                "username": "franhg"
-            },
-            {
-                "display_name": "Juhani L.",
-                "user_id": {
-                    "$oid": "5337f3cb144115cb2ce71e1c"
-                },
-                "username": "juan"
-            },
-            {
-                "display_name": "Ted",
-                "user_id": {
-                    "$oid": "5352390a18085d15c08181ce"
-                },
-                "username": "Ted"
-            },
-            {
-                "display_name": "Alex",
-                "user_id": {
-                    "$oid": "533fb9b386c9bdaca925fee0"
-                },
-                "username": "alex"
-            }
-        ],
-        "gender": "m",
-        "karma": 6,
-        "location": "Madrid",
-        "main_language": "en",
-        "modification_date": null,
-        "tastes": {
-            "bitter": 60,
-            "salty": 50,
-            "sour": 10,
-            "spicy": 20,
-            "sweet": 90
-        },
-        "user_id": {
-            "$oid": "53412d1e18085d03fc51b72d"
-        },
-        "website": "http://www.kosovonomola.com/"
-    },
-    {
-        "_id": {
             "$oid": "53511955b88bbe11b48fcdd8"
         },
         "additional_languages": [],
