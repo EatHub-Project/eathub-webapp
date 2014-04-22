@@ -1,6 +1,7 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
+{% load tags %}
 
 {% block container %}
     <!-- Start Recipe -->
@@ -102,9 +103,9 @@
         <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
             <div class="img-circle recipe-author recipe-author-picture-container">
                 <div class="img-circle recipe-author-picture"
-                     style="background-image: url('{{ receta.author.profile.get.avatar.url }}')">
+                     style="background-image: url('{% avatar receta.author.profile.get.avatar %}')">
                     <img class="img-circle recipe-author"
-                         src="{{ receta.author.profile.get.avatar.url }}">
+                         src="{% avatar receta.author.profile.get.avatar %}">
                 </div>
             </div>
             <h5 class="recipe-author recipe-author-name">By {{ receta.author.profile.get.display_name }}</h5>
@@ -364,7 +365,7 @@
             {% if user.is_authenticated %}
                 <div id="recipe-comment-form" class="recipe-comment-form">
                     <img class="img-circle recipe-comment-picture"
-                         src="{{ user.profile.get.avatar.url }}">
+                         src="{% avatar user.profile.get.avatar %}">
 
                     <form method="POST" action="{% url 'comment' receta.id %}">
                         {% csrf_token %}
