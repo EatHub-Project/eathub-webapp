@@ -12,6 +12,27 @@ from django_mongodb_engine.contrib import MongoDBManager
 
 # Validators
 
+def validate_procedure_without_empty_steps(steps):
+    if steps.count("")>0 or steps.count(" ")>0:
+        raise ValidationError("There are empty steps")
+
+def validate_is_main_picture(is_main):
+    print "valor q se ha recibido: " + str(is_main)
+    if is_main is None:
+        raise ValidationError("is_main cannot be None")
+    else:
+        print "Dice q no es none y que es " + str(is_main)
+
+
+def validate_only_one_main_picture(pictures):
+    count = 0
+    for a in pictures:
+        if a.is_main:
+            count += 1
+    if count > 1:
+        raise ValidationError("there are more than one main_picture")
+
+
 def validate_savour(savour):
     if savour <= -1 or savour >= 100:
         raise ValidationError("Value is not in range 0 to 99")
@@ -114,7 +135,7 @@ class Author(models.Model):
 
 class Picture(models.Model):
     url = models.URLField(blank=False)
-    is_main = models.NullBooleanField()  # BooleanField no acepta valor nulo
+    is_main = models.NullBooleanField(validators=[validate_is_main_picture])  # BooleanField no acepta valor nulo
     step = IntegerField(null=True)
 
     def __str__(self):
@@ -160,13 +181,13 @@ class Recipe(models.Model):
     difficult = IntegerField(null=True, validators=[validate_difficult])
     food_type = CharField(max_length=50, null=True)
     tags = ListField(null=True, validators=[validate_tags])
-    steps = ListField(blank=False)
+    steps = ListField(blank=False, validators=[validate_procedure_without_empty_steps])
 
     is_published = BooleanField()
     parent = ForeignKey('self', null=True, blank=True)
     #embedded
     author = EmbeddedModelField('Author')
-    pictures = ListField(EmbeddedModelField('Picture'), blank=False)
+    pictures = ListField(EmbeddedModelField('Picture'), blank=False, validators=[validate_only_one_main_picture])
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
 
