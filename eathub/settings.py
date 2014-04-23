@@ -148,6 +148,11 @@ INSTALLED_APPS = (
 
 ACCOUNT_ACTIVATION_DAYS = 1 #Anadido para uso de activacion por correo, 24 horas es la validez del codigo.
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'contacto.eathub@gmail.com'
+EMAIL_HOST_PASSWORD = 'asopispp'
+EMAIL_PORT = 465
+
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging
