@@ -140,10 +140,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'registration',
     'eathub',
     'webapp',
     'djangotoolbox',
 )
+
+ACCOUNT_ACTIVATION_DAYS = 1 #Anadido para uso de activacion por correo, 24 horas es la validez del codigo.
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
