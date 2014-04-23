@@ -472,3 +472,7 @@ def unbanned_comment(request, recipe_id, comment_id):
             r.comments[int(comment_id)].is_banned = False
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
+
+def terms_and_conditions(request):
+    return render(request, 'webapp/terms_and_conditions.html')
