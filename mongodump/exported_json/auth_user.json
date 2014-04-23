@@ -12,7 +12,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1396961948640
+            "$date": 1398259178380
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -107,7 +107,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397904475378
+            "$date": 1398259341589
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -202,7 +202,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397908847322
+            "$date": 1398259532875
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",

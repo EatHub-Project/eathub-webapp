@@ -1058,5 +1058,543 @@
             "prep_time": 10
         },
         "title": "Piruletas caseras"
+    },
+    {
+        "_id": {
+            "$oid": "53579e338853831a50220393"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398258259861
+        },
+        "description": "Holiday beverage (contains alcohol; not for children). I haven't tried this yet, but it sounds creamy and decadent. For those who love eggnog, you'll be on cloud nine when you take a sip of this! This takes approximately six hours to chill; the recipe recommends chilling overnight in the refrigerator before serving.",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "4 cups milk",
+            "5 whole cloves",
+            "1/2 teaspoon vanilla extract",
+            "1 teaspoon ground cinnamon",
+            "12 egg yolks",
+            "1 1/2 cups sugar",
+            "2 1/2 cups light rum",
+            "4 cups light cream",
+            "2 teaspoons vanilla extract",
+            "1/2 teaspoon ground nutmeg"
+        ],
+        "is_published": false,
+        "language": "en",
+        "main_image": "images/Eggnog-Smoothie-with-1-Minute-Vanilla-Whip-4.jpg",
+        "modification_date": {
+            "$date": 1398258259861
+        },
+        "nationality": "EN",
+        "negatives": [],
+        "notes": "",
+        "parent_id": null,
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 32,
+            "salty": 22,
+            "sour": 17,
+            "spicy": 18,
+            "sweet": 64
+        },
+        "serves": "4 persons",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Combine milk, cloves, 1/2 teaspoon vanilla, and cinnamon in a saucepan, and heat over lowest setting for 5 minutes. Slowly bring milk mixture to a boil."
+            },
+            {
+                "image": "",
+                "text": "In a large bowl, combine egg yolks and sugar. Whisk together until fluffy. Whisk hot milk mixture slowly into the eggs. Pour mixture into saucepan. Cook over medium heat, stirring constantly for 3 minutes, or until thick. Do not allow mixture to boil. Strain to remove cloves, and let cool for about an hour."
+            },
+            {
+                "image": "",
+                "text": "Stir in rum, cream, 2 teaspoon vanilla, and nutmeg. Refrigerate overnight before serving."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 25,
+            "prep_time": 0
+        },
+        "title": "Amazingly Good Eggnog"
+    },
+    {
+        "_id": {
+            "$oid": "53579f528853831a50220398"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398258546913
+        },
+        "description": "",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "1 fluid ounce coconut rum",
+            "3/4 fluid ounce vodka",
+            "1 fluid ounce pineapple juice",
+            "1 dash grenadine syrup"
+        ],
+        "is_published": false,
+        "language": "en",
+        "main_image": "images/Malta8.jpg",
+        "modification_date": {
+            "$date": 1398258546913
+        },
+        "nationality": "EN",
+        "negatives": [],
+        "notes": "",
+        "parent_id": null,
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 8,
+            "salty": 42,
+            "sour": 13,
+            "spicy": 26,
+            "sweet": 64
+        },
+        "serves": "1 person",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Combine rum, vodka and pineapple juice in a drink shaker. Shake firmly until frothy. Pour in a martini glass, add a touch of grenadine in the middle. Garnish with an orange wheel."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 5
+        },
+        "title": "Bikini Martini"
+    },
+    {
+        "_id": {
+            "$oid": "5357a0ac8853831a5022039a"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398258892243
+        },
+        "description": "La receta de este postre navide\u00f1o la he sacado en un antiguo recetario familiar, es un dulce que hac\u00eda mi abuela, a ella le encantaba la batata y la utilizaba mucho en sus postres. En esta ocasi\u00f3n va mezclada con almendra molida, harina de arroz y az\u00facar, y el resultado es un dulce delicado, m\u00e1s ligero que el mazap\u00e1n, y adem\u00e1s es f\u00e1cil y r\u00e1pido de hacer",
+        "difficult": 2,
+        "food_type": "dessert",
+        "ingredients": [
+            "2 boniatos",
+            "100 gr. de fideos de chocolate",
+            "100 gr. de fideos de colores",
+            "1 cucharadita de canela en polvo",
+            "1 cucharadita de az\u00facar",
+            "agua",
+            "cacao amargo en polvo",
+            "hojas de menta"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/166-bolitas-de-batata-xl-668x400x80xX.jpg",
+        "modification_date": {
+            "$date": 1398258892243
+        },
+        "nationality": "ES",
+        "negatives": [],
+        "notes": "",
+        "parent_id": null,
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 13,
+            "salty": 6,
+            "sour": 17,
+            "spicy": 16,
+            "sweet": 50
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Limpia las batatas bajo el grifo con un cepillito."
+            },
+            {
+                "image": "",
+                "text": "Ponlas a cocer en una cazuela con agua durante unos 30 minutos aproximadamente. Esc\u00farrelas, d\u00e9jalas templar y p\u00e9lalas."
+            },
+            {
+                "image": "",
+                "text": "Apl\u00e1stalas con un tenedor hasta conseguir una masa homog\u00e9nea. A\u00f1ade el az\u00facar y la canela y sigue mezclando."
+            },
+            {
+                "image": "",
+                "text": "Forma bolitas y pasa la mitad por los fideos de chocolate y la otra mitad por los fideos de colores. Si quieres que endurezcan un poco, introd\u00facelas en el frigor\u00edfico durante 30 minutos."
+            },
+            {
+                "image": "",
+                "text": "Monta las claras con una batidora el\u00e9ctrica de varillas. Cuando est\u00e9n bien montadas, a\u00f1ade las 3 cucharadas de az\u00facar (de una en una) y sigue montando. Coloca el merengue en una manga pastelera."
+            },
+            {
+                "image": "",
+                "text": "Para servir, espolvorea el plato con un poco de cacao en polvo, adorna con peque\u00f1os montoncitos de merengue y distribuye encima las bolitas de batata. Decora con una ramita de menta."
+            }
+        ],
+        "tags": [],
+        "temporality": [],
+        "time": {
+            "cook_time": 30,
+            "prep_time": 10
+        },
+        "title": "Bolitas de batata"
+    },
+    {
+        "_id": {
+            "$oid": "5357a17b8853831a5022039c"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398259099489
+        },
+        "description": "",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "1 fluid ounce coconut rum",
+            "3/4 fluid ounce whisky",
+            "1 fluid ounce pineapple juice",
+            "1 dash grenadine syrup"
+        ],
+        "is_published": false,
+        "language": "en",
+        "main_image": "images/bikini-martini-at-warren.jpg",
+        "modification_date": {
+            "$date": 1398259099489
+        },
+        "nationality": "EN",
+        "negatives": [],
+        "notes": "",
+        "parent_id": {
+            "$oid": "53579f528853831a50220398"
+        },
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 8,
+            "salty": 42,
+            "sour": 13,
+            "spicy": 26,
+            "sweet": 64
+        },
+        "serves": "1 person",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Combine rum, whisky and pineapple juice in a drink shaker. Shake firmly until frothy. Pour in a martini glass, add a touch of grenadine in the middle. Garnish with an orange wheel."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 5
+        },
+        "title": "Bikini Martini Whiskey"
+    },
+    {
+        "_id": {
+            "$oid": "5357a2498853831a5022039e"
+        },
+        "author_id": {
+            "$oid": "5337f3cb144115cb2ce71e1c"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398259305060
+        },
+        "description": "Una rica tarta de flan Potax y galletas.",
+        "difficult": 1,
+        "food_type": "dinner",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "canela en polvo"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/tarta_galletas_3.jpg",
+        "modification_date": {
+            "$date": 1398259305060
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "F\u00e1cil de preparar y muy rica. Mi opini\u00f3n para esta receta es que est\u00e1 mejor con flan dhul.",
+        "parent_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "pictures": [
+            {
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 0,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 86
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Dhul."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (preferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un toque de canela en polvo."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
+    },
+    {
+        "_id": {
+            "$oid": "5357a2d18853831a502203a0"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398259441290
+        },
+        "description": "Una rica tarta de flan Potax y galletas. He a\u00f1adido mi toque personal de virutas de regaliz.",
+        "difficult": 1,
+        "food_type": "dessert",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "virutas de regaliz"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/TARTA-CHOCO-Y-GALLETA.jpg",
+        "modification_date": {
+            "$date": 1398259441290
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "F\u00e1cil de preparar y muy rica.",
+        "parent_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "pictures": [
+            {
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 0,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 72
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Potax."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (peeferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un toque de virutas de regaliz."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
+    },
+    {
+        "_id": {
+            "$oid": "5357a3a08853831a502203a2"
+        },
+        "author_id": {
+            "$oid": "5352494f18085d15c08181d1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": 1398259648501
+        },
+        "description": "Una rica tarta de flan Potax y galletas. Recubierta de chocolate fundido y virutas de chocolate",
+        "difficult": 1,
+        "food_type": "dessert",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "chocolate fundido",
+            "virutas de chocolate"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/Tarta-de-chocolate-con-galletas.jpg",
+        "modification_date": {
+            "$date": 1398259648501
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "F\u00e1cil de preparar y muy rica.",
+        "parent_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "pictures": [
+            {
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 21,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 92
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Potax."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (peeferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un el chocolate previamente fundido para recubrir la tarta y a\u00f1adir las virutas de chocolate encima."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta",
+            "chocolate"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
     }
 ]
