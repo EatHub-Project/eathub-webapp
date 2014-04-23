@@ -22,4 +22,5 @@ urlpatterns = patterns('',
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/unbanned/$' , views.unbanned_comment, name='unbanned'),
     url(r'^recipes/(?P<username>\w+)$' , views.recipes, name='recipes'),
     url(r'^termsandconditions/$', views.terms_and_conditions, name='terms_and_conditions'),
+    url(r'^contact/$', views.contact, name='contact'),
 )

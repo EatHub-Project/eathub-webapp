@@ -476,3 +476,7 @@ def unbanned_comment(request, recipe_id, comment_id):
 
 def terms_and_conditions(request):
     return render(request, 'webapp/terms_and_conditions.html')
+
+
+def contact(request):
+    return render(request, 'webapp/contact.html')
