@@ -18,6 +18,6 @@ def navactive(request, urls):
 def avatar(avatar):
     if avatar:
         if default_storage.exists(static(avatar.url)):
-        return static(avatar.url)
+            return static(avatar.url)
     else:
         return static("webapp/image/profile_pic_anon.png")
