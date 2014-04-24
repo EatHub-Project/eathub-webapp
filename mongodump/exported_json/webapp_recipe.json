@@ -1087,7 +1087,7 @@
         ],
         "is_published": false,
         "language": "en",
-        "main_image": "images/Eggnog-Smoothie-with-1-Minute-Vanilla-Whip-4.jpg",
+        "main_image": "images/eggnog_smoothie_with_1_minute_vanilla_whip_4.persist.jpg",
         "modification_date": {
             "$date": 1398258259861
         },
@@ -1213,7 +1213,7 @@
         ],
         "is_published": false,
         "language": "es",
-        "main_image": "images/166-bolitas-de-batata-xl-668x400x80xX.jpg",
+        "main_image": "images/166_bolitas_de_batata.persist.jpg",
         "modification_date": {
             "$date": 1398258892243
         },
@@ -1288,7 +1288,7 @@
         ],
         "is_published": false,
         "language": "en",
-        "main_image": "images/bikini-martini-at-warren.jpg",
+        "main_image": "images/bikini_martini_at_warren.persist.jpg",
         "modification_date": {
             "$date": 1398259099489
         },
@@ -1347,7 +1347,7 @@
         ],
         "is_published": false,
         "language": "es",
-        "main_image": "images/tarta_galletas_3.jpg",
+        "main_image": "images/tarta_de_galletas_3.persist.jpg",
         "modification_date": {
             "$date": 1398259305060
         },
@@ -1437,7 +1437,7 @@
         ],
         "is_published": false,
         "language": "es",
-        "main_image": "images/TARTA-CHOCO-Y-GALLETA.jpg",
+        "main_image": "images/tarta_de_chocolate_y_galletas_2.persist.jpg",
         "modification_date": {
             "$date": 1398259441290
         },
@@ -1528,7 +1528,7 @@
         ],
         "is_published": false,
         "language": "es",
-        "main_image": "images/Tarta-de-chocolate-con-galletas.jpg",
+        "main_image": "images/tarta_de_chocolate_y_galletas_1.persist.jpg",
         "modification_date": {
             "$date": 1398259648501
         },

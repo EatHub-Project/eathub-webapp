@@ -164,14 +164,14 @@
         "_id": {
             "$oid": "5357a3498853831a502203a1"
         },
-        "image": "images/Tarta_de_chocolate_con_galletas.persist.jpg",
+        "image": "images/tarta_de_chocolate_con_galletas.persist.jpg",
         "persist": true
     },
     {
         "_id": {
             "$oid": "5357a2918853831a5022039f"
         },
-        "image": "images/TARTA_CHOCO_Y_GALLETA.persist.jpg",
+        "image": "images/tarta_chocolate_y_galletas.persist.jpg",
         "persist": true
     },
     {
@@ -199,7 +199,7 @@
         "_id": {
             "$oid": "5357a0048853831a50220399"
         },
-        "image": "images/166_bolitas_de-batata_xl_668x400x80xX.persist.jpg",
+        "image": "images/166_bolitas_de_batata.persist.jpg",
         "persist": true
     },
     {
@@ -220,7 +220,7 @@
         "_id": {
             "$oid": "53579e748853831a50220394"
         },
-        "image": "images/Bikini_Martini_The_Abbey_Quincy.persist.jpg",
+        "image": "images/bikini_martini_the_abbey_quincy.persist.jpg",
         "persist": true
     }
 ]
