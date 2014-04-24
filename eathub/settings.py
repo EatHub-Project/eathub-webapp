@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'eathub',
     'webapp',
     'djangotoolbox',
+    'password_reset',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
