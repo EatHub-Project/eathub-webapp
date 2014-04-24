@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-23 15:35+0200\n"
+"POT-Creation-Date: 2014-04-24 09:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,9 +81,91 @@ msgstr ""
 msgid "Thank you for your feedback"
 msgstr "Gracias por su feedback"
 
-#: .\templates\webapp\base.html.py:138
+#: .\templates\webapp\base.html.py:138 .\templates\webapp\contact.html.py:48
 msgid "Send email"
 msgstr "Enviar correo"
+
+#: .\templates\webapp\contact.html.py:15
+msgid "About us"
+msgstr "Sobre nosotros"
+
+#: .\templates\webapp\contact.html.py:16
+msgid ""
+"The idea that originated EatHub’s development was that recipes are not "
+"something final. It changes, you adapt to you personal taste or maybe "
+"someone advises you; so we decided to do manage the real life recipe's "
+"evolution . With this, you can control the life your recipes, help to "
+"improve your friend’s, copy them and giving your personal touch… You create "
+"a recipe, you share it,  everyone contributes, it evolves and the whole "
+"community benefits."
+msgstr ""
+"La idea que originó el desarrollo de Eathub fue que las recetas no son algo "
+"inamovible. Cambian, se adaptan a tus gustos personales o, a lo mejor, "
+"alguien te da un consejo para ellas; así que decidimos que sería buena idea "
+"permitirte controlar la evolución de tus recetas tal y como pasa en la vida "
+"real. Por tanto, puedes mejorar las recetas de tus amigos, copiarlas y darle "
+"tu toque personal... Es simple: Creas una receta, la compartes, todo el "
+"mundo contribuye y la comunidad en general se beneficia."
+
+#: .\templates\webapp\contact.html.py:21
+msgid "What we appreciate from you"
+msgstr "Qué nos gustaría saber"
+
+#: .\templates\webapp\contact.html.py:23
+msgid "Suggestions for the website"
+msgstr "Sugerencias para la web"
+
+#: .\templates\webapp\contact.html.py:24
+msgid "Bug reports"
+msgstr "Reporte de errores"
+
+#: .\templates\webapp\contact.html.py:25
+msgid "Your experience as a user"
+msgstr "Tu experiencia de usuario"
+
+#: .\templates\webapp\contact.html.py:26
+msgid "Requests"
+msgstr "Peticiones"
+
+#: .\templates\webapp\contact.html.py:30
+msgid "Promotion proposals"
+msgstr "Propuestas de promoción"
+
+#: .\templates\webapp\contact.html.py:31
+msgid "Business offers"
+msgstr "Ofertas de negocio"
+
+#: .\templates\webapp\contact.html.py:32
+msgid "Development help"
+msgstr "Ayuda en el desarrollo"
+
+#: .\templates\webapp\contact.html.py:39
+msgid "Contact Us"
+msgstr "¡Contacta con nosotros!"
+
+#: .\templates\webapp\contact.html.py:42
+msgid ""
+"This website is currently under development by the members of the fifth "
+"group of Software Engineering and Professional Practice (IT - Software "
+"Engineering, University of Seville)."
+msgstr ""
+"Este sitio se encuentra actualmente en desarrollo por los miembros del Grupo "
+"cinco de Ingeniería del Software y Práctica Profesional (Grado en Ingeniería "
+"Informática - Ingeniería del Software, Universidad de Sevilla)."
+
+#: .\templates\webapp\contact.html.py:43
+msgid ""
+"Any feedback you can give to us will be very useful. Please, feel free to "
+"contact us by sending an email to our address: eathub.contact@gmail.com or "
+"by clicking in the following button:"
+msgstr ""
+"Cualquier feedback que puedas darnos será muy útil. Por favor, no dudes en "
+"contactar con nosotros enviando un email a nuestra dirección: eathub."
+"contact@gmail.com o mediante el botón de abajo:"
+
+#: .\templates\webapp\contact.html.py:46
+msgid "Thanks for your interest!"
+msgstr "¡Gracias por tu interés!"
 
 #: .\templates\webapp\following.html.py:24
 #: .\templates\webapp\recipes.html.py:31

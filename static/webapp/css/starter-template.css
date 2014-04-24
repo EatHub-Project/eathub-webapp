@@ -1330,6 +1330,22 @@ header .container {
     color: #5a5a5a;
 }
 
+.contact-about-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.contact-about-us-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.plus.btn.btn-contact:hover, .plus.btn.btn-contact:focus, .plus.btn.btn-contact:active {
+    color: #cc3e27;
+    background-color: #fff;
+    border-color: #cc3e27;
+}
+
 #container {
     position: relative;
     min-height: 100%;
