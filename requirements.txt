@@ -7,3 +7,4 @@ git+https://github.com/django-nonrel/mongodb-engine
 django-gravatar2==1.1.3
 python-gettext==2.1
 Pillow==2.4
+django-password-reset==0.7
