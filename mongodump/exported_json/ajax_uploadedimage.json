@@ -213,7 +213,7 @@
         "_id": {
             "$oid": "53579f4c8853831a50220397"
         },
-        "image": "images/Malta8.persist.jpg",
+        "image": "images/malta8.persist.jpg",
         "persist": true
     },
     {

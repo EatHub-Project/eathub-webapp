@@ -4,7 +4,7 @@
             "$oid": "5337f7d9144115cb2ce71e20"
         },
         "additional_languages": [],
-        "avatar": "images/Juhani_Tamminen.persist.jpg",
+        "avatar": "images/juhani_tamminen.persist.jpg",
         "birth_date": null,
         "display_name": "Juhani L.",
         "following": [
@@ -116,7 +116,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/Fran_Benavente.persist.JPG",
+        "avatar": "images/fran_benavente.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
@@ -317,7 +317,7 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/Tomas.persist_1.jpg",
+        "avatar": "images/tomas.persist.jpg",
         "birth_date": null,
         "display_name": "Tomas",
         "following": [

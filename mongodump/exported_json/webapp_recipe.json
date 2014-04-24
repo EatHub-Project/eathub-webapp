@@ -1152,7 +1152,7 @@
         ],
         "is_published": false,
         "language": "en",
-        "main_image": "images/Malta8.jpg",
+        "main_image": "images/malta8.persist.jpg",
         "modification_date": {
             "$date": 1398258546913
         },
