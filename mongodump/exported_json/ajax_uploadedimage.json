@@ -59,7 +59,7 @@
         "_id": {
             "$oid": "5352beccb88bbe0550a704e5"
         },
-        "image": "images/spugne_naif.persist.JPG",
+        "image": "images/spugne_naif.persist.jpg",
         "persist": true
     },
     {
@@ -151,6 +151,76 @@
             "$oid": "5353d7d5c54d2d14a6e6439f"
         },
         "image": "images/pirus_6.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53579cc38853831a50220391"
+        },
+        "image": "images/1178610322.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5357a3498853831a502203a1"
+        },
+        "image": "images/Tarta_de_chocolate_con_galletas.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5357a2918853831a5022039f"
+        },
+        "image": "images/TARTA_CHOCO_Y_GALLETA.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5357a22c8853831a5022039d"
+        },
+        "image": "images/tarta_galletas_3.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5357a1638853831a5022039b"
+        },
+        "image": "images/bikini_martini_at_warren.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53579eb48853831a50220396"
+        },
+        "image": "images/136.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "5357a0048853831a50220399"
+        },
+        "image": "images/166_bolitas_de-batata_xl_668x400x80xX.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53579e8c8853831a50220395"
+        },
+        "image": "images/584583.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53579f4c8853831a50220397"
+        },
+        "image": "images/Malta8.persist.jpg",
+        "persist": true
+    },
+    {
+        "_id": {
+            "$oid": "53579e748853831a50220394"
+        },
+        "image": "images/Bikini_Martini_The_Abbey_Quincy.persist.jpg",
         "persist": true
     }
 ]
