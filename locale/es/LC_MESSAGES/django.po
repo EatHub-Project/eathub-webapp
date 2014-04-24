@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-24 09:07+0200\n"
+"POT-Creation-Date: 2014-04-24 09:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,6 +84,22 @@ msgstr "Gracias por su feedback"
 #: .\templates\webapp\base.html.py:138 .\templates\webapp\contact.html.py:48
 msgid "Send email"
 msgstr "Enviar correo"
+
+#: .\templates\webapp\base.html.py:153
+msgid "Terms & conditions"
+msgstr "Términos y condiciones"
+
+#: .\templates\webapp\base.html.py:154
+msgid "Our goals"
+msgstr "Nuestros objetivos"
+
+#: .\templates\webapp\base.html.py:155
+msgid "The team"
+msgstr "El equipo"
+
+#: .\templates\webapp\base.html.py:156
+msgid "Contact"
+msgstr "Contacto"
 
 #: .\templates\webapp\contact.html.py:15
 msgid "About us"
