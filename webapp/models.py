@@ -113,15 +113,6 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
-class Picture(models.Model):
-    url = models.URLField(blank=False)
-    is_main = models.NullBooleanField()  # BooleanField no acepta valor nulo
-    step = IntegerField(null=True)
-
-    def __str__(self):
-        return self.url
-
-
 class Time(models.Model):
     prep_time = models.IntegerField()
     cook_time = models.IntegerField()
@@ -149,10 +140,20 @@ class Vote(models.Model):
         return self.user is other.user and self.date == other.date
 
 
+class Step(models.Model):
+    text = models.TextField(blank=False)
+    image = models.ImageField(upload_to="images/recipe/",null=True)
+
+
+class Picture(models.Model):
+    image = models.ImageField(upload_to="images/",null=False)
+
+
 class Recipe(models.Model):
     title = CharField(max_length=50, blank=False)
     description = TextField(blank=False)
     creation_date = DateTimeField(auto_now_add=True)
+    main_image = models.ImageField(upload_to="images/recipe/", null=False)
     modification_date = DateTimeField(auto_now_add=True, null=True)
     ingredients = ListField(blank=False)
     serves = CharField(max_length=50, blank=False)
@@ -164,13 +165,13 @@ class Recipe(models.Model):
     difficult = IntegerField(null=True, validators=[validate_difficult])
     food_type = CharField(max_length=50, null=True)
     tags = ListField(null=True, validators=[validate_tags])
-    steps = ListField(blank=False)
 
     is_published = BooleanField()
     parent = ForeignKey('self', null=True, blank=True)
     #embedded
+    steps = ListField(EmbeddedModelField('Step'), null=False)
     author = ForeignKey(User)
-    pictures = ListField(EmbeddedModelField('Picture'), blank=False)
+    pictures = ListField(EmbeddedModelField('Picture'))
     time = EmbeddedModelField('Time')
     savours = EmbeddedModelField('Savour')
     comments = ListField(EmbeddedModelField('Comment'), blank=True)
@@ -182,6 +183,9 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_child_recipes(self):
+        return Recipe.objects.filter(parent=self.id)
 
 
 #enum to entity

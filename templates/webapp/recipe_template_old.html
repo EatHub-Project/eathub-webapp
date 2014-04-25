@@ -1,0 +1,459 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block container %}
+    <!-- Start Recipe -->
+    <!-- Column Left -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="panel panel-default panel-body">
+                    <div class="row">
+                        <div class="recipe-time panel-body">
+                            <span class="glyphicon glyphicon-time"></span>
+                            <p>{{ receta.time.prep_time }}</p>
+                        </div>
+                        <div class="recipe-author panel-body">
+                            <h5>Recipe by</h5>
+                            <span><a class="recipe-link" href="{% url 'profile' receta.author.username %}">{{ receta.author.profile.get.display_name }}</a></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="recipe-image">
+                            <img class="img-rounded" src="{{ receta.main_image.url }}" alt="Recipe main picture">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="recipe-name text-center">
+                            <h1>{{ receta.title }}</h1>
+                            <div class="recipe-votes pull-right">
+                                <span id="positive_votes">{{ receta.positives|length }}</span>
+                                {% if user.is_authenticated %}
+                                    <a id="btn-positive" class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></span></a>
+                                {% else %}
+                                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-plus"></span></a>
+                                {% endif %}
+
+                                <span id="negative_votes">{{ receta.negatives|length }}</span>
+                                {% if user.is_authenticated %}
+                                    <a id="btn-negative" class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></span></a>
+                                {% else %}
+                                    <a class="plus btn btn-default vote"><span class="glyphicon glyphicon-minus"></span></a>
+                                {% endif %}
+                            </div>
+                            <!--<div class="row">
+                                <div id="error-vote" class="alert alert-dismissable alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Opps!</strong> <span>Unknown error</span>
+                                </div>
+                                <div id="ok-vote" class="alert alert-dismissable alert-success alert-follow">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Done!</strong> <span></span>
+                                </div>
+                            </div>-->
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel-body">
+                            <p>{{ receta.description }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row panel-body">
+                                <h3>Info</h3>
+                            </div>
+                            <div class="row">
+                                <div class="recipe-info">
+                                    <div class="recipe-info-data">
+                                        <h5>Prep Time</h5>
+                                        <span>{{ receta.time.prep_time }}</span>
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Cook Time</h5>
+                                        <span>{{ receta.time.cook_time }}</span>
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Servings</h5>
+                                        <span>{{ receta.serves }}</span>
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Difficulty</h5>
+                                        <span>{{ receta.difficult }}</span>
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Temporality</h5>
+                                        {% if receta.temporality %}
+                                            {% for season in receta.temporality %}
+                                                <span><a class="recipe-tag" href="#">{{ season }}</a></span>
+                                            {% endfor %}
+                                        {% else %}
+                                            Not specified
+                                        {% endif %}
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Nationality</h5>
+                                        <span><a class="recipe-tag" href="#">{{ receta.nationality }}</a></span>
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Food Type</h5>
+                                        <span><a class="recipe-tag" href="#">{{ receta.food_type }}</a></span>
+                                    </div>
+                                    <div class="recipe-info-data">
+                                        <h5>Special Conditions</h5>
+                                        {% if receta.special_conditions %}
+                                            {% for condition in receta.special_conditions %}
+                                                {% if condition %}
+                                                    <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            No special conditions
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row panel-body">
+                                <h3>Tastes</h3>
+                            </div>
+                            <div class="row panel-body">
+                                <div class="recipe-taste">
+                                    <h5>Salty</h5>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                             aria-valuemax="100" style="width: {{ receta.savours.salty }}%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recipe-taste">
+                                    <h5>Sour</h5>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                             aria-valuemax="100" style="width: {{ receta.savours.sour }}%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recipe-taste">
+                                    <h5>Bitter</h5>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" id="bitter" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                             aria-valuemax="100" style="width: {{ receta.savours.bitter }}%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recipe-taste">
+                                    <h5>Sweet</h5>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                             aria-valuemax="100" style="width: {{ receta.savours.sweet }}%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recipe-taste">
+                                    <h5>Spicy</h5>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                             aria-valuemax="100" style="width: {{ receta.savours.spicy }}%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-body recipe-ingredients">
+                    <h2>Ingredients</h2>
+                    <div class="row">
+                        <div class="recipe-ingredients">
+                            <ul>
+                                {% for ingredient in receta.ingredients %}
+                                    {% if ingredient %}
+                                        <li>
+                                            {{ ingredient }}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-body">
+                    <h2>Pictures</h2>
+
+                    <div class="recipe-album">
+                        {% if receta.pictures %}
+                            <ul>
+                                {% for picture in receta.pictures %}
+                                    <li><img class="img-thumbnail" src="{{ picture.image.url }}"/></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            No pictures
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="panel panel-default panel-body">
+                    <h3>Steps</h3>
+
+                    <div class="recipe-steps-list">
+                        {% for step in receta.steps %}
+                            <!-- Start Step -->
+                            <div class="recipe-step">
+                                <h5>Step {{ forloop.counter }}</h5>
+                                <span>{{ step.text }}</span>
+                                <div class="recipe-step-image">
+                                    {% if step.image %}
+                                        <img class="img-thumbnail" src="{{ step.image.url }}"/>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!-- End Step -->
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="panel panel-default panel-body">
+                    <h3>Notes</h3>
+
+                    <div class="recipe-note">
+                        <span class="glyphicon glyphicon-asterisk">{{ receta.notes }}</span>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-body">
+                    <h2>Tags</h2>
+
+                    <div class="recipe-tags-list">
+                        <!--
+                        <a class="recipe-tag" href="/recipes?allowedCourse=course^course-Main Dishes">Main Dishes</a>
+                        <a class="recipe-tag" href="/recipes?allowedCuisine=cuisine^cuisine-irish">Irish</a>
+                        <a class="recipe-tag" href="/recipes?allowedHoliday=holiday^holiday-st-patricks-day">St. Patrick's Day</a>
+                        -->
+                        {% if receta.tags %}
+                            {% for tag in receta.tags %}
+                                {% if tag %}
+                                    <a class="recipe-tag" href="#">{{ tag }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            This is strange... this recipe has no tags!
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="panel panel-default panel-body">
+                    <div class="row panel-body">
+                        {% if user.is_authenticated %}
+                            <div class="col-md-2">
+                                <a class="profile-image comment-image" href="{% url 'profile' user.username %}">
+                                    <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
+                                            {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10">
+                                <form method="POST" action="{% url 'comment' receta.id %}">
+                                    {% csrf_token %}
+                                    <div class="comment-form">
+                                        <div class="comment-bocadillo">
+                                            <div class="bocadillo-efecto efecto-inferior"></div>
+                                            <div class="bocadillo-efecto efecto-superior"></div>
+                                        </div>
+                                        <textarea class="col-md-12" type="text" name="text"
+                                                  placeholder="Escriba un comentario..." rows="4"></textarea>
+                                    </div>
+                                    <input class="plus btn btn-default" type="submit">
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row panel-body">
+                        <div class="list-comments">
+                            {% for comment in receta.comments %}
+                                {% if not comment.is_banned or comment.is_banned and user.is_staff or comment.is_banned and comment.user_own == user %}
+                                    <div class="row comment {% if comment.is_banned %}comment-banned{% endif %}">
+                                        <div class="row">
+                                            <div class="col-md-1"><a class="profile-image"
+                                                                     href="{% url 'profile' comment.user_own.username %}">
+                                                <img src="{% if comment.user_own.profile.get.avatar %}{{ comment.user_own.profile.get.avatar.url }}{% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/></a>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="comment-name"><a
+                                                        href="{% url 'profile' comment.user_own.username %}">{{ comment.user_own.username }}</a>
+                                                </div>
+                                                <div class="comment-date">{{ comment.create_date }}</div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                {% if user.is_staff %}
+                                                    {% if not comment.is_banned %}
+                                                        <a href="{% url 'banned' receta.id forloop.counter0 %}"
+                                                           class="plus btn btn-default">Banned Comment</a>
+                                                    {% else %}
+                                                        <a href="{% url 'unbanned' receta.id forloop.counter0 %}"
+                                                           class="plus btn btn-default">Unbanned Comment</a>
+                                                    {% endif %}
+                                                {% elif comment.user_own == user and comment.is_banned %}
+                                                    <div class="alert alert-danger">This comment has been banned.</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="row comment-text">
+                                            <div class="comment-bocadillo">
+                                                <div class="bocadillo-efecto efecto-inferior"></div>
+                                                <div class="bocadillo-efecto efecto-superior"></div>
+                                            </div>
+                                            {{ comment.text }}</div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        var csrftoken = getCookie('csrftoken');
+
+        // establecer valores por defecto utilizados en las peticiones ajax
+        $.ajaxSetup({
+            crossDomain: false, // obviates need for sameOrigin test
+            //especificar pretratamiento del XMLHTTPRequest (en este caso, añadir cabecera CSRF)
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        // funcion a ejecutar cuando el DOM este completamente cargado
+        $(document).ready(function () {
+            var $positive = $("#btn-positive");
+            var $negative = $("#btn-negative");
+            var $positive_votes = $("#positive_votes")
+            var $negative_votes = $("#negative_votes")
+            var $error = $("#error-vote");
+            var $ok = $("#ok-vote");
+
+            // por defecto los divs para indicar el resultado estan ocultos
+            $error.hide();
+            $ok.hide();
+
+            // establece una función a ejecutar cuando se haga click sobre el elemento
+            $positive.click(function (e) {
+                var data = {"recipe": '{{ receta.id }}', "type": "positive"};
+
+                $.ajax({    // Realizar peticion ajax
+                    type: "POST",
+                    url: '{% url 'vote' %}',
+                    data: data,
+                    dataType: "json",
+
+                    // funcion ejecutada cuando la peticion haya tenido exito
+                    success: function (jqXHR, textStatus, errorThrown) {
+                        $error.hide();
+
+                        $ok.show();
+
+                        //actualizar conteo de votos sin necesidad de recargar la pagina
+                        $.get('{% url 'recipe_votes' receta.id %}', function( data ){
+                            var result = $.parseJSON( data );
+
+                            console.log("votos tras la votacion\n +: "+result.positives+"\n -: "+result.negatives);
+                            $positive_votes.html(result.positives)
+                            $negative_votes.html(result.negatives)
+
+                            //$positive.attr("disabled", true);
+                            //$negative.attr("disabled", true);
+                        })
+                    },
+
+                    // funcion ejecutada cuando se haya producido algun error
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        var result = $.parseJSON(jqXHR.responseText);
+
+                        $error.find("span").html(result.message);
+                        $error.show();
+
+                        $ok.hide();
+                    }
+                })
+            });
+
+            $negative.click(function (e) {
+                var data = {"recipe": '{{ receta.id }}', "type": "negative"};
+
+                $.ajax({
+                    type: "POST",
+                    url: '{% url 'vote' %}',
+                    data: data,
+                    dataType: "json",
+                    success: function(jqXHR, textStatus, errorThrown) {
+
+                        var $error = $("#error-vote");
+                        $error.hide();
+
+                        var $ok = $("#ok-vote");
+                        $ok.show();
+
+                        //actualizar conteo de votos sin necesidad de recargar la pagina
+                        $.get('{% url 'recipe_votes' receta.id %}', function( data ){
+                            var result = $.parseJSON( data );
+
+                            console.log("votos tras la votacion\n +: "+result.positives+"\n -: "+result.negatives);
+                            $positive_votes.html(result.positives)
+                            $negative_votes.html(result.negatives)
+
+                            //$positive.attr("disabled", true);
+                            //$negative.attr("disabled", true);
+                        })
+                    },
+
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        var result = $.parseJSON(jqXHR.responseText);
+
+                        var $error = $("#error-vote");
+                        $error.find("span").html(result.message);
+                        $error.show();
+
+                        var $ok = $("#ok-vote");
+                        $ok.hide();
+                    }
+                })
+            })
+        });
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+    </script>
+{% endblock %}

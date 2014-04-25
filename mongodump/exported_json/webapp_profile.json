@@ -4,33 +4,55 @@
             "$oid": "5337f7d9144115cb2ce71e20"
         },
         "additional_languages": [],
-        "avatar": "images/lethimaeki0031_1.jpg",
+        "avatar": "images/Juhani_Tamminen.persist.jpg",
         "birth_date": null,
         "display_name": "Juhani L.",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "Juanma",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "53511955b88bbe11b48fcdd7"
                 },
-                "username": "homie"
+                "username": "juanma"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
             }
         ],
         "gender": "unknown",
-        "location": "Stalingrado",
+        "karma": 6,
+        "location": "Sevilla",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 67,
+            "salty": 64,
+            "sour": 63,
+            "spicy": 69,
+            "sweet": 42
         },
         "user_id": {
             "$oid": "5337f3cb144115cb2ce71e1c"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
     },
     {
         "_id": {
@@ -42,23 +64,38 @@
         "display_name": "Pedro Verd",
         "following": [
             {
-                "display_name": "Juhani L.",
+                "display_name": "Juanma",
                 "user_id": {
-                    "$oid": "5337f3cb144115cb2ce71e1c"
+                    "$oid": "53511955b88bbe11b48fcdd7"
                 },
-                "username": "juan"
+                "username": "juanma"
             },
             {
                 "display_name": "francisco",
                 "user_id": {
                     "$oid": "5337f4b4144115cb2ce71e1e"
                 },
-                "username": "francisco"
+                "username": "franhg"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
             }
         ],
         "gender": "unknown",
-        "location": "Stalingrado",
-        "main_language": "en",
+        "karma": 6,
+        "location": "Lugo",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 40,
@@ -70,7 +107,7 @@
         "user_id": {
             "$oid": "5337f440144115cb2ce71e1d"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
     },
     {
         "_id": {
@@ -79,35 +116,50 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/Fran_Benavente.persist.JPG",
         "birth_date": {
             "$date": 687139200000
         },
         "display_name": "francisco",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "Juhani L.",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "5337f3cb144115cb2ce71e1c"
                 },
-                "username": "homie"
+                "username": "juan"
+            },
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
             }
         ],
-        "gender": "f",
-        "location": "Stalingrado",
-        "main_language": "en",
+        "gender": "m",
+        "karma": 6,
+        "location": "Sevilla",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 23,
+            "salty": 23,
+            "sour": 43,
+            "spicy": 45,
+            "sweet": 46
         },
         "user_id": {
             "$oid": "5337f4b4144115cb2ce71e1e"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
     },
     {
         "_id": {
@@ -116,35 +168,50 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/paco.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
-        "display_name": "camaron",
+        "display_name": "Paco",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "Juhani L.",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "5337f3cb144115cb2ce71e1c"
                 },
-                "username": "homie"
+                "username": "juan"
+            },
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
             }
         ],
-        "gender": "f",
-        "location": "Stalingrado",
+        "gender": "m",
+        "karma": 4,
+        "location": "Segovia",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 34,
+            "salty": 56,
+            "sour": 32,
+            "spicy": 53,
+            "sweet": 35
         },
         "user_id": {
             "$oid": "5337f520144115cb2ce71e1f"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
     },
     {
         "_id": {
@@ -153,35 +220,43 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/alexis.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
         "display_name": "Alex",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "francisco",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "5337f4b4144115cb2ce71e1e"
                 },
-                "username": "homie"
+                "username": "franhg"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
             }
         ],
-        "gender": "f",
-        "location": "Stalingrado",
+        "gender": "m",
+        "karma": 6,
+        "location": "Paris",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 45,
+            "salty": 54,
+            "sour": 43,
+            "spicy": 34,
+            "sweet": 35
         },
         "user_id": {
             "$oid": "533fb9b386c9bdaca925fee0"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
     },
     {
         "_id": {
@@ -190,35 +265,50 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/james.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
-        "display_name": "dimitri",
+        "display_name": "James",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "Juhani L.",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "5337f3cb144115cb2ce71e1c"
                 },
-                "username": "homie"
+                "username": "juan"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
             }
         ],
-        "gender": "f",
-        "location": "Stalingrado",
+        "gender": "m",
+        "karma": 5,
+        "location": "Liverpool",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 50,
+            "salty": 40,
+            "sour": 5,
+            "spicy": 23,
+            "sweet": 14
         },
         "user_id": {
             "$oid": "533fba3786c9bdaca925fee1"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
     },
     {
         "_id": {
@@ -227,35 +317,48 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
-        "birth_date": {
-            "$date": 687139200000
-        },
-        "display_name": "Thomas",
+        "avatar": "images/Tomas.persist_1.jpg",
+        "birth_date": null,
+        "display_name": "Tomas",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "Alex",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "533fb9b386c9bdaca925fee0"
                 },
-                "username": "homie"
+                "username": "alex"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
             }
         ],
-        "gender": "f",
-        "location": "Stalingrado",
+        "gender": "m",
+        "karma": 6,
+        "location": "Teruel",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 60,
+            "salty": 70,
+            "sour": 80,
+            "spicy": 90,
+            "sweet": 81
         },
         "user_id": {
             "$oid": "533fbad086c9bdaca925fee2"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": "http://www.youtube.com/tomasrecetas"
     },
     {
         "_id": {
@@ -264,30 +367,45 @@
         "additional_languages": [
             "en"
         ],
-        "avatar": "images/i100236495_91881_5.jpg",
+        "avatar": "images/mario.persist.jpg",
         "birth_date": {
             "$date": 687139200000
         },
-        "display_name": "prueba",
+        "display_name": "Mario",
         "following": [
             {
-                "display_name": "homie",
+                "display_name": "francisco",
                 "user_id": {
-                    "$oid": "53412fa018085d03fc51b730"
+                    "$oid": "5337f4b4144115cb2ce71e1e"
                 },
-                "username": "homie"
+                "username": "franhg"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
             }
         ],
-        "gender": "f",
-        "location": "Stalingrado",
+        "gender": "m",
+        "karma": 6,
+        "location": "Madrid",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 60,
+            "salty": 50,
+            "sour": 10,
+            "spicy": 20,
+            "sweet": 90
         },
         "user_id": {
             "$oid": "53412d1e18085d03fc51b72d"
@@ -296,39 +414,177 @@
     },
     {
         "_id": {
-            "$oid": "53412fa018085d03fc51b731"
+            "$oid": "53511955b88bbe11b48fcdd8"
         },
-        "additional_languages": [
-            "es"
-        ],
-        "avatar": "images/discrepo.png",
+        "additional_languages": [],
+        "avatar": "images/juanma.persist.jpg",
         "birth_date": {
-            "$date": -27080352000000
+            "$date": 724204800000
         },
-        "display_name": "homie",
+        "display_name": "Juanma",
         "following": [
             {
-                "display_name": "prueba",
+                "display_name": "francisco",
                 "user_id": {
-                    "$oid": "53412d1e18085d03fc51b72d"
+                    "$oid": "5337f4b4144115cb2ce71e1e"
                 },
-                "username": "testing"
+                "username": "franhg"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            },
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "Ted",
+                "user_id": {
+                    "$oid": "5352390a18085d15c08181ce"
+                },
+                "username": "Ted"
             }
         ],
         "gender": "m",
-        "location": "Kosovo",
+        "karma": 6,
+        "location": "Sevilla",
         "main_language": "en",
         "modification_date": null,
         "tastes": {
-            "bitter": null,
-            "salty": null,
-            "sour": null,
-            "spicy": null,
-            "sweet": null
+            "bitter": 50,
+            "salty": 50,
+            "sour": 50,
+            "spicy": 50,
+            "sweet": 50
         },
         "user_id": {
-            "$oid": "53412fa018085d03fc51b730"
+            "$oid": "53511955b88bbe11b48fcdd7"
         },
-        "website": "http://www.jajajaja.com/"
+        "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "5352390a18085d15c08181cf"
+        },
+        "additional_languages": [],
+        "avatar": "images/ted.persist.jpg",
+        "birth_date": {
+            "$date": 605750400000
+        },
+        "display_name": "Ted",
+        "following": [
+            {
+                "display_name": "Juanma",
+                "user_id": {
+                    "$oid": "53511955b88bbe11b48fcdd7"
+                },
+                "username": "juanma"
+            },
+            {
+                "display_name": "Juhani L.",
+                "user_id": {
+                    "$oid": "5337f3cb144115cb2ce71e1c"
+                },
+                "username": "juan"
+            }
+        ],
+        "gender": "unknown",
+        "karma": 6,
+        "location": "London",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 36,
+            "salty": 61,
+            "sour": 74,
+            "spicy": 40,
+            "sweet": 67
+        },
+        "user_id": {
+            "$oid": "5352390a18085d15c08181ce"
+        },
+        "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "5352494f18085d15c08181d2"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/maria.persist.jpeg",
+        "birth_date": {
+            "$date": 718675200000
+        },
+        "display_name": "Mar\u00eda",
+        "following": [
+            {
+                "display_name": "Alex",
+                "user_id": {
+                    "$oid": "533fb9b386c9bdaca925fee0"
+                },
+                "username": "alex"
+            },
+            {
+                "display_name": "francisco",
+                "user_id": {
+                    "$oid": "5337f4b4144115cb2ce71e1e"
+                },
+                "username": "franhg"
+            }
+        ],
+        "gender": "f",
+        "karma": 6,
+        "location": "Sevilla",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 41,
+            "salty": 87,
+            "sour": 50,
+            "spicy": 88,
+            "sweet": 24
+        },
+        "user_id": {
+            "$oid": "5352494f18085d15c08181d1"
+        },
+        "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbf"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/virgi.persist.jpg",
+        "birth_date": {
+            "$date": 660528000000
+        },
+        "display_name": "Virgi",
+        "following": [],
+        "gender": "f",
+        "karma": 6,
+        "location": "Alacant, Spain",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 41,
+            "salty": 62,
+            "sour": 43,
+            "spicy": 61,
+            "sweet": 80
+        },
+        "user_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "website": ""
     }
 ]

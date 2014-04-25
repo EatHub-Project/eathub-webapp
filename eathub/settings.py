@@ -1,6 +1,7 @@
 # Django settings for eathub project.
 from urlparse import urlparse
 import os
+from django.conf import global_settings
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -128,6 +129,9 @@ TEMPLATE_DIRS = (
     #os.path.join(BASE_DIR, '..', 'templates').replace('\\','/')
     os.path.join(BASE_DIR, 'templates').replace('\\', '/')
 )
+
+# Anadido para la navegabilidad, de este modo se activa la etiqueta 'active' cuando navegamos.
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ( 'django.core.context_processors.request',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

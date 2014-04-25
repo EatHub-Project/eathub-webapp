@@ -5,6 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{% static 'webapp/image/favicon.ico' %}">
 
     <title>EatHub</title>
@@ -12,14 +13,20 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'webapp/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'webapp/css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/lightbox.css' %}" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+
 
     {% block custom_css %}
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
+<div id="container">
 <header>
     {% block navbar %}
+        {% load tags %}
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,15 +44,16 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'main' %}">{% trans "Home" %}</a></li>
-                        <li><a href="#">{% trans "Recipes" %}</a></li>
-                        <li><a href="#">{% trans "Explore" %}</a></li>
-                        <li class="divider-vertical"></li>
+                        <li class="{% navactive request 'main' %}"><a href="{% url 'main' %}">{% trans "Home" %}</a>
+                        </li>
+                        <li><a class="" href="#">{% trans "Recipes" %}</a></li>
+                        <li><a class="" href="#">{% trans "Explore" %}</a></li>
                     </ul>
 
                     <div class="input-group navbar-input-group">
                         <form class="navbar-form navbar-left" role="search">
-                            <input type="text" class="form-control border-search border-rect" placeholder="Search..." name="srch-term"
+                            <input type="text" class="form-control border-search border-rect" placeholder="Search..."
+                                   name="srch-term"
                                    id="srch-term">
                                 <span class="input-group-btn navbar-input-group-btn">
                                     <button class="btn btn-default border-default" type="submit">
@@ -54,19 +62,24 @@
                                 </span>
                         </form>
                     </div>
+                    <!-- Button trigger modal -->
+                    <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
+                        <i class="fa fa-comment"></i> Feedback
+                    </button>
 
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
                             <li><p class="navbar-text text-red">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
                             </li>
                             <li class="dropdown">
-                                <a class="profile-image dropdown-toggle" data-toggle="dropdown" href="/profile/{{ user.username }}"> <!--TODO: no se si user.username saca el nombre de usuario correcto (el mismo que el de Author)-->
-                                    <img src="{% if user.profile.get.avatar %}{{ user.profile.get.avatar.url }}
-                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}"/>
+                                <a class="profile-image dropdown-toggle" data-toggle="dropdown"
+                                   href="/profile/{{ user.username }}">
+                                    <!--TODO: no se si user.username saca el nombre de usuario correcto (el mismo que el de Author)-->
+                                    <img src="{% avatar user.profile.get.avatar %}"/>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'profile' user.username %}">{% trans "Profile" %}</a></li>
-                                    <li><a href="">Settings</a> </li>
+                                    <li><a href="">Settings</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                                 </ul>
@@ -79,9 +92,13 @@
                                 </div>
                             </li>
                         {% else %}
-                            <a class="plus btn btn-default" href="{% url 'login' %}" role="button">Log in</a>
-                            <a class="plus btn btn-default" href="{% url 'newaccount' %}">{% trans "Sign-up" %}</a>
+                            <a class="btn btn-default btn-eathub" href="{% url 'login' %}"
+                               role="button">{% trans "Sign in" %}</a>
+                            <a class="btn btn-default btn-eathub-inverted"
+                               href="{% url 'newaccount' %}">{% trans "Create account" %}</a>
                         {% endif %}
+
+
                     </ul>
                 </div>
             </div>
@@ -95,15 +112,72 @@
         {% block container %}{% endblock %}
 
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback"
+         aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{% trans "This web is under development by the members of fifth group of ISPP." %}</p>
+
+
+                    <p>{% trans "Any feedback, suggestion, bug reports or similar given from you is appretiated, so please use the following button to contact us."  %}
+                        </p>
+
+
+                    <p>{% trans "Thank you for your feedback" %}</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a class="plus btn btn-default"
+                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!">{% trans "Send email" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- /.container -->
 </main>
 <footer>
+    <div class="footer">
+        <div class="col-md-4 footer-logo-container">
+            <span class="footer-logo-helper"></span>
+            <img class="footer-logo" src="{% static 'webapp/image/logo_footer.png' %}" class="img-circle">
+        </div>
+        <div class="col-md-8 footer-content">
+            <div class="row">
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">Terms & conditions</a></div>
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">Our goals</a></div>
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">The team</a></div>
+                <div class="col-md-2 text-center"><a href="#" class="footer-link">Contact</a></div>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{% static 'webapp/js/jquery.min.js' %}"></script>
     <script src="{% static 'webapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'webapp/js/lightbox.min.js' %}"></script>
+    <script>
+        $().ready(function () {
+            //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
+                        $(".footer-logo").hover(
+                                function () {
+                                    $(".footer-logo").animate({"margin-bottom": "-35px"}, 150)
+                                },
+                                function () {
+                                    $(".footer-logo").animate({"margin-bottom": "-70px"}, 150)
+                                }
+                        );
+        });
+    </script>
     {% block custom_js %} {% endblock %}
 </footer>
+</div>
 </body>
 </html>
