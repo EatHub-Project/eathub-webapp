@@ -110,19 +110,22 @@ def new_account(request):
 
     return render(request, 'webapp/newaccount.html', {'form': form})
 
+
 def activate_account(request, code):
     try:
         a = Activation.objects.get(code=code)
     except Activation.DoesNotExist:
         raise Http404
 
-    if a.user.is_active :
-        return render(request, 'webapp/main.html', {})
+    if a.user.is_active:
+        return HttpResponseRedirect(reverse('main'))
 
     a.user.is_active = True
-
     a.user.save()
-    return render(request, 'webapp/registration_done.html', {})
+
+    messages.success(request, _("Your account has been successfully activated. You can log in now."))
+    return HttpResponseRedirect(reverse('login'))
+
 
 def new_account_done(request, username):
     try:
@@ -139,7 +142,7 @@ def new_account_done(request, username):
         hash.update(str(now_datetime))
         hash.digest()
         if not Activation.objects.filter(code=hash.hexdigest()).exists():
-            break;
+            break
 
     a = Activation(user=user, code=hash.hexdigest(), date=now_datetime)
     a.save()
@@ -157,6 +160,7 @@ def new_account_done(request, username):
 
     #enviar el mail.
     return render(request, 'webapp/newaccount_done.html', {}) #pasar profile para mostrar datos en pantallas
+
 
 @login_required
 def new_recipe(request):
