@@ -1,4 +1,6 @@
 # coding=utf-8
+from django.forms import ImageField
+from django.templatetags.static import static
 from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
@@ -314,13 +316,16 @@ def modification_account(request, username):
             'location': p.location,
             'website': p.website,
             'birth_date': p.birth_date,
-            'avatar_url': p.avatar.url,
             'salty': p.tastes.salty,
             'sour': p.tastes.sour,
             'bitter': p.tastes.bitter,
             'sweet': p.tastes.sweet,
             'spicy': p.tastes.spicy,
         }
+        if p.avatar:
+            data['avatar_url']=p.avatar.url
+        else:
+            data['avatar_url']=static("webapp/image/profile_pic_anon.png")
         form = EditAccountForm(initial=data)
 
     return render(request, 'webapp/newaccount.html', {'form': form, 'edit': True})
@@ -391,8 +396,12 @@ def recipes(request, username):
     except User.DoesNotExist:
         raise Http404
 
+    is_owner = False
+    if request.user.username == username:
+        is_owner = True
+
     recipes_list = Recipe.objects.raw_query({'author_id': ObjectId(user.id)}).order_by('-creation_date')
-    return render(request, 'webapp/recipes.html', {'recipes': recipes_list})
+    return render(request, 'webapp/recipes.html', {'recipes': recipes_list, 'is_owner': is_owner})
 
 
 def following(request, username):
@@ -406,7 +415,7 @@ def following(request, username):
         is_owner = True
 
     user_profile = Profile.objects.get(user=user)
-    tag = "Following"
+    tag = _("Following")
     return render(request, 'webapp/following.html',
                   {'follows': user_profile.following, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 
@@ -423,7 +432,7 @@ def followers(request, username):
 
     followers_list = Profile.objects.raw_query({'following.user_id': ObjectId(user.id)})
     user_profile = Profile.objects.get(user=user)
-    tag = "Followers"
+    tag = _("Followers")
     return render(request, 'webapp/following.html',
                   {'follows': followers_list, 'profile': user_profile, 'tag': tag, 'is_owner': is_owner})
 

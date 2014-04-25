@@ -20,5 +20,5 @@ urlpatterns = patterns('',
     url(r'^recipe/(?P<recipe_id>\w+)/comment/$' , views.comment, name='comment'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/banned/$' , views.banned_comment, name='banned'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/unbanned/$' , views.unbanned_comment, name='unbanned'),
-    url(r'^recipes/(?P<username>\w+)/comment/$' , views.recipes, name='recipes'),
+    url(r'^recipes/(?P<username>\w+)$' , views.recipes, name='recipes'),
 )

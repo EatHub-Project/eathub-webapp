@@ -33,8 +33,14 @@
         {% endfor %}
     </div>
 {% else %}
+    {% if is_owner %}
         <div class="recipe-name">
-            <h2 class="follow-msg">{% trans "Don't you have recipes? Let's make yourself one!" %}</h2>
+            <h2 class="follow-msg">{% trans "You do not have any recipe yet" %}</h2>
         </div>
+    {% else %}
+        <div class="recipe-name">
+            <h2 class="follow-msg">{% trans "This user does not has any recipe yet" %}</h2>
+        </div>
+    {% endif %}
 {% endif %}
 {% endblock %}
