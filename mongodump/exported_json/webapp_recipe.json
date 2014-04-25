@@ -202,7 +202,7 @@
         "creation_date": {
             "$date": 1396189394154
         },
-        "description": "Receta de un postre tradicional.",
+        "description": "Receta de un postre tradicional. Ideal para semana santa. No defraudar\u00e1.",
         "difficult": 5,
         "food_type": "torrijas",
         "ingredients": [
@@ -468,7 +468,7 @@
         "creation_date": {
             "$date": 1397212214154
         },
-        "description": "Una comida rica y f\u00e1cil de preparar.",
+        "description": "Una comida rica y f\u00e1cil de preparar. La recomiendo para aquellos d\u00edas en los que uno tiene poco tiempo para cocinar.",
         "difficult": 1,
         "food_type": "pasta",
         "ingredients": [
@@ -630,7 +630,7 @@
         "creation_date": {
             "$date": 1397226194154
         },
-        "description": "Una rica tarta de flan Potax y galletas.",
+        "description": "Una rica tarta de flan Potax y galletas. Esta receta es de mi madre y nos la hace con mucha frecuencia. Sencillamente sensacional.",
         "difficult": 1,
         "food_type": "dulces",
         "ingredients": [
@@ -712,7 +712,7 @@
         "creation_date": {
             "$date": 1397298614154
         },
-        "description": "Una comida deliciosa.",
+        "description": "Esta receta es de mi padre. Tiene unos sencillos pasos que hacen esta comida a\u00fan m\u00e1s deliciosa. Os la recomiendo enormemente.",
         "difficult": 2,
         "food_type": "carne",
         "ingredients": [
@@ -801,7 +801,7 @@
         "creation_date": {
             "$date": 1394461394154
         },
-        "description": "Un postre delicioso.",
+        "description": "Este postre es mi favorito. Lo prob\u00e9 en un restaurante y no tuve m\u00e1s remedio que buscar la receta para hacerlo en mi casa. Espero que os guste.",
         "difficult": 1,
         "food_type": "frito",
         "ingredients": [
@@ -1141,7 +1141,7 @@
         "creation_date": {
             "$date": 1398258546913
         },
-        "description": "",
+        "description": "It's my favourite drink. It's very easy to prepare it and your guest will get impressed.",
         "difficult": 1,
         "food_type": "drink",
         "ingredients": [
@@ -1277,7 +1277,7 @@
         "creation_date": {
             "$date": 1398259099489
         },
-        "description": "",
+        "description": "A very delicious drink. It's ideal for impartant ocassions.",
         "difficult": 1,
         "food_type": "drink",
         "ingredients": [
@@ -1336,7 +1336,7 @@
         "creation_date": {
             "$date": 1398259305060
         },
-        "description": "Una rica tarta de flan Potax y galletas.",
+        "description": "Una rica tarta de flan Potax y galletas. Tiene un toque especial de invenci\u00f3n propia. Seguro que repet\u00eds.",
         "difficult": 1,
         "food_type": "dinner",
         "ingredients": [
@@ -1516,7 +1516,7 @@
         "creation_date": {
             "$date": 1398259648501
         },
-        "description": "Una rica tarta de flan Potax y galletas. Recubierta de chocolate fundido y virutas de chocolate",
+        "description": "Una rica tarta de flan Potax y galletas. Recubierta de chocolate fundido y virutas de chocolate.",
         "difficult": 1,
         "food_type": "dessert",
         "ingredients": [
