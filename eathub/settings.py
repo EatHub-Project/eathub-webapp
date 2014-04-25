@@ -2,6 +2,7 @@
 from urlparse import urlparse
 import os
 from django.conf import global_settings
+from django.contrib.messages import constants as message_constants
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -133,6 +134,9 @@ TEMPLATE_DIRS = (
 # Anadido para la navegabilidad, de este modo se activa la etiqueta 'active' cuando navegamos.
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ( 'django.core.context_processors.request',)
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+MESSAGE_TAGS = {message_constants.ERROR: 'danger'}
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -183,3 +187,12 @@ LOGIN_URL = reverse('login')
 LOCALE_PATHS = (
     os.path.join(BASE_DIR,'locale'),
 )
+
+#Configuration for django.core.mail.sendmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'eathub.contact@gmail.com'
+EMAIL_HOST_PASSWORD = 'aospispp'
+EMAIL_PORT = 587
+EMAIL_SUBJECT_PREFIX = 'eat-hub: '
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'eathub.contact@gmail.com'

@@ -7,6 +7,13 @@ from django.core.exceptions import ValidationError
 from datetime import datetime
 from django_mongodb_engine.contrib import MongoDBManager
 
+# --- Email registration ---
+
+class Activation(models.Model):
+    user = models.ForeignKey(User, related_name="activation", unique=True)
+    code = models.CharField(max_length=100) #hash del usuario y la fecha
+    date = models.DateTimeField()
+
 
 # --- Profile ---
 

@@ -6,6 +6,8 @@ urlpatterns = patterns('',
 
     url(r'^$', views.main, name='main'),
     url(r'^newaccount/$', views.new_account, name='newaccount'),
+    url(r'^newaccount_done/(?P<username>.+)$', views.new_account_done, name='newaccount_done'),
+    url(r'^activate/(?P<code>.+)$', views.activate_account, name='activate'),
     url(r'^newrecipe', views.new_recipe, name='newrecipe'),
     url(r'^login/$', views.login_user, name='login'),
     url(r'^logout/$', views.logout_user, name='logout'),
@@ -21,4 +23,5 @@ urlpatterns = patterns('',
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/banned/$' , views.banned_comment, name='banned'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/unbanned/$' , views.unbanned_comment, name='unbanned'),
     url(r'^recipes/(?P<username>\w+)$' , views.recipes, name='recipes'),
+
 )

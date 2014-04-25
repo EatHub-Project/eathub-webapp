@@ -1,0 +1,8 @@
+{% load i18n %}
+
+{% blocktrans %}Hola {{ username }},{% endblocktrans %}
+
+
+{% trans "Bienvenido a Eathub! Para activar su cuenta acceda a la siguiente url:" %}
+
+http{% if secure %}s{% endif %}://{{ site }}{% url "activate" token %}

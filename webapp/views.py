@@ -5,9 +5,9 @@ from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step, Picture
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step, Picture, Activation
 from ajax.models import UploadedImage
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
@@ -17,9 +17,16 @@ from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment
 from django.forms.util import ErrorList
-from datetime import datetime
+import time, datetime
 
 from django.utils.translation import ugettext as _
+
+#Para el correo
+from django.core.mail import send_mail
+from django.template import loader
+
+#Para el hash con md5
+import hashlib
 
 
 def main(request):
@@ -35,7 +42,6 @@ def new_account(request):
         form = NewAccountForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
-            # TODO validar que el nombre de usuario sea único
             data = form.cleaned_data
             username = data['username']
             email = data['email']
@@ -82,23 +88,75 @@ def new_account(request):
                 if avatar_id != u'':
                     p.avatar = avatar.image
 
+                p.user.is_active = False
+
+                p.user.save()
+
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
+
+                #Generar el codigo y meterlo en la BD.
 
                 #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
                 if avatar_id != u'':
                     avatar.persist = True
                     avatar.save()
 
-                u = authenticate(username=username, password=password)
-                login(request, u)
-                return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+                #return render(request, 'webapp/newaccount_done.html', {'profile': p.user.username})  # Redirect after POST
+                return HttpResponseRedirect(reverse('newaccount_done', kwargs={'username': p.user.username}))
 
     else:
         form = NewAccountForm()
 
     return render(request, 'webapp/newaccount.html', {'form': form})
 
+def activate_account(request, code):
+    try:
+        a = Activation.objects.get(code=code)
+    except Activation.DoesNotExist:
+        raise Http404
+
+    if a.user.is_active :
+        return render(request, 'webapp/main.html', {})
+
+    a.user.is_active = True
+
+    a.user.save()
+    return render(request, 'webapp/registration_done.html', {})
+
+def new_account_done(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    ts = time.time()
+    now_datetime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+
+    while True:
+        hash = hashlib.md5()
+        hash.update(username)
+        hash.update(str(now_datetime))
+        hash.digest()
+        if not Activation.objects.filter(code=hash.hexdigest()).exists():
+            break;
+
+    a = Activation(user=user, code=hash.hexdigest(), date=now_datetime)
+    a.save()
+
+    context = {
+            'site': request.get_host(),
+            'user': user,
+            'username': username,
+            'token': a.code,
+            'secure': request.is_secure(),
+        }
+    body = loader.render_to_string("email/activation_email.txt", context).strip()
+    subject = loader.render_to_string("email/activation_email_subject.txt", context).strip()
+    send_mail(subject, body, "eathub.contact@gmail.com", [user.email])
+
+    #enviar el mail.
+    return render(request, 'webapp/newaccount_done.html', {}) #pasar profile para mostrar datos en pantallas
 
 @login_required
 def new_recipe(request):
