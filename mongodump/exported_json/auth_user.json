@@ -226,5 +226,43 @@
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "virsfc"
+    },
+    {
+        "_id": {
+            "$oid": "53554368c54d2d2d35556298"
+        },
+        "date_joined": {
+            "$date": 1398103944131
+        },
+        "email": "rafagames92@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1398174942143
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$Bqo95vhSYA44$/wn4iXGsXLqwomSd7tuZsWvbFFiMt2bOpmj37+iT3LA=",
+        "username": "sloydev"
+    },
+    {
+        "_id": {
+            "$oid": "53558c1dc54d2d43ef5211cc"
+        },
+        "date_joined": {
+            "$date": 1398122557449
+        },
+        "email": "ana@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1398174857429
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$fNG7AF2AiiYs$vWqmE3mGcZF4T3wdRYPp5B3B2K73pMhXYc6mZ2q3Yzs=",
+        "username": "Ana"
     }
 ]

@@ -586,5 +586,77 @@
             "$oid": "53524b1bc54d2d0800ca5bbe"
         },
         "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "53554368c54d2d2d35556299"
+        },
+        "additional_languages": [
+            "en"
+        ],
+        "avatar": "images/rafa.persist.jpg",
+        "birth_date": {
+            "$date": 694396800000
+        },
+        "display_name": "Rafa",
+        "following": [
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
+            }
+        ],
+        "gender": "m",
+        "karma": 6,
+        "location": "Seville, Spain",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 36,
+            "salty": 64,
+            "sour": 29,
+            "spicy": 69,
+            "sweet": 80
+        },
+        "user_id": {
+            "$oid": "53554368c54d2d2d35556298"
+        },
+        "website": "http://sloydev.com/"
+    },
+    {
+        "_id": {
+            "$oid": "53558c1dc54d2d43ef5211cd"
+        },
+        "additional_languages": [],
+        "avatar": "images/malicia.persist.jpeg",
+        "birth_date": null,
+        "display_name": "Ana Fuentes",
+        "following": [
+            {
+                "display_name": "Virgi",
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                },
+                "username": "virsfc"
+            }
+        ],
+        "gender": "unknown",
+        "karma": 6,
+        "location": "",
+        "main_language": "en",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 64,
+            "salty": 50,
+            "sour": 50,
+            "spicy": 61,
+            "sweet": 83
+        },
+        "user_id": {
+            "$oid": "53558c1dc54d2d43ef5211cc"
+        },
+        "website": ""
     }
 ]
