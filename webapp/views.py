@@ -19,6 +19,9 @@ from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment
 from django.forms.util import ErrorList
 from datetime import datetime
 
+from social.pipeline.partial import partial
+from django.shortcuts import redirect
+
 from django.utils.translation import ugettext as _
 
 
@@ -472,3 +475,103 @@ def unbanned_comment(request, recipe_id, comment_id):
             r.comments[int(comment_id)].is_banned = False
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
+USER_FIELDS = ['username', 'email', 'first_name']
+@partial
+def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
+    if user:
+        return {'is_new': False}
+    elif strategy.session_pop('is_new'):
+        email=strategy.session_pop('user')
+        u=User.objects.get(email=email)
+        return {'is_new': False,'user':u}
+
+
+    fields = dict((name, details.get(name))
+                        for name in strategy.setting('USER_FIELDS',USER_FIELDS))
+    if not fields:
+        return
+
+    strategy.session_set('fields', fields)
+
+    return redirect('newaccountsocial')
+
+def new_account_social(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('main'))
+
+    if request.method == 'POST':
+        form = NewAccountForm(request.POST)
+        if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
+            # Extract the data from the form and create the User and Profile instance
+            # TODO validar que el nombre de usuario sea único
+            data = form.cleaned_data
+            username = data['username']
+            email = data['email']
+            password = data['password']
+            password_repeat = data['password_repeat']
+
+            display_name = data['display_name']
+            main_language = data['main_language']
+
+            additional_languages = data['additional_languages']
+            gender = data['gender']
+            location = data['location']
+            website = data['website']
+            birth_date = data['birth_date']
+
+            avatar_id = data['avatar_id']
+            if avatar_id != u'':
+                avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
+
+            if not password == password_repeat:
+                errors = form._errors.setdefault("password_repeat", ErrorList())
+                output = _("Passwords don't match")
+                errors.append(unicode(output))
+
+            elif User.objects.filter(username=username).count():
+                errors = form._errors.setdefault("username", ErrorList())
+                output = _("Username alerady taken")
+                errors.append(unicode(output))
+            #todo: validar email único también
+            else:
+                u = User.objects.create_user(username, email, password)
+                t = Tastes(salty=data['salty'],
+                           sour=data['sour'],
+                           bitter=data['bitter'],
+                           sweet=data['sweet'],
+                           spicy=data['spicy'])
+                p = Profile(display_name=display_name, main_language=main_language, user=u,
+                            additional_languages=additional_languages, gender=gender,
+                            location=location, website=website,
+                            birth_date=birth_date, tastes=t)
+                #TODO capturar cualquier error de validación y meterlo como error en el formulario
+
+                #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
+                if avatar_id != u'':
+                    p.avatar = avatar.image
+
+                p.clean()
+                p.save()  # TODO borrar el User si falla al guardar el perfil
+
+                #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
+                if avatar_id != u'':
+                    avatar.persist = True
+                    avatar.save()
+                request.session['is_new']=True
+                request.session['user']=u.email
+
+                backend = request.session['partial_pipeline']['backend']
+                return redirect('social:complete', backend=backend)
+
+
+    else:
+        fields = request.session.pop('fields')
+        data = {
+            'username': fields.get('username'),
+            'email': fields.get('emai'),
+            'display_name': fields.get('first_name'),
+        }
+        form = NewAccountForm(initial=data)
+
+    return render(request, 'webapp/newaccount.html', {'form': form})
