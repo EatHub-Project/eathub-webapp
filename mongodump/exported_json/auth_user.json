@@ -12,7 +12,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398193321625
+            "$date": 1398259178380
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -31,7 +31,7 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1398193337339
+            "$date": 1396966326277
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -50,7 +50,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398193442794
+            "$date": 1396876163731
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -69,7 +69,7 @@
         "is_staff": false,
         "is_superuser": true,
         "last_login": {
-            "$date": 1398194936911
+            "$date": 1397902279314
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -88,7 +88,7 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1398193409179
+            "$date": 1396876576283
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -107,7 +107,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398193691998
+            "$date": 1398259341589
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -126,7 +126,7 @@
         "is_staff": true,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398194631320
+            "$date": 1397902571064
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -153,6 +153,25 @@
     },
     {
         "_id": {
+            "$oid": "535130eab88bbe140cb839e5"
+        },
+        "date_joined": {
+            "$date": 1397837066756
+        },
+        "email": "jualoppaz@alum.us.es",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": 1397837066756
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
+        "username": "prueba"
+    },
+    {
+        "_id": {
             "$oid": "5352390a18085d15c08181ce"
         },
         "date_joined": {
@@ -164,7 +183,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398195168192
+            "$date": 1397904988507
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -180,13 +199,13 @@
         "email": "mariarojas@hotmail.es",
         "first_name": "",
         "is_active": true,
-        "is_staff": true,
+        "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398194598691
+            "$date": 1398259532875
         },
         "last_name": "",
-        "password": "pbkdf2_sha256$10000$9bB2towojvxw$Avup4rkvuoHBrEK9l+HnsNr+lGUFDOEUVY6nmTL0aXA=",
+        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "mariarojas"
     },
     {
@@ -202,67 +221,10 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1398194719201
+            "$date": 1397913961722
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "virsfc"
-    },
-    {
-        "_id": {
-            "$oid": "5354fccc18085d1b70f96c43"
-        },
-        "date_joined": {
-            "$date": 1398085868561
-        },
-        "email": "cocinillasblog@gmail.com",
-        "first_name": "",
-        "is_active": true,
-        "is_staff": false,
-        "is_superuser": false,
-        "last_login": {
-            "$date": 1398085869078
-        },
-        "last_name": "",
-        "password": "pbkdf2_sha256$10000$slfaiWfLyy2T$IwUHR7n59N/Szg2qMCqttqVqde+mRmS/3YIBSKU1Dss=",
-        "username": "Cocinillases"
-    },
-    {
-        "_id": {
-            "$oid": "53558989b88bbe10d0809638"
-        },
-        "date_joined": {
-            "$date": 1398121897639
-        },
-        "email": "roberto@gmail.com",
-        "first_name": "",
-        "is_active": true,
-        "is_staff": false,
-        "is_superuser": false,
-        "last_login": {
-            "$date": 1398121897639
-        },
-        "last_name": "",
-        "password": "pbkdf2_sha256$10000$CxZQEH76KTOx$1U37LQTjul5j6y28+dGH0XUAxe3e+SLi3zYb5d5vh7k=",
-        "username": "roberto"
-    },
-    {
-        "_id": {
-            "$oid": "53558a6fb88bbe10d080963a"
-        },
-        "date_joined": {
-            "$date": 1398122127483
-        },
-        "email": "kiko@gmail.com",
-        "first_name": "",
-        "is_active": true,
-        "is_staff": false,
-        "is_superuser": false,
-        "last_login": {
-            "$date": 1398122127483
-        },
-        "last_name": "",
-        "password": "pbkdf2_sha256$10000$OMi7SKLdTqDF$e4AK3Eh/lcf8WPnAGCjqEonXAOT0tJn6nwm90GuHcjs=",
-        "username": "kiko"
     }
 ]
