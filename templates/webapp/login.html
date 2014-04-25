@@ -55,7 +55,6 @@
                     <input class="form-control" type="password" name="password" id="password" placeholder="{% trans "Password" %}"
                            required>
                 </div>
-                <a href="{% url "password_reset_recover" %}">forgot your password, asshole?</a>
                 <button class="btn btn-lg btn-default btn-eathub login-form-submit" type="submit">
                     {% trans "Sign in" %}
                 </button>
@@ -64,7 +63,7 @@
                     <a href="{% url 'newaccount' %}">{% trans "Create an account" %}</a>
                 </div>
                 <div class="login-form-forgot">
-                    <a href="#">{% trans "Forgot your password?" %}</a>
+                    <a href="{% url "password_reset_recover" %}">{% trans "Forgot your password?" %}</a>
                 </div>
             </form>
         </div>
