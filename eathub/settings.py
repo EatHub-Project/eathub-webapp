@@ -184,3 +184,12 @@ LOGIN_URL = reverse('login')
 LOCALE_PATHS = (
     os.path.join(BASE_DIR,'locale'),
 )
+
+#Configuration for django.core.mail.sendmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'eathub.contact@gmail.com'
+EMAIL_HOST_PASSWORD = 'aospispp'
+EMAIL_PORT = 587
+EMAIL_SUBJECT_PREFIX = 'eat-hub: '
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'eathub.contact@gmail.com'
