@@ -1,16 +1,15 @@
 import json
+import django
 from ajax.models import UploadedImage
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from models import Recipe
+from models import Recipe, Temporality, Country, Food_Type, Language, Special_Condition
 
 
 class NewAccountForm(forms.Form):
-    english = _("English")
-    spanish = _("Spanish")
-    LANGUAGES = [("en", english), ("es", spanish)]
+    lang=django.utils.translation.get_language().split('-')[0]
+    LANGUAGES = Language.get_name_on_language(lang)
     GENDERS = [("unknown", _("Unspecified")), ("m", _("Male")), ("f", _("Female"))]
-    COUNTRY = [("", "--"), ("ES", _("Spain")), ("FR", _("France")), ("EN", _("England")), ("US", _("USA"))]
 
     username = forms.CharField(max_length=20)
     email = forms.EmailField()
@@ -36,12 +35,12 @@ class NewAccountForm(forms.Form):
 
 
 class RecipeForm(forms.Form):
-    LANGUAGES = [("en", _("English")), ("es", _("Spanish"))]
-    COUNTRY = [("", "--"), ("ES", _("Spain")), ("FR", _("France")), ("EN", _("England")), ("US", _("USA"))]
-    TEMPORALITY = [("summer", _("Summer")), ("autumn", _("Autumn")), ("spring", _("Spring")), ("winter", _("Winter"))]
-    FOOD_TYPE = [("dinner", _("Dinner")),("lunch", _("Lunch")), ("breakfast", _("Breakfast")), ("picnic", _("Picnic")),
-                 ("snack", _("Snack")), ("drink", _("Drink")), ("dessert", _("Dessert"))]
-    SPECIAL_CONDITIONS = [("diabetic", _("Diabetic")), ("celiac", _("Celiac")), ("vegetarian", _("Vegetarian"))]
+    lang=django.utils.translation.get_language().split('-')[0]
+    LANGUAGES = Language.get_name_on_language(lang)
+    COUNTRY = Country.get_name_on_language(lang)
+    TEMPORALITY = Temporality.get_name_on_language(lang)
+    FOOD_TYPE = Food_Type.get_name_on_language(lang)
+    SPECIAL_CONDITIONS = Special_Condition.get_name_on_language(lang)
     DIFFICULT = [(1, _("Easy")), (2, _("Medium")), (3, _("Hard"))]
 
     title = forms.CharField(max_length=50, required=False)
