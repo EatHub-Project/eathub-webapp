@@ -702,6 +702,12 @@ header .container {
     color: #CC3E27;
 }
 
+.login-form p {
+    color: #CC3E27;
+    text-align: center;
+    font-size: medium;
+}
+
 .login-form form {
     padding: 20px 40px 10px;
 }
