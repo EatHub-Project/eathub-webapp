@@ -1,0 +1,22 @@
+[
+    {
+        "_id": {
+            "$oid": "535bdfaddc1d670ab4cfc24f"
+        },
+        "code": "es",
+        "name_dict": {
+            "en": "Spanish",
+            "es": "Espa\u00f1ol"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535bdff5dc1d670ab4cfc250"
+        },
+        "code": "en",
+        "name_dict": {
+            "en": "English",
+            "es": "Ingles"
+        }
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfc256"
+        },
+        "code": "dinner",
+        "name_dict": {
+            "en": "Dinner",
+            "es": "Cena"
+        }
+    }
+]
