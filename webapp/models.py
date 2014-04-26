@@ -202,17 +202,60 @@ class Temporality(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
 
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Temporality.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
+
 
 class Language(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
 
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Language.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
+
+class Country(models.Model):
+    code = CharField(max_length=50, blank=False)
+    name_dict = DictField()
+
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Country.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
 
 class Food_Type(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
 
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Food_Type.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
+
 
 class Special_Condition(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
+
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Special_Condition.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
