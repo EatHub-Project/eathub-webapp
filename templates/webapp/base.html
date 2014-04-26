@@ -48,10 +48,9 @@
                         </li>
                         <li><a class="" href="#">{% trans "Recipes" %}</a></li>
                         <li><a class="" href="#">{% trans "Explore" %}</a></li>
-                    </ul>
-
-                    <div class="input-group navbar-input-group">
+                        <li><div class="input-group navbar-input-group">
                         <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
                             <input type="text" class="form-control border-search border-rect" placeholder="Search..."
                                    name="srch-term"
                                    id="srch-term">
@@ -60,12 +59,16 @@
                                         <i class="glyphicon glyphicon-search"></i>
                                     </button>
                                 </span>
+                            </div>
                         </form>
                     </div>
                     <!-- Button trigger modal -->
                     <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
                         <i class="fa fa-comment"></i> Feedback
-                    </button>
+                    </button></li>
+                    </ul>
+
+
 
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
