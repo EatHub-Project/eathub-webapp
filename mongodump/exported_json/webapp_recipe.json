@@ -639,7 +639,7 @@
         "is_published": true,
         "language": "spanish",
         "main_image": "images/solomillo_al_whisky.persist.jpg",
-        "nationality": "spanish",
+        "nationality": "Spain",
         "notes": "",
         "parent_id": null,
         "pictures": [
@@ -978,7 +978,7 @@
         ],
         "is_published": false,
         "language": "es",
-        "main_image": "images/sadad_0.persist.jpg",
+        "main_image": "images/salad_0.persist.jpg",
         "modification_date": {
             "$date": 1398114246581
         },
@@ -988,10 +988,10 @@
         "parent_id": null,
         "pictures": [
             {
-                "image": "images/sadad_1.persist.jpg"
+                "image": "images/salad_1.persist.jpg"
             },
             {
-                "image": "images/sadad_2.persist.jpg"
+                "image": "images/salad_2.persist.jpg"
             },
             {
                 "image": "images/salad_3.persist.jpg"
