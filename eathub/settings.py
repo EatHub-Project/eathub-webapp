@@ -163,7 +163,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 AUTHENTICATION_BACKENDS = (
       'social.backends.google.GooglePlusAuth',
-      'social.backends.twitter.TwitterOAuth',
       'social.backends.facebook.FacebookOAuth2',
       'django.contrib.auth.backends.ModelBackend',
 )
@@ -174,9 +173,6 @@ SOCIAL_AUTH_GOOGLE_PLUS_SECRET = 'aL_mx2O4Y1zXV1wsF4-tmBTo'
 SOCIAL_AUTH_FACEBOOK_KEY = '1379378712344246'
 SOCIAL_AUTH_FACEBOOK_SECRET = '6d393f9ba474e7e81faa1c6fef893c72'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-
-SOCIAL_AUTH_TWITTER_KEY = 'WqIqlHDIeWYQYVrkUfSn9nYLk'
-SOCIAL_AUTH_TWITTER_SECRET = 'ujQhHYk3fzDtVExIeMASp3XXhOtBrOfe3xzLfbYy9MDrDiuhbD'
 
 SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.social_details',
