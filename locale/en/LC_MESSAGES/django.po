@@ -740,3 +740,15 @@ msgstr "Username aleready taken"
 #, fuzzy
 #~ msgid "Don't you have recipes? Let's make yourself one!"
 #~ msgstr "Don't you have friends? Let's make some!"
+
+# .\templates\password_reset\recovery_done.html:13
+msgid "Go to the login page."
+msgstr "Go to the login page"
+
+# .\templates\password_reset\recovery_form.html:14
+msgid "Forgot your password? Nothing to worry about!"
+msgstr "Forgot your password? Nothing to worry about!"
+
+# .\templates\password_reset\recovery_form.html:15
+msgid "we can recover it!"
+msgstr "we can recover it!"

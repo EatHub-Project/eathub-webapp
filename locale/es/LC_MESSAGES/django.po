@@ -724,3 +724,15 @@ msgstr "Ese nombre de usuario ya está en uso"
 
 #~ msgid "Don't you have recipes? Let's make yourself one!"
 #~ msgstr "¿No tienes recetas? ¡Vamos a crear una!"
+
+# .\templates\password_reset\recovery_done.html:13
+msgid "Go to the login page."
+msgstr "Ir a la pantalla de login"
+
+# .\templates\password_reset\recovery_form.html:14
+msgid "Forgot your password? Nothing to worry about!"
+msgstr "¿Olvidó su contraseña? ¡No hay de que preocuparse!"
+
+# .\templates\password_reset\recovery_form.html:15
+msgid "we can recover it!"
+msgstr "¡Podemos recuperarla!"
