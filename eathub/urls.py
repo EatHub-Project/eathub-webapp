@@ -4,6 +4,8 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.conf import settings
+from rest_framework import viewsets, routers
+from webapp.models import Recipe
 
 admin.autodiscover()
 
@@ -20,7 +22,8 @@ urlpatterns = patterns('',
 
     url(r'^', include('webapp.urls')),
     url(r'^ajax/', include('ajax.urls')),
-    url('', include('social.apps.django_app.urls', namespace='social'))
+    url(r'^api/', include('api.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 )
 
 

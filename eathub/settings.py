@@ -147,7 +147,8 @@ INSTALLED_APPS = (
     'eathub',
     'webapp',
     'djangotoolbox',
-    'social.apps.django_app.default'
+    'social.apps.django_app.default',
+    'rest_framework'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -236,3 +237,14 @@ EMAIL_PORT = 587
 EMAIL_SUBJECT_PREFIX = 'eat-hub: '
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'eathub.contact@gmail.com'
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+
+    'DATETIME_FORMAT': ['%s']
+}
