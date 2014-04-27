@@ -36,6 +36,18 @@ from django.template import loader
 #Para el hash con md5
 import hashlib
 
+#full-text
+from pymongo import *
+
+def search(request):
+    if request.method == 'POST':
+        terms = request.POST['srch-term']
+
+        client = MongoClient()
+
+        #collection_recipe = client.eathub.command('text', 'webapp_recipe', search='keyword')
+        collection_recipe = client.eathub.command("text", "webapp_recipe", search=terms)
+        kjlasdf
 
 def main(request):
     recipes = Recipe.objects.all().order_by('-creation_date')

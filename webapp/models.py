@@ -82,6 +82,12 @@ class Profile(models.Model):
 
     objects = MongoDBManager()
 
+    class MongoMeta:
+        indexes = [
+             [('display_name', 1)],
+             [('location', 1)],
+         ]
+
     def __str__(self):
         return str(self.display_name)
 
@@ -187,6 +193,16 @@ class Recipe(models.Model):
     negatives = ListField(EmbeddedModelField('Vote'))
 
     objects = MongoDBManager()
+
+    class MongoMeta:
+        indexes = [
+         [('title', 1)],
+         [('description', 1)],
+         [('ingredients', 1)],
+         [('temporality', 1)],
+         [('special_conditions', 1)],
+         [('tags', 1)],
+         ]
 
     def __str__(self):
         return self.title
