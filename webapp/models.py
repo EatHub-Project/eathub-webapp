@@ -209,8 +209,6 @@ class Recipe(models.Model):
 
         self.language=Language.objects.get(code=self.language).name_dict.get(lang)
 
-        self.nationality=Country.objects.get(code=self.nationality).name_dict.get(lang)
-
 
 #enum to entity
 
@@ -235,18 +233,6 @@ class Language(models.Model):
     @staticmethod
     def get_name_on_language(lang):
         all = Language.objects.all()
-        dict=list()
-        for t in all:
-            dict.append((t.code,t.name_dict.get(lang)))
-        return dict
-
-class Country(models.Model):
-    code = CharField(max_length=50, blank=False)
-    name_dict = DictField()
-
-    @staticmethod
-    def get_name_on_language(lang):
-        all = Country.objects.all()
         dict=list()
         for t in all:
             dict.append((t.code,t.name_dict.get(lang)))

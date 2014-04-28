@@ -3,7 +3,7 @@ import django
 from ajax.models import UploadedImage
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from models import Recipe, Temporality, Country, Food_Type, Language, Special_Condition
+from models import Recipe, Temporality, Food_Type, Language, Special_Condition
 
 
 class NewAccountForm(forms.Form):
@@ -37,7 +37,6 @@ class NewAccountForm(forms.Form):
 class RecipeForm(forms.Form):
     lang=django.utils.translation.get_language().split('-')[0]
     LANGUAGES = Language.get_name_on_language(lang)
-    COUNTRY = Country.get_name_on_language(lang)
     TEMPORALITY = Temporality.get_name_on_language(lang)
     FOOD_TYPE = Food_Type.get_name_on_language(lang)
     SPECIAL_CONDITIONS = Special_Condition.get_name_on_language(lang)
@@ -54,7 +53,7 @@ class RecipeForm(forms.Form):
     serves = forms.CharField(max_length=50, required=False)
     language = forms.ChoiceField(choices=LANGUAGES, required=False)
     temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
-    nationality = forms.ChoiceField(choices=COUNTRY, required=False)
+    nationality = forms.CharField(max_length=100, required=False)
     special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS, required=False)
     notes = forms.CharField(widget=forms.Textarea, required=False)
     difficult = forms.ChoiceField(choices=DIFFICULT, required=False)

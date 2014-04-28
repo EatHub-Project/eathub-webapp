@@ -1,6 +1,7 @@
 # coding=utf-8
 import urllib2
 from urlparse import urlparse
+import django
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from django.forms import ImageField
