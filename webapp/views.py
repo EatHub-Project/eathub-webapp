@@ -422,6 +422,9 @@ def receta(request, recipe_id):
         porcentaje_positivos = (len(recipe.positives) / float(total_votos))*100
         porcentaje_negativos = (len(recipe.negatives) / float(total_votos))*100
 
+    lang=django.utils.translation.get_language().split('-')[0]
+    recipe.translate_to_language(lang)
+
     num = recipe.difficult
     dificultad = "Dificil"
     if num>=0 and num<=1:
@@ -454,6 +457,9 @@ def profile(request, username):
         for f in following_now:
             if f.user.id == user.id:
                 is_following = True
+
+    lang=django.utils.translation.get_language().split('-')[0]
+    user_profile.translate_to_lengague(lang)
 
     return render(request, 'webapp/profile.html',
                   {'profile': user_profile, 'following': is_following, 'followers_list': followers_list,
