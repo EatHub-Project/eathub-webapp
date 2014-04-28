@@ -45,9 +45,11 @@ def search(request):
 
         client = MongoClient()
 
-        #collection_recipe = client.eathub.command('text', 'webapp_recipe', search='keyword')
-        collection_recipe = client.eathub.command("text", "webapp_recipe", search=terms)
-        kjlasdf
+        text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
+        doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
+        text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
+        doc_matches_profile = (res['obj'] for res in text_results_recipes['results'])
+        return render(request, 'webapp/search_result.html', {'matches_recipe': doc_matches_recipes, 'matches_profile': doc_matches_profile})
 
 def main(request):
     recipes = Recipe.objects.all().order_by('-creation_date')

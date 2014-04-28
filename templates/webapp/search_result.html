@@ -4,37 +4,35 @@
 {% load tags %}
 
 {% block container %}
-{% if follows %}
-    <h1>{{ tag }}</h1>
+
+{% if matches_recipe %}
+    <h1>{% trans "Recipes" %}</h1>
 
     <div class="row">
-        {% for follow in follows %}
-            {% with friend_profile=follow.user.profile.get %}
+        {% for match in matches_recipe %}
                 <div class="col-md-3 panel follow-list-item">
                     <img class="img-rounded"
-                         src="{% avatar friend_profile.avatar %}"/>
+                         src="{{ match.main_image.url }}"/>
 
-                    <h3 class="user-name"><a href="{% url 'profile' friend_profile.user.username %}">
-                        {{ friend_profile.display_name }}</a></h3>
-
-                    <p class="location">
-                        <span class="glyphicon glyphicon-map-marker"></span><span>{{ friend_profile.location }}</span>
-                    </p>
-
-                    <p class="extra-info">{% trans "No recipes yet" %}</p>
+                    <h3 class="user-name"><a href="">
+                        {{ match.title }}</a></h3>
                 </div>
-            {% endwith %}
         {% endfor %}
     </div>
-{% else %}
-    {% if is_owner %}
-        <div class="recipe-name">
-            <h2 class="follow-msg">{% trans "Don't you have friends? Let's make some!" %}</h2>
-        </div>
-    {% else %}
-        <div class="recipe-name">
-            <h2 class="follow-msg"> {{ profile.display_name }} {% trans "has no friends yet" %}</h2>
-        </div>
-    {% endif %}
+{% endif %}
+
+{% if matches_profile %}
+    <h1>{% trans "Users" %}</h1>
+    <div class="row">
+        {% for match in matches_profile %}
+                <div class="col-md-3 panel follow-list-item">
+                    <img class="img-rounded"
+                         src="{{ match.avatar }}"/>
+
+                    <h3 class="user-name"><a href="">
+                        {{ match.display_name }}</a></h3>
+                </div>
+        {% endfor %}
+    </div>
 {% endif %}
 {% endblock %}
