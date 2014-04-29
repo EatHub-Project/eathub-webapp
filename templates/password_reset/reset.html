@@ -1,14 +1,10 @@
 {% extends "password_reset/base.html" %}
 {% load i18n %}
-{% load url from future %}
 {% load staticfiles %}
 {% load tags %}
+{% load url from future %}
 
-{% block container %}
-    <div class="panel col-md-8 col-md-offset-2 panel-body" xmlns="http://www.w3.org/1999/html">
-        <div id="image" class="col-md-4">
-            <img src="{% static 'webapp/image/logo_key_shaped.png' %}" width="230" height="300">
-	    </div>
+{% block content %}
         <div id="message" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
             {% if invalid %}{% url "password_reset_recover" as recovery_url %}
                 <div class="alert alert-danger">
@@ -16,6 +12,10 @@
                 </div>
             {% else %}
                 <p>{% blocktrans %}Hi, <strong>{{ username }}</strong>. Please choose your new password.{% endblocktrans %}</p>
+                <!--    Por algun motivo magico la clase form-inline muestra el formulario como un form-horizontal perfecto y
+                        bonito.
+                        Pero si pruebas a poner la clase form-horizontal... descolocado es poco para lo que te encuentras
+                -->
                 <form class="form-inline" method="post" action="{% url "password_reset_reset" token %}">
                     {% csrf_token %}
                     <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
@@ -44,9 +44,8 @@
                             </span>
                         {% endif %}
                     </div>
-                    <p><input type="submit" value="{% trans "Set new password" %}"></p>
+                    <p><input type="submit" class="plus btn btn-default" value="{% trans "Set new password" %}"></p>
                 </form>
             {% endif %}
         </div>
-    </div>
 {% endblock %}
