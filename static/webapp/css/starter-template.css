@@ -1315,6 +1315,38 @@ header .container {
     text-align: center;
 }
 
+.main-picture-padding-team {
+    height: 400px;
+    padding: 10px;
+    position: relative;
+}
+
+.main-picture-padding-team img {
+   height: 100%;
+   width: 100%;
+}
+
+.team-more-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.team-more-title {
+    color: #696969;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.team-more-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.team-panel-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
 
 #container {
     position: relative;
