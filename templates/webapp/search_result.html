@@ -1,0 +1,42 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load tags %}
+
+{% block container %}
+
+{% if matches_recipe %}
+    <h1>{% trans "Recipes" %}</h1>
+
+    <div class="row">
+        {% for match in matches_recipe %}
+                <div class="col-md-3 panel follow-list-item">
+                    <img class="img-rounded"
+                         src="{{ match.main_image.url }}"/>
+
+                    <h3 class="user-name"><a href="{% url 'recipe' match.id %}">
+                        {{ match.title }}</a></h3>
+                </div>
+        {% endfor %}
+    </div>
+ {% else %}
+    <div class="recipe-name">
+            <h2 class="follow-msg">{% trans "No results found!" %}</h2>
+        </div>
+{% endif %}
+
+{% if matches_profile %}
+    <h1>{% trans "Users" %}</h1>
+    <div class="row">
+        {% for match in matches_profile %}
+                <div class="col-md-3 panel follow-list-item">
+                    <img class="img-rounded"
+                         src="{{ match.avatar }}"/>
+
+                    <h3 class="user-name"><a href="">
+                        {{ match.display_name }}</a></h3>
+                </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}
