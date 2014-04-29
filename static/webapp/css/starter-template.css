@@ -1315,6 +1315,16 @@ header .container {
     text-align: center;
 }
 
+.main-picture-padding-team {
+    height: 400px;
+    padding: 10px;
+    position: relative;
+}
+
+.main-picture-padding-team img {
+   height: 100%;
+   width: 100%;
+}
 
 #container {
     position: relative;
