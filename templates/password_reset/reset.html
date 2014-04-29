@@ -5,7 +5,7 @@
 {% load tags %}
 
 {% block container %}
-    <div class="panel col-md-8 col-md-offset-2 panel-body">
+    <div class="panel col-md-8 col-md-offset-2 panel-body" xmlns="http://www.w3.org/1999/html">
         <div id="image" class="col-md-4">
             <img src="{% static 'webapp/image/logo_key_shaped.png' %}" width="230" height="300">
 	    </div>
@@ -18,7 +18,23 @@
                 <p>{% blocktrans %}Hi, <strong>{{ username }}</strong>. Please choose your new password.{% endblocktrans %}</p>
                 <form method="post" action="{% url "password_reset_reset" token %}">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <label for="password1">{% trans "Password:" %}</label>
+                    <input id="id_password1" name="password1" type="password" />
+                    {% if form.password1.errors %}
+                        <div class="alert alert-danger">
+                            <a class="close" data-dismiss="alert">×</a>
+                            {{ form.password1.errors }}
+                        </div>
+                    {% endif %}
+                    </br>
+                    <label for="password2">{% trans "Repeat password:" %}</label>
+                    <input id="id_password2" name="password2" type="password" />
+                    {% if form.password2.errors %}
+                        <div class="alert alert-danger">
+                            <a class="close" data-dismiss="alert">×</a>
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
                     <p><input type="submit" value="{% trans "Set new password" %}"></p>
                 </form>
             {% endif %}
