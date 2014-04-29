@@ -1,0 +1,24 @@
+{% extends "password_reset/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load tags %}
+{% load url from future %}
+
+{% block container %}
+    <div class="panel col-md-8 col-md-offset-2 panel-body">
+        <div id="image" class="col-md-4">
+            <img src="{% static 'webapp/image/logo_key_shaped.png' %}" width="230" height="300">
+	    </div>
+        <div id="form" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
+            <p>
+                {% trans "Forgot your password? Nothing to worry about!" %}<br>
+                <strong>{% trans "we can recover it!" %}</strong>
+            </p>
+            <form method="post" action="{{ url }}">
+	    	    {% csrf_token %}
+	    	    {{ form.as_p }}
+	    	    <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
+	        </form>
+        </div>
+    </div>
+{% endblock %}

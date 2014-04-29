@@ -1,0 +1,15 @@
+{% extends "password_reset/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load tags %}
+
+{% block container %}
+    <div class="panel col-md-8 col-md-offset-2 panel-body">
+        <div id="image" class="col-md-4">
+            <img src="{% static 'webapp/image/logo_key_shaped.png' %}" width="230" height="300">
+	    </div>
+        <div id="message" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
+	        <p>{% blocktrans with ago=timestamp|timesince %}An email was sent to <strong>{{ email }}</strong> {{ ago }} ago. Use the link in it to set a new password.{% endblocktrans %}</p>
+        </div>
+    </div>
+{% endblock %}

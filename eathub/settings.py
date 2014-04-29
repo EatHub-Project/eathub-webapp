@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'webapp',
     'djangotoolbox',
     'social.apps.django_app.default'
+    'password_reset',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

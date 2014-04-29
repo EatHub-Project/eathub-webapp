@@ -1338,3 +1338,9 @@ footer {
     bottom: 0;
     overflow: hidden;
 }
+
+/* Style used to center horizontally and vertically password recovery form */
+.panel-body-password-recovery {
+    text-align: center;
+    margin-top: 10%;
+}
