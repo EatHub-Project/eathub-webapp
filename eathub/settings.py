@@ -147,7 +147,7 @@ INSTALLED_APPS = (
     'eathub',
     'webapp',
     'djangotoolbox',
-    'social.apps.django_app.default'
+    'social.apps.django_app.default',
     'password_reset',
 )
 
