@@ -1324,7 +1324,7 @@ header .container {
 }
 
 .terms-text-soft {
-    margin-right: 20px;
+    padding-right: 40px;
     text-align: justify;
     word-wrap: break-word;
     color: #5a5a5a;
