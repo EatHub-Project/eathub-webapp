@@ -16,25 +16,34 @@
                 </div>
             {% else %}
                 <p>{% blocktrans %}Hi, <strong>{{ username }}</strong>. Please choose your new password.{% endblocktrans %}</p>
-                <form method="post" action="{% url "password_reset_reset" token %}">
+                <form class="form-inline" method="post" action="{% url "password_reset_reset" token %}">
                     {% csrf_token %}
-                    <label for="password1">{% trans "Password:" %}</label>
-                    <input id="id_password1" name="password1" type="password" />
-                    {% if form.password1.errors %}
-                        <div class="alert alert-danger">
-                            <a class="close" data-dismiss="alert">×</a>
-                            {{ form.password1.errors }}
-                        </div>
-                    {% endif %}
-                    </br>
-                    <label for="password2">{% trans "Repeat password:" %}</label>
-                    <input id="id_password2" name="password2" type="password" />
-                    {% if form.password2.errors %}
-                        <div class="alert alert-danger">
-                            <a class="close" data-dismiss="alert">×</a>
-                            {{ form.password2.errors }}
-                        </div>
-                    {% endif %}
+                    <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+                        <label class="control-label" for="password1">{% trans "Password:" %}</label>
+                        <input class="form-control" id="id_password1" name="password1" type="password" />
+                        {% if form.password1.errors %}
+                            <span class="help-block">
+                                <p class="text-danger">
+                                    {% for error in form.password1.errors %}
+                                        <strong>{{ error }}</strong><br/>
+                                    {% endfor %}
+                                </p>
+                            </span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+                        <label class="control-label" for="password2">{% trans "Repeat password:" %}</label>
+                        <input class="form-control" id="id_password2" name="password2" type="password" />
+                        {% if form.password2.errors %}
+                            <span class="help-block">
+                                <p class="text-danger">
+                                    {% for error in form.password2.errors %}
+                                        <strong>{{ error }}</strong><br/>
+                                    {% endfor %}
+                                </p>
+                            </span>
+                        {% endif %}
+                    </div>
                     <p><input type="submit" value="{% trans "Set new password" %}"></p>
                 </form>
             {% endif %}
