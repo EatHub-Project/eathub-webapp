@@ -17,7 +17,15 @@
             <form method="post" action="{{ url }}">
 	    	    {% csrf_token %}
 	    	    {{ form.as_p }}
-	    	    <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
+	    	    <div class="alert alert-danger">
+                    <a class="close" data-dismiss="alert">×</a>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            {{  error  }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
 	        </form>
         </div>
     </div>
