@@ -1315,6 +1315,27 @@ header .container {
     text-align: center;
 }
 
+.goals-title {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+}
+
+.goals-content-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.goals-text-soft {
+    margin-right: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    word-wrap: break-word;
+    color: #5a5a5a;
+}
 
 #container {
     position: relative;
