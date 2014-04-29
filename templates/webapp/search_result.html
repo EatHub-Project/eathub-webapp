@@ -14,11 +14,15 @@
                     <img class="img-rounded"
                          src="{{ match.main_image.url }}"/>
 
-                    <h3 class="user-name"><a href="">
+                    <h3 class="user-name"><a href="{% url 'recipe' match.id %}">
                         {{ match.title }}</a></h3>
                 </div>
         {% endfor %}
     </div>
+ {% else %}
+    <div class="recipe-name">
+            <h2 class="follow-msg">{% trans "No results found!" %}</h2>
+        </div>
 {% endif %}
 
 {% if matches_profile %}

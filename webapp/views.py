@@ -48,8 +48,28 @@ def search(request):
         text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
         doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
         text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
-        doc_matches_profile = (res['obj'] for res in text_results_recipes['results'])
-        return render(request, 'webapp/search_result.html', {'matches_recipe': doc_matches_recipes, 'matches_profile': doc_matches_profile})
+        doc_matches_profiles = (res['obj'] for res in text_results_profile['results'])
+
+        results_recipes = list()
+        for item in doc_matches_recipes:
+            r=Recipe()
+            r.id=item['_id']
+            r.title=item['title']
+            r.main_image=item['main_image']
+
+            results_recipes.append(r)
+
+        #TODO: hay que solucionar el problema al obtener los perfiles, ya que el campo user es un objectId.
+        results_profiles = list()
+        """for item in doc_matches_profiles:
+            p=Profile()
+            p.id=item['_id']
+            p.display_name=item['display_name']
+            p.user.username=item['user']
+            results_profiles.append(Profile(
+                                            ))"""
+
+        return render(request, 'webapp/search_result.html', {'matches_recipe': results_recipes, 'matches_profile': results_profiles})
 
 def main(request):
     recipes = Recipe.objects.all().order_by('-creation_date')
