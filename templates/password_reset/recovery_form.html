@@ -4,21 +4,29 @@
 {% load tags %}
 {% load url from future %}
 
-{% block container %}
-    <div class="panel col-md-8 col-md-offset-2 panel-body">
-        <div id="image" class="col-md-4">
-            <img src="{% static 'webapp/image/logo_key_shaped.png' %}" width="230" height="300">
-	    </div>
-        <div id="form" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
-            <p>
-                {% trans "Forgot your password? Nothing to worry about!" %}<br>
-                <strong>{% trans "we can recover it!" %}</strong>
-            </p>
-            <form method="post" action="{{ url }}">
-	    	    {% csrf_token %}
-	    	    {{ form.as_p }}
-	    	    <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
-	        </form>
+{% block content %}
+        <div id="form" class="col-mf-4 col-md-offset-5 panel-body-password-recovery">
+            <div id="text" class="text-center">
+                <p>
+                    {% trans "Forgot your password? Nothing to worry about!" %}<br>
+                    <strong>{% trans "we can recover it!" %}</strong>
+                </p>
+                <form method="post" action="{{ url }}">
+                    {% csrf_token %}
+                    <label for="username_or_email">{% trans "Username or email" %}</label>
+                    <input id="id_username_or_email" name="username_or_email" type="text"/>
+                    <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <a class="close" data-dismiss="alert">×</a>
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    {{  error  }}
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
         </div>
-    </div>
 {% endblock %}
