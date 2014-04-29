@@ -7,8 +7,6 @@ from models import Recipe, Temporality, Food_Type, Language, Special_Condition
 
 
 class NewAccountForm(forms.Form):
-    lang=django.utils.translation.get_language().split('-')[0]
-    LANGUAGES = Language.get_name_on_language(lang)
     GENDERS = [("unknown", _("Unspecified")), ("m", _("Male")), ("f", _("Female"))]
 
     username = forms.CharField(max_length=20)
@@ -17,9 +15,9 @@ class NewAccountForm(forms.Form):
     password_repeat = forms.CharField(widget=forms.PasswordInput)
 
     display_name = forms.CharField(max_length=50)
-    main_language = forms.ChoiceField(choices=LANGUAGES, label="Preferred language")
+    main_language = forms.ChoiceField(label="Preferred language")
 
-    additional_languages = forms.MultipleChoiceField(choices=LANGUAGES, required=False)
+    additional_languages = forms.MultipleChoiceField(required=False)
     gender = forms.ChoiceField(choices=GENDERS, required=False)
     location = forms.CharField(max_length=50, required=False)
     website = forms.URLField(required=False)
@@ -33,13 +31,15 @@ class NewAccountForm(forms.Form):
     sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
+    def __init__(self, *args, **kwargs):
+        super(NewAccountForm, self).__init__(*args, **kwargs)
+        lang=django.utils.translation.get_language().split('-')[0]
+        LANGUAGES = Language.get_name_on_language(lang)
+        self.fields['main_language'].choices=LANGUAGES
+        self.fields['additional_languages'].choices=LANGUAGES
+
 
 class RecipeForm(forms.Form):
-    lang=django.utils.translation.get_language().split('-')[0]
-    LANGUAGES = Language.get_name_on_language(lang)
-    TEMPORALITY = Temporality.get_name_on_language(lang)
-    FOOD_TYPE = Food_Type.get_name_on_language(lang)
-    SPECIAL_CONDITIONS = Special_Condition.get_name_on_language(lang)
     DIFFICULT = [(1, _("Easy")), (2, _("Medium")), (3, _("Hard"))]
 
     title = forms.CharField(max_length=50, required=False)
@@ -51,13 +51,13 @@ class RecipeForm(forms.Form):
     steps_json = forms.CharField(required=True)
 
     serves = forms.CharField(max_length=50, required=False)
-    language = forms.ChoiceField(choices=LANGUAGES, required=False)
-    temporality = forms.MultipleChoiceField(choices=TEMPORALITY, required=False)
+    language = forms.ChoiceField(required=False)
+    temporality = forms.MultipleChoiceField(required=False)
     nationality = forms.CharField(max_length=100, required=False)
-    special_conditions = forms.MultipleChoiceField(choices=SPECIAL_CONDITIONS, required=False)
+    special_conditions = forms.MultipleChoiceField(required=False)
     notes = forms.CharField(widget=forms.Textarea, required=False)
     difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
-    food_type = forms.ChoiceField(choices=FOOD_TYPE, required=False)
+    food_type = forms.ChoiceField(required=False)
     tags = forms.CharField(required=False)
     prep_time = forms.IntegerField(required=True)
     cook_time = forms.IntegerField(required=True)
@@ -67,6 +67,18 @@ class RecipeForm(forms.Form):
     bitter = forms.IntegerField(max_value=99, min_value=0, required=False)
     sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
+
+    def __init__(self):
+        lang=django.utils.translation.get_language().split('-')[0]
+        LANGUAGES = Language.get_name_on_language(lang)
+        TEMPORALITY = Temporality.get_name_on_language(lang)
+        FOOD_TYPE = Food_Type.get_name_on_language(lang)
+        SPECIAL_CONDITIONS = Special_Condition.get_name_on_language(lang)
+
+        self.language.choices=LANGUAGES
+        self.temporality.choices=TEMPORALITY
+        self.food_type.choices=FOOD_TYPE
+        self.special_conditions.choices=SPECIAL_CONDITIONS
 
     def get_ingredients_list(self):
         try:

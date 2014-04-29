@@ -39,6 +39,9 @@ import hashlib
 
 
 def main(request):
+    if request.user.is_authenticated():
+        if 'django_language' not in request.session:
+            request.session['django_language']=request.user.profile.get().main_language
     recipes = Recipe.objects.all().order_by('-creation_date')
     return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
@@ -372,6 +375,10 @@ def modification_account(request, username):
                     avatar.persist = True
                     avatar.save()
                 # TODO mandar a la misma página y mostrar un mensaje de éxito
+
+                if request.user.is_authenticated():
+                    request.session['django_language']=main_language
+
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
