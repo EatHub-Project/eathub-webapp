@@ -18,7 +18,8 @@
 	    	    {% csrf_token %}
                 <label for="username_or_email">{% trans "Username or email" %}</label>
 	    	    <input id="id_username_or_email" name="username_or_email" type="text"/>
-	    	    {% if form.errors %}
+                <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
+                {% if form.errors %}
                     <div class="alert alert-danger">
                         <a class="close" data-dismiss="alert">×</a>
                         {% for field, errors in form.errors.items %}
@@ -28,7 +29,6 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-                <p><input type="submit" class="plus btn btn-default" value="{% trans "Recover my password" %}"></p>
 	        </form>
         </div>
     </div>
