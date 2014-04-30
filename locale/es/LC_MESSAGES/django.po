@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-29 17:05+0200\n"
+"POT-Creation-Date: 2014-04-30 16:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -450,7 +450,7 @@ msgstr "Guardar como borrador"
 
 #: .\templates\webapp\ourgoals.html.py:14
 msgid "Our goals"
-msgstr ""
+msgstr "Nuestros objetivos"
 
 #: .\templates\webapp\ourgoals.html.py:15
 msgid ""
@@ -458,6 +458,10 @@ msgid ""
 "developing of a product completely new in web sector, with the intention of "
 "becoming a reference  in the kitchen-related social networks."
 msgstr ""
+"La estrategia del proyecto va a ser la diferenciación por el desarrollo de "
+"un producto completamente nuevo en el sector web, con la intención de "
+"convertirse en una referencia en las redes sociales relacionadas con las "
+"recetas."
 
 #: .\templates\webapp\ourgoals.html.py:16
 msgid ""
@@ -471,6 +475,19 @@ msgid ""
 "agreements with supermarkets in order to use their services or promoting "
 "them."
 msgstr ""
+"Hay un montón de recetas en diferentes sitios de internet, la mayoría de "
+"ellas en blogs y se pueden encontrar algunas redes sociales enfocadas en "
+"este tema también. EatHub se enmarca en el segundo grupo, pero hay una "
+"diferencia entre de las demás y EatHub: la característica que hace EatHub "
+"especial es también la base del modelo de negocio , la integración de una "
+"lista de compras vinculadas a los supermercados en línea. Con esto, el "
+"usuario puede llenar su carrito de la compra y, a continuación , comprar en "
+"lugar de imprimir la lista y va a un supermercado. Esta función también será "
+"una fuente de financiación al hacer acuerdos económicos con los "
+"supermercados con el fin de utilizar sus servicios o su promoción. La "
+"segunda fuente de financiación es el uso de anuncios personalizados. Los "
+"anuncios se mostrarán en función del producto mostrado. Un ejemplo podría "
+"ser:"
 
 #: .\templates\webapp\ourgoals.html.py:17
 msgid ""
@@ -481,22 +498,17 @@ msgid ""
 "example would be:"
 msgstr ""
 
-#: .\templates\webapp\ourgoals.html.py:19
+#: .\templates\webapp\ourgoals.html.py:23
 msgid ""
 "The last difference is that the application provides users with a ‘DNA’ the "
 "can edit. It is used as an affinity system and is modified every time they "
 "use the application. Users can watch a recipe as if they were another friend "
 "in order to know if this meal would like to him."
 msgstr ""
-
-#: .\templates\webapp\ourgoals.html.py:21
-msgid ""
-"The main users are going to be males and females from 18 to 35 years old who "
-"already have profiles in Facebook and/or Twitter, who loves cooking and "
-"consider themselves as amateur cooks, looking for some support or "
-"improvements to their recipes. A sector of them is expected to be recently "
-"independent twenties."
-msgstr ""
+"La última diferencia es que la aplicación proporciona a los usuarios un ADN "
+"personalizable. Se utiliza como un sistema de afinidad y se modifica cada "
+"vez que utilizan la aplicación. Los usuarios pueden ver una receta como si "
+"fueran otro amigo con el fin de saber si esta comida le gustaría a él."
 
 #: .\templates\webapp\profile.html.py:22 .\webapp\views.py:507
 msgid "Followers"
