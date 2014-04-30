@@ -1,1 +1,14 @@
 {% extends "webapp/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load tags %}
+{% load url from future %}
+
+{% block container %}
+    <div class="panel col-md-8 col-md-offset-2 panel-body">
+        <div id="image" class="col-md-4 password-recovery-image-div">
+            <img src="{% static 'webapp/image/logo_key_shaped.png' %}" class="password-recovery-image">
+	    </div>
+            {% block content %}{% endblock %}
+    </div>
+{% endblock %}
