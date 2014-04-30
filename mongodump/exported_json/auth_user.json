@@ -4,7 +4,7 @@
             "$oid": "5337f3cb144115cb2ce71e1c"
         },
         "date_joined": {
-            "$date": 1389696312089
+            "$date": "2014-01-14T11:45:12.089+0100"
         },
         "email": "juanmacias@gmail.com",
         "first_name": "",
@@ -12,7 +12,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1396961948640
+            "$date": "2014-04-08T14:59:08.640+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -23,7 +23,7 @@
             "$oid": "5337f440144115cb2ce71e1d"
         },
         "date_joined": {
-            "$date": 1368301032089
+            "$date": "2013-05-11T21:37:12.089+0200"
         },
         "email": "pedrogarcia@gmail.com",
         "first_name": "",
@@ -31,7 +31,7 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1396966326277
+            "$date": "2014-04-08T16:12:06.277+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -42,7 +42,7 @@
             "$oid": "5337f4b4144115cb2ce71e1e"
         },
         "date_joined": {
-            "$date": 1373452632089
+            "$date": "2013-07-10T12:37:12.089+0200"
         },
         "email": "franciscoh@gmail.com",
         "first_name": "",
@@ -50,7 +50,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1396876163731
+            "$date": "2014-04-07T15:09:23.731+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -61,7 +61,7 @@
             "$oid": "5337f520144115cb2ce71e1f"
         },
         "date_joined": {
-            "$date": 1341916032089
+            "$date": "2012-07-10T12:27:12.089+0200"
         },
         "email": "pherrero@gmail.com",
         "first_name": "",
@@ -69,7 +69,7 @@
         "is_staff": false,
         "is_superuser": true,
         "last_login": {
-            "$date": 1397902279314
+            "$date": "2014-04-19T12:11:19.314+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -80,7 +80,7 @@
             "$oid": "533fb9b386c9bdaca925fee0"
         },
         "date_joined": {
-            "$date": 1392327912089
+            "$date": "2014-02-13T22:45:12.089+0100"
         },
         "email": "alexs@gmail.com",
         "first_name": "",
@@ -88,7 +88,7 @@
         "is_staff": true,
         "is_superuser": true,
         "last_login": {
-            "$date": 1396876576283
+            "$date": "2014-04-07T15:16:16.283+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -99,7 +99,7 @@
             "$oid": "533fba3786c9bdaca925fee1"
         },
         "date_joined": {
-            "$date": 1297623312089
+            "$date": "2011-02-13T19:55:12.089+0100"
         },
         "email": "jamesjones@gmail.com",
         "first_name": "",
@@ -107,7 +107,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397904475378
+            "$date": "2014-04-19T12:47:55.378+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -118,7 +118,7 @@
             "$oid": "533fbad086c9bdaca925fee2"
         },
         "date_joined": {
-            "$date": 1360792522089
+            "$date": "2013-02-13T22:55:22.089+0100"
         },
         "email": "tomassalinascalderon@gmail.com",
         "first_name": "",
@@ -126,7 +126,7 @@
         "is_staff": true,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397902571064
+            "$date": "2014-04-19T12:16:11.064+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -137,7 +137,7 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "date_joined": {
-            "$date": 1397831028988
+            "$date": "2014-04-18T16:23:48.988+0200"
         },
         "email": "jualoppaz@alum.us.es",
         "first_name": "",
@@ -145,7 +145,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397831028988
+            "$date": "2014-04-18T16:23:48.988+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -156,7 +156,7 @@
             "$oid": "535130eab88bbe140cb839e5"
         },
         "date_joined": {
-            "$date": 1397837066756
+            "$date": "2014-04-18T18:04:26.756+0200"
         },
         "email": "jualoppaz@alum.us.es",
         "first_name": "",
@@ -164,7 +164,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397837066756
+            "$date": "2014-04-18T18:04:26.756+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -175,7 +175,7 @@
             "$oid": "5352390a18085d15c08181ce"
         },
         "date_joined": {
-            "$date": 1397904682760
+            "$date": "2014-04-19T12:51:22.760+0200"
         },
         "email": "tedjohnson@gmail.com",
         "first_name": "",
@@ -183,7 +183,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397904988507
+            "$date": "2014-04-19T12:56:28.507+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -194,7 +194,7 @@
             "$oid": "5352494f18085d15c08181d1"
         },
         "date_joined": {
-            "$date": 1397908846847
+            "$date": "2014-04-19T14:00:46.847+0200"
         },
         "email": "mariarojas@hotmail.es",
         "first_name": "",
@@ -202,7 +202,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397908847322
+            "$date": "2014-04-19T14:00:47.322+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -213,7 +213,7 @@
             "$oid": "53524b1bc54d2d0800ca5bbe"
         },
         "date_joined": {
-            "$date": 1397909307184
+            "$date": "2014-04-19T14:08:27.184+0200"
         },
         "email": "virgi.moriel@gmail.com",
         "first_name": "",
@@ -221,10 +221,29 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": 1397913961722
+            "$date": "2014-04-19T15:26:01.722+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
         "username": "virsfc"
+    },
+    {
+        "_id": {
+            "$oid": "535bed36dc1d670a7c6a1f5e"
+        },
+        "date_joined": {
+            "$date": "2014-04-26T21:30:30.100+0200"
+        },
+        "email": "sga.vmp@gmail.com",
+        "first_name": "Sergio",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": "2014-04-26T21:45:09.893+0200"
+        },
+        "last_name": "Garcia",
+        "password": "!",
+        "username": "sga.vmp"
     }
 ]

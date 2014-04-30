@@ -1,0 +1,12 @@
+[
+    {
+        "_id": {
+            "$oid": "535be2d2dc1d670ab4cfc255"
+        },
+        "code": "diabetic",
+        "name_dict": {
+            "en": "Diabetic",
+            "es": "Diabetico"
+        }
+    }
+]

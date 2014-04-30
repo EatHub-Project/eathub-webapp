@@ -658,16 +658,9 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.nationality.name }}">{% trans "Nationality" %}</label>
 
                     <div class="col-sm-6">
-                        <select class="form-control show-tick" name="{{ form.nationality.name }}"
-                                id="id_{{ form.nationality.name }}">
-                            {% for choice in form.nationality.field.choices %}
-                                <option value="{{ choice.0 }}"
-                                        {% ifequal form.nationality.value choice.0 %}
-                                        selected
-                                        {% endifequal %}
-                                        >{{ choice.1 }}</option>
-                            {% endfor %}
-                        </select>
+                        <input type="text" class="form-control" placeholder="{{ pl_comma }}"
+                               name="{{ form.nationality.name }}" id="id_{{ form.nationality.name }}"
+                               value="{{ form.nationality.value | default_if_none:'' }}">
                     </div>
                 </div>
             </div>

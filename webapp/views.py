@@ -1,6 +1,7 @@
 # coding=utf-8
 import urllib2
 from urlparse import urlparse
+import django
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from django.forms import ImageField
@@ -38,6 +39,9 @@ import hashlib
 
 
 def main(request):
+    if request.user.is_authenticated():
+        if 'django_language' not in request.session:
+            request.session['django_language']=request.user.profile.get().main_language
     recipes = Recipe.objects.all().order_by('-creation_date')
     return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
@@ -371,6 +375,10 @@ def modification_account(request, username):
                     avatar.persist = True
                     avatar.save()
                 # TODO mandar a la misma página y mostrar un mensaje de éxito
+
+                if request.user.is_authenticated():
+                    request.session['django_language']=main_language
+
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
@@ -422,6 +430,9 @@ def receta(request, recipe_id):
         porcentaje_positivos = (len(recipe.positives) / float(total_votos))*100
         porcentaje_negativos = (len(recipe.negatives) / float(total_votos))*100
 
+    lang=django.utils.translation.get_language().split('-')[0]
+    recipe.translate_to_language(lang)
+
     num = recipe.difficult
     dificultad = "Dificil"
     if num>=0 and num<=1:
@@ -454,6 +465,9 @@ def profile(request, username):
         for f in following_now:
             if f.user.id == user.id:
                 is_following = True
+
+    lang=django.utils.translation.get_language().split('-')[0]
+    user_profile.translate_to_lengague(lang)
 
     return render(request, 'webapp/profile.html',
                   {'profile': user_profile, 'following': is_following, 'followers_list': followers_list,

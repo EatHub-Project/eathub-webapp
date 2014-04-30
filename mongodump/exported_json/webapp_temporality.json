@@ -1,0 +1,42 @@
+[
+    {
+        "_id": {
+            "$oid": "535be06bdc1d670ab4cfc251"
+        },
+        "code": "summer",
+        "name_dict": {
+            "en": "Summer",
+            "es": "Verano"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be0aedc1d670ab4cfc252"
+        },
+        "code": "autumn",
+        "name_dict": {
+            "en": "Autumn",
+            "es": "Oto\u00f1o"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be0dadc1d670ab4cfc253"
+        },
+        "code": "spring",
+        "name_dict": {
+            "en": "Spring",
+            "es": "Primavera"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be1f7dc1d670ab4cfc254"
+        },
+        "code": "winter",
+        "name_dict": {
+            "en": "Winter",
+            "es": "Winter"
+        }
+    }
+]
