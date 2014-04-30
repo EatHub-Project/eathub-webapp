@@ -1348,6 +1348,17 @@ header .container {
     margin: 5px 0 10px;
 }
 
+.team-tastes-parent{
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.group-description p {
+    text-align: center;
+    font-size: 16px;
+    margin: 5px 20px;
+}
+
 #container {
     position: relative;
     min-height: 100%;

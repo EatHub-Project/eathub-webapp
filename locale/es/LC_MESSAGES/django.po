@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-29 14:32+0200\n"
+"POT-Creation-Date: 2014-04-30 15:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -448,22 +448,30 @@ msgstr ""
 msgid "Save as draft"
 msgstr "Guardar como borrador"
 
-#: .\templates\webapp\ourgroup.html.py:21
+#: .\templates\webapp\ourgroup.html.py:13
+msgid ""
+"All the members of the team are students of Software Engineering and "
+"Professional Practice (IT - Software Engineering, University of Seville)"
+msgstr "Todos los miembros del equipo son estudiantes de la asignatura Ingeniería del Software y Práctica Profesional "
+"Correspondiente al cuarto curso del Grado en Ingeniería Informática - Ingeniería del Software de la Universidad "
+"de Sevilla"
+
+#: .\templates\webapp\ourgroup.html.py:25
 msgid "Project Manager"
 msgstr "Jefe de proyecto"
 
-#: .\templates\webapp\ourgroup.html.py:33
-#: .\templates\webapp\ourgroup.html.py:75
-#: .\templates\webapp\ourgroup.html.py:87
+#: .\templates\webapp\ourgroup.html.py:37
+#: .\templates\webapp\ourgroup.html.py:80
+#: .\templates\webapp\ourgroup.html.py:92
 msgid "Developer"
 msgstr "Desarrollador"
 
-#: .\templates\webapp\ourgroup.html.py:48
-#: .\templates\webapp\ourgroup.html.py:60
+#: .\templates\webapp\ourgroup.html.py:53
+#: .\templates\webapp\ourgroup.html.py:65
 msgid "Analyst and Tester"
 msgstr "Analista y encargado de las pruebas"
 
-#: .\templates\webapp\ourgroup.html.py:101
+#: .\templates\webapp\ourgroup.html.py:106
 msgid "Developer Lead"
 msgstr "Jefe de desarrollo"
 

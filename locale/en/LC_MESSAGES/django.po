@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-29 14:32+0200\n"
+"POT-Creation-Date: 2014-04-30 15:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -450,22 +450,28 @@ msgstr ""
 msgid "Save as draft"
 msgstr ""
 
-#: .\templates\webapp\ourgroup.html.py:21
+#: .\templates\webapp\ourgroup.html.py:13
+msgid ""
+"All the members of the team are students of Software Engineering and "
+"Professional Practice (IT - Software Engineering, University of Seville)"
+msgstr ""
+
+#: .\templates\webapp\ourgroup.html.py:25
 msgid "Project Manager"
 msgstr ""
 
-#: .\templates\webapp\ourgroup.html.py:33
-#: .\templates\webapp\ourgroup.html.py:75
-#: .\templates\webapp\ourgroup.html.py:87
+#: .\templates\webapp\ourgroup.html.py:37
+#: .\templates\webapp\ourgroup.html.py:80
+#: .\templates\webapp\ourgroup.html.py:92
 msgid "Developer"
 msgstr ""
 
-#: .\templates\webapp\ourgroup.html.py:48
-#: .\templates\webapp\ourgroup.html.py:60
+#: .\templates\webapp\ourgroup.html.py:53
+#: .\templates\webapp\ourgroup.html.py:65
 msgid "Analyst and Tester"
 msgstr ""
 
-#: .\templates\webapp\ourgroup.html.py:101
+#: .\templates\webapp\ourgroup.html.py:106
 msgid "Developer Lead"
 msgstr ""
 
