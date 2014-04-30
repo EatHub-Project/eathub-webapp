@@ -404,7 +404,7 @@ class RecipesNegativeTestCase(TestCase):
             pass
 
     # Prueba numero 18 -- FAIL
-    def test_recipe_with_temporality_blank(self):
+    def test_recipe_with_blank_temporality(self):
         md = datetime(2014, 4, 10)
         b = datetime(2010, 10, 10)
         u = User.objects.create_user('juan', 'juanmacias@gmail.com', '1234')
@@ -431,7 +431,7 @@ class RecipesNegativeTestCase(TestCase):
             print v
 
     # Prueba numero 18 -- FAIL
-    def test_recipe_with_temporality_none(self):
+    def test_recipe_with_null_temporality(self):
         md = datetime(2014, 4, 10)
         b = datetime(2010, 10, 10)
         u = User.objects.create_user('juan', 'juanmacias@gmail.com', '1234')
@@ -548,34 +548,6 @@ class RecipesNegativeTestCase(TestCase):
             self.fail("==>La excepcion no ha saltado en el test de tipo de comida.\n")
         except ValidationError as v:
             pass
-
-    """
-    def test_pictures_association(self):
-        md = datetime(2014, 4, 10)
-        b = datetime(2010, 10, 10)
-        u = User.objects.create_user('juan', 'juanmacias@gmail.com', '1234')
-        f = Following(display_name ="juan", username = "juan", user = u)
-        t = Tastes(salty=5, sour=20, bitter=8, sweet=7, spicy=7)
-
-        p = Profile(display_name="juan" ,main_language="English", website="http://www.facebook.com/juanmacias",  tastes=t, user=u,modification_date= md, gender = "f", avatar= "images/i100236495_91881_5.jpg",birth_date =b,location = "Sevilla",additional_languages = [], following = [f])
-        p.save()
-
-        a = p.user
-        s = Savour()
-        time_recipe = Time(prep_time = 10, cook_time = 10)
-        step = Step(text="Step", image=None)
-
-        r = Recipe(title="", description="descripcion de la receta", ingredients=['tomate'],
-                   serves="2", language=l, temporality=["Spring"], nationality="", difficult=500,
-                   steps=[step], author=a, tags=["Tag 1", "Tag 2"], notes="Nota", special_conditions=[],
-                   savours=s, food_type="breakfast", time=time_recipe, pictures= [])
-        try:
-            r.clean_fields()
-            r.save()
-            self.fail("==>La excepcion no ha saltado como se esperaba.\n")
-        except ValidationError as v:
-            print v
-    """
 
     # Prueba numero 13 -- FAIL
     def test_recipe_ingredients_list_blank(self):
