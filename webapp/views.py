@@ -37,6 +37,40 @@ from django.template import loader
 #Para el hash con md5
 import hashlib
 
+#full-text
+from pymongo import *
+
+def search(request):
+    if request.method == 'POST':
+        terms = request.POST['srch-term']
+
+        client = MongoClient()
+
+        text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
+        doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
+        text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
+        doc_matches_profiles = (res['obj'] for res in text_results_profile['results'])
+
+        results_recipes = list()
+        for item in doc_matches_recipes:
+            r=Recipe()
+            r.id=item['_id']
+            r.title=item['title']
+            r.main_image=item['main_image']
+
+            results_recipes.append(r)
+
+        #TODO: hay que solucionar el problema al obtener los perfiles, ya que el campo user es un objectId.
+        results_profiles = list()
+        """for item in doc_matches_profiles:
+            p=Profile()
+            p.id=item['_id']
+            p.display_name=item['display_name']
+            p.user.username=item['user']
+            results_profiles.append(Profile(
+                                            ))"""
+
+        return render(request, 'webapp/search_result.html', {'matches_recipe': results_recipes, 'matches_profile': results_profiles})
 
 def main(request):
     if request.user.is_authenticated():
