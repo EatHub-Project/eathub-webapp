@@ -1359,6 +1359,21 @@ header .container {
     margin: 5px 20px;
 }
 
+.team-image {
+    height: auto;
+    width: 125px;
+}
+
+.group-div-descrption {
+    float: right;
+    width: 66%;
+}
+
+.group-div-image {
+    float: left;
+    width: 33%;
+}
+
 #container {
     position: relative;
     min-height: 100%;
