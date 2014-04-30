@@ -554,11 +554,11 @@ class RecipesNegativeTestCase(TestCase):
         md = datetime(2014, 4, 10)
         b = datetime(2010, 10, 10)
         u = User.objects.create_user('juan', 'juanmacias@gmail.com', '1234')
-        f = Following(display_name ="juan", username = "juan", user = u)
+        f = Following(display_name="juan", username="juan", user=u)
         l = "es"
         t = Tastes(salty=5, sour=20, bitter=8, sweet=7, spicy=7)
 
-        p = Profile(display_name="juan" ,main_language="English", website="http://www.facebook.com/juanmacias",  tastes=t, user=u,modification_date= md, gender = "f", avatar= "images/i100236495_91881_5.jpg",birth_date =b,location = "Sevilla",additional_languages = [], following = [f])
+        p = Profile(display_name="juan", main_language="English", website="http://www.facebook.com/juanmacias",  tastes=t, user=u,modification_date= md, gender = "f", avatar= "images/i100236495_91881_5.jpg",birth_date =b,location = "Sevilla",additional_languages = [], following = [f])
         p.save()
         m = "http://juanmanuellopezpazos.appspot.com/photo.jpg"
         a = p.user
@@ -584,7 +584,7 @@ class RecipesNegativeTestCase(TestCase):
         f = Following(display_name="juan", username="juan", user=u)
         t = Tastes(salty=5, sour=20, bitter=8, sweet=7, spicy=7)
         m = "http://juanmanuellopezpazos.appspot.com/photo.jpg"
-        p = Profile(display_name="juan" ,main_language="English", website="http://www.facebook.com/juanmacias",  tastes=t, user=u,modification_date= md, gender = "f", avatar= "images/i100236495_91881_5.jpg",birth_date =b,location = "Sevilla",additional_languages = [], following = [f])
+        p = Profile(display_name="juan", main_language="English", website="http://www.facebook.com/juanmacias",  tastes=t, user=u,modification_date= md, gender = "f", avatar= "images/i100236495_91881_5.jpg",birth_date =b,location = "Sevilla",additional_languages = [], following = [f])
         p.save()
 
         a = p.user

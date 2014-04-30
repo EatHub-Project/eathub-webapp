@@ -201,7 +201,7 @@ class Recipe(models.Model):
     creation_date = DateTimeField(auto_now_add=True)
     main_image = models.ImageField(upload_to="images/recipe/", null=False)
     modification_date = DateTimeField(auto_now_add=True, null=True)
-    ingredients = ListField(blank=False, validators=[validate_ingredients])
+    ingredients = ListField(null=False, blank=False, validators=[validate_ingredients])
     serves = CharField(max_length=50, blank=False)
     language = CharField(max_length=50, blank=False)
     temporality = ListField(null=False, validators=[validate_temporality])
