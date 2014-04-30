@@ -606,3 +606,10 @@ def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
 
     return {'is_new': False,'user':u}
 
+
+def terms_and_conditions(request):
+    return render(request, 'webapp/terms_and_conditions.html')
+
+
+def contact(request):
+    return render(request, 'webapp/contact.html')

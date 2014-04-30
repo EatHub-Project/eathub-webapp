@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-27 22:24+0200\n"
+"POT-Creation-Date: 2014-04-24 09:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,83 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: .\templates\password_reset\recovery_done.html.py:12
-msgid ""
-"Your password has successfully been reset. You can use it right now on the "
-"login page."
-msgstr ""
-
-# .\templates\password_reset\recovery_done.html:13
-#: .\templates\password_reset\recovery_done.html.py:13
-msgid "Go to the login page."
-msgstr "Ir a la pantalla de login"
-
-#: .\templates\password_reset\recovery_email.txt.py:1
-#, python-format
-msgid "Dear %(username)s,"
-msgstr ""
-
-#: .\templates\password_reset\recovery_email.txt.py:3
-#, python-format
-msgid ""
-"You -- or someone pretending to be you -- has requested a password reset on %"
-"(domain)s."
-msgstr ""
-
-#: .\templates\password_reset\recovery_email.txt.py:5
-msgid "You can set your new password by following this link:"
-msgstr ""
-
-#: .\templates\password_reset\recovery_email.txt.py:9
-msgid ""
-"If you don't want to reset your password, simply ignore this email and it "
-"will stay unchanged."
-msgstr ""
-
-#: .\templates\password_reset\recovery_email_subject.txt.py:1
-#, python-format
-msgid "Password recovery on %(domain)s"
-msgstr ""
-
-# .\templates\password_reset\recovery_form.html:14
-#: .\templates\password_reset\recovery_form.html.py:14
-msgid "Forgot your password? Nothing to worry about!"
-msgstr "¿Olvidó su contraseña? ¡No hay de que preocuparse!"
-
-# .\templates\password_reset\recovery_form.html:15
-#: .\templates\password_reset\recovery_form.html.py:15
-msgid "we can recover it!"
-msgstr "¡Podemos recuperarla!"
-
-#: .\templates\password_reset\recovery_form.html.py:20
-#, fuzzy
-msgid "Recover my password"
-msgstr "Repítela"
-
-#: .\templates\password_reset\reset.html.py:14
-#, python-format
-msgid ""
-"Sorry, this password reset link is invalid. You can still <a href=\"%"
-"(recovery_url)s\">request a new one</a>."
-msgstr ""
-
-#: .\templates\password_reset\reset.html.py:16
-#, python-format
-msgid "Hi, <strong>%(username)s</strong>. Please choose your new password."
-msgstr ""
-
-#: .\templates\password_reset\reset.html.py:20
-#, fuzzy
-msgid "Set new password"
-msgstr "Repítela"
-
-#: .\templates\password_reset\reset_sent.html.py:12
-#, python-format
-msgid ""
-"An email was sent to <strong>%(email)s</strong> %(ago)s ago. Use the link in "
-"it to set a new password."
-msgstr ""
 
 #: .\templates\webapp\base.html.py:35
 msgid "Toggle navigation"
@@ -133,6 +56,8 @@ msgid "Sign in"
 msgstr "Entrar"
 
 #: .\templates\webapp\base.html.py:98
+#: .\templates\webapp\newaccount.html.py:104
+#: .\templates\webapp\newaccount.html.py:412
 msgid "Create account"
 msgstr "Nueva cuenta"
 
@@ -156,9 +81,107 @@ msgstr ""
 msgid "Thank you for your feedback"
 msgstr "Gracias por su feedback"
 
-#: .\templates\webapp\base.html.py:138
+#: .\templates\webapp\base.html.py:138 .\templates\webapp\contact.html.py:48
 msgid "Send email"
 msgstr "Enviar correo"
+
+#: .\templates\webapp\base.html.py:153
+msgid "Terms & conditions"
+msgstr "Términos y condiciones"
+
+#: .\templates\webapp\base.html.py:154
+msgid "Our goals"
+msgstr "Nuestros objetivos"
+
+#: .\templates\webapp\base.html.py:155
+msgid "The team"
+msgstr "El equipo"
+
+#: .\templates\webapp\base.html.py:156
+msgid "Contact"
+msgstr "Contacto"
+
+#: .\templates\webapp\contact.html.py:15
+msgid "About us"
+msgstr "Sobre nosotros"
+
+#: .\templates\webapp\contact.html.py:16
+msgid ""
+"The idea that originated EatHub’s development was that recipes are not "
+"something final. It changes, you adapt to you personal taste or maybe "
+"someone advises you; so we decided to do manage the real life recipe's "
+"evolution . With this, you can control the life your recipes, help to "
+"improve your friend’s, copy them and giving your personal touch… You create "
+"a recipe, you share it,  everyone contributes, it evolves and the whole "
+"community benefits."
+msgstr ""
+"La idea que originó el desarrollo de Eathub fue que las recetas no son algo "
+"inamovible. Cambian, se adaptan a tus gustos personales o, a lo mejor, "
+"alguien te da un consejo para ellas; así que decidimos que sería buena idea "
+"permitirte controlar la evolución de tus recetas tal y como pasa en la vida "
+"real. Por tanto, puedes mejorar las recetas de tus amigos, copiarlas y darle "
+"tu toque personal... Es simple: Creas una receta, la compartes, todo el "
+"mundo contribuye y la comunidad en general se beneficia."
+
+#: .\templates\webapp\contact.html.py:21
+msgid "What we appreciate from you"
+msgstr "Qué nos gustaría saber"
+
+#: .\templates\webapp\contact.html.py:23
+msgid "Suggestions for the website"
+msgstr "Sugerencias para la web"
+
+#: .\templates\webapp\contact.html.py:24
+msgid "Bug reports"
+msgstr "Reporte de errores"
+
+#: .\templates\webapp\contact.html.py:25
+msgid "Your experience as a user"
+msgstr "Tu experiencia de usuario"
+
+#: .\templates\webapp\contact.html.py:26
+msgid "Requests"
+msgstr "Peticiones"
+
+#: .\templates\webapp\contact.html.py:30
+msgid "Promotion proposals"
+msgstr "Propuestas de promoción"
+
+#: .\templates\webapp\contact.html.py:31
+msgid "Business offers"
+msgstr "Ofertas de negocio"
+
+#: .\templates\webapp\contact.html.py:32
+msgid "Development help"
+msgstr "Ayuda en el desarrollo"
+
+#: .\templates\webapp\contact.html.py:39
+msgid "Contact Us"
+msgstr "¡Contacta con nosotros!"
+
+#: .\templates\webapp\contact.html.py:42
+msgid ""
+"This website is currently under development by the members of the fifth "
+"group of Software Engineering and Professional Practice (IT - Software "
+"Engineering, University of Seville)."
+msgstr ""
+"Este sitio se encuentra actualmente en desarrollo por los miembros del Grupo "
+"cinco de Ingeniería del Software y Práctica Profesional (Grado en Ingeniería "
+"Informática - Ingeniería del Software, Universidad de Sevilla)."
+
+#: .\templates\webapp\contact.html.py:43
+msgid ""
+"Any feedback you can give to us will be very useful. Please, feel free to "
+"contact us by sending an email to our address: eathub.contact@gmail.com or "
+"by clicking in the following button:"
+msgstr ""
+"Cualquier feedback que puedas darnos será muy útil. Por favor, no dudes en "
+"contactar con nosotros enviando un email a nuestra dirección: eathub."
+"contact@gmail.com o mediante el botón de abajo:"
+
+#: .\templates\webapp\contact.html.py:46
+msgid "Thanks for your interest!"
+msgstr "¡Gracias por tu interés!"
 
 #: .\templates\webapp\following.html.py:24
 #: .\templates\webapp\recipes.html.py:31
@@ -174,7 +197,6 @@ msgid "has no friends yet"
 msgstr "aún no tiene amigos"
 
 #: .\templates\webapp\login.html.py:7
-#: .\templates\webapp\newaccount_done.html.py:14
 msgid "Welcome to EatHub"
 msgstr "Bienvenido a EatHub"
 
@@ -201,10 +223,13 @@ msgid "Please sign in"
 msgstr "Inicia sesión"
 
 #: .\templates\webapp\login.html.py:50
+#: .\templates\webapp\newaccount.html.py:132
+#: .\templates\webapp\newaccount.html.py:135
 msgid "Username"
 msgstr "Nombre de usuario"
 
 #: .\templates\webapp\login.html.py:55
+#: .\templates\webapp\newaccount.html.py:167
 msgid "Password"
 msgstr "Contraseña"
 
@@ -224,11 +249,137 @@ msgstr "Esta es una página de inicio provisional"
 msgid "Under construction"
 msgstr "En construcción"
 
-#: .\templates\webapp\newaccount_done.html.py:16
-msgid ""
-"We have sent an activation email to the inbox of your email address you "
-"provided at registration."
-msgstr ""
+#: .\templates\webapp\newaccount.html.py:102
+#: .\templates\webapp\profile.html.py:44
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: .\templates\webapp\newaccount.html.py:126
+msgid "Account information"
+msgstr "información de la cuenta"
+
+#: .\templates\webapp\newaccount.html.py:147
+#: .\templates\webapp\newaccount.html.py:161
+#: .\templates\webapp\newaccount.html.py:175
+#: .\templates\webapp\newaccount.html.py:189
+#: .\templates\webapp\newaccount.html.py:206
+#: .\templates\webapp\newaccount.html.py:229
+msgid "Required"
+msgstr "Requerido"
+
+#: .\templates\webapp\newaccount.html.py:153
+#: .\templates\webapp\profile.html.py:57
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\webapp\newaccount.html.py:156
+msgid "youremail@example.com"
+msgstr "tuemail@ejemplo.com"
+
+#: .\templates\webapp\newaccount.html.py:170
+msgid "Your password"
+msgstr "Contraseña"
+
+#: .\templates\webapp\newaccount.html.py:181
+#: .\templates\webapp\newaccount.html.py:184
+msgid "Repeat your password"
+msgstr "Repítela"
+
+#: .\templates\webapp\newaccount.html.py:193
+msgid "Profile information"
+msgstr "Información del perfil"
+
+#: .\templates\webapp\newaccount.html.py:198
+msgid "Display name"
+msgstr "Nombre público"
+
+#: .\templates\webapp\newaccount.html.py:201
+msgid "Your public name"
+msgstr "Nombre público"
+
+#: .\templates\webapp\newaccount.html.py:212
+msgid "Preferred Language"
+msgstr "Idioma preferente"
+
+#: .\templates\webapp\newaccount.html.py:235
+msgid "Additional Language"
+msgstr "Notas adicionales"
+
+#: .\templates\webapp\newaccount.html.py:257
+#: .\templates\webapp\profile.html.py:142
+msgid "Gender"
+msgstr "Género"
+
+#: .\templates\webapp\newaccount.html.py:276
+msgid "Location"
+msgstr "Ubicación"
+
+#: .\templates\webapp\newaccount.html.py:279
+msgid "Your city, country or else"
+msgstr "Tu ciudad, país u otra referencia"
+
+#: .\templates\webapp\newaccount.html.py:289
+msgid "Website"
+msgstr "Sitio web"
+
+#: .\templates\webapp\newaccount.html.py:292
+msgid "Your page's URL"
+msgstr "URL de tu página"
+
+#: .\templates\webapp\newaccount.html.py:302
+msgid "Birth date"
+msgstr "Fecha de nacimiento"
+
+#: .\templates\webapp\newaccount.html.py:313
+msgid "Profile picture"
+msgstr "Foto de perfil"
+
+#: .\templates\webapp\newaccount.html.py:330
+msgid "Consumer preferences"
+msgstr "Preferencias de usuario"
+
+#: .\templates\webapp\newaccount.html.py:336
+msgid "Tastes"
+msgstr "Gustos"
+
+#: .\templates\webapp\newaccount.html.py:337
+#: .\templates\webapp\newrecipe.html.py:686
+#: .\templates\webapp\profile.html.py:231
+#: .\templates\webapp\recipe_template.html.py:274
+msgid "Salty"
+msgstr "Salado"
+
+#: .\templates\webapp\newaccount.html.py:352
+#: .\templates\webapp\newrecipe.html.py:701
+#: .\templates\webapp\profile.html.py:240
+#: .\templates\webapp\recipe_template.html.py:284
+msgid "Sour"
+msgstr "Agrio"
+
+#: .\templates\webapp\newaccount.html.py:365
+#: .\templates\webapp\newrecipe.html.py:714
+#: .\templates\webapp\profile.html.py:249
+#: .\templates\webapp\recipe_template.html.py:294
+msgid "Bitter"
+msgstr "Amargo"
+
+#: .\templates\webapp\newaccount.html.py:378
+#: .\templates\webapp\newrecipe.html.py:727
+#: .\templates\webapp\profile.html.py:258
+#: .\templates\webapp\recipe_template.html.py:304
+msgid "Sweet"
+msgstr "Dulce"
+
+#: .\templates\webapp\newaccount.html.py:391
+#: .\templates\webapp\newrecipe.html.py:740
+#: .\templates\webapp\profile.html.py:267
+#: .\templates\webapp\recipe_template.html.py:314
+msgid "Spicy"
+msgstr "Picante"
+
+#: .\templates\webapp\newaccount.html.py:410
+msgid "Save changes"
+msgstr "Guardar los cambios"
 
 #: .\templates\webapp\newrecipe.html.py:231
 msgid "Basic information"
@@ -305,9 +456,8 @@ msgstr "Tiempo de preparación"
 
 #: .\templates\webapp\newrecipe.html.py:502
 #: .\templates\webapp\newrecipe.html.py:518
-#, fuzzy
 msgid "minutes"
-msgstr "Invierno"
+msgstr "minutos"
 
 #: .\templates\webapp\newrecipe.html.py:514
 msgid "Cooking time"
@@ -360,36 +510,6 @@ msgstr "Nacionalidad"
 msgid "Savours"
 msgstr "Sabores"
 
-#: .\templates\webapp\newrecipe.html.py:686
-#: .\templates\webapp\profile.html.py:231
-#: .\templates\webapp\recipe_template.html.py:274
-msgid "Salty"
-msgstr "Salado"
-
-#: .\templates\webapp\newrecipe.html.py:701
-#: .\templates\webapp\profile.html.py:240
-#: .\templates\webapp\recipe_template.html.py:284
-msgid "Sour"
-msgstr "Agrio"
-
-#: .\templates\webapp\newrecipe.html.py:714
-#: .\templates\webapp\profile.html.py:249
-#: .\templates\webapp\recipe_template.html.py:294
-msgid "Bitter"
-msgstr "Amargo"
-
-#: .\templates\webapp\newrecipe.html.py:727
-#: .\templates\webapp\profile.html.py:258
-#: .\templates\webapp\recipe_template.html.py:304
-msgid "Sweet"
-msgstr "Dulce"
-
-#: .\templates\webapp\newrecipe.html.py:740
-#: .\templates\webapp\profile.html.py:267
-#: .\templates\webapp\recipe_template.html.py:314
-msgid "Spicy"
-msgstr "Picante"
-
 #: .\templates\webapp\newrecipe.html.py:758
 msgid ""
 "Savour values defines the savour of your recipe and stuff. This way we can "
@@ -433,17 +553,9 @@ msgstr "Error desconocido"
 msgid "Done!"
 msgstr "¡Hecho!"
 
-#: .\templates\webapp\profile.html.py:44
-msgid "Edit profile"
-msgstr "Editar perfil"
-
 #: .\templates\webapp\profile.html.py:53
 msgid "Basic info"
 msgstr "Información básica"
-
-#: .\templates\webapp\profile.html.py:57
-msgid "Email"
-msgstr "Email"
 
 #: .\templates\webapp\profile.html.py:95
 msgid "Check-in date"
@@ -456,10 +568,6 @@ msgstr "Información del usuario"
 #: .\templates\webapp\profile.html.py:134
 msgid "website"
 msgstr "Sitio web"
-
-#: .\templates\webapp\profile.html.py:142
-msgid "Gender"
-msgstr "Género"
 
 #: .\templates\webapp\profile.html.py:188
 msgid "Personal info"
@@ -596,6 +704,457 @@ msgstr "Aún no tienes recetas"
 msgid "This user does not has any recipe yet"
 msgstr "Este usuario no tiene ninguna receta todavía"
 
+#: .\templates\webapp\terms_and_conditions.html.py:14
+msgid "Terms and conditions"
+msgstr "Términos y condiciones"
+
+#: .\templates\webapp\terms_and_conditions.html.py:15
+msgid ""
+"The following terms and conditions govern your use of the website give "
+"eathub.herokuapp.com and any of the content available on or through this web "
+"site, including any content derivative thereof has made available the "
+"Website. We may change the Terms and Conditions of Use at any time without "
+"notice, only posting the changes on the Website. BY USING THE SITE, YOU "
+"ACCEPT AND AGREE TO THESE TERMS AND CONDITIONS WITH REGARD TO YOUR USE OF "
+"THE WEB SITE. If you do not agree to these Terms and Conditions, you may not "
+"have access to it or use the Website in any other way."
+msgstr ""
+"Los siguientes términos y condiciones rigen el uso que usted le dé al sitio "
+"web www.eathub.com y a cualquiera de los contenidos disponibles por o a "
+"través de este Sitio Web, incluyendo cualquier contenido derivado del mismo "
+"que ha puesto a su disposición el Sitio Web. Podemos cambiar los Términos y "
+"Condiciones de Uso, en cualquier momento sin ninguna notificación, sólo "
+"publicando los cambios en el Sitio Web. AL USAR EL SITIO WEB, USTED ACEPTA Y "
+"ESTÁ DE ACUERDO CON ESTOS TÉRMINOS Y CONDICIONES EN LO QUE SE REFIERE A SU "
+"USO DEL SITIO WEB. Si usted no está de acuerdo con estos Términos y "
+"Condiciones, no puede tener acceso al mismo ni usar el Sitio Web de ninguna "
+"otra manera."
+
+#: .\templates\webapp\terms_and_conditions.html.py:17
+msgid "1. Property Rights"
+msgstr "1. Derechos de Propiedad"
+
+#: .\templates\webapp\terms_and_conditions.html.py:18
+msgid ""
+"EatHub is the sole and exclusive owner of the rights to the title, content "
+"(including, for example, audio, photographs, illustrations, graphics, other "
+"visuals, video, copy, text, software, titles) codes, data and materials of "
+"the same, the look and feel, design and organization of the website, the "
+"compilation of the content, code, data and materials on the website, "
+"including but not limited to, any copyright, rights trademark, patent "
+"rights, database rights, moral rights, sui generis rights and other "
+"intellectual property, proprietary rights of the same, and in general all "
+"the Website. Use of the Web Site does not grant to you ownership of any "
+"content, code, data or materials you may access on or through the WebSite."
+msgstr ""
+"EatHub es el único y exclusivo titular de los derechos sobre los títulos, "
+"contenido (incluyendo, por ejemplo, audio, fotografías, ilustraciones, "
+"gráficos, otros medios visuales, videos, copias, textos, software, títulos) "
+"códigos, datos y materiales del mismo, el aspecto y el ambiente, el diseño y "
+"la organización del Sitio Web, la compilación de los contenidos, códigos, "
+"datos y los materiales en el Sitio Web, incluyendo pero no limitado a, "
+"cualesquiera derechos de autor, derechos de marca, derechos de patente, "
+"derechos de base de datos, derechos morales, derechos sui generis y otras "
+"propiedades intelectuales, derechos patrimoniales del mismo, así como "
+"cualquier contenido que los usuarios puedan subir y en general de todo el "
+"Sitio Web, respetando en el caso de los usuarios su autoría (siempre se le "
+"atribuirá al usuario)."
+
+#: .\templates\webapp\terms_and_conditions.html.py:20
+msgid "2. Prohibited Use"
+msgstr "2. Uso prohibido"
+
+#: .\templates\webapp\terms_and_conditions.html.py:21
+msgid ""
+"Any distribution, publication or commercial or promotional exploitation of "
+"the Website or any content, code, data or materials on the Website is "
+"strictly prohibited unless you have received the express prior written "
+"permission from authorized personnel EatHub or any other applicable rights "
+"holder. Except as expressly provided in this agreement, you may not "
+"download, inform, display, publish, copy, reproduce, distribute, transmit, "
+"modify, perform, broadcast, transfer, create derivative works from, sell or "
+"otherwise exploit any of the content, code, data or materials on or "
+"available through the web Site. You further agree not to alter, edit, "
+"delete, remove, or otherwise change the meaning or appearance of, or "
+"repurpose, any of the content, code, data or materials on or available "
+"through the Website including, without limitation, the alteration or removal "
+"of any trademark, registered trademark, logo, service mark or any other "
+"proprietary content or proprietary rights notice. You acknowledge that you "
+"do not acquire any ownership rights by downloading any copyrighted material "
+"from or through the Website. If you make other use of the Website, or the "
+"content, code, data or materials that there are or available through the "
+"Website, except as provided above, you may violate copyright laws copyright "
+"and other laws of the European Union, as well as applicable state laws "
+"( Spain ), and may be subject to liability for such unauthorized use. "
+"'EatHub' is a site owned EATHUB. All contents on display are the sole "
+"property of  EATHUB. It is forbidden to total reproduction and / or parcial. "
+"Content on this site is the result of material produced by EATHUB, our "
+"partners and our users. Includes Recipes, comments or images in culinary or "
+"related field. All content is governed by these terms and conditions. Users "
+"and reviewers are solely responsible for the content they publish and "
+"transmit through the site, and shall indemnify EATHUB. possible claims "
+"against them generated.The accuracy and quality of the recipes are the "
+"responsibility of the author. The rating both recipes as places reflects the "
+"experience of our users. All content is for informational purposes. EATHUB. "
+"assumes no responsibility for any decisions that arrives the receiver of the "
+"information nor for any damage caused by insufficient accuracy of the data "
+"entered."
+msgstr ""
+"Cualquier distribución, publicación o explotación comercial o promocional "
+"del Sitio Web, o de cualquiera de los contenidos, códigos, datos o "
+"materiales en el Sitio Web, está estrictamente prohibida, a menos de que "
+"usted haya recibido el previo permiso expreso por escrito del personal "
+"autorizado de EatHub o de algún otro poseedor de derechos aplicable. A no "
+"ser como está expresamente permitido en el presente contrato, usted no puede "
+"descargar, informar, exponer, publicar, copiar, reproducir, distribuir, "
+"transmitir, modificar, ejecutar, difundir, transferir, crear trabajos "
+"derivados de, vender o de cualquier otra manera explotar cualquiera de los "
+"contenidos, códigos, datos o materiales en o disponibles a través del Sitio "
+"Web. Usted se obliga además a no alterar, editar, borrar, quitar, o de otra "
+"manera cambiar el significado o la apariencia de, o cambiar el propósito de, "
+"cualquiera de los contenidos, códigos, datos o materiales en o disponibles a "
+"través del Sitio Web, incluyendo, sin limitación, la alteración oretiro de "
+"cualquier marca comercial, marca registrada, logo, marca de servicios o "
+"cualquier otro contenido de propiedad o notificación de derechos de "
+"propiedad. Usted reconoce que no adquiere ningún derecho de propiedad al "
+"descargar algún material con derechos de autor de o a través del Sitio Web. "
+"Si usted hace otro uso del Sitio Web, o de los contenidos, códigos, datos o "
+"materiales que ahí se encuentren o que estén disponibles a través del Sitio "
+"Web, a no ser como se ha estipulado anteriormente, usted puede violar las "
+"leyes de derechos de autor y otras leyes de la Unión Europea, así como las "
+"leyes estatales aplicables (España), y puede ser sujeto a responsabilidad "
+"legal por dicho uso no autorizado.“EatHub” es un  sitio propiedad de "
+"EATHUB.   Todos los contenidos que se exhiben son de exclusiva propiedad de "
+"EATHUB. Se encuentra prohibida su reproducción total y/o parcial.El "
+"contenido de este sitio es el resultado del material producido por EATHUB "
+"SL, nuestros colaboradores y nuestros usuarios. Comprende Recetas  de "
+"cocina, comentarios o imágenes  en materia culinaria o afín. Todos los "
+"contenidos se rigen por los presentes términos y condiciones. Los usuarios y "
+"colaboradores son responsables exclusivos del contenido que publican y "
+"transmiten a través del sitio, debiendo mantener indemne a EATHUB. ante "
+"posibles reclamos por ellos  generados.La exactitud y calidad de las recetas "
+"son responsabilidad de su autor. La calificación, tanto de las recetas como "
+"de los lugares, refleja la experiencia de nuestros usuarios. Todo el "
+"contenido tiene carácter meramente informativo. EATHUB. no asume "
+"responsabilidad alguna por las decisiones a las que arribe el receptor de la "
+"información ni por los daños que pudiera ocasionar la falta de exactitud de "
+"los datos asentados."
+
+#: .\templates\webapp\terms_and_conditions.html.py:23
+msgid "3. Trademarks"
+msgstr "3. Marcas Comerciales"
+
+#: .\templates\webapp\terms_and_conditions.html.py:24
+msgid ""
+"The trademarks, logos, service marks, trademarks (collectively the "
+"Trademarks) displayed on the Website or on content available through the "
+"Website are Trademarks of EatHub, and registered and unregistered other, and "
+"can not be used in connection with products and / or services that are not "
+"related, associated, or sponsored by their rights holders that are likely to "
+"cause confusion among customers, or in any manner that disparages or "
+"discredits their rights holders. All Trademarks non EatHub displayed on the "
+"Website or on or through the services of the Website, if any, are the "
+"property of their respective owners. Nothing contained on the Site should be "
+"construed as granting, by implication, estoppel, or otherwise, any license "
+"or right to use any Trademark displayed in the Site without the written "
+"permission of EatHub or third party that may own such Trademark. The misuse "
+"of the Trademarks displayed on the Website or on or through any of the "
+"services of the Website is strictly prohibited."
+msgstr ""
+"Las marcas comerciales, logos, marcas de servicios, marcas registradas "
+"(conjuntamente las 'Marcas Comerciales') expuestas en el Sitio Web o en los "
+"contenidos disponibles a través del Sitio Web son Marcas Comerciales de "
+"EatHub, registradas y no registradas y otras, y no pueden ser usadas con "
+"respecto a productos y/o servicios que no estén relacionados, asociados o "
+"patrocinados por sus poseedores de derechos y que puedan causar confusión a "
+"los clientes, o de alguna manera que denigre o desacredite a sus poseedores "
+"de derechos. Todas las Marcas Comerciales que no sean de EatHub que "
+"aparezcan en el Sitio Web o en o a través de los servicios del Sitio Web, si "
+"las hubiera, son propiedad de sus respectivos dueños. Nada que esté "
+"contenido en el Sitio Web deberá ser interpretado como otorgando, por "
+"implicación, desestimación, o de otra manera, alguna licencia o derecho para "
+"usar alguna Marca Comercial expuesta en el Sitio Web sin el permiso escrito "
+"de EatHub o de terceros que puedan ser dueños de dicha Marca Comercial. El "
+"mal uso de las Marcas Comerciales expuestas en el Sitio Web o en o a través "
+"de cualquiera de los servicios del Sitio Web está estrictamente prohibido."
+
+#: .\templates\webapp\terms_and_conditions.html.py:26
+msgid "4. User Information"
+msgstr "4. Información de usuario"
+
+#: .\templates\webapp\terms_and_conditions.html.py:27
+msgid ""
+"In the course of your use of the Website and / or the services made "
+"available on or through the Web Site, you may be asked to provide certain "
+"personalized information (such information referred to as 'User "
+"Information'. Use policies and information collection EatHub with respect to "
+"the privacy of such User Information are set forth in the Privacy Policy of "
+"the Website, which is incorporated therein by reference for all purposes. "
+"You acknowledge and agree to be solely responsible for the accuracy of the "
+"content of the User Information."
+msgstr ""
+"En el curso del uso que usted haga del Sitio Web y/o de los servicios "
+"puestos a su disposición en o a través del Sitio Web, se le puede pedir que "
+"nos proporcione cierta información personalizada (dicha información en lo "
+"sucesivo 'Información del Usuario'). Las políticas de uso y recopilación de "
+"información de EatHub con respecto a la privacidad de dicha Información del "
+"Usuario se establecen en la Política de Privacidad del Sitio Web, la cual "
+"está incorporada al mismo como referencia para todos los propósitos. Usted "
+"reconoce y acepta ser el único responsable de la exactitud del contenido de "
+"la Información del Usuario."
+
+#: .\templates\webapp\terms_and_conditions.html.py:29
+msgid "5. Links to the Website"
+msgstr "5. Enlaces con el Sitio Web"
+
+#: .\templates\webapp\terms_and_conditions.html.py:30
+msgid ""
+"You agree that if you include a ( link) link any other website to the "
+"Website, the link will open in a new window navigator and linked with the "
+"full version of an HTML formatted page of this Website. You are not allowed "
+"to link directly to any image stored on the Website or our services, such "
+"method is to use a button 'in - line' to cause the image stored by us was "
+"exposed on another website. You agree not to download or use stored on this "
+"Website on another web site, images for any purpose, including, without "
+"limitation, posting such images on another web site. You agree not to link "
+"from any other web site to this Web Site so that the Site, or any page of "
+"the Web Site, is framed, surrounded or obfuscated by the contents, materials "
+"or slots mark of any third. We reserve all of our rights under the law to "
+"insist that any link to the Website is discontinued and revoke your right to "
+"link to the Website from any other website at any time when we send written "
+"notice."
+msgstr ""
+"Usted está de acuerdo en que si incluye un enlace (link) de cualquier otro "
+"sitio web al Sitio Web, dicho enlace se abrirá en una nueva ventana "
+"navegadora y se enlazará con la versión completa de una página formateada "
+"HTML de este Sitio Web. Usted no tiene permitido enlazarse directamente a "
+"ninguna imagen almacenada en el Sitio Web o en nuestros servicios, como "
+"sería usar un método de enlace 'en-línea' para provocar que la imagen "
+"almacenada por nosotros fuera expuesta en otro sitio web. Usted se obliga a "
+"no descargar o usar imágenes almacenadas en este Sitio Web en otro sitio "
+"web, con cualquier propósito, incluyendo, sin limitación, publicar dichas "
+"imágenes en otro sitio web. Usted se obliga a no enlazarse de cualquier otro "
+"sitio web a este Sitio Web de tal manera que el Sitio Web, o cualquier "
+"página del Sitio Web, esté 'enmarcado', rodeado u ofuscado por los "
+"contenidos, materiales o posicionamientos de marca de cualquier tercero. Nos "
+"reservamos todos nuestros derechos bajo la ley para insistir en que "
+"cualquier enlace al Sitio Web sea descontinuado y a revocar su derecho a "
+"enlazarse al Sitio Web de cualquier otro sitio web, en cualquier momento en "
+"el que le mandemos notificación por escrito."
+
+#: .\templates\webapp\terms_and_conditions.html.py:32
+msgid "6. Compensation"
+msgstr "6. Indemnización"
+
+#: .\templates\webapp\terms_and_conditions.html.py:33
+msgid ""
+"You agree to indemnify and hold harmless get to, directors, officers, "
+"employees, agents EatHub and its subsidiaries from any claims, liabilities, "
+"costs and expenses, of any nature, including fees lawyers, they incur as a "
+"result of using the web Site, your placement or transmission of any message, "
+"content, information, software or other materials through the web Site, or "
+"your breach or violation of the law or of these Terms and Conditions. EatHub "
+"reserves the right, at its own expense, to assume the exclusive defense and "
+"control of any matter otherwise subject to indemnification by you, and in "
+"such case, you agree to cooperate with EatHub in the defense of such claim."
+msgstr ""
+"Usted se obliga a indemnizar y a sacar en paz y a salvo a, a los directores, "
+"funcionarios, empleados, agentes de EatHub y sus sociedades filiales, de "
+"cualquier demanda, responsabilidad, costos y gastos, de cualquier "
+"naturaleza, incluyendo honorarios de abogados, en que incurriera como "
+"resultado del uso del Sitio Web, su colocación o transmisión de cualquier "
+"mensaje, contenido, información, software u otros materiales a través del "
+"Sitio Web, o su incumplimiento o violación de la ley o de estos Términos y "
+"Condiciones. EatHub se reserva el derecho, a su propio costo, de asumir la "
+"defensa y control exclusivos de cualquier asunto de otra manera sujeto a "
+"indemnización por parte suya, y en dicho caso, usted se obliga a cooperar "
+"con EatHub en la defensa de dicha demanda."
+
+#: .\templates\webapp\terms_and_conditions.html.py:35
+msgid "7. Third Party Websites"
+msgstr "7. Sitios web de terceros"
+
+#: .\templates\webapp\terms_and_conditions.html.py:36
+msgid ""
+"You can link (link) Web Site to third party web sites and third can be "
+"linked to ('Linked Sites') Website. You acknowledge and agree that we have "
+"no responsibility for the information, content, products, services, "
+"advertising, code or other materials which may or may not be provided by or "
+"through Linked Sites, even if they are owned or are led by our affiliates. "
+"The links ( links) to Linked Sites do not constitute an endorsement or our "
+"sponsorship of such sites or the information, content, products, services, "
+"advertising, code or other materials presented on or through such websites. "
+"The inclusion of any link to such sites on our Site does not imply "
+"endorsement, sponsorship or recommendation of the Web Site, EatHub disclaims "
+"any liability for links ( 1) from another web site to this Website and ( 2) "
+"another website to this Website. EatHub can not guarantee the standards of "
+"any web site to which you provide links on this Site, or be EatHub "
+"responsible for the contents of such sites, or any subsequent link. EatHub "
+"does not represent or warrant that the content of any third party website "
+"are accurate, to comply with state or federal law, or to comply with the "
+"laws of copyright or other intellectual property laws. EatHub is not "
+"responsible for any form of transmission received from any linked website. "
+"Any reliance on the contents of a third party website is done at your own "
+"risk and you assume all responsibilities and consequences resulting from "
+"such reliance."
+msgstr ""
+"Usted puede enlazar (link) del Sitio Web a sitios web de terceros y terceros "
+"pueden enlazarse al Sitio Web ('Sitios Enlazados'). Usted reconoce y está de "
+"acuerdo en que nosotros no tenemos responsabilidad sobre la información, "
+"contenido, productos, servicios, anuncios, códigos u otros materiales que "
+"puedan o no puedan ser proporcionados por o a través de los Sitios "
+"Enlazados, aún si son propiedad de o son dirigidos por afiliados nuestros. "
+"Los enlaces (links) a Sitios Enlazados no constituyen un aval o patrocinio "
+"nuestro de dichos sitios web o de la información, contenido, productos, "
+"servicios, anuncios, códigos u otros materiales presentados en o a través de "
+"dichos sitios web. La inclusión de cualquier enlace a dichos sitios en "
+"nuestro Sitio no implica el aval, patrocinio o recomendación de ese Sitio "
+"Web, EatHub rechaza cualquier responsabilidad por los enlaces (1) de otro "
+"sitio web a este Sitio Web y (2) a otro sitio web de este Sitio Web. EatHub "
+"no puede garantizar los estándares de cualquier sitio web al cual se le "
+"proporcionen enlaces en este Sitio Web, ni será EatHub responsable de los "
+"contenidos de dichos sitios, o de cualquier enlace subsecuente. EatHub no "
+"representa o garantiza que los contenidos del sitio web de algún tercero "
+"sean exactos, que cumplan con la ley estatal o federal, o que cumplan con "
+"las leyes de derechos de autor o con otras leyes de propiedad intelectual. "
+"EatHub  tampoco es responsable de cualquier forma de transmisión recibida de "
+"cualquier sitio web enlazado. Cualquier confianza depositada en los "
+"contenidos de un sitio web de terceros es hecha por su propio riesgo y usted "
+"asume todas las responsabilidades y consecuencias que resulten de dicha "
+"confianza."
+
+#: .\templates\webapp\terms_and_conditions.html.py:38
+msgid "8. Copyright Agent"
+msgstr "8. Agente de Derechos de Autor"
+
+#: .\templates\webapp\terms_and_conditions.html.py:39
+msgid ""
+"In the event that any User or third party considers that any content have "
+"been introduced into the portal with violation of their intellectual "
+"property rights should send a fax to the company containing the following "
+"elements: ( a) personal data : name, address, phone number and email address "
+"of the claimant, ( b ) authentic or equivalently, with the personal data of "
+"the owner of the copyright allegedly infringed or person lawfully authorized "
+"to act on behalf and for (c) precise and complete indication of protected by "
+"intellectual property rights allegedly infringed, and its location on the "
+"portal; ; account holder of the copyright allegedly infringed ( d ) A clear "
+"statement that introducing indicated content was carried out without the "
+"consent of the responsibility of the claimant that the information in the "
+"notification is accurate and that the introduction of content is a violation "
+"of their intellectual property rights."
+msgstr ""
+". En el caso de que cualquier Usuario o un tercero considere que cualquiera "
+"de los Contenidos han sido introducido en el Portal con violación de sus "
+"derechos de propiedad intelectual deberá enviar un fax a la Empresa que "
+"contenga los siguientes elementos: (a) datos personales: nombre, dirección, "
+"número de teléfono y dirección de correo electrónico del reclamante; (b) "
+"forma auténtica o equivalente, con los datos personales del titular de los "
+"derechos de propiedad intelectual supuestamente infringidos o de la persona "
+"autorizada conforme a derecho para actuar en nombre y por cuenta del titular "
+"de los derechos de propiedad intelectual supuestamente infringidos; (c) "
+"indicación precisa y completa de los Contenidos protegidos mediante los "
+"derechos de propiedad intelectual supuestamente infringidos, así como de su "
+"localización en el Portal; (d) declaración expresa y clara de que la "
+"introducción de los Contenidos indicados se ha realizado sin el "
+"consentimiento del titular bajo la responsabilidad del reclamante de que la "
+"información proporcionada en la notificación es exacta y de que la "
+"introducción de los contenidos constituye una violación de sus derechos de "
+"propiedad intelectual. "
+
+#: .\templates\webapp\terms_and_conditions.html.py:40
+msgid ""
+"These notifications must be sent to: Av.Constitución # 8, CP Spain 41004, "
+"Fax 954 78 59 89"
+msgstr ""
+"Estas notificaciones deberán ser enviadas a: Av.Constitución nº8, C.P. 41004 "
+"España, Fax 954 78 59 89"
+
+#: .\templates\webapp\terms_and_conditions.html.py:41
+msgid ""
+"If the letter and information provided, it appears that they are violating "
+"the intellectual right of a person, EatHub immediately suspend public access "
+"to the relevant information, and make available to the owner."
+msgstr ""
+"Si de la carta e información proporcionada se desprendiera que se está "
+"violando el derecho intelectual de una persona, EatHub suspenderá de "
+"inmediato el acceso público a la información respectiva, y la pondrá a "
+"disposición de su titular."
+
+#: .\templates\webapp\terms_and_conditions.html.py:44
+msgid "9. Effectiveness"
+msgstr "9. Vigencia"
+
+#: .\templates\webapp\terms_and_conditions.html.py:45
+msgid ""
+"The provision of the Website and other services is indefinite. EatHub "
+"however, may terminate, suspend or discontinue at any time and without prior "
+"notice, the provision of services on the Website and / or any of the "
+"Services (including Open the User Services)."
+msgstr ""
+"La prestación del servicio del Sitio Web y de los demás Servicios tiene una "
+"duración indefinida. EatHub sin embargo, podrá dar por terminada, suspender "
+"o interrumpir en cualquier momento y sin necesidad de previo aviso, la "
+"prestación de los servicios del Sitio Web y/o de cualquiera de los Servicios "
+"(incluidos los Servicios Abiertos al Usuario)."
+
+#: .\templates\webapp\terms_and_conditions.html.py:47
+msgid "10. Law and Jurisdiction"
+msgstr "10. Ley y Jurisdicción aplicables"
+
+#: .\templates\webapp\terms_and_conditions.html.py:48
+msgid ""
+"For the interpretation, compliance and enforcement of these Terms and "
+"Conditions of Use of the Website, EatHub and the User agree to submit to the "
+"jurisdiction of the competent courts in Spain, renouncing the jurisdiction "
+"that under their existing or future or addresses for any other reason may "
+"apply and will be governed by the provisions applicable in the Spanish and "
+"European laws."
+msgstr ""
+"Para la interpretación, cumplimiento y ejecución de éstos Términos y "
+"Condiciones de Uso del Sitio Web, EatHub y el Usuario acuerdan que se "
+"someten a la jurisdicción de los tribunales competentes en la España, "
+"renunciando al fuero que en virtud de sus domicilios actuales o futuros o "
+"por cualquier otro motivo pudiera corresponderles y que se regirán por las "
+"disposiciones aplicables en las leyes españolas y europeas."
+
+#: .\templates\webapp\terms_and_conditions.html.py:50
+msgid "11. API"
+msgstr "11. API"
+
+#: .\templates\webapp\terms_and_conditions.html.py:51
+msgid ""
+"You are granted a limited, non exclusive, non sublicensable right to access "
+"the EatHub Application Programming Interface (API) of the terms specified "
+"herein. This website, the content API and are available for personal, "
+"noncommercial use. Any other use, including but not limited to any "
+"commercial use or reproduction of large distribution, modification, "
+"republication, display or performance, without the prior written permission "
+"of EatHub, is strictly prohibited. You may reproduce, modify, create "
+"derivative works from, or otherwise exploit any content, code, data or "
+"materials available through the API, provided they clearly indicate the "
+"original author of the recipe, maintaining and publishing the EatHub name "
+"provider and provided that the beneficiary of the API link directly to the "
+"website EatHub. We reserve the right, without notice and in our sole "
+"discretion, to terminate your license to use the API. The violation of any "
+"of these terms or conditions that you may be subject to legal action."
+msgstr ""
+"Se le concede un derecho limitado, no exclusivo, no transferible a terceros "
+"para acceder a la interfaz de programación de EatHub de aplicaciones (API) "
+"de los términos que se especifican en el presente documento. Este sitio web, "
+"la API y el contenido están disponibles para su uso personal. Cualquier otro "
+"uso, incluido pero no limitado a cualquier uso comercial, reproducción de "
+"gran distribución, modificación, republicación, exhibición o representación, "
+"sin el permiso previo por escrito de EatHub, está estrictamente prohibido. "
+"Usted  puede reproducir, modificar, crear trabajos derivados, o de otra "
+"forma explotar cualquier contenido, código, datos o materiales disponibles a "
+"través de la API, siempre que se indique de forma clara el autor o autores "
+"originales de la receta, manteniendo y publicando el nombre de EatHub como "
+"proveedor y siempre que el beneficiario de dicha API enlace de forma directa "
+"a el sitio web de EatHub. Nos reservamos el derecho, sin previo aviso y en "
+"nuestra única discreción, a finalizar su licencia de uso de la API. La "
+"violación de cualquiera de estos términos o condiciones que usted puede "
+"estar sujeto a acciones legales."
+
 #: .\webapp\forms.py:9 .\webapp\forms.py:39
 msgid "English"
 msgstr "Inglés"
@@ -707,60 +1266,6 @@ msgstr "Las contraseñas no coinciden"
 #: .\webapp\views.py:65
 msgid "Username alerady taken"
 msgstr "Ese nombre de usuario ya está en uso"
-
-#~ msgid "Account information"
-#~ msgstr "información de la cuenta"
-
-#~ msgid "Required"
-#~ msgstr "Requerido"
-
-#~ msgid "youremail@example.com"
-#~ msgstr "tuemail@ejemplo.com"
-
-#~ msgid "Your password"
-#~ msgstr "Contraseña"
-
-#~ msgid "Profile information"
-#~ msgstr "Información del perfil"
-
-#~ msgid "Display name"
-#~ msgstr "Nombre público"
-
-#~ msgid "Your public name"
-#~ msgstr "Nombre público"
-
-#~ msgid "Preferred Language"
-#~ msgstr "Idioma preferente"
-
-#~ msgid "Additional Language"
-#~ msgstr "Notas adicionales"
-
-#~ msgid "Location"
-#~ msgstr "Ubicación"
-
-#~ msgid "Your city, country or else"
-#~ msgstr "Tu ciudad, país u otra referencia"
-
-#~ msgid "Website"
-#~ msgstr "Sitio web"
-
-#~ msgid "Your page's URL"
-#~ msgstr "URL de tu página"
-
-#~ msgid "Birth date"
-#~ msgstr "Fecha de nacimiento"
-
-#~ msgid "Profile picture"
-#~ msgstr "Foto de perfil"
-
-#~ msgid "Consumer preferences"
-#~ msgstr "Preferencias de usuario"
-
-#~ msgid "Tastes"
-#~ msgstr "Gustos"
-
-#~ msgid "Save changes"
-#~ msgstr "Guardar los cambios"
 
 #~ msgid "Temporality"
 #~ msgstr "Ocasiones"
