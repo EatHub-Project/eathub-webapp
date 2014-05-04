@@ -175,7 +175,7 @@ class ProfileTest(TestCase):
         except ValidationError as v:
             pass
 
-    def test_profile_invalid_email(self):
+    def test_profile_existing_email(self):
         md = datetime(2014, 4, 10)
         b = datetime(2010, 10, 10)
         u = User.objects.create_user('juan', 'artjimlop@gmail.com', '1234')
@@ -191,6 +191,6 @@ class ProfileTest(TestCase):
         try:
             p.clean_fields()
             p.save()
-            self.fail("==>La excepcion no ha saltado como se esperaba al definirse un email invalido.\n")
+            self.fail("==>La excepcion no ha saltado como se esperaba al especificar un email almacenado en el sistema.\n")
         except ValidationError as v:
             pass
