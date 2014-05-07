@@ -8,7 +8,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1396278155747
+            "$date": "2014-03-31T17:02:35.747+0200"
         },
         "description": "Receta de carne de morcillo cocida con verduras en la olla r\u00e1pida acompa\u00f1ada de salsa de tomate casera, pimientos asados en el horno y patatas fritas.",
         "difficult": 4,
@@ -38,7 +38,7 @@
         "language": "spanish",
         "main_image": "images/carne_con_tomate.persist.jpg",
         "modification_date": {
-            "$date": 1396279394154
+            "$date": "2014-03-31T17:23:14.154+0200"
         },
         "nationality": "spain",
         "negatives": [],
@@ -108,7 +108,7 @@
             "$oid": "533fb9b386c9bdaca925fee0"
         },
         "creation_date": {
-            "$date": 1396188829487
+            "$date": "2014-03-30T16:13:49.487+0200"
         },
         "description": "Receta de ensalada de arroz con colores vivos y f\u00e1ciles de preparar.",
         "difficult": 2,
@@ -133,7 +133,7 @@
         "language": "spanish",
         "main_image": "images/ensalada_de_arroz.persist.jpg",
         "modification_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "nationality": "spain",
         "notes": "Comida muy ligera",
@@ -200,7 +200,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "description": "Receta de un postre tradicional. Ideal para semana santa. No defraudar\u00e1.",
         "difficult": 5,
@@ -221,7 +221,7 @@
         "language": "spanish",
         "main_image": "images/torrijas_de_leche.persist.jpg",
         "modification_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "nationality": "spain",
         "notes": "Comida muy rica",
@@ -296,7 +296,7 @@
             "$oid": "533fb9b386c9bdaca925fee0"
         },
         "creation_date": {
-            "$date": 1396189993886
+            "$date": "2014-03-30T16:33:13.886+0200"
         },
         "description": "Receta de mini hamburguesas de pescado",
         "difficult": 4,
@@ -318,7 +318,7 @@
         "language": "spanish",
         "main_image": "images/hamburguesas_pescado.persist.jpg",
         "modification_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "nationality": "spain",
         "notes": "Comida muy rica",
@@ -380,7 +380,7 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1397212214154
+            "$date": "2014-04-11T12:30:14.154+0200"
         },
         "description": "Una comida rica y f\u00e1cil de preparar. La recomiendo para aquellos d\u00edas en los que uno tiene poco tiempo para cocinar.",
         "difficult": 1,
@@ -458,7 +458,7 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1394461394154
+            "$date": "2014-03-10T15:23:14.154+0100"
         },
         "description": "Una buena tortilla de patatas espa\u00f1ola, de las de toda la vida.",
         "difficult": 1,
@@ -542,7 +542,7 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1397226194154
+            "$date": "2014-04-11T16:23:14.154+0200"
         },
         "description": "Una rica tarta de flan Potax y galletas. Esta receta es de mi madre y nos la hace con mucha frecuencia. Sencillamente sensacional.",
         "difficult": 1,
@@ -624,7 +624,7 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1397298614154
+            "$date": "2014-04-12T12:30:14.154+0200"
         },
         "description": "Esta receta es de mi padre. Tiene unos sencillos pasos que hacen esta comida a\u00fan m\u00e1s deliciosa. Os la recomiendo enormemente.",
         "difficult": 2,
@@ -713,7 +713,7 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1394461394154
+            "$date": "2014-03-10T15:23:14.154+0100"
         },
         "description": "Este postre es mi favorito. Lo prob\u00e9 en un restaurante y no tuve m\u00e1s remedio que buscar la receta para hacerlo en mi casa. Espero que os guste.",
         "difficult": 1,
@@ -788,7 +788,7 @@
         "comments": [
             {
                 "create_date": {
-                    "$date": 1397909887677
+                    "$date": "2014-04-19T14:18:07.677+0200"
                 },
                 "is_banned": false,
                 "text": "Creo que ya puedo pasarme a confirmarlo: \u00a1est\u00e1n riqu\u00edsimas! Aunque no han quedado demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y est\u00e1n muy buenas.",
@@ -798,7 +798,7 @@
             },
             {
                 "create_date": {
-                    "$date": 1398038805685
+                    "$date": "2014-04-21T02:06:45.685+0200"
                 },
                 "is_banned": false,
                 "text": "Qu\u00e9 buenas! :D",
@@ -808,7 +808,7 @@
             },
             {
                 "create_date": {
-                    "$date": 1398184212267
+                    "$date": "2014-04-22T18:30:12.267+0200"
                 },
                 "is_banned": false,
                 "text": "Me ha encantado! Voy a hacerlas de lim\u00f3n n_n",
@@ -818,7 +818,7 @@
             }
         ],
         "creation_date": {
-            "$date": 1398082687677
+            "$date": "2014-04-21T14:18:07.677+0200"
         },
         "description": "Tengo muchos primos peque\u00f1os, y casi siempre que vienen a casa, me piden alguna golosina para comer, pero yo nunca las compro, as\u00ed que los pobres siempre se quedaban sin comerlas, hasta que se me ocurri\u00f3 hacerlas yo misma.\r\n\r\nMe acord\u00e9 de cuando hago decoraciones en las tartas con caramelo e hice mi versi\u00f3n personal de las piruletas de toda la vida, as\u00ed que os voy a ense\u00f1ar c\u00f3mo las hago.",
         "difficult": 1,
@@ -834,13 +834,13 @@
         "language": "es",
         "main_image": "images/pirus_0.persist.jpg",
         "modification_date": {
-            "$date": 1397909887677
+            "$date": "2014-04-19T14:18:07.677+0200"
         },
         "nationality": "",
         "negatives": [
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53511955b88bbe11b48fcdd7"
@@ -872,7 +872,7 @@
         "positives": [
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53524b1bc54d2d0800ca5bbe"
@@ -880,7 +880,7 @@
             },
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "5337f440144115cb2ce71e1d"
@@ -888,7 +888,7 @@
             },
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "5337f3cb144115cb2ce71e1c"
@@ -896,7 +896,7 @@
             },
             {
                 "date": {
-                    "$date": 1398124800000
+                    "$date": "2014-04-22T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53554368c54d2d2d35556298"
@@ -960,7 +960,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398074646581
+            "$date": "2014-04-21T12:04:06.581+0200"
         },
         "description": "El otro d\u00eda ten\u00eda antojo de una hamburguesa con queso, pero no ten\u00eda pan para hamburguesa, y sin eso perd\u00eda la gracia, as\u00ed que me puse manos a la obra con un nuevo invento. La ensalada Cheeseburguer.",
         "difficult": 1,
@@ -980,7 +980,7 @@
         "language": "es",
         "main_image": "images/salad_0.persist.jpg",
         "modification_date": {
-            "$date": 1398114246581
+            "$date": "2014-04-21T23:04:06.581+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1015,7 +1015,7 @@
         "positives": [
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53524b1bc54d2d0800ca5bbe"
@@ -1084,7 +1084,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398029846659
+            "$date": "2014-04-20T23:37:26.659+0200"
         },
         "description": "Ya sab\u00e9is lo mucho que me gusta hacer versiones caseras de productos que encontramos en el supermercado. Y en este caso no es algo que encontremos en el s\u00faper, sino en los Starbucks. En Alicante, hasta hace poco no pod\u00edamos disfrutar de ninguno, as\u00ed que me lo invent\u00e9 un poco y sali\u00f3 esto, un frapuccino casero.",
         "difficult": 1,
@@ -1102,7 +1102,7 @@
         "language": "es",
         "main_image": "images/frap_0.persist.jpg",
         "modification_date": {
-            "$date": 1398116246659
+            "$date": "2014-04-21T23:37:26.659+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1165,7 +1165,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1397947044912
+            "$date": "2014-04-20T00:37:24.912+0200"
         },
         "description": "Hoy vamos a hacer unas pastas de t\u00e9 sin gluten. Que sean aptas para cel\u00edacos no quiere decir que los dem\u00e1s no las pod\u00e1is comer, es m\u00e1s, est\u00e1n muy muy buenas, as\u00ed que os recomiendo que las prob\u00e9is.",
         "difficult": 2,
@@ -1182,7 +1182,7 @@
         "language": "es",
         "main_image": "images/pastas_0.persist.jpg",
         "modification_date": {
-            "$date": 1398119844912
+            "$date": "2014-04-22T00:37:24.912+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1262,7 +1262,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398080101992
+            "$date": "2014-04-21T13:35:01.992+0200"
         },
         "description": "Pensemos en un postre que sea r\u00e1pido y que guste a todo el mundo, que no exija fr\u00edo para cuajar, que no haya que esperar a que pierda temperatura para comerlo\u2026ya lo tengo, \u00a1Brownie de chocolate!",
         "difficult": 2,
@@ -1280,7 +1280,7 @@
         "language": "es",
         "main_image": "images/brown_0.persist.jpg",
         "modification_date": {
-            "$date": 1398123301992
+            "$date": "2014-04-22T01:35:01.992+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1303,7 +1303,7 @@
         "positives": [
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53558c1dc54d2d43ef5211cc"
@@ -1362,7 +1362,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1397778128141
+            "$date": "2014-04-18T01:42:08.141+0200"
         },
         "description": "Actualmente hay un poco de \u201cburbuja\u201d con el gin&tonic. Ya pas\u00f3 la \u201ctontuna\u201d del ron hace unos pocos a\u00f1os, y ahora mismo existe una \u201ccarrera armament\u00edstica\u201d con la ginebra y la t\u00f3nica. Ya no vale un Larios con Schweppes. Ahora hay que pedir ginebras y t\u00f3nicas que no haya probado nadie, para ser \u201ccool\u201d. Supongo que todo pasar\u00e1.",
         "difficult": 1,
@@ -1378,7 +1378,7 @@
         "language": "es",
         "main_image": "images/gin_0.persist.jpg",
         "modification_date": {
-            "$date": 1398123728141
+            "$date": "2014-04-22T01:42:08.141+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1449,7 +1449,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398184272582
+            "$date": "2014-04-22T18:31:12.582+0200"
         },
         "description": "Tengo muchos primos peque\u00f1os, y casi siempre que vienen a casa, me piden alguna golosina para comer, pero yo nunca las compro, as\u00ed que los pobres siempre se quedaban sin comerlas, hasta que se me ocurri\u00f3 hacerlas yo misma.\r\n\r\nMe acord\u00e9 de cuando hago decoraciones en las tartas con caramelo e hice mi versi\u00f3n personal de las piruletas de toda la vida, as\u00ed que os voy a ense\u00f1ar c\u00f3mo las hago.",
         "difficult": 1,
@@ -1464,7 +1464,7 @@
         "language": "es",
         "main_image": "images/piru_limon.persist.jpg",
         "modification_date": {
-            "$date": 1398184272582
+            "$date": "2014-04-22T18:31:12.582+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1550,7 +1550,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398258259861
+            "$date": "2014-04-23T15:04:19.861+0200"
         },
         "description": "Holiday beverage (contains alcohol; not for children). I haven't tried this yet, but it sounds creamy and decadent. For those who love eggnog, you'll be on cloud nine when you take a sip of this! This takes approximately six hours to chill; the recipe recommends chilling overnight in the refrigerator before serving.",
         "difficult": 1,
@@ -1571,7 +1571,7 @@
         "language": "en",
         "main_image": "images/eggnog_smoothie_with_1_minute_vanilla_whip_4.persist.jpg",
         "modification_date": {
-            "$date": 1398258259861
+            "$date": "2014-04-23T15:04:19.861+0200"
         },
         "nationality": "EN",
         "negatives": [],
@@ -1621,7 +1621,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1390482546913
+            "$date": "2014-01-23T14:09:06.913+0100"
         },
         "description": "It's my favourite drink. It's very easy to prepare it and your guest will get impressed.",
         "difficult": 1,
@@ -1636,7 +1636,7 @@
         "language": "en",
         "main_image": "images/malta8.persist.jpg",
         "modification_date": {
-            "$date": 1398258546913
+            "$date": "2014-04-23T15:09:06.913+0200"
         },
         "nationality": "EN",
         "negatives": [],
@@ -1678,7 +1678,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398258892243
+            "$date": "2014-04-23T15:14:52.243+0200"
         },
         "description": "La receta de este postre navide\u00f1o la he sacado en un antiguo recetario familiar, es un dulce que hac\u00eda mi abuela, a ella le encantaba la batata y la utilizaba mucho en sus postres. En esta ocasi\u00f3n va mezclada con almendra molida, harina de arroz y az\u00facar, y el resultado es un dulce delicado, m\u00e1s ligero que el mazap\u00e1n, y adem\u00e1s es f\u00e1cil y r\u00e1pido de hacer",
         "difficult": 2,
@@ -1697,7 +1697,7 @@
         "language": "es",
         "main_image": "images/166_bolitas_de_batata.persist.jpg",
         "modification_date": {
-            "$date": 1398258892243
+            "$date": "2014-04-23T15:14:52.243+0200"
         },
         "nationality": "ES",
         "negatives": [],
@@ -1757,7 +1757,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398259099489
+            "$date": "2014-04-23T15:18:19.489+0200"
         },
         "description": "A very delicious drink. It's ideal for impartant ocassions.",
         "difficult": 1,
@@ -1772,7 +1772,7 @@
         "language": "en",
         "main_image": "images/bikini_martini_at_warren.persist.jpg",
         "modification_date": {
-            "$date": 1398259099489
+            "$date": "2014-04-23T15:18:19.489+0200"
         },
         "nationality": "EN",
         "negatives": [],
@@ -1816,7 +1816,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1395580905060
+            "$date": "2014-03-23T14:21:45.060+0100"
         },
         "description": "Una rica tarta de flan Potax y galletas. Tiene un toque especial de invenci\u00f3n propia. Seguro que repet\u00eds.",
         "difficult": 1,
@@ -1831,7 +1831,7 @@
         "language": "es",
         "main_image": "images/tarta_de_galletas_3.persist.jpg",
         "modification_date": {
-            "$date": 1398259305060
+            "$date": "2014-04-23T15:21:45.060+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1906,7 +1906,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398173041290
+            "$date": "2014-04-22T15:24:01.290+0200"
         },
         "description": "Una rica tarta de flan Potax y galletas. He a\u00f1adido mi toque personal de virutas de regaliz.",
         "difficult": 1,
@@ -1921,7 +1921,7 @@
         "language": "es",
         "main_image": "images/tarta_de_chocolate_y_galletas_2.persist.jpg",
         "modification_date": {
-            "$date": 1398259441290
+            "$date": "2014-04-23T15:24:01.290+0200"
         },
         "nationality": "",
         "negatives": [],
@@ -1996,7 +1996,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1398259648501
+            "$date": "2014-04-23T15:27:28.501+0200"
         },
         "description": "Una rica tarta de flan Potax y galletas. Recubierta de chocolate fundido y virutas de chocolate.",
         "difficult": 1,
@@ -2012,7 +2012,7 @@
         "language": "es",
         "main_image": "images/tarta_de_chocolate_y_galletas_1.persist.jpg",
         "modification_date": {
-            "$date": 1398259648501
+            "$date": "2014-04-23T15:27:28.501+0200"
         },
         "nationality": "",
         "negatives": [],

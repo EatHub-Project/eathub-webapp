@@ -118,7 +118,7 @@
         ],
         "avatar": "images/fran_benavente.persist.jpg",
         "birth_date": {
-            "$date": 687139200000
+            "$date": "1991-10-11T01:00:00.000+0100"
         },
         "display_name": "francisco",
         "following": [
@@ -170,7 +170,7 @@
         ],
         "avatar": "images/paco.persist.jpg",
         "birth_date": {
-            "$date": 687139200000
+            "$date": "1991-10-11T01:00:00.000+0100"
         },
         "display_name": "Paco",
         "following": [
@@ -222,7 +222,7 @@
         ],
         "avatar": "images/alexis.persist.jpg",
         "birth_date": {
-            "$date": 687139200000
+            "$date": "1991-10-11T01:00:00.000+0100"
         },
         "display_name": "Alex",
         "following": [
@@ -267,7 +267,7 @@
         ],
         "avatar": "images/james.persist.jpg",
         "birth_date": {
-            "$date": 687139200000
+            "$date": "1991-10-11T01:00:00.000+0100"
         },
         "display_name": "James",
         "following": [
@@ -411,7 +411,7 @@
         ],
         "avatar": "images/mario.persist.jpg",
         "birth_date": {
-            "$date": 687139200000
+            "$date": "1991-10-11T01:00:00.000+0100"
         },
         "display_name": "Mario",
         "following": [
@@ -461,7 +461,7 @@
         "additional_languages": [],
         "avatar": "images/juanma.persist.jpg",
         "birth_date": {
-            "$date": 724204800000
+            "$date": "1992-12-13T01:00:00.000+0100"
         },
         "display_name": "Juanma",
         "following": [
@@ -518,7 +518,7 @@
         "additional_languages": [],
         "avatar": "images/ted.persist.jpg",
         "birth_date": {
-            "$date": 605750400000
+            "$date": "1989-03-13T01:00:00.000+0100"
         },
         "display_name": "Ted",
         "following": [
@@ -563,7 +563,7 @@
         ],
         "avatar": "images/maria.persist.jpeg",
         "birth_date": {
-            "$date": 718675200000
+            "$date": "1992-10-10T01:00:00.000+0100"
         },
         "display_name": "Mar\u00eda",
         "following": [
@@ -608,7 +608,7 @@
         ],
         "avatar": "images/virgi.persist.jpg",
         "birth_date": {
-            "$date": 660528000000
+            "$date": "1990-12-07T01:00:00.000+0100"
         },
         "display_name": "Virgi",
         "following": [],
@@ -638,7 +638,7 @@
         ],
         "avatar": "images/rafa.persist.jpg",
         "birth_date": {
-            "$date": 694396800000
+            "$date": "1992-01-03T01:00:00.000+0100"
         },
         "display_name": "Rafa",
         "following": [
