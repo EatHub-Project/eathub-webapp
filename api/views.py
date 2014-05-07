@@ -13,6 +13,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class RecipeViewSet(viewsets.ReadOnlyModelViewSet):
-        queryset = Recipe.objects.all()
+        queryset = Recipe.objects.all().order_by('-creation_date')
         serializer_class = RecipeSerializer
 
