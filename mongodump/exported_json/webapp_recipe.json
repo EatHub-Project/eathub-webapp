@@ -12,7 +12,7 @@
         },
         "description": "Receta de carne de morcillo cocida con verduras en la olla r\u00e1pida acompa\u00f1ada de salsa de tomate casera, pimientos asados en el horno y patatas fritas.",
         "difficult": 4,
-        "food_type": "carne",
+        "food_type": "lunch",
         "ingredients": [
             "500 g de carne de morcillo",
             "2 kg de tomate pera en conserva",
@@ -35,7 +35,7 @@
             "vinagreta"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/carne_con_tomate.persist.jpg",
         "modification_date": {
             "$date": "2014-03-31T17:23:14.154+0200"
@@ -112,7 +112,7 @@
         },
         "description": "Receta de ensalada de arroz con colores vivos y f\u00e1ciles de preparar.",
         "difficult": 2,
-        "food_type": "arroz",
+        "food_type": "appetizer",
         "ingredients": [
             "150 gramos de arroz basmati (si no hay usa otro de grano largo o corto)",
             "100 gramos de lechuga",
@@ -130,7 +130,7 @@
             "agua para hervir el arroz"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/ensalada_de_arroz.persist.jpg",
         "modification_date": {
             "$date": "2014-03-30T16:23:14.154+0200"
@@ -204,7 +204,7 @@
         },
         "description": "Receta de un postre tradicional. Ideal para semana santa. No defraudar\u00e1.",
         "difficult": 5,
-        "food_type": "torrijas",
+        "food_type": "snack",
         "ingredients": [
             "1 barra de pan del d\u00eda anterior o una barra espec\u00edfica para torrijas (de venta en casi todas las pasteler\u00edas). La de esta receta ten\u00eda la escandalera de 55 cm.",
             "1 l de leche entera.",
@@ -218,7 +218,7 @@
             "1/2 l de aceite de oliva virgen extra"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/torrijas_de_leche.persist.jpg",
         "modification_date": {
             "$date": "2014-03-30T16:23:14.154+0200"
@@ -300,7 +300,7 @@
         },
         "description": "Receta de mini hamburguesas de pescado",
         "difficult": 4,
-        "food_type": "hamburguesas",
+        "food_type": "appetizer",
         "ingredients": [
             "300g migas de bacalao desalado ",
             "2 cucharadas aceite de oliva virgen extra",
@@ -315,7 +315,7 @@
             "                                 Pimienta"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/hamburguesas_pescado.persist.jpg",
         "modification_date": {
             "$date": "2014-03-30T16:23:14.154+0200"
@@ -384,7 +384,7 @@
         },
         "description": "Una comida rica y f\u00e1cil de preparar. La recomiendo para aquellos d\u00edas en los que uno tiene poco tiempo para cocinar.",
         "difficult": 1,
-        "food_type": "pasta",
+        "food_type": "lunch",
         "ingredients": [
             "300 gramos de macarrones",
             "50 gramos de queso rallado",
@@ -392,7 +392,7 @@
             "10 gramos de sal"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/macarrones_con_tomate.persist.jpg",
         "nationality": "italian",
         "notes": "Uno de los grandes aportes de la cocina italiana.",
@@ -462,16 +462,16 @@
         },
         "description": "Una buena tortilla de patatas espa\u00f1ola, de las de toda la vida.",
         "difficult": 1,
-        "food_type": "frito",
+        "food_type": "",
         "ingredients": [
             "5 patatas",
             "2 huevos",
             "aceite de oliva"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/tortilla_de_patatas.persist.jpg",
-        "nationality": "spanish",
+        "nationality": "",
         "notes": "La imagen lo dice todo.",
         "parent_id": null,
         "pictures": [
@@ -546,7 +546,7 @@
         },
         "description": "Una rica tarta de flan Potax y galletas. Esta receta es de mi madre y nos la hace con mucha frecuencia. Sencillamente sensacional.",
         "difficult": 1,
-        "food_type": "dulces",
+        "food_type": "snack",
         "ingredients": [
             "1 litro de leche",
             "1 paquete de galletas Mar\u00eda",
@@ -554,9 +554,9 @@
             "canela en polvo"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/tarta_de_flan_y_galletas.persist.jpg",
-        "nationality": "spanish",
+        "nationality": "",
         "notes": "F\u00e1cil de preparar y muy rica.",
         "parent_id": null,
         "pictures": [
@@ -628,7 +628,7 @@
         },
         "description": "Esta receta es de mi padre. Tiene unos sencillos pasos que hacen esta comida a\u00fan m\u00e1s deliciosa. Os la recomiendo enormemente.",
         "difficult": 2,
-        "food_type": "carne",
+        "food_type": "dinner",
         "ingredients": [
             "1 cabeza de ajo",
             "1 lim\u00f3n",
@@ -637,7 +637,7 @@
             "1 chorreoncito de whisky"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/solomillo_al_whisky.persist.jpg",
         "nationality": "Spain",
         "notes": "",
@@ -717,7 +717,7 @@
         },
         "description": "Este postre es mi favorito. Lo prob\u00e9 en un restaurante y no tuve m\u00e1s remedio que buscar la receta para hacerlo en mi casa. Espero que os guste.",
         "difficult": 1,
-        "food_type": "frito",
+        "food_type": "dessert",
         "ingredients": [
             "100 gr az\u00facar",
             "4 yogures de lim\u00f3n",
@@ -727,7 +727,7 @@
             "unas hojas de menta"
         ],
         "is_published": true,
-        "language": "francais",
+        "language": "es",
         "main_image": "images/mousse_de_limon.persist.jpg",
         "nationality": "spanish",
         "notes": "La imagen lo dice todo.",
@@ -822,7 +822,7 @@
         },
         "description": "Tengo muchos primos peque\u00f1os, y casi siempre que vienen a casa, me piden alguna golosina para comer, pero yo nunca las compro, as\u00ed que los pobres siempre se quedaban sin comerlas, hasta que se me ocurri\u00f3 hacerlas yo misma.\r\n\r\nMe acord\u00e9 de cuando hago decoraciones en las tartas con caramelo e hice mi versi\u00f3n personal de las piruletas de toda la vida, as\u00ed que os voy a ense\u00f1ar c\u00f3mo las hago.",
         "difficult": 1,
-        "food_type": "snack",
+        "food_type": "dessert",
         "ingredients": [
             "200g de az\u00facar",
             "80ml de agua",
@@ -964,7 +964,7 @@
         },
         "description": "El otro d\u00eda ten\u00eda antojo de una hamburguesa con queso, pero no ten\u00eda pan para hamburguesa, y sin eso perd\u00eda la gracia, as\u00ed que me puse manos a la obra con un nuevo invento. La ensalada Cheeseburguer.",
         "difficult": 1,
-        "food_type": "dinner",
+        "food_type": "appetizer",
         "ingredients": [
             "Una lechuga, o un poco de varios tipos (yo uso tres distintas).",
             "Dos tomates.",
@@ -1366,7 +1366,7 @@
         },
         "description": "Actualmente hay un poco de \u201cburbuja\u201d con el gin&tonic. Ya pas\u00f3 la \u201ctontuna\u201d del ron hace unos pocos a\u00f1os, y ahora mismo existe una \u201ccarrera armament\u00edstica\u201d con la ginebra y la t\u00f3nica. Ya no vale un Larios con Schweppes. Ahora hay que pedir ginebras y t\u00f3nicas que no haya probado nadie, para ser \u201ccool\u201d. Supongo que todo pasar\u00e1.",
         "difficult": 1,
-        "food_type": "drink",
+        "food_type": "snack",
         "ingredients": [
             "2 o 3 fresas cortadas en mitades",
             "Campari (lo que quepa en un vaso de chupito)",
@@ -1503,7 +1503,8 @@
         "serves": "8 piruletas aprox.",
         "special_conditions": [
             "celiac",
-            "vegetarian"
+            "vegetarian",
+            "vegan"
         ],
         "steps": [
             {
@@ -1769,7 +1770,7 @@
             "1 dash grenadine syrup"
         ],
         "is_published": false,
-        "language": "en",
+        "language": "es",
         "main_image": "images/bikini_martini_at_warren.persist.jpg",
         "modification_date": {
             "$date": "2014-04-23T15:18:19.489+0200"
@@ -1820,7 +1821,7 @@
         },
         "description": "Una rica tarta de flan Potax y galletas. Tiene un toque especial de invenci\u00f3n propia. Seguro que repet\u00eds.",
         "difficult": 1,
-        "food_type": "dinner",
+        "food_type": "snack",
         "ingredients": [
             "1 litro de leche",
             "1 paquete de galletas Mar\u00eda",
@@ -1910,7 +1911,7 @@
         },
         "description": "Una rica tarta de flan Potax y galletas. He a\u00f1adido mi toque personal de virutas de regaliz.",
         "difficult": 1,
-        "food_type": "dessert",
+        "food_type": "snack",
         "ingredients": [
             "1 litro de leche",
             "1 paquete de galletas Mar\u00eda",
@@ -2000,7 +2001,7 @@
         },
         "description": "Una rica tarta de flan Potax y galletas. Recubierta de chocolate fundido y virutas de chocolate.",
         "difficult": 1,
-        "food_type": "dessert",
+        "food_type": "snack",
         "ingredients": [
             "1 litro de leche",
             "1 paquete de galletas Mar\u00eda",

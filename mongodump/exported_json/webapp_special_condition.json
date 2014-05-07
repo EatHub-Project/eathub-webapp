@@ -8,5 +8,35 @@
             "en": "Diabetic",
             "es": "Diabetico"
         }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d2dc1d670ab4cfc265"
+        },
+        "code": "vegetarian",
+        "name_dict": {
+            "en": "Vegetarian",
+            "es": "Vegetariano"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d2dc1d670ab4cfc275"
+        },
+        "code": "vegan",
+        "name_dict": {
+            "en": "Vegan",
+            "es": "Vegano"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d2dc1d670ab4cfc276"
+        },
+        "code": "celiac",
+        "name_dict": {
+            "en": "Celiac",
+            "es": "Celiaco"
+        }
     }
 ]

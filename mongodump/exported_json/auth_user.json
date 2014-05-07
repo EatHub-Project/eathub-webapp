@@ -202,7 +202,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": "2014-04-23T15:25:32.875+0200"
+            "$date": "2014-05-07T17:25:15.836+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",

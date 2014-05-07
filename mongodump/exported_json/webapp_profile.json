@@ -40,7 +40,7 @@
         "gender": "unknown",
         "karma": 6,
         "location": "Sevilla",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 67,
@@ -114,11 +114,13 @@
             "$oid": "5337f91e144115cb2ce71e22"
         },
         "additional_languages": [
-            "en"
+            {
+                "$oid": "535bdff5dc1d670ab4cfc250"
+            }
         ],
         "avatar": "images/fran_benavente.persist.jpg",
         "birth_date": {
-            "$date": "1991-10-11T01:00:00.000+0100"
+            "$date": "1991-10-11T02:00:00.000+0200"
         },
         "display_name": "francisco",
         "following": [
@@ -166,11 +168,13 @@
             "$oid": "5337f9ac144115cb2ce71e23"
         },
         "additional_languages": [
-            "en"
+            {
+                "$oid": "535bdff5dc1d670ab4cfc250"
+            }
         ],
         "avatar": "images/paco.persist.jpg",
         "birth_date": {
-            "$date": "1991-10-11T01:00:00.000+0100"
+            "$date": "1991-10-11T02:00:00.000+0200"
         },
         "display_name": "Paco",
         "following": [
@@ -199,7 +203,7 @@
         "gender": "m",
         "karma": 4,
         "location": "Segovia",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 34,
@@ -222,7 +226,7 @@
         ],
         "avatar": "images/alexis.persist.jpg",
         "birth_date": {
-            "$date": "1991-10-11T01:00:00.000+0100"
+            "$date": "1991-10-11T02:00:00.000+0200"
         },
         "display_name": "Alex",
         "following": [
@@ -244,7 +248,7 @@
         "gender": "m",
         "karma": 6,
         "location": "Paris",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 45,
@@ -262,12 +266,10 @@
         "_id": {
             "$oid": "533fbc9086c9bdaca925fee5"
         },
-        "additional_languages": [
-            "en"
-        ],
+        "additional_languages": [],
         "avatar": "images/james.persist.jpg",
         "birth_date": {
-            "$date": "1991-10-11T01:00:00.000+0100"
+            "$date": "1991-10-11T02:00:00.000+0200"
         },
         "display_name": "James",
         "following": [
@@ -296,7 +298,7 @@
         "gender": "m",
         "karma": 5,
         "location": "Liverpool",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 50,
@@ -315,7 +317,9 @@
             "$oid": "533fbca586c9bdaca925fee6"
         },
         "additional_languages": [
-            "en"
+            {
+                "$oid": "535bdff5dc1d670ab4cfc250"
+            }
         ],
         "avatar": "images/tomas.persist.jpg",
         "birth_date": null,
@@ -407,11 +411,13 @@
             "$oid": "53412d1e18085d03fc51b72e"
         },
         "additional_languages": [
-            "en"
+            {
+                "$oid": "535bdff5dc1d670ab4cfc250"
+            }
         ],
         "avatar": "images/mario.persist.jpg",
         "birth_date": {
-            "$date": "1991-10-11T01:00:00.000+0100"
+            "$date": "1991-10-11T02:00:00.000+0200"
         },
         "display_name": "Mario",
         "following": [
@@ -440,7 +446,7 @@
         "gender": "m",
         "karma": 6,
         "location": "Madrid",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 60,
@@ -497,7 +503,7 @@
         "gender": "m",
         "karma": 6,
         "location": "Sevilla",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 50,
@@ -563,7 +569,7 @@
         ],
         "avatar": "images/maria.persist.jpeg",
         "birth_date": {
-            "$date": "1992-10-10T01:00:00.000+0100"
+            "$date": "1992-10-10T02:00:00.000+0200"
         },
         "display_name": "Mar\u00eda",
         "following": [
@@ -687,7 +693,7 @@
         "gender": "unknown",
         "karma": 6,
         "location": "",
-        "main_language": "en",
+        "main_language": "es",
         "modification_date": null,
         "tastes": {
             "bitter": 64,
