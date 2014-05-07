@@ -7,7 +7,7 @@ from webapp.models import Recipe, Step, Picture, Time, Savour, Comment
 class FullImageField(serializers.ImageField):
     def to_native(self, value):
         request = self.context.get('request', None)
-        if request:
+        if request and value:
             return request.build_absolute_uri(value.url)
 
 
@@ -24,6 +24,8 @@ class EmbeddedUserSerializer(serializers.Serializer):
 
 
 class StepSerializer(serializers.ModelSerializer):
+    image = FullImageField()
+
     class Meta:
         model = Step
         fields = ('text', 'image')
