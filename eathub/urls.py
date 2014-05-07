@@ -20,6 +20,8 @@ urlpatterns = patterns('',
 
     url(r'^', include('webapp.urls')),
     url(r'^ajax/', include('ajax.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^password/', include('password_reset.urls')),
 
 )
 

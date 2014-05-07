@@ -2,6 +2,7 @@
 from urlparse import urlparse
 import os
 from django.conf import global_settings
+from django.contrib.messages import constants as message_constants
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -133,6 +134,9 @@ TEMPLATE_DIRS = (
 # Anadido para la navegabilidad, de este modo se activa la etiqueta 'active' cuando navegamos.
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ( 'django.core.context_processors.request',)
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+MESSAGE_TAGS = {message_constants.ERROR: 'danger'}
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,9 +147,50 @@ INSTALLED_APPS = (
     'eathub',
     'webapp',
     'djangotoolbox',
+    'social.apps.django_app.default',
+    'password_reset',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
+
+AUTHENTICATION_BACKENDS = (
+      'social.backends.google.GooglePlusAuth',
+      'social.backends.facebook.FacebookOAuth2',
+      'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_PLUS_KEY = '1064237235002-4h80pv6pq4q0hjji74p5mu3a11ot11f1.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_PLUS_SECRET = 'aL_mx2O4Y1zXV1wsF4-tmBTo'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1379378712344246'
+SOCIAL_AUTH_FACEBOOK_SECRET = '6d393f9ba474e7e81faa1c6fef893c72'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',  # <--- enable this one
+    'webapp.views.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -183,3 +228,12 @@ LOGIN_URL = reverse('login')
 LOCALE_PATHS = (
     os.path.join(BASE_DIR,'locale'),
 )
+
+#Configuration for django.core.mail.sendmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'eathub.contact@gmail.com'
+EMAIL_HOST_PASSWORD = 'aospispp'
+EMAIL_PORT = 587
+EMAIL_SUBJECT_PREFIX = 'eat-hub: '
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'eathub.contact@gmail.com'

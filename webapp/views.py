@@ -1,13 +1,19 @@
 # coding=utf-8
+import urllib2
+from urlparse import urlparse
+import django
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
 from django.forms import ImageField
 from django.templatetags.static import static
+from pip._vendor import requests
 from ajax import models as models_ajax
 from bson import ObjectId
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step, Picture
+from webapp.models import Profile, Tastes, Recipe, Comment, Time, Savour, Step, Picture, Activation
 from ajax.models import UploadedImage
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
@@ -17,12 +23,59 @@ from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment
 from django.forms.util import ErrorList
-from datetime import datetime
+import time, datetime
+
+from social.pipeline.partial import partial
+from django.shortcuts import redirect
 
 from django.utils.translation import ugettext as _
 
+#Para el correo
+from django.core.mail import send_mail
+from django.template import loader
+
+#Para el hash con md5
+import hashlib
+
+#full-text
+from pymongo import *
+
+def search(request):
+    if request.method == 'POST':
+        terms = request.POST['srch-term']
+
+        client = MongoClient()
+
+        text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
+        doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
+        text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
+        doc_matches_profiles = (res['obj'] for res in text_results_profile['results'])
+
+        results_recipes = list()
+        for item in doc_matches_recipes:
+            r=Recipe()
+            r.id=item['_id']
+            r.title=item['title']
+            r.main_image=item['main_image']
+
+            results_recipes.append(r)
+
+        #TODO: hay que solucionar el problema al obtener los perfiles, ya que el campo user es un objectId.
+        results_profiles = list()
+        """for item in doc_matches_profiles:
+            p=Profile()
+            p.id=item['_id']
+            p.display_name=item['display_name']
+            p.user.username=item['user']
+            results_profiles.append(Profile(
+                                            ))"""
+
+        return render(request, 'webapp/search_result.html', {'matches_recipe': results_recipes, 'matches_profile': results_profiles})
 
 def main(request):
+    if request.user.is_authenticated():
+        if 'django_language' not in request.session:
+            request.session['django_language']=request.user.profile.get().main_language
     recipes = Recipe.objects.all().order_by('-creation_date')
     return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
@@ -35,7 +88,6 @@ def new_account(request):
         form = NewAccountForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             # Extract the data from the form and create the User and Profile instance
-            # TODO validar que el nombre de usuario sea único
             data = form.cleaned_data
             username = data['username']
             email = data['email']
@@ -82,22 +134,78 @@ def new_account(request):
                 if avatar_id != u'':
                     p.avatar = avatar.image
 
+                p.user.is_active = False
+
+                p.user.save()
+
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
+
+                #Generar el codigo y meterlo en la BD.
 
                 #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
                 if avatar_id != u'':
                     avatar.persist = True
                     avatar.save()
 
-                u = authenticate(username=username, password=password)
-                login(request, u)
-                return HttpResponseRedirect(reverse('main'))  # Redirect after POST
+                #return render(request, 'webapp/newaccount_done.html', {'profile': p.user.username})  # Redirect after POST
+                return HttpResponseRedirect(reverse('newaccount_done', kwargs={'username': p.user.username}))
 
     else:
         form = NewAccountForm()
 
     return render(request, 'webapp/newaccount.html', {'form': form})
+
+
+def activate_account(request, code):
+    try:
+        a = Activation.objects.get(code=code)
+    except Activation.DoesNotExist:
+        raise Http404
+
+    if a.user.is_active:
+        return HttpResponseRedirect(reverse('main'))
+
+    a.user.is_active = True
+    a.user.save()
+
+    messages.success(request, _("Your account has been successfully activated. You can log in now."))
+    return HttpResponseRedirect(reverse('login'))
+
+
+def new_account_done(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    ts = time.time()
+    now_datetime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+
+    while True:
+        hash = hashlib.md5()
+        hash.update(username)
+        hash.update(str(now_datetime))
+        hash.digest()
+        if not Activation.objects.filter(code=hash.hexdigest()).exists():
+            break
+
+    a = Activation(user=user, code=hash.hexdigest(), date=now_datetime)
+    a.save()
+
+    context = {
+            'site': request.get_host(),
+            'user': user,
+            'username': username,
+            'token': a.code,
+            'secure': request.is_secure(),
+        }
+    body = loader.render_to_string("email/activation_email.txt", context).strip()
+    subject = loader.render_to_string("email/activation_email_subject.txt", context).strip()
+    send_mail(subject, body, "eathub.contact@gmail.com", [user.email])
+
+    #enviar el mail.
+    return render(request, 'webapp/newaccount_done.html', {}) #pasar profile para mostrar datos en pantallas
 
 
 @login_required
@@ -244,7 +352,6 @@ def modification_account(request, username):
             #email = data['email']
             password = data['password']
             password_repeat = data['password_repeat']
-            # TODO comparar las contraseñas y dar error si no son iguales
 
             display_name = data['display_name']
             main_language = data['main_language']
@@ -293,6 +400,7 @@ def modification_account(request, username):
             # TODO capturar cualquier error de validación y meterlo como error en el formulario
 
             if valid:
+                u.save()
                 p.clean()
                 p.save()  # TODO borrar el User si falla al guardar el perfil
 
@@ -301,6 +409,10 @@ def modification_account(request, username):
                     avatar.persist = True
                     avatar.save()
                 # TODO mandar a la misma página y mostrar un mensaje de éxito
+
+                if request.user.is_authenticated():
+                    request.session['django_language']=main_language
+
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
@@ -352,6 +464,9 @@ def receta(request, recipe_id):
         porcentaje_positivos = (len(recipe.positives) / float(total_votos))*100
         porcentaje_negativos = (len(recipe.negatives) / float(total_votos))*100
 
+    lang=django.utils.translation.get_language().split('-')[0]
+    recipe.translate_to_language(lang)
+
     num = recipe.difficult
     dificultad = "Dificil"
     if num>=0 and num<=1:
@@ -384,6 +499,9 @@ def profile(request, username):
         for f in following_now:
             if f.user.id == user.id:
                 is_following = True
+
+    lang=django.utils.translation.get_language().split('-')[0]
+    user_profile.translate_to_lengague(lang)
 
     return render(request, 'webapp/profile.html',
                   {'profile': user_profile, 'following': is_following, 'followers_list': followers_list,
@@ -445,7 +563,7 @@ def comment(request, recipe_id):
         form = AddComment(request.POST)
         if form.is_valid():
             text = form.cleaned_data['text']
-            c = Comment(text=text, create_date=datetime.now(), user_own=u, )
+            c = Comment(text=text, create_date=datetime.datetime.now(), user_own=u, )
             r = Recipe.objects.get(id=recipe_id)
             r.comments.append(c)
             r.save()
@@ -472,3 +590,60 @@ def unbanned_comment(request, recipe_id, comment_id):
             r.comments[int(comment_id)].is_banned = False
             r.save()
     return HttpResponseRedirect(reverse('recipe', args=(recipe_id,)))
+
+USER_FIELDS = ['username', 'email', 'first_name']
+FACEBOOK_FIELDS = ['link','location', 'gender']
+GOOGLE_FIELDS = ['link','picture', 'gender']
+@partial
+def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
+    if user:
+        return {'is_new': False}
+    elif strategy.session_pop('is_new'):
+        email=strategy.session_pop('user')
+        u=User.objects.get(email=email)
+        return {'is_new': False,'user':u}
+
+
+    fields = dict((name, details.get(name))
+                        for name in strategy.setting('USER_FIELDS',USER_FIELDS))
+
+    extra_fields = dict()
+    if kwargs.get('backend').name=="google-plus":
+        extra_fields=dict((name, kwargs.get('response').get(name))
+                        for name in strategy.setting('GOOGLE_FIELDS',GOOGLE_FIELDS))
+    elif kwargs.get('backend').name=="facebook":
+        extra_fields=dict((name, kwargs.get('response').get(name))
+                        for name in strategy.setting('FACEBOOK_FIELDS',FACEBOOK_FIELDS))
+    fields.update(extra_fields)
+    if not fields:
+        return
+    u = User.objects.create_user(fields.get('username'), email=fields.get('email'))
+    t = Tastes(salty=50, sour=50, bitter=50, sweet=50, spicy=50)
+    p = Profile(display_name=fields.get('first_name'), user=u, tastes=t)
+
+    if fields.get('location'):
+        p.location=fields.get('location').get('name')
+
+    if fields.get('picture'):
+        url=fields.get('picture')
+        r = requests.get(url)
+        img_temp = NamedTemporaryFile()
+        img_temp.write(r.content)
+        img_temp.flush()
+        name = urlparse(url).path.split('/')[-1]
+        upload_image = UploadedImage()
+        upload_image.image.save(name, File(img_temp), save=True)
+        p.avatar=upload_image.image
+
+    p.clean()
+    p.save()
+
+    return {'is_new': False,'user':u}
+
+
+def terms_and_conditions(request):
+    return render(request, 'webapp/terms_and_conditions.html')
+
+
+def contact(request):
+    return render(request, 'webapp/contact.html')

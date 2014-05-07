@@ -167,7 +167,7 @@
             <div class="col-sm-3">
                 {% trans "Your password" as your_pass %}
                 <input type="password" class="form-control" placeholder="{{ your_pass }}"
-                       name="{{ form.password.name }}" id="id_{{ form.password_repeat.name }}"
+                       name="{{ form.password.name }}" id="id_{{ form.password.name }}"
                        value="{{ form.password.value | default_if_none:'' }}">
             </div>
             <span class="help-block">{% trans "Required" %}</span>
