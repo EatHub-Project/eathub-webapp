@@ -1,0 +1,12 @@
+{% extends "password_reset/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load tags %}
+{% load url from future %}
+
+{% block content %}
+        <div id="message" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
+            <p>{% trans "Your password has successfully been reset. You can use it right now on the login page." %}</p>
+            <a href="{% url 'login' %}">{% trans "Go to the login page." %}</a>
+        </div>
+{% endblock %}

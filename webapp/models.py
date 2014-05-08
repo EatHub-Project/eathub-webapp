@@ -1,3 +1,4 @@
+import django
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -84,6 +85,9 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.display_name)
+
+    def translate_to_lengague(self,lang):
+        self.main_language=Language.objects.get(code=self.main_language).name_dict.get(lang)
 
 
 class Following(models.Model):
@@ -194,6 +198,18 @@ class Recipe(models.Model):
     def get_child_recipes(self):
         return Recipe.objects.filter(parent=self.id)
 
+    def translate_to_language(self, lang):
+        for index, sc in enumerate(self.special_conditions):
+            self.special_conditions[index]=Special_Condition.objects.get(code=sc).name_dict.get(lang)
+        if self.food_type != "":
+            self.food_type=Food_Type.objects.get(code=self.food_type).name_dict.get(lang)
+        else:
+            self.food_type
+        for index,sc in enumerate(self.temporality):
+            self.temporality[index]=Temporality.objects.get(code=sc).name_dict.get(lang)
+
+        self.language=Language.objects.get(code=self.language).name_dict.get(lang)
+
 
 #enum to entity
 
@@ -202,17 +218,48 @@ class Temporality(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
 
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Temporality.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
+
 
 class Language(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
 
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Language.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
 
 class Food_Type(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
 
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Food_Type.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict
+
 
 class Special_Condition(models.Model):
     code = CharField(max_length=50, blank=False)
     name_dict = DictField()
+
+    @staticmethod
+    def get_name_on_language(lang):
+        all = Special_Condition.objects.all()
+        dict=list()
+        for t in all:
+            dict.append((t.code,t.name_dict.get(lang)))
+        return dict

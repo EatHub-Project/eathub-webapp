@@ -1,6 +1,7 @@
 # coding=utf-8
 import urllib2
 from urlparse import urlparse
+import django
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from django.forms import ImageField
@@ -36,8 +37,45 @@ from django.template import loader
 #Para el hash con md5
 import hashlib
 
+#full-text
+from pymongo import *
+
+def search(request):
+    if request.method == 'POST':
+        terms = request.POST['srch-term']
+
+        client = MongoClient()
+
+        text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
+        doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
+        text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
+        doc_matches_profiles = (res['obj'] for res in text_results_profile['results'])
+
+        results_recipes = list()
+        for item in doc_matches_recipes:
+            r=Recipe()
+            r.id=item['_id']
+            r.title=item['title']
+            r.main_image=item['main_image']
+
+            results_recipes.append(r)
+
+        #TODO: hay que solucionar el problema al obtener los perfiles, ya que el campo user es un objectId.
+        results_profiles = list()
+        """for item in doc_matches_profiles:
+            p=Profile()
+            p.id=item['_id']
+            p.display_name=item['display_name']
+            p.user.username=item['user']
+            results_profiles.append(Profile(
+                                            ))"""
+
+        return render(request, 'webapp/search_result.html', {'matches_recipe': results_recipes, 'matches_profile': results_profiles})
 
 def main(request):
+    if request.user.is_authenticated():
+        if 'django_language' not in request.session:
+            request.session['django_language']=request.user.profile.get().main_language
     recipes = Recipe.objects.all().order_by('-creation_date')
     return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
@@ -371,6 +409,10 @@ def modification_account(request, username):
                     avatar.persist = True
                     avatar.save()
                 # TODO mandar a la misma página y mostrar un mensaje de éxito
+
+                if request.user.is_authenticated():
+                    request.session['django_language']=main_language
+
                 return HttpResponseRedirect(reverse('main'))  # Redirect after POST
 
     else:
@@ -422,6 +464,9 @@ def receta(request, recipe_id):
         porcentaje_positivos = (len(recipe.positives) / float(total_votos))*100
         porcentaje_negativos = (len(recipe.negatives) / float(total_votos))*100
 
+    lang=django.utils.translation.get_language().split('-')[0]
+    recipe.translate_to_language(lang)
+
     num = recipe.difficult
     dificultad = "Dificil"
     if num>=0 and num<=1:
@@ -454,6 +499,9 @@ def profile(request, username):
         for f in following_now:
             if f.user.id == user.id:
                 is_following = True
+
+    lang=django.utils.translation.get_language().split('-')[0]
+    user_profile.translate_to_lengague(lang)
 
     return render(request, 'webapp/profile.html',
                   {'profile': user_profile, 'following': is_following, 'followers_list': followers_list,
@@ -592,3 +640,10 @@ def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
 
     return {'is_new': False,'user':u}
 
+
+def terms_and_conditions(request):
+    return render(request, 'webapp/terms_and_conditions.html')
+
+
+def contact(request):
+    return render(request, 'webapp/contact.html')

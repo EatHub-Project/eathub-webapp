@@ -1315,6 +1315,75 @@ header .container {
     text-align: center;
 }
 
+.terms-title {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+}
+
+.terms-content-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.terms-text-soft {
+    padding-right: 40px;
+    text-align: justify;
+    word-wrap: break-word;
+    color: #5a5a5a;
+}
+
+.contact-title {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+}
+
+.contact-content-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.contact-text-soft {
+    margin-right: 20px;
+    text-align: justify;
+    word-wrap: break-word;
+    color: #5a5a5a;
+}
+
+.contact-about-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.contact-about-us-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.plus.btn.btn-contact:hover, .plus.btn.btn-contact:focus, .plus.btn.btn-contact:active {
+    color: #cc3e27;
+    background-color: #fff;
+    border-color: #cc3e27;
+}
+
+.contact-more-title {
+    color: #696969;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.contact-more-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
 
 #container {
     position: relative;
@@ -1337,4 +1406,26 @@ footer {
     position: absolute;
     bottom: 0;
     overflow: hidden;
+}
+
+/* Style used into password recovery form */
+.panel-body-password-recovery {
+    text-align: center;
+    margin-top: 10%;
+}
+
+/* Style used into password recovery left image */
+.password-recovery-image-div {
+    width: 230px;
+    height: 300px;
+    margin-right: 3em;
+}
+
+.terms-and-conditons-panel h3 {
+    margin-top: 50px;
+}
+
+.password-recovery-image{
+    height: inherit;
+    width: inherit;
 }

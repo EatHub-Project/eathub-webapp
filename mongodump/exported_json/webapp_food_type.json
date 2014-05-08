@@ -1,0 +1,72 @@
+[
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfc250"
+        },
+        "code": "breakfast",
+        "name_dict": {
+            "en": "Breakfast",
+            "es": "Desayuno"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfc251"
+        },
+        "code": "lunch",
+        "name_dict": {
+            "en": "Lunch",
+            "es": "Almuerzo"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfc252"
+        },
+        "code": "snack",
+        "name_dict": {
+            "en": "Snack",
+            "es": "Merienda/Tentempi\u00e9"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfc253"
+        },
+        "code": "drink",
+        "name_dict": {
+            "en": "Drink",
+            "es": "Bebida"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfc256"
+        },
+        "code": "dinner",
+        "name_dict": {
+            "en": "Dinner",
+            "es": "Cena"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4cfd255"
+        },
+        "code": "appetizer",
+        "name_dict": {
+            "en": "Appetizer",
+            "es": "Aperitivo"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "535be2d5dc1d670ab4dfc256"
+        },
+        "code": "dessert",
+        "name_dict": {
+            "en": "Dessert",
+            "es": "Postre"
+        }
+    }
+]

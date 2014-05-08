@@ -255,6 +255,11 @@
                     {% endfor %}
                 {% endif %}
 
+                {% if receta.nationality %}
+                    <div class="recipe-more-title">{% trans "Nationality" %}:</div>
+                    <span><a class="recipe-tag" href="#">{{ receta.nationality }}</a></span>
+                {% endif %}
+
                 {% if receta.tags %}
                     <div class="recipe-more-title">{% trans "Tags" %}:</div>
                     {% for tag in receta.tags %}

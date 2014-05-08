@@ -69,7 +69,7 @@
                     <a href="{% url 'newaccount' %}">{% trans "Create an account" %}</a>
                 </div>
                 <div class="login-form-forgot">
-                    <a href="#">{% trans "Forgot your password?" %}</a>
+                    <a href="{% url "password_reset_recover" %}">{% trans "Forgot your password?" %}</a>
                 </div>
             </form>
             <div class="panel panel-body">
