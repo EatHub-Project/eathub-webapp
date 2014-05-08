@@ -68,8 +68,10 @@ class RecipeForm(forms.Form):
     sweet = forms.IntegerField(max_value=99, min_value=0, required=False)
     spicy = forms.IntegerField(max_value=99, min_value=0, required=False)
 
-    def __init__(self):
-        lang=django.utils.translation.get_language().split('-')[0]
+    def __init__(self, *args, **kwargs):
+        super(RecipeForm, self).__init__(*args, **kwargs)
+
+        lang = django.utils.translation.get_language().split('-')[0]
         LANGUAGES = Language.get_name_on_language(lang)
         TEMPORALITY = Temporality.get_name_on_language(lang)
         FOOD_TYPE = Food_Type.get_name_on_language(lang)
