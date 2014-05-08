@@ -15,6 +15,7 @@
     <link href="{% static 'webapp/css/starter-template.css' %}" rel="stylesheet">
     <link href="{% static 'webapp/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'webapp/css/lightbox.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapp/css/style-search.css' %}" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 
 
@@ -48,12 +49,10 @@
                         </li>
                         <li><a class="" href="#">{% trans "Recipes" %}</a></li>
                         <li><a class="" href="#">{% trans "Explore" %}</a></li>
-                        <li><div class="input-group navbar-input-group">
-                        <form class="navbar-form navbar-left" role="search" method="post" action="{% url 'search' %}">
-                            {% csrf_token %}
+                        <li><div class="input-group navbar-input-group fbSearch">
+                        <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="{% url 'search_recipe' ' ' %}">
                             <div class="form-group">
                             <input type="text" class="form-control border-search border-rect" placeholder="Search..."
-                                   name="srch-term"
                                    id="srch-term">
                                 <span class="input-group-btn navbar-input-group-btn">
                                     <button class="btn btn-default border-default" type="submit">
@@ -61,6 +60,26 @@
                                     </button>
                                 </span>
                             </div>
+                        <div class="suggest">
+                            <ul>
+                            <li class="header"><span class="text">Recipes</span></li>
+                                <li>
+                                    <a href="{% url 'search_recipe' ' ' %}">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                        <span class="text">Search recipes</span>
+                                        <span class="category"></span>
+                                    </a>
+                                </li>
+                                <li class="header"><span class="text">People</span></li>
+                                <li>
+                                    <a href="{% url 'search_person' ' ' %}">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                        <span class="text">Search people</span>
+                                        <span class="category"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                         </form>
                     </div>
                     <!-- Button trigger modal -->
@@ -186,6 +205,26 @@
                                     $(".footer-logo").animate({"margin-bottom": "-70px"}, 150)
                                 }
                         );
+        });
+        var hideSuggest = function(event){
+            $(".suggest").css("display","none").fadeOut(2000);
+        }
+        $("#srch-term").focus(function(){
+           $(".suggest").css("display","block").fadeIn(2000);
+        });
+        $(".suggest").find("a").mouseenter(function(){
+           $("#srch-term").off("blur");
+        }).mouseleave(function(){
+           $("#srch-term").blur(hideSuggest);
+        });
+        $("#srch-term").blur(hideSuggest);
+        $("#srch-term").bind("input",function(){
+           var urlR = '/search/recipe/' +$(this).val();
+           $("#search-form").attr("action", urlR);
+           $(".suggest").find(".category")[0].textContent=$(this).val();
+           $(".suggest").find("a")[0].href=urlR;
+           $(".suggest").find(".category")[1].textContent=$(this).val();
+           $(".suggest").find("a")[1].href='/search/person/' +$(this).val();
         });
     </script>
     {% block custom_js %} {% endblock %}
