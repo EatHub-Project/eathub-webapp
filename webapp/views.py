@@ -1,9 +1,11 @@
 # coding=utf-8
+import string
 import urllib2
 from urlparse import urlparse
 import django
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
+from django.db.models import Q
 from django.db.models.query import RawQuerySet
 from django.forms import ImageField
 from django.templatetags.static import static
@@ -22,7 +24,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment
+from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment, SearchRecipeForm
 from django.forms.util import ErrorList
 import time, datetime
 
@@ -41,14 +43,43 @@ import hashlib
 #full-text
 from pymongo import *
 
-def search_recipe(request,terms):
+def search_recipe(request):
     if request.method == 'GET':
-
+        terms = request.GET['srchterm']
         client = MongoClient()
 
-        results_recipes = Recipe.objects.raw_query({"$text": {"$search" : terms}})
+        query = {"$text": {"$search" : terms}}
 
-        return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes})
+        results_recipes = Recipe.objects.raw_query(query)
+        form = SearchRecipeForm()
+
+        return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
+    elif request.method == 'POST':
+        terms = request.GET['srchterm']
+        form = SearchRecipeForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+
+            bitter = { "$lte": int(data['bitter'].split(',')[1]), "$gte": int(data['bitter'].split(',')[0])}
+            salty = { "$lte": int(data['salty'].split(',')[1]), "$gte": int(data['salty'].split(',')[0])}
+            sour = { "$lte": int(data['sour'].split(',')[1]), "$gte": int(data['sour'].split(',')[0])}
+            sweet = { "$lte": int(data['sweet'].split(',')[1]), "$gte": int(data['sweet'].split(',')[0])}
+            spicy = { "$lte": int(data['spicy'].split(',')[1]), "$gte": int(data['spicy'].split(',')[0])}
+
+            terms = terms + " " + string.join(data['special_conditions'], " ")
+            terms = terms + " " + string.join(data['temporality'], " ")
+            terms = terms + " " + data['language']
+            terms = terms + " " + data['food_type']
+
+            #"$or": [{"language": "spanish"},{"language": "english"}],
+            if data['difficult']=='':
+                query = {"$text": {"$search" : terms}, "savours.bitter" : bitter, "savours.salty" : salty, "savours.sour" : sour, "savours.sweet" : sweet, "savours.spicy" : spicy}
+            else:
+                query = {"$text": {"$search" : terms}, "savours.bitter" : bitter, "savours.salty" : salty, "savours.sour" : sour, "savours.sweet" : sweet, "savours.spicy" : spicy, "difficult":int(data['difficult'])}
+            results_recipes = Recipe.objects.raw_query(query)
+
+            return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
+
 
 def search_profile(request, terms):
     if request.method == 'GET':
@@ -606,7 +637,11 @@ def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
         return
     u = User.objects.create_user(fields.get('username'), email=fields.get('email'))
     t = Tastes(salty=50, sour=50, bitter=50, sweet=50, spicy=50)
-    p = Profile(display_name=fields.get('first_name'), user=u, tastes=t)
+    p = Profile()
+    p.display_name=fields.get('first_name')
+    p.user=u
+    p.tastes=t
+    p.main_language='es'
 
     if fields.get('location'):
         p.location=fields.get('location').get('name')

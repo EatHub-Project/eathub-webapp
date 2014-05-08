@@ -3,25 +3,272 @@
 {% load i18n %}
 {% load tags %}
 
-{% block container %}
+{% block custom_css %}
+    <link href="{% static 'webapp/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/slider.css' %}" rel="stylesheet">
+{% endblock %}
 
-{% if matches_recipe %}
-    <h1>{% trans "Recipes" %}</h1>
+{% block custom_js %}
+    <script src="{% static 'webapp/js/bootstrap-slider.js' %}"></script>
+    <script src="{% static 'webapp/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'webapp/js/repeatable-fields.js' %}"></script>
+    <script src="{% static 'webapp/js/jquery-ui-1.10.4.custom.min.js' %}"></script>
+    <script type="text/javascript">
+        var settings;
+        $().ready(function () {
+            $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
+            $('.slider').slider();
+        });
+    </script>
+{% endblock %}
+
+{% block container %}
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+    <div id="collapseTwo" class="panel-collapse collapse">
+    <div class="panel-body">
+    <form role="form well well-lg" class="form-horizontal" id="search-form" method="post"
+          action="">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"
+                       for="id_{{ form.difficult.name }}">{% trans "Difficulty" %}</label>
+
+                <div class="col-sm-6">
+                    <select class="form-control" name="{{ form.difficult.name }}"
+                            id="id_{{ form.difficult.name }}">
+                        <option value=""></option>
+                        {% for choice in form.difficult.field.choices %}
+                            <option value="{{ choice.0 }}"
+                                    {% ifequal form.difficult.value choice.0 %}
+                                    selected
+                                    {% endifequal %}
+                                    >{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
-        {% for match in matches_recipe %}
-                <div class="col-md-3 panel follow-list-item">
-                    <img class="img-rounded"
-                         src="{{ match.main_image.url }}"/>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"
+                       for="id_{{ form.temporality.name }}">{% trans "Occasions" %}</label>
 
-                    <h3 class="user-name"><a href="{% url 'recipe' match.id %}">
-                        {{ match.title }}</a></h3>
+                <div class="col-sm-8">
+                    <select class="form-control show-tick" data-live-search="true" multiple
+                            name="{{ form.temporality.name }}" id="id_{{ form.temporality.name }}">
+                        {% for choice in form.temporality.field.choices %}
+                            <option value="{{ choice.0 }}"
+                                    {% for opt in form.temporality.value %}
+                                        {% ifequal opt choice.0 %}
+                                    selected
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    >{{ choice.1 }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </div>
-        {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"
+                       for="id_{{ form.food_type.name }}">{% trans "Food type" %}</label>
+
+                <div class="col-sm-6">
+                    <select class="form-control show-tick" name="{{ form.food_type.name }}"
+                            id="id_{{ form.food_type.name }}">
+                        <option value=""></option>
+                        {% for choice in form.food_type.field.choices %}
+                            <option value="{{ choice.0 }}"
+                                    {% ifequal form.food_type.value choice.0 %}
+                                    selected
+                                    {% endifequal %}
+                                    >{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
- {% else %}
-    <div class="recipe-name">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"
+                       for="id_{{ form.special_conditions.name }}">{% trans "Special conditions" %}</label>
+
+                <div class="col-sm-8">
+                    <select class="form-control show-tick" data-live-search="true" multiple
+                            name="{{ form.special_conditions.name }}"
+                            id="id_{{ form.special_conditions.name }}">
+                        {% for choice in form.special_conditions.field.choices %}
+                            <option value="{{ choice.0 }}"
+                                    {% for opt in form.special_conditions.value %}
+                                        {% ifequal opt choice.0 %}
+                                    selected
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    >{{ choice.1 }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"
+                       for="id_{{ form.languages.name }}">{% trans "Language" %}</label>
+
+                <div class="col-sm-6">
+                    <select class="form-control show-tick" name="{{ form.language.name }}"
+                            id="id_{{ form.language.name }}">
+                        <option value=""></option>
+                        {% for choice in form.language.field.choices %}
+                            <option value="{{ choice.0 }}"
+                                    {% ifequal form.language.value choice.0 %}
+                                    selected
+                                    {% endifequal %}
+                                    >{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="col-lg-offset-1">{% trans "Savours" %}</h3>
+    <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+        <!-- Savours-->
+        <div class="col-sm-6">
+            <label for="id_{{ form.salty.name }}" class="slider-label">{% trans "Salty" %}</label>
+
+            <div class="control-group">
+                <input type="text" class="form-control slider"
+                       name="{{ form.salty.name }}" id="id_{{ form.salty.name }}"
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="[{{ form.salty.value | default_if_none:'0,99' }}]"
+                       data-slider-tooltip="hide"
+                       data-slider-id="salty"
+                       value="{{ form.salty.value | default_if_none:'50' }}"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_{{ form.sour.name }}" class="slider-label">{% trans "Sour" %}</label>
+                <input type="text" class="form-control slider"
+                       name="{{ form.sour.name }}" id="id_{{ form.sour.name }}"
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="[{{ form.sour.value | default_if_none:'0,99' }}]"
+                       data-slider-tooltip="hide"
+                       data-slider-id="sour"
+                       value="{{ form.sour.value | default_if_none:'50' }}"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_{{ form.bitter.name }}" class="slider-label">{% trans "Bitter" %}</label>
+                <input type="text" class="form-control slider"
+                       name="{{ form.bitter.name }}" id="id_{{ form.bitter.name }}"
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="[{{ form.bitter.value | default_if_none:'0,99' }}]"
+                       data-slider-tooltip="hide"
+                       data-slider-id="bitter"
+                       value="{{ form.bitter.value | default_if_none:'50' }}"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_{{ form.sweet.name }}" class="slider-label"> {% trans "Sweet" %}</label>
+                <input type="text" class="form-control slider"
+                       name="{{ form.sweet.name }}" id="id_{{ form.sweet.name }}"
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="[{{ form.sweet.value | default_if_none:'0,99' }}]"
+                       data-slider-tooltip="hide"
+                       data-slider-id="sweet"
+                       value="{{ form.sweet.value | default_if_none:'50' }}"
+                        >
+            </div>
+
+            <div class="control-group">
+                <label for="id_{{ form.spicy.name }}" class="slider-label">{% trans "Spicy" %}</label>
+                <input type="text" class="form-control slider"
+                       name="{{ form.spicy.name }}" id="id_{{ form.spicy.name }}"
+                       data-slider-min="0"
+                       data-slider-max="99"
+                       data-slider-value="[{{ form.spicy.value | default_if_none:'0,99' }}]"
+                       data-slider-tooltip="hide"
+                       data-slider-id="spicy"
+                       value="{{ form.spicy.value | default_if_none:'50' }}"
+                        >
+            </div>
+        </div>
+    </fieldset>
+    {% csrf_token %}
+    <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 50px">
+        <div class="form-group">
+            <label for="inputDisplayName" class="col-sm-1 control-label"></label>
+
+            <div class="col-sm-3">
+                <input type="submit" class="btn btn-success" value="Filter"/>
+            </div>
+        </div>
+    </fieldset>
+    </form>
+    </div>
+    </div>
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                Filtros
+            </a>
+        </h4>
+    </div>
+    </div>
+    </div>
+    {% if matches_recipe %}
+        <h1>{% blocktrans %}Found {{ results }} recipes{% endblocktrans %}</h1>
+        {% for recipe in matches_recipe %}
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-body main-card">
+                    <div class="main-card-picture" style="background-image: url('{{ recipe.main_image.url }}')">
+                        <a href="{% url 'recipe' recipe.id %}">
+                            <img src="{{ recipe.main_image.url }}" style="width: 100%; height: 100%; opacity: 0">
+                        </a>
+                    </div>
+                    <div class="main-card-content">
+                        <div class="main-card-name">
+                            <a class="recipe-title" href="{% url 'recipe' recipe.id %}"><span>{{ recipe.title }}</span></a>
+                        </div>
+
+                        <div class="main-card-description">
+                            {{ recipe.description }}
+                        </div>
+                    </div>
+                    <div class="recipe-time">
+                        <span class="glyphicon glyphicon-time"></span>
+                        <span>{{ recipe.time.prep_time }}</span>
+                    </div>
+                    <div class="recipe-author-main">
+                            <span><a class="recipe-link-main"
+                                     href="{% url 'profile' recipe.author.username %}">by {{ recipe.author.profile.get.display_name }}</a></span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="recipe-name">
             <h2 class="follow-msg">{% trans "No results found!" %}</h2>
         </div>
-{% endif %}
+    {% endif %}
 {% endblock %}

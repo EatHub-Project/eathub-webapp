@@ -176,3 +176,32 @@ class SocialAccountForm(NewAccountForm):
 
 class AddComment(forms.Form):
     text = forms.CharField(required=True)
+
+class SearchRecipeForm(forms.Form):
+    DIFFICULT = [(1, _("Easy")), (2, _("Medium")), (3, _("Hard"))]
+
+    serves = forms.CharField(max_length=50, required=False)
+    language = forms.ChoiceField(required=False)
+    temporality = forms.MultipleChoiceField(required=False)
+    special_conditions = forms.MultipleChoiceField(required=False)
+    difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
+    food_type = forms.ChoiceField(required=False)
+
+    salty = forms.CharField(required=False)
+    sour = forms.CharField(required=False)
+    bitter = forms.CharField(required=False)
+    sweet = forms.CharField(required=False)
+    spicy = forms.CharField(required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(SearchRecipeForm, self).__init__(*args, **kwargs)
+        lang=django.utils.translation.get_language().split('-')[0]
+        LANGUAGES = Language.get_name_on_language(lang)
+        TEMPORALITY = Temporality.get_name_on_language(lang)
+        FOOD_TYPE = Food_Type.get_name_on_language(lang)
+        SPECIAL_CONDITIONS = Special_Condition.get_name_on_language(lang)
+
+        self.fields['language'].choices=LANGUAGES
+        self.fields['temporality'].choices=TEMPORALITY
+        self.fields['food_type'].choices=FOOD_TYPE
+        self.fields['special_conditions'].choices=SPECIAL_CONDITIONS
