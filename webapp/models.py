@@ -80,6 +80,7 @@ class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profile", unique=True)
     following = ListField(EmbeddedModelField('Following'))
     karma = models.IntegerField(default=6)
+    username = models.CharField(max_length=50, blank=False)
 
     objects = MongoDBManager()
 
