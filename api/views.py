@@ -1,6 +1,5 @@
-from PIL import Image
 from django.contrib.auth.models import User
-from django.http.response import HttpResponse, HttpResponseNotFound
+from django.http.response import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from requests import HTTPError
 from rest_framework import viewsets
 from api.serializers import UserSerializer, RecipeSerializer
@@ -21,17 +20,22 @@ class RecipeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = RecipeSerializer
 
 
-def resize(request, url, width, height, quality):
+def resize(request, url, width, height, quality, cached):
     try:
-        im = get_thumbnail(url, width + "x" + height, crop='center', quality=int(quality))
-        try:
+        if int(height) < 0:
+            size = width
+            crop = "noop"
+            upscale = False
+        else:
+            size = width + "x" + height
+            crop = "center"
+            upscale = True
+        im = get_thumbnail(url, size, crop=crop, quality=int(quality), upscale=upscale)
+        if cached == "cached":
+            return HttpResponseRedirect(im.url)
+        else:
             uri = "." + im.url
             with open(uri, "rb") as f:
                 return HttpResponse(f.read(), mimetype="image/jpeg")
-        except IOError:
-            red = Image.new('RGBA', (10, 10), (255,0,0,0))
-            response = HttpResponse(mimetype="image/jpeg")
-            red.save(response, "JPEG")
-            return response
-    except HTTPError:
+    except (HTTPError, IOError):
         return HttpResponseNotFound()

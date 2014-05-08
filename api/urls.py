@@ -18,5 +18,5 @@ urlpatterns = patterns('',
 
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^resize/(?P<width>[0-9]+)/(?P<height>[0-9]+)/(?P<quality>[0-9]+)/(?P<url>.+)$', views.resize),
+    url(r'^resize/(?P<width>[0-9]+)/(?P<height>.+)/(?P<quality>[0-9]+)/(?P<cached>\w+)/(?P<url>.+)$', views.resize),
 )
