@@ -12,7 +12,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": "2014-04-08T14:59:08.640+0200"
+            "$date": "2014-04-23T15:19:38.380+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -107,7 +107,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": "2014-04-19T12:47:55.378+0200"
+            "$date": "2014-04-23T15:22:21.589+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -202,7 +202,7 @@
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": "2014-04-19T14:00:47.322+0200"
+            "$date": "2014-05-07T17:25:15.836+0200"
         },
         "last_name": "",
         "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
@@ -229,21 +229,40 @@
     },
     {
         "_id": {
-            "$oid": "535bed36dc1d670a7c6a1f5e"
+            "$oid": "53554368c54d2d2d35556298"
         },
         "date_joined": {
-            "$date": "2014-04-26T21:30:30.100+0200"
+            "$date": "2014-04-21T20:12:24.131+0200"
         },
-        "email": "sga.vmp@gmail.com",
-        "first_name": "Sergio",
+        "email": "rafagames92@gmail.com",
+        "first_name": "",
         "is_active": true,
         "is_staff": false,
         "is_superuser": false,
         "last_login": {
-            "$date": "2014-04-26T21:45:09.893+0200"
+            "$date": "2014-04-22T15:55:42.143+0200"
         },
-        "last_name": "Garcia",
-        "password": "!",
-        "username": "sga.vmp"
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$Bqo95vhSYA44$/wn4iXGsXLqwomSd7tuZsWvbFFiMt2bOpmj37+iT3LA=",
+        "username": "sloydev"
+    },
+    {
+        "_id": {
+            "$oid": "53558c1dc54d2d43ef5211cc"
+        },
+        "date_joined": {
+            "$date": "2014-04-22T01:22:37.449+0200"
+        },
+        "email": "ana@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false,
+        "last_login": {
+            "$date": "2014-04-22T15:54:17.429+0200"
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$fNG7AF2AiiYs$vWqmE3mGcZF4T3wdRYPp5B3B2K73pMhXYc6mZ2q3Yzs=",
+        "username": "Ana"
     }
 ]

@@ -8,11 +8,11 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1396278155747
+            "$date": "2014-03-31T17:02:35.747+0200"
         },
         "description": "Receta de carne de morcillo cocida con verduras en la olla r\u00e1pida acompa\u00f1ada de salsa de tomate casera, pimientos asados en el horno y patatas fritas.",
         "difficult": 4,
-        "food_type": "carne",
+        "food_type": "lunch",
         "ingredients": [
             "500 g de carne de morcillo",
             "2 kg de tomate pera en conserva",
@@ -35,10 +35,10 @@
             "vinagreta"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/carne_con_tomate.persist.jpg",
         "modification_date": {
-            "$date": 1396279394154
+            "$date": "2014-03-31T17:23:14.154+0200"
         },
         "nationality": "spain",
         "negatives": [],
@@ -108,11 +108,11 @@
             "$oid": "533fb9b386c9bdaca925fee0"
         },
         "creation_date": {
-            "$date": 1396188829487
+            "$date": "2014-03-30T16:13:49.487+0200"
         },
         "description": "Receta de ensalada de arroz con colores vivos y f\u00e1ciles de preparar.",
         "difficult": 2,
-        "food_type": "arroz",
+        "food_type": "appetizer",
         "ingredients": [
             "150 gramos de arroz basmati (si no hay usa otro de grano largo o corto)",
             "100 gramos de lechuga",
@@ -130,10 +130,10 @@
             "agua para hervir el arroz"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/ensalada_de_arroz.persist.jpg",
         "modification_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "nationality": "spain",
         "notes": "Comida muy ligera",
@@ -200,11 +200,11 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
-        "description": "Receta de un postre tradicional.",
+        "description": "Receta de un postre tradicional. Ideal para semana santa. No defraudar\u00e1.",
         "difficult": 5,
-        "food_type": "torrijas",
+        "food_type": "snack",
         "ingredients": [
             "1 barra de pan del d\u00eda anterior o una barra espec\u00edfica para torrijas (de venta en casi todas las pasteler\u00edas). La de esta receta ten\u00eda la escandalera de 55 cm.",
             "1 l de leche entera.",
@@ -218,10 +218,10 @@
             "1/2 l de aceite de oliva virgen extra"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/torrijas_de_leche.persist.jpg",
         "modification_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "nationality": "spain",
         "notes": "Comida muy rica",
@@ -296,11 +296,11 @@
             "$oid": "533fb9b386c9bdaca925fee0"
         },
         "creation_date": {
-            "$date": 1396189993886
+            "$date": "2014-03-30T16:33:13.886+0200"
         },
         "description": "Receta de mini hamburguesas de pescado",
         "difficult": 4,
-        "food_type": "hamburguesas",
+        "food_type": "appetizer",
         "ingredients": [
             "300g migas de bacalao desalado ",
             "2 cucharadas aceite de oliva virgen extra",
@@ -315,10 +315,10 @@
             "                                 Pimienta"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/hamburguesas_pescado.persist.jpg",
         "modification_date": {
-            "$date": 1396189394154
+            "$date": "2014-03-30T16:23:14.154+0200"
         },
         "nationality": "spain",
         "notes": "Comida muy rica",
@@ -374,103 +374,17 @@
     },
     {
         "_id": {
-            "$oid": "533fc87d86c9bdaca925feec"
-        },
-        "author_id": {
-            "$oid": "533fb9b386c9bdaca925fee0"
-        },
-        "creation_date": {
-            "$date": 1394029394154
-        },
-        "description": "El nombre lo dice todo! =)",
-        "difficult": 5,
-        "food_type": "estofado",
-        "ingredients": [
-            "2 Kgrs. Alcachofas",
-            "750 grs. de Calamares",
-            "300 grs. de almejas (rosellona)",
-            "3 Patatas medianas",
-            "3 tomates maduros (de rama)",
-            "1 Manojo Ajetes tiernos",
-            "1 Cebolleta",
-            "1 Pastilla caldo (pescado)",
-            "1 Aceite de oliva"
-        ],
-        "is_published": true,
-        "language": "spanish",
-        "main_image": "images/alcachofas_calamares_y_almejas.persist.jpg",
-        "modification_date": {
-            "$date": 1396189394154
-        },
-        "nationality": "italian",
-        "notes": "Esta muy rico!!",
-        "parent_id": null,
-        "pictures": [
-            {
-                "image": "images/alcachofas_calamares_y_almejas.persist.jpg"
-            }
-        ],
-        "savours": {
-            "bitter": 35,
-            "salty": 85,
-            "sour": 5,
-            "spicy": 35,
-            "sweet": 5
-        },
-        "serves": "2 personas",
-        "special_conditions": [],
-        "steps": [
-            {
-                "image": "",
-                "text": "En una cazuela ponemos aceite y echamos las alcachofas y las patatas en trozos y sofre\u00edmos."
-            },
-            {
-                "image": "",
-                "text": "Despu\u00e9s a\u00f1adimos el calamar partido en ruedas, la cebolla partidas en trozos peque\u00f1os y los ajos tambi\u00e9n partidos en trocitos."
-            },
-            {
-                "image": "",
-                "text": "Sofre\u00edmos todo durante unos minutos y echamos el tomate que lo habremos rallado."
-            },
-            {
-                "image": "",
-                "text": "Dejamos sofre\u00edr otros 5 minutos y por \u00faltimo a\u00f1adimos la pastilla de caldo troceada y las almejas."
-            },
-            {
-                "image": "",
-                "text": "Tapamos la cazuela y dejamos que se abran las almejas."
-            },
-            {
-                "image": "",
-                "text": "La receta estar\u00e1 lista para comer una vez est\u00e9n las patatas y las alcachofas tiernas."
-            }
-        ],
-        "tags": [
-            "calamares",
-            "almejas",
-            "alcachofas",
-            "estofado"
-        ],
-        "temporality": [],
-        "time": {
-            "cook_time": 45,
-            "prep_time": 20
-        },
-        "title": "Alcachofas con calamares y almejas"
-    },
-    {
-        "_id": {
             "$oid": "5351163430adf210288cc8f5"
         },
         "author_id": {
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1397212214154
+            "$date": "2014-04-11T12:30:14.154+0200"
         },
-        "description": "Una comida rica y f\u00e1cil de preparar.",
+        "description": "Una comida rica y f\u00e1cil de preparar. La recomiendo para aquellos d\u00edas en los que uno tiene poco tiempo para cocinar.",
         "difficult": 1,
-        "food_type": "pasta",
+        "food_type": "lunch",
         "ingredients": [
             "300 gramos de macarrones",
             "50 gramos de queso rallado",
@@ -478,7 +392,7 @@
             "10 gramos de sal"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/macarrones_con_tomate.persist.jpg",
         "nationality": "italian",
         "notes": "Uno de los grandes aportes de la cocina italiana.",
@@ -544,20 +458,20 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1394461394154
+            "$date": "2014-03-10T15:23:14.154+0100"
         },
         "description": "Una buena tortilla de patatas espa\u00f1ola, de las de toda la vida.",
         "difficult": 1,
-        "food_type": "frito",
+        "food_type": "",
         "ingredients": [
             "5 patatas",
             "2 huevos",
             "aceite de oliva"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/tortilla_de_patatas.persist.jpg",
-        "nationality": "spanish",
+        "nationality": "",
         "notes": "La imagen lo dice todo.",
         "parent_id": null,
         "pictures": [
@@ -628,11 +542,11 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1397226194154
+            "$date": "2014-04-11T16:23:14.154+0200"
         },
-        "description": "Una rica tarta de flan Potax y galletas.",
+        "description": "Una rica tarta de flan Potax y galletas. Esta receta es de mi madre y nos la hace con mucha frecuencia. Sencillamente sensacional.",
         "difficult": 1,
-        "food_type": "dulces",
+        "food_type": "snack",
         "ingredients": [
             "1 litro de leche",
             "1 paquete de galletas Mar\u00eda",
@@ -640,9 +554,9 @@
             "canela en polvo"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/tarta_de_flan_y_galletas.persist.jpg",
-        "nationality": "spanish",
+        "nationality": "",
         "notes": "F\u00e1cil de preparar y muy rica.",
         "parent_id": null,
         "pictures": [
@@ -710,11 +624,11 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1397298614154
+            "$date": "2014-04-12T12:30:14.154+0200"
         },
-        "description": "Una comida deliciosa.",
+        "description": "Esta receta es de mi padre. Tiene unos sencillos pasos que hacen esta comida a\u00fan m\u00e1s deliciosa. Os la recomiendo enormemente.",
         "difficult": 2,
-        "food_type": "carne",
+        "food_type": "dinner",
         "ingredients": [
             "1 cabeza de ajo",
             "1 lim\u00f3n",
@@ -723,9 +637,9 @@
             "1 chorreoncito de whisky"
         ],
         "is_published": true,
-        "language": "spanish",
+        "language": "es",
         "main_image": "images/solomillo_al_whisky.persist.jpg",
-        "nationality": "spanish",
+        "nationality": "Spain",
         "notes": "",
         "parent_id": null,
         "pictures": [
@@ -799,11 +713,11 @@
             "$oid": "53511955b88bbe11b48fcdd7"
         },
         "creation_date": {
-            "$date": 1394461394154
+            "$date": "2014-03-10T15:23:14.154+0100"
         },
-        "description": "Un postre delicioso.",
+        "description": "Este postre es mi favorito. Lo prob\u00e9 en un restaurante y no tuve m\u00e1s remedio que buscar la receta para hacerlo en mi casa. Espero que os guste.",
         "difficult": 1,
-        "food_type": "frito",
+        "food_type": "dessert",
         "ingredients": [
             "100 gr az\u00facar",
             "4 yogures de lim\u00f3n",
@@ -813,14 +727,14 @@
             "unas hojas de menta"
         ],
         "is_published": true,
-        "language": "francais",
+        "language": "es",
         "main_image": "images/mousse_de_limon.persist.jpg",
         "nationality": "spanish",
         "notes": "La imagen lo dice todo.",
         "parent_id": null,
         "pictures": [
             {
-                "image": "images/mousse_de_limon.persist.jpg"
+                "image": "images/mousse_de_limon_2.persist.jpg"
             }
         ],
         "savours": {
@@ -874,7 +788,7 @@
         "comments": [
             {
                 "create_date": {
-                    "$date": 1397909887677
+                    "$date": "2014-04-19T14:18:07.677+0200"
                 },
                 "is_banned": false,
                 "text": "Creo que ya puedo pasarme a confirmarlo: \u00a1est\u00e1n riqu\u00edsimas! Aunque no han quedado demasiado perfectas (lo que tiene ser principiante) son completamente comestibles y est\u00e1n muy buenas.",
@@ -884,21 +798,31 @@
             },
             {
                 "create_date": {
-                    "$date": 1398038805685
+                    "$date": "2014-04-21T02:06:45.685+0200"
                 },
                 "is_banned": false,
                 "text": "Qu\u00e9 buenas! :D",
                 "user_own_id": {
                     "$oid": "5337f520144115cb2ce71e1f"
                 }
+            },
+            {
+                "create_date": {
+                    "$date": "2014-04-22T18:30:12.267+0200"
+                },
+                "is_banned": false,
+                "text": "Me ha encantado! Voy a hacerlas de lim\u00f3n n_n",
+                "user_own_id": {
+                    "$oid": "53554368c54d2d2d35556298"
+                }
             }
         ],
         "creation_date": {
-            "$date": 1397909887677
+            "$date": "2014-04-21T14:18:07.677+0200"
         },
         "description": "Tengo muchos primos peque\u00f1os, y casi siempre que vienen a casa, me piden alguna golosina para comer, pero yo nunca las compro, as\u00ed que los pobres siempre se quedaban sin comerlas, hasta que se me ocurri\u00f3 hacerlas yo misma.\r\n\r\nMe acord\u00e9 de cuando hago decoraciones en las tartas con caramelo e hice mi versi\u00f3n personal de las piruletas de toda la vida, as\u00ed que os voy a ense\u00f1ar c\u00f3mo las hago.",
         "difficult": 1,
-        "food_type": "snack",
+        "food_type": "dessert",
         "ingredients": [
             "200g de az\u00facar",
             "80ml de agua",
@@ -910,13 +834,13 @@
         "language": "es",
         "main_image": "images/pirus_0.persist.jpg",
         "modification_date": {
-            "$date": 1397909887677
+            "$date": "2014-04-19T14:18:07.677+0200"
         },
         "nationality": "",
         "negatives": [
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53511955b88bbe11b48fcdd7"
@@ -948,7 +872,7 @@
         "positives": [
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "53524b1bc54d2d0800ca5bbe"
@@ -956,7 +880,7 @@
             },
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "5337f440144115cb2ce71e1d"
@@ -964,7 +888,7 @@
             },
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-21T02:00:00.000+0200"
                 },
                 "user_id": {
                     "$oid": "5337f3cb144115cb2ce71e1c"
@@ -972,42 +896,10 @@
             },
             {
                 "date": {
-                    "$date": 1398038400000
+                    "$date": "2014-04-22T02:00:00.000+0200"
                 },
                 "user_id": {
-                    "$oid": "5337f4b4144115cb2ce71e1e"
-                }
-            },
-            {
-                "date": {
-                    "$date": 1398038400000
-                },
-                "user_id": {
-                    "$oid": "5337f520144115cb2ce71e1f"
-                }
-            },
-            {
-                "date": {
-                    "$date": 1398038400000
-                },
-                "user_id": {
-                    "$oid": "533fb9b386c9bdaca925fee0"
-                }
-            },
-            {
-                "date": {
-                    "$date": 1398038400000
-                },
-                "user_id": {
-                    "$oid": "533fba3786c9bdaca925fee1"
-                }
-            },
-            {
-                "date": {
-                    "$date": 1398038400000
-                },
-                "user_id": {
-                    "$oid": "533fbad086c9bdaca925fee2"
+                    "$oid": "53554368c54d2d2d35556298"
                 }
             }
         ],
@@ -1058,5 +950,1134 @@
             "prep_time": 10
         },
         "title": "Piruletas caseras"
+    },
+    {
+        "_id": {
+            "$oid": "53556ba6c54d2d3e2d9f840a"
+        },
+        "author_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-21T12:04:06.581+0200"
+        },
+        "description": "El otro d\u00eda ten\u00eda antojo de una hamburguesa con queso, pero no ten\u00eda pan para hamburguesa, y sin eso perd\u00eda la gracia, as\u00ed que me puse manos a la obra con un nuevo invento. La ensalada Cheeseburguer.",
+        "difficult": 1,
+        "food_type": "appetizer",
+        "ingredients": [
+            "Una lechuga, o un poco de varios tipos (yo uso tres distintas).",
+            "Dos tomates.",
+            "Una cebolla morada.",
+            "700g de carne picada.",
+            "Ketchup, mostaza, barbacoa (lo que m\u00e1s os guste).",
+            "Queso.",
+            "Pan duro.",
+            "Aceite de oliva y mantequilla.",
+            "Cebolla en polvo."
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/salad_0.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-21T23:04:06.581+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "La verdad es que no las ten\u00eda todas conmigo, pero el resultado es espectacular.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/salad_1.persist.jpg"
+            },
+            {
+                "image": "images/salad_2.persist.jpg"
+            },
+            {
+                "image": "images/salad_3.persist.jpg"
+            },
+            {
+                "image": "images/salad_4.persist.jpg"
+            },
+            {
+                "image": "images/salad_5.persist.jpg"
+            },
+            {
+                "image": "images/salad_6.persist.jpg"
+            },
+            {
+                "image": "images/salad_7.persist.jpg"
+            },
+            {
+                "image": "images/salad_8.persist.jpg"
+            }
+        ],
+        "positives": [
+            {
+                "date": {
+                    "$date": "2014-04-21T02:00:00.000+0200"
+                },
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 31,
+            "salty": 68,
+            "sour": 41,
+            "spicy": 68,
+            "sweet": 51
+        },
+        "serves": "Para 4 personas",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "En una sart\u00e9n ponemos la carne picada, la salpimentamos y la sofre\u00edmos. Cuando est\u00e9 pr\u00e1cticamente hecha, a\u00f1adimos ketchup, mostaza o lo que quer\u00e1is y revolvemos."
+            },
+            {
+                "image": "",
+                "text": "Cortamos la lechuga, los tomates y el pan a taquitos, y la cebolla en aros.\n\nEmpezamos a emplatar:"
+            },
+            {
+                "image": "",
+                "text": "Ponemos debajo del todo la lechuga cortada, y en el centro ponemos un poco de nuestra carne picada. A\u00f1adimos la cebolla."
+            },
+            {
+                "image": "",
+                "text": "A continuaci\u00f3n, en la misma sart\u00e9n donde pusimos la carne, derretimos un poco de mantequilla y echamos el pan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adimos un poco de aceite y lo espolvoreamos con cebolla en polvo. Cuando est\u00e9 crujiente lo ponemos en nuestro plato."
+            },
+            {
+                "image": "",
+                "text": "Seguimos, a\u00f1adiendo el tomate, y por \u00faltimo rallamos un poco de queso en nuestra ensalada."
+            },
+            {
+                "image": "",
+                "text": "\u00a1Ya s\u00f3lo nos queda degustarla! :)"
+            }
+        ],
+        "tags": [
+            "Hamburguesa",
+            " Cheeseburguer",
+            " invento",
+            " ketchup",
+            " ensalada"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 10,
+            "prep_time": 10
+        },
+        "title": "Ensalada Cheeseburguer"
+    },
+    {
+        "_id": {
+            "$oid": "53557376c54d2d3e2d9f8410"
+        },
+        "author_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-20T23:37:26.659+0200"
+        },
+        "description": "Ya sab\u00e9is lo mucho que me gusta hacer versiones caseras de productos que encontramos en el supermercado. Y en este caso no es algo que encontremos en el s\u00faper, sino en los Starbucks. En Alicante, hasta hace poco no pod\u00edamos disfrutar de ninguno, as\u00ed que me lo invent\u00e9 un poco y sali\u00f3 esto, un frapuccino casero.",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "100ml de caf\u00e9",
+            "200ml de leche",
+            "3 cucharadas de az\u00facar",
+            "Nata montada",
+            "Hielo (unos 5 o 6 cubitos grandes)",
+            "Sirope de chocolate",
+            "Una cucharadita de goma de tragacanto o pectina seca (\u00e9sto es opcional, es para que la nata aguante arriba y no se mezcle con el caf\u00e9)"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/frap_0.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-21T23:37:26.659+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "\u00a1Un caf\u00e9 riqu\u00edsimo! Muy fresquito y perfecto para combatir estos d\u00edas de calor. Adem\u00e1s de eso os ahorrar\u00e9is  un dinerito, porque los caf\u00e9s en Starbucks no es que cuesten dos duros :P",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/frap_1.persist.jpg"
+            },
+            {
+                "image": "images/frap_2.persist.jpg"
+            },
+            {
+                "image": "images/frap_3.persist.jpg"
+            },
+            {
+                "image": "images/frap_4.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 16,
+            "salty": 20,
+            "sour": 17,
+            "spicy": 10,
+            "sweet": 80
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "images/frap_2.persist.jpg",
+                "text": "Hacemos el caf\u00e9 en nuestra cafetera y dejamos que se enfr\u00ede completamente."
+            },
+            {
+                "image": "images/frap_1.persist.jpg",
+                "text": "A continuaci\u00f3n ponemos a picar el hielo, junto al caf\u00e9, la leche, el az\u00facar y la goma de tragacanto o pectina."
+            },
+            {
+                "image": "images/frap_4.persist.jpg",
+                "text": "Ponemos la mezcla en nuestro vaso y a\u00f1adimos la nata y el sirope de chocolate."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 10
+        },
+        "title": "Frapuccino casero"
+    },
+    {
+        "_id": {
+            "$oid": "53558184c54d2d3e2d9f8417"
+        },
+        "author_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-20T00:37:24.912+0200"
+        },
+        "description": "Hoy vamos a hacer unas pastas de t\u00e9 sin gluten. Que sean aptas para cel\u00edacos no quiere decir que los dem\u00e1s no las pod\u00e1is comer, es m\u00e1s, est\u00e1n muy muy buenas, as\u00ed que os recomiendo que las prob\u00e9is.",
+        "difficult": 2,
+        "food_type": "snack",
+        "ingredients": [
+            "250g de maizena",
+            "200g de az\u00facar",
+            "2 cucharaditas de esencia (yo us\u00e9 la de vainilla)",
+            "125g de mantequilla",
+            "2 huevos",
+            "Cacao en polvo o virutitas de chocolate para decorar."
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/pastas_0.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-22T00:37:24.912+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "Est\u00e1n muy buenas, si os gusta mojar en la leche o el t\u00e9 os encantar\u00e1n, porque cuando est\u00e1n mojaditas se potencia mucho m\u00e1s el sabor. Como veis, son muy f\u00e1ciles y r\u00e1pidas de hacer.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/pastas_1.persist.jpg"
+            },
+            {
+                "image": "images/pastas_2.persist.jpg"
+            },
+            {
+                "image": "images/pastas_3.persist.jpg"
+            },
+            {
+                "image": "images/pastas_4.persist.jpg"
+            },
+            {
+                "image": "images/pastas_5.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 22,
+            "salty": 71,
+            "sour": 23,
+            "spicy": 23,
+            "sweet": 61
+        },
+        "serves": "Unas 40 galletas",
+        "special_conditions": [
+            "celiac"
+        ],
+        "steps": [
+            {
+                "image": "",
+                "text": "En primer lugar pondremos el horno a calentar a unos 180\u00ba.\nA continuaci\u00f3n ponemos en un vaso de batidora o cualquiera que tengamos que sea alto, como la jarra medidora que uso yo, el az\u00facar y lo batimos para que se haga m\u00e1s fino (si no us\u00e1is un recipiente alto se levantar\u00e1 mucho polvo)."
+            },
+            {
+                "image": "images/pastas_2.persist.jpg",
+                "text": "Tras un par de minutos ponemos la mantequilla, dos cucharaditas de esencia y uno de los huevos, y batimos un poco m\u00e1s, hasta que se junte todo."
+            },
+            {
+                "image": "images/pastas_3.persist.jpg",
+                "text": "En un bol ponemos la maizena y a\u00f1adimos la mezcla que hemos batido antes. Lo mezclamos todo y lo vamos poniendo en una bandeja de horno con una manga pastelera o una pistola de hacer galletas, en la que hayamos puesto papel vegetal."
+            },
+            {
+                "image": "images/pastas_4.persist.jpg",
+                "text": "Ponemos huevo batido (el otro que no hab\u00edamos utilizado) por encima de las galletas, y si queremos, cacao en polvo o virutitas para decorar."
+            },
+            {
+                "image": "images/pastas_5.persist.jpg",
+                "text": "Metemos las galletas en el horno, y esperamos unos 7 minutos.\n\nCuando ve\u00e1is que est\u00e1n totalmente hechas las sac\u00e1is y esper\u00e1is que se enfr\u00eden, antes de separarlas del papel vegetal."
+            }
+        ],
+        "tags": [
+            "Gluten",
+            " Cel\u00edaco",
+            " Galletas",
+            " Pastas",
+            " Horno"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 15
+        },
+        "title": "Galletas sin gluten"
+    },
+    {
+        "_id": {
+            "$oid": "53558f05c54d2d43ef5211d3"
+        },
+        "author_id": {
+            "$oid": "53558c1dc54d2d43ef5211cc"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-21T13:35:01.992+0200"
+        },
+        "description": "Pensemos en un postre que sea r\u00e1pido y que guste a todo el mundo, que no exija fr\u00edo para cuajar, que no haya que esperar a que pierda temperatura para comerlo\u2026ya lo tengo, \u00a1Brownie de chocolate!",
+        "difficult": 2,
+        "food_type": "dessert",
+        "ingredients": [
+            "150 gr de chocolate fondant (especial postres)",
+            "110 gr de harina",
+            "120 gr de az\u00facar",
+            "125 gr de mantequilla",
+            "4 huevos",
+            "1 tarrina de helado de vainilla (o el que prefir\u00e1is, en mi caso todo un cl\u00e1sico Vainilla&Cookies), con 500 ml tendr\u00e9is m\u00e1s que suficiente.",
+            "Sirope de chocolate"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/brown_0.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-22T01:35:01.992+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "Un postre que gusta a todos y que, si se sirve caliente y acompa\u00f1ado de helado y sirope de chocolate como en este caso, quita el sentido a aquellos que lo prueban! Contraste fr\u00edo-calor, vainilla-chocolate.. \u00bfQui\u00e9n dijo que se tardaba en hacer un buen postre? ",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/brown_1.persist.jpg"
+            },
+            {
+                "image": "images/brown_2.persist.jpg"
+            },
+            {
+                "image": "images/brown_3.persist.jpg"
+            },
+            {
+                "image": "images/brown_4.persist.jpg"
+            }
+        ],
+        "positives": [
+            {
+                "date": {
+                    "$date": "2014-04-21T02:00:00.000+0200"
+                },
+                "user_id": {
+                    "$oid": "53558c1dc54d2d43ef5211cc"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 18,
+            "salty": 18,
+            "sour": 16,
+            "spicy": 20,
+            "sweet": 79
+        },
+        "serves": "8 personas",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Antes de nada, precalentad el horno a 180\u00ba.\n\nBatid en un bol grande los 4 huevos y a\u00f1adid el az\u00facar. Removedlo en\u00e9rgicamente hasta conseguir una pasta homog\u00e9nea. Despu\u00e9s, haced lo mismo con la harina. Reservar."
+            },
+            {
+                "image": "",
+                "text": "Por otro lado, debemos derretir el chocolate. Para ello hay dos m\u00e9todos, en el microondas o en el fuego. Yo he optado por el segundo dado a una mala experiencia de cuando era peque\u00f1a y trat\u00e9 de hacerme un chocolate caliente\u2026 la taza acab\u00f3 en la basura, con eso os digo todo  ;)\n\nDerretid un poco la mantequilla a fuego lento en un cazo e id a\u00f1adiendo poco a poco el chocolate a la vez que lo remov\u00e9is hasta que quede completamente derretido."
+            },
+            {
+                "image": "",
+                "text": "Una vez hay\u00e1is terminado, verted el resultado en el bol junto al resto de ingredientes y mezcladlo muy bien. Pod\u00e9is a\u00f1adir nueces (lo m\u00e1s t\u00edpico), almendras, pistachos\u2026lo que quer\u00e1is, pero no m\u00e1s de 100 gr, porque perder\u00eda protagonismo nuestro amigo el chocolate. Como os dec\u00eda antes, no he tenido tiempo de ir a comprar y no tengo ning\u00fan fruto seco en casa, por lo que, en mi caso, el helado de Vainilla&Cookies que ten\u00eda en el congelador ser\u00e1 el \u00fanico ingrediente que completar\u00e1 el postre junto con el sirope."
+            },
+            {
+                "image": "",
+                "text": "Untad el molde con mantequilla para evitar que se pegue la masa y poder sacar bien el brownie m\u00e1s tarde. A continuaci\u00f3n,verted la mezcla y horneadla unos 25-30 minutos (dependiendo del horno). El truco de este dulce es que no se cocine en exceso, a partir del tiempo indicado deber\u00e9is vigilarlo. Por fuera debe tener aspecto de hecho, un poco crujiente, pero la clave est\u00e1 en que por dentro no est\u00e9 cocido del todo. Meted un cuchillo o un palito como he hecho yo y aseguraros de que sale un poco manchado de masa, pero no demasiado. Confiad en vuestro instinto de cocinillas y\u2026 \u00a1estar\u00e1 listo!"
+            }
+        ],
+        "tags": [
+            "Postre",
+            " chocolate",
+            " helado",
+            " vainilla",
+            " brownie"
+        ],
+        "temporality": [
+            "winter"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 30
+        },
+        "title": "Brownie de chocolate"
+    },
+    {
+        "_id": {
+            "$oid": "535590b0c54d2d43ef5211da"
+        },
+        "author_id": {
+            "$oid": "53558c1dc54d2d43ef5211cc"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-18T01:42:08.141+0200"
+        },
+        "description": "Actualmente hay un poco de \u201cburbuja\u201d con el gin&tonic. Ya pas\u00f3 la \u201ctontuna\u201d del ron hace unos pocos a\u00f1os, y ahora mismo existe una \u201ccarrera armament\u00edstica\u201d con la ginebra y la t\u00f3nica. Ya no vale un Larios con Schweppes. Ahora hay que pedir ginebras y t\u00f3nicas que no haya probado nadie, para ser \u201ccool\u201d. Supongo que todo pasar\u00e1.",
+        "difficult": 1,
+        "food_type": "snack",
+        "ingredients": [
+            "2 o 3 fresas cortadas en mitades",
+            "Campari (lo que quepa en un vaso de chupito)",
+            "Ginebra (cualquiera vale, yo ten\u00eda a mano London Gin)",
+            "T\u00f3nica",
+            "Hielo (cubitos grandes y s\u00f3lidos, tipo industrial)"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/gin_0.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-22T01:42:08.141+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "El sabor amargo-dulz\u00f3n del Campari complementa estupendamente al gin&tonic cl\u00e1sico. Las fresas dan un aroma entre frutal y \u00e1cido que rematan el aroma y sabor de la bebida.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/gin_1.persist.jpg"
+            },
+            {
+                "image": "images/gin_2.persist.jpg"
+            },
+            {
+                "image": "images/gin_3.persist.jpg"
+            },
+            {
+                "image": "images/gin_4.persist.jpg"
+            },
+            {
+                "image": "images/gin_5.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 41,
+            "salty": 15,
+            "sour": 50,
+            "spicy": 14,
+            "sweet": 66
+        },
+        "serves": "1 copa",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "images/gin_2.persist.jpg",
+                "text": "Dependiendo de lo afrutado o floral que sea la ginebra, podeis optar por meter las fresas (cortadas en mitades) en la ginebra durante 30 o 60 minutos antes de preparar la copa. Esto se recomienda especialmente para las ginebras m\u00e1s secas."
+            },
+            {
+                "image": "images/gin_3.persist.jpg",
+                "text": "En una copa de bal\u00f3n colocamos abundante hielo, las fresas, un chorrito (equivalente a un chupito) de Campari. A continuaci\u00f3n a\u00f1adimos ginebra al gusto y la t\u00f3nica. Es importante a\u00f1adir la ginebra y la t\u00f3nica suavemente. As\u00ed el Campari, al ser m\u00e1s denso, queda en la parte de abajo de la copa, y se va aclarando el color rojo hacia arriba."
+            },
+            {
+                "image": "images/gin_4.persist.jpg",
+                "text": "Las proporciones de ginebra y t\u00f3nica var\u00edan seg\u00fan a qui\u00e9n preguntes, pero a mi me gusta 1 parte de ginebra y 2 partes de t\u00f3nica.\n"
+            }
+        ],
+        "tags": [
+            "Bebida",
+            " fr\u00edo",
+            " fresa",
+            " gintonic"
+        ],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 1
+        },
+        "title": "Gin & Tonic con fresas"
+    },
+    {
+        "_id": {
+            "$oid": "53567d30c54d2d14f943ad33"
+        },
+        "author_id": {
+            "$oid": "53554368c54d2d2d35556298"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-22T18:31:12.582+0200"
+        },
+        "description": "Tengo muchos primos peque\u00f1os, y casi siempre que vienen a casa, me piden alguna golosina para comer, pero yo nunca las compro, as\u00ed que los pobres siempre se quedaban sin comerlas, hasta que se me ocurri\u00f3 hacerlas yo misma.\r\n\r\nMe acord\u00e9 de cuando hago decoraciones en las tartas con caramelo e hice mi versi\u00f3n personal de las piruletas de toda la vida, as\u00ed que os voy a ense\u00f1ar c\u00f3mo las hago.",
+        "difficult": 1,
+        "food_type": "snack",
+        "ingredients": [
+            "200g de az\u00facar",
+            "80ml de agua",
+            "Esencia de lim\u00f3n",
+            "Colorante alimenticio"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/piru_limon.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-22T18:31:12.582+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "Es una receta que os har\u00e1 quedar bien con los m\u00e1s peques de casa. No os puedo decir personalmente c\u00f3mo han quedado \u00e9stas \u00faltimas porque la ni\u00f1a a la que doy clases particulares se las ha llevado para casita, pero generalmente a los ni\u00f1os les encanta, adem\u00e1s si les pon\u00e9is colores llamativos les va a llamar mucho la atenci\u00f3n y se divertir\u00e1n m\u00e1s comi\u00e9ndolas.",
+        "parent_id": {
+            "$oid": "53524d5fc54d2d087132cf6d"
+        },
+        "pictures": [
+            {
+                "image": "images/pirus_1.persist.jpg"
+            },
+            {
+                "image": "images/pirus_2.persist.jpg"
+            },
+            {
+                "image": "images/pirus_3.persist.jpg"
+            },
+            {
+                "image": "images/pirus_4.persist.jpg"
+            },
+            {
+                "image": "images/pirus_5.persist.jpg"
+            },
+            {
+                "image": "images/pirus_6.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 5,
+            "salty": 5,
+            "sour": 36,
+            "spicy": 6,
+            "sweet": 95
+        },
+        "serves": "8 piruletas aprox.",
+        "special_conditions": [
+            "celiac",
+            "vegetarian",
+            "vegan"
+        ],
+        "steps": [
+            {
+                "image": "images/pirus_1.persist.jpg",
+                "text": "Antes que nada vamos a preparar unas cosas:\n\n- En el m\u00e1rmol o sobre el papel para horno ponemos un poco de aceite.\n- Ponemos en una cacerola agua fr\u00eda y la reservamos.\n- Partimos por la mitad varios palitos de bamb\u00fa, de los utilizados para hacer pinchos morunos.\n- Cerca de donde hayamos puesto el aceite nos preparamos las virutitas que utilizaremos para decorar y los palitos de bamb\u00fa."
+            },
+            {
+                "image": "images/pirus_3.persist.jpg",
+                "text": "Y ahora s\u00ed, vamos a la receta:\n\nPonemos en un cazo el az\u00facar con el agua a fuego medio y removemos de vez en cuando hasta que hierva. Tapamos el cazo y lo dejamos hirviendo unos 3 minutos. Cuando veamos que espese un poco y oscurezca el color le ponemos el colorante que queramos y la esencia. Si quer\u00e9is hacerlas de fresa, yo lo que hago es ponerle en vez de esencia, un poco de sirope de fresa, que da color y sabor."
+            },
+            {
+                "image": "images/pirus_4.persist.jpg",
+                "text": "Con una cuchara de metal vamos poniendo el contenido encima de nuestro m\u00e1rmol o de nuestro papel, haciendo formas de piruletas (circulos de unos 4cm de ancho). Ponemos el palito de bamb\u00fa, y volvemos a poner encima de \u00e9l un poco de caramelo para que luego no se nos caiga al secarse. Le echamos por encima virutitas y ya est\u00e1."
+            },
+            {
+                "image": "images/pirus_1.persist.jpg",
+                "text": "Ponemos el cazo dentro de la cacerola que hab\u00edamos preparado con agua, para as\u00ed, detener la cocci\u00f3n y lo sacamos r\u00e1pidamente para que no nos enfr\u00ede mucho el cazo."
+            },
+            {
+                "image": "",
+                "text": "Dejaremos secar nuestras piruletas un par de horas."
+            }
+        ],
+        "tags": [
+            "Dulce",
+            " Chuches",
+            " Rico",
+            " Ni\u00f1os",
+            " Fresa"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 10
+        },
+        "title": "Piruletas caseras de lim\u00f3n"
+    },
+    {
+        "_id": {
+            "$oid": "53579e338853831a50220393"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-23T15:04:19.861+0200"
+        },
+        "description": "Holiday beverage (contains alcohol; not for children). I haven't tried this yet, but it sounds creamy and decadent. For those who love eggnog, you'll be on cloud nine when you take a sip of this! This takes approximately six hours to chill; the recipe recommends chilling overnight in the refrigerator before serving.",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "4 cups milk",
+            "5 whole cloves",
+            "1/2 teaspoon vanilla extract",
+            "1 teaspoon ground cinnamon",
+            "12 egg yolks",
+            "1 1/2 cups sugar",
+            "2 1/2 cups light rum",
+            "4 cups light cream",
+            "2 teaspoons vanilla extract",
+            "1/2 teaspoon ground nutmeg"
+        ],
+        "is_published": false,
+        "language": "en",
+        "main_image": "images/eggnog_smoothie_with_1_minute_vanilla_whip_4.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:04:19.861+0200"
+        },
+        "nationality": "EN",
+        "negatives": [],
+        "notes": "",
+        "parent_id": null,
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 32,
+            "salty": 22,
+            "sour": 17,
+            "spicy": 18,
+            "sweet": 64
+        },
+        "serves": "4 persons",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Combine milk, cloves, 1/2 teaspoon vanilla, and cinnamon in a saucepan, and heat over lowest setting for 5 minutes. Slowly bring milk mixture to a boil."
+            },
+            {
+                "image": "",
+                "text": "In a large bowl, combine egg yolks and sugar. Whisk together until fluffy. Whisk hot milk mixture slowly into the eggs. Pour mixture into saucepan. Cook over medium heat, stirring constantly for 3 minutes, or until thick. Do not allow mixture to boil. Strain to remove cloves, and let cool for about an hour."
+            },
+            {
+                "image": "",
+                "text": "Stir in rum, cream, 2 teaspoon vanilla, and nutmeg. Refrigerate overnight before serving."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 25,
+            "prep_time": 0
+        },
+        "title": "Amazingly Good Eggnog"
+    },
+    {
+        "_id": {
+            "$oid": "53579f528853831a50220398"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-01-23T14:09:06.913+0100"
+        },
+        "description": "It's my favourite drink. It's very easy to prepare it and your guest will get impressed.",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "1 fluid ounce coconut rum",
+            "3/4 fluid ounce vodka",
+            "1 fluid ounce pineapple juice",
+            "1 dash grenadine syrup"
+        ],
+        "is_published": false,
+        "language": "en",
+        "main_image": "images/malta8.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:09:06.913+0200"
+        },
+        "nationality": "EN",
+        "negatives": [],
+        "notes": "",
+        "parent_id": null,
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 8,
+            "salty": 42,
+            "sour": 13,
+            "spicy": 26,
+            "sweet": 64
+        },
+        "serves": "1 person",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Combine rum, vodka and pineapple juice in a drink shaker. Shake firmly until frothy. Pour in a martini glass, add a touch of grenadine in the middle. Garnish with an orange wheel."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 5
+        },
+        "title": "Bikini Martini"
+    },
+    {
+        "_id": {
+            "$oid": "5357a0ac8853831a5022039a"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-23T15:14:52.243+0200"
+        },
+        "description": "La receta de este postre navide\u00f1o la he sacado en un antiguo recetario familiar, es un dulce que hac\u00eda mi abuela, a ella le encantaba la batata y la utilizaba mucho en sus postres. En esta ocasi\u00f3n va mezclada con almendra molida, harina de arroz y az\u00facar, y el resultado es un dulce delicado, m\u00e1s ligero que el mazap\u00e1n, y adem\u00e1s es f\u00e1cil y r\u00e1pido de hacer",
+        "difficult": 2,
+        "food_type": "dessert",
+        "ingredients": [
+            "2 boniatos",
+            "100 gr. de fideos de chocolate",
+            "100 gr. de fideos de colores",
+            "1 cucharadita de canela en polvo",
+            "1 cucharadita de az\u00facar",
+            "agua",
+            "cacao amargo en polvo",
+            "hojas de menta"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/166_bolitas_de_batata.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:14:52.243+0200"
+        },
+        "nationality": "ES",
+        "negatives": [],
+        "notes": "",
+        "parent_id": null,
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 13,
+            "salty": 6,
+            "sour": 17,
+            "spicy": 16,
+            "sweet": 50
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Limpia las batatas bajo el grifo con un cepillito."
+            },
+            {
+                "image": "",
+                "text": "Ponlas a cocer en una cazuela con agua durante unos 30 minutos aproximadamente. Esc\u00farrelas, d\u00e9jalas templar y p\u00e9lalas."
+            },
+            {
+                "image": "",
+                "text": "Apl\u00e1stalas con un tenedor hasta conseguir una masa homog\u00e9nea. A\u00f1ade el az\u00facar y la canela y sigue mezclando."
+            },
+            {
+                "image": "",
+                "text": "Forma bolitas y pasa la mitad por los fideos de chocolate y la otra mitad por los fideos de colores. Si quieres que endurezcan un poco, introd\u00facelas en el frigor\u00edfico durante 30 minutos."
+            },
+            {
+                "image": "",
+                "text": "Monta las claras con una batidora el\u00e9ctrica de varillas. Cuando est\u00e9n bien montadas, a\u00f1ade las 3 cucharadas de az\u00facar (de una en una) y sigue montando. Coloca el merengue en una manga pastelera."
+            },
+            {
+                "image": "",
+                "text": "Para servir, espolvorea el plato con un poco de cacao en polvo, adorna con peque\u00f1os montoncitos de merengue y distribuye encima las bolitas de batata. Decora con una ramita de menta."
+            }
+        ],
+        "tags": [],
+        "temporality": [],
+        "time": {
+            "cook_time": 30,
+            "prep_time": 10
+        },
+        "title": "Bolitas de batata"
+    },
+    {
+        "_id": {
+            "$oid": "5357a17b8853831a5022039c"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-23T15:18:19.489+0200"
+        },
+        "description": "A very delicious drink. It's ideal for impartant ocassions.",
+        "difficult": 1,
+        "food_type": "drink",
+        "ingredients": [
+            "1 fluid ounce coconut rum",
+            "3/4 fluid ounce whisky",
+            "1 fluid ounce pineapple juice",
+            "1 dash grenadine syrup"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/bikini_martini_at_warren.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:18:19.489+0200"
+        },
+        "nationality": "EN",
+        "negatives": [],
+        "notes": "",
+        "parent_id": {
+            "$oid": "53579f528853831a50220398"
+        },
+        "pictures": [],
+        "positives": [],
+        "savours": {
+            "bitter": 8,
+            "salty": 42,
+            "sour": 13,
+            "spicy": 26,
+            "sweet": 64
+        },
+        "serves": "1 person",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Combine rum, whisky and pineapple juice in a drink shaker. Shake firmly until frothy. Pour in a martini glass, add a touch of grenadine in the middle. Garnish with an orange wheel."
+            }
+        ],
+        "tags": [],
+        "temporality": [
+            "summer"
+        ],
+        "time": {
+            "cook_time": 0,
+            "prep_time": 5
+        },
+        "title": "Bikini Martini Whiskey"
+    },
+    {
+        "_id": {
+            "$oid": "5357a2498853831a5022039e"
+        },
+        "author_id": {
+            "$oid": "5337f3cb144115cb2ce71e1c"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-03-23T14:21:45.060+0100"
+        },
+        "description": "Una rica tarta de flan Potax y galletas. Tiene un toque especial de invenci\u00f3n propia. Seguro que repet\u00eds.",
+        "difficult": 1,
+        "food_type": "snack",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "canela en polvo"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/tarta_de_galletas_3.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:21:45.060+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "F\u00e1cil de preparar y muy rica. Mi opini\u00f3n para esta receta es que est\u00e1 mejor con flan dhul.",
+        "parent_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "pictures": [
+            {
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 0,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 86
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Dhul."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (preferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un toque de canela en polvo."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
+    },
+    {
+        "_id": {
+            "$oid": "5357a2d18853831a502203a0"
+        },
+        "author_id": {
+            "$oid": "533fba3786c9bdaca925fee1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-22T15:24:01.290+0200"
+        },
+        "description": "Una rica tarta de flan Potax y galletas. He a\u00f1adido mi toque personal de virutas de regaliz.",
+        "difficult": 1,
+        "food_type": "snack",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "virutas de regaliz"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/tarta_de_chocolate_y_galletas_2.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:24:01.290+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "F\u00e1cil de preparar y muy rica.",
+        "parent_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "pictures": [
+            {
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 0,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 72
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Potax."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (peeferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un toque de virutas de regaliz."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
+    },
+    {
+        "_id": {
+            "$oid": "5357a3a08853831a502203a2"
+        },
+        "author_id": {
+            "$oid": "5352494f18085d15c08181d1"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2014-04-23T15:27:28.501+0200"
+        },
+        "description": "Una rica tarta de flan Potax y galletas. Recubierta de chocolate fundido y virutas de chocolate.",
+        "difficult": 1,
+        "food_type": "snack",
+        "ingredients": [
+            "1 litro de leche",
+            "1 paquete de galletas Mar\u00eda",
+            "2 sobre de flan Potax",
+            "chocolate fundido",
+            "virutas de chocolate"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/tarta_de_chocolate_y_galletas_1.persist.jpg",
+        "modification_date": {
+            "$date": "2014-04-23T15:27:28.501+0200"
+        },
+        "nationality": "",
+        "negatives": [],
+        "notes": "F\u00e1cil de preparar y muy rica.",
+        "parent_id": {
+            "$oid": "53511ca608dce7283d0cb123"
+        },
+        "pictures": [
+            {
+                "image": "images/tarta_de_flan_y_galletas.persist.jpg"
+            }
+        ],
+        "positives": [],
+        "savours": {
+            "bitter": 21,
+            "salty": 0,
+            "sour": 0,
+            "spicy": 0,
+            "sweet": 92
+        },
+        "serves": "",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "",
+                "text": "Del litro de leche inicial vertimos 1/4 de litro en un vaso y la diluimos con los 2 sobres de flan Potax."
+            },
+            {
+                "image": "",
+                "text": "Mientras tanto, hervimos el resto de la leche en una cazuela con 8 cucharadas soperas de az\u00facar."
+            },
+            {
+                "image": "",
+                "text": "Una vez ha hervido la leche, vertimos en la cazuela el vaso de leche con los sobres diluidos."
+            },
+            {
+                "image": "",
+                "text": "Cuando haya espesado el flan lo apartamos del fuego."
+            },
+            {
+                "image": "",
+                "text": "En un recipiente alternamos una capa de flan con una capa de galletas (peeferiblemente de la marca Mar\u00eda), terminando con una capa de flan."
+            },
+            {
+                "image": "",
+                "text": "A\u00f1adir un el chocolate previamente fundido para recubrir la tarta y a\u00f1adir las virutas de chocolate encima."
+            },
+            {
+                "image": "",
+                "text": "Por \u00faltimo s\u00f3lo nos queda dejar que se enfr\u00ede."
+            }
+        ],
+        "tags": [
+            "leche",
+            "galletas",
+            "flan",
+            "tarta",
+            "chocolate"
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 35,
+            "prep_time": 15
+        },
+        "title": "Tarta de flan y galletas"
     }
 ]
