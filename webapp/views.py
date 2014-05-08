@@ -4,6 +4,7 @@ from urlparse import urlparse
 import django
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
+from django.db.models.query import RawQuerySet
 from django.forms import ImageField
 from django.templatetags.static import static
 from pip._vendor import requests
@@ -40,37 +41,23 @@ import hashlib
 #full-text
 from pymongo import *
 
-def search(request):
-    if request.method == 'POST':
-        terms = request.POST['srch-term']
+def search_recipe(request,terms):
+    if request.method == 'GET':
 
         client = MongoClient()
 
-        text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
-        doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
-        text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
-        doc_matches_profiles = (res['obj'] for res in text_results_profile['results'])
+        results_recipes = Recipe.objects.raw_query({"$text": {"$search" : terms}})
 
-        results_recipes = list()
-        for item in doc_matches_recipes:
-            r=Recipe()
-            r.id=item['_id']
-            r.title=item['title']
-            r.main_image=item['main_image']
+        return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes})
 
-            results_recipes.append(r)
+def search_profile(request, terms):
+    if request.method == 'GET':
 
-        #TODO: hay que solucionar el problema al obtener los perfiles, ya que el campo user es un objectId.
-        results_profiles = list()
-        """for item in doc_matches_profiles:
-            p=Profile()
-            p.id=item['_id']
-            p.display_name=item['display_name']
-            p.user.username=item['user']
-            results_profiles.append(Profile(
-                                            ))"""
+        client = MongoClient()
 
-        return render(request, 'webapp/search_result.html', {'matches_recipe': results_recipes, 'matches_profile': results_profiles})
+        results_profiles = Profile.objects.raw_query({"$text": {"$search" : terms}})
+
+        return render(request, 'webapp/search_person_result.html', {'matches_profile': results_profiles})
 
 def main(request):
     if request.user.is_authenticated():
@@ -127,7 +114,7 @@ def new_account(request):
                 p = Profile(display_name=display_name, main_language=main_language, user=u,
                             additional_languages=additional_languages, gender=gender,
                             location=location, website=website,
-                            birth_date=birth_date, tastes=t)
+                            birth_date=birth_date, tastes=t, username=username)
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
 
                 #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro

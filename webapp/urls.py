@@ -25,5 +25,6 @@ urlpatterns = patterns('',
     url(r'^recipes/(?P<username>.+)$' , views.recipes, name='recipes'),
     url(r'^termsandconditions/$', views.terms_and_conditions, name='terms_and_conditions'),
     url(r'^contact/$', views.contact, name='contact'),
-    url(r'^search/$' , views.search, name='search'),
+    url(r'^search/person/(?P<terms>.+)$' , views.search_profile, name='search_person'),
+    url(r'^search/recipe/(?P<terms>.+)$' , views.search_recipe, name='search_recipe'),
 )
