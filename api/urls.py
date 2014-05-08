@@ -17,5 +17,6 @@ router.register(r'users', views.UserViewSet)
 urlpatterns = patterns('',
 
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^resize/(?P<width>[0-9]+)/(?P<height>[0-9]+)/(?P<quality>[0-9]+)/(?P<url>.+)$', views.resize),
 )

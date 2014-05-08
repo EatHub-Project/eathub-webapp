@@ -11,3 +11,4 @@ python-social-auth
 djangorestframework==2.3.13
 django-filter==0.7
 django-password-reset==0.7
+sorl-thumbnail==11.12

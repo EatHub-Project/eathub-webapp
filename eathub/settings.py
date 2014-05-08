@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'rest_framework',
     'password_reset',
+    'sorl.thumbnail',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
