@@ -77,10 +77,10 @@ class RecipeForm(forms.Form):
         FOOD_TYPE = Food_Type.get_name_on_language(lang)
         SPECIAL_CONDITIONS = Special_Condition.get_name_on_language(lang)
 
-        self.language.choices=LANGUAGES
-        self.temporality.choices=TEMPORALITY
-        self.food_type.choices=FOOD_TYPE
-        self.special_conditions.choices=SPECIAL_CONDITIONS
+        self.fields['language'].choices=LANGUAGES
+        self.fields['temporality'].choices=TEMPORALITY
+        self.fields['food_type'].choices=FOOD_TYPE
+        self.fields['special_conditions'].choices=SPECIAL_CONDITIONS
 
     def get_ingredients_list(self):
         try:
