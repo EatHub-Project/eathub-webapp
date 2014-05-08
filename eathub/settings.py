@@ -131,9 +131,6 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\', '/')
 )
 
-# Anadido para la navegabilidad, de este modo se activa la etiqueta 'active' cuando navegamos.
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ( 'django.core.context_processors.request',)
-
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 MESSAGE_TAGS = {message_constants.ERROR: 'danger'}
 
@@ -153,15 +150,10 @@ INSTALLED_APPS = (
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    # Anadido para la navegabilidad, de este modo se activa la etiqueta 'active' cuando navegamos.
     'django.core.context_processors.request',
-    'django.contrib.messages.context_processors.messages',
+    # Login social
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
 )
