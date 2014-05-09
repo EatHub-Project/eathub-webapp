@@ -66,16 +66,27 @@ def search_recipe(request):
             sweet = { "$lte": int(data['sweet'].split(',')[1]), "$gte": int(data['sweet'].split(',')[0])}
             spicy = { "$lte": int(data['spicy'].split(',')[1]), "$gte": int(data['spicy'].split(',')[0])}
 
-            terms = terms + " " + string.join(data['special_conditions'], " ")
-            terms = terms + " " + string.join(data['temporality'], " ")
-            terms = terms + " " + data['language']
-            terms = terms + " " + data['food_type']
+            query = {"$text": {"$search" : terms}, "savours.bitter" : bitter, "savours.salty" : salty, "savours.sour" : sour, "savours.sweet" : sweet, "savours.spicy" : spicy }
+
+            if len(data['special_conditions'])!=0:
+                special=list()
+                for sp in data['special_conditions']:
+                    special.append({"special_conditions": sp})
+                query["$or"]=special
+            if len(data['temporality'])!=0:
+                temporal=list()
+                for sp in data['temporality']:
+                    temporal.append({"temporality": sp})
+                query["$or"]=temporal
+            if data['difficult']!="":
+                query["difficult"]=data['difficult']
+            if data['language']!="":
+                query["language"] = data['language']
+            if data['food_type']!="":
+                query["food_type"] = data['food_type']
 
             #"$or": [{"language": "spanish"},{"language": "english"}],
-            if data['difficult']=='':
-                query = {"$text": {"$search" : terms}, "savours.bitter" : bitter, "savours.salty" : salty, "savours.sour" : sour, "savours.sweet" : sweet, "savours.spicy" : spicy}
-            else:
-                query = {"$text": {"$search" : terms}, "savours.bitter" : bitter, "savours.salty" : salty, "savours.sour" : sour, "savours.sweet" : sweet, "savours.spicy" : spicy, "difficult":int(data['difficult'])}
+
             results_recipes = Recipe.objects.raw_query(query)
 
             return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
