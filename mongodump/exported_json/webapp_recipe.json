@@ -1817,7 +1817,7 @@
         },
         "comments": [],
         "creation_date": {
-            "$date": "2014-03-23T14:21:45.060+0100"
+            "$date": "2013-03-23T14:21:45.060+0100"
         },
         "description": "Una rica tarta de flan Potax y galletas. Tiene un toque especial de invenci\u00f3n propia. Seguro que repet\u00eds.",
         "difficult": 1,
@@ -2079,5 +2079,112 @@
             "prep_time": 15
         },
         "title": "Tarta de flan y galletas"
+    },
+    {
+        "_id": {
+            "$oid": "536b67b1bbba5b0007c7e8aa"
+        },
+        "author_id": {
+            "$oid": "53524b1bc54d2d0800ca5bbe"
+        },
+        "comments": [],
+        "creation_date": {
+            "$date": "2013-05-08T15:17:05.218+0200"
+        },
+        "description": "\u00a1Est\u00e1 riqu\u00edsima! No la hago todos los d\u00edas porque mi familia me matar\u00eda, pero se lo merece. Es muy f\u00e1cil de realizar, r\u00e1pido y la miel y la naranja le dan un toque sofisticado que os encantar\u00e1.",
+        "difficult": 1,
+        "food_type": "lunch",
+        "ingredients": [
+            "1 pechuga de pollo",
+            "1 calabac\u00edn",
+            "Media cebolla",
+            "El zumo de media naranja",
+            "1 cucharada de miel"
+        ],
+        "is_published": false,
+        "language": "es",
+        "main_image": "images/pollomiel0.persist.jpg",
+        "modification_date": {
+            "$date": "2014-05-08T15:17:05.218+0200"
+        },
+        "nationality": "ES",
+        "negatives": [],
+        "notes": "\u00a1Est\u00e1 riqu\u00edsima! No la hago todos los d\u00edas porque mi familia me matar\u00eda, pero se lo merece. Es muy f\u00e1cil de realizar, r\u00e1pido y la miel y la naranja le dan un toque sofisticado que os encantar\u00e1.",
+        "parent_id": null,
+        "pictures": [
+            {
+                "image": "images/pollomiel1.persist_1.jpg"
+            },
+            {
+                "image": "images/pollomiel2.persist_1.jpg"
+            },
+            {
+                "image": "images/pollomiel3.persist_2.jpg"
+            },
+            {
+                "image": "images/pollomiel4.persist_1.jpg"
+            },
+            {
+                "image": "images/pollomiel5.persist_1.jpg"
+            },
+            {
+                "image": "images/pollomiel6.persist_1.jpg"
+            }
+        ],
+        "positives": [
+            {
+                "date": {
+                    "$date": "2014-05-08T02:00:00.000+0200"
+                },
+                "user_id": {
+                    "$oid": "53524b1bc54d2d0800ca5bbe"
+                }
+            }
+        ],
+        "savours": {
+            "bitter": 9,
+            "salty": 56,
+            "sour": 15,
+            "spicy": 11,
+            "sweet": 77
+        },
+        "serves": "2 personas",
+        "special_conditions": [],
+        "steps": [
+            {
+                "image": "images/pollomiel2.persist_1.jpg",
+                "text": "Cortamos el calabac\u00edn y la cebolla en trozos peque\u00f1os. Tambi\u00e9n cortamos el pollo en dados."
+            },
+            {
+                "image": "images/pollomiel3.persist_2.jpg",
+                "text": "Empezamos a sofre\u00edr la cebolla con un poco de aceite y cuando est\u00e9 dorada a\u00f1adimos el calabac\u00edn."
+            },
+            {
+                "image": "images/pollomiel4.persist_1.jpg",
+                "text": "Cuando tengamos la verdura pr\u00e1cticamente hecha a\u00f1adimos el pollo y salpimentamos."
+            },
+            {
+                "image": "images/pollomiel5.persist_1.jpg",
+                "text": "Una vez est\u00e9 todo totalmente cocinado a\u00f1adimos el zumo de naranja y la miel. Dejamos que evaporte y..."
+            },
+            {
+                "image": "images/pollomiel6.persist_1.jpg",
+                "text": "... \u00a1servimos! As\u00ed de f\u00e1cil"
+            }
+        ],
+        "tags": [
+            "pollo",
+            " calabac\u00edn",
+            " miel",
+            " naranja",
+            " cebolla",
+            " "
+        ],
+        "temporality": [],
+        "time": {
+            "cook_time": 12,
+            "prep_time": 5
+        },
+        "title": "Pollo con aroma de naranja y miel"
     }
 ]
