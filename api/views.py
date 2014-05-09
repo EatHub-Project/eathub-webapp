@@ -7,12 +7,13 @@ from sorl.thumbnail import get_thumbnail
 from webapp.models import Recipe
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    lookup_field = 'username'
 
 
 class RecipeViewSet(viewsets.ReadOnlyModelViewSet):

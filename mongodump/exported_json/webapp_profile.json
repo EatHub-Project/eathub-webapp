@@ -114,9 +114,7 @@
             "$oid": "5337f91e144115cb2ce71e22"
         },
         "additional_languages": [
-            {
-                "$oid": "535bdff5dc1d670ab4cfc250"
-            }
+            "en"
         ],
         "avatar": "images/fran_benavente.persist.jpg",
         "birth_date": {
@@ -168,9 +166,7 @@
             "$oid": "5337f9ac144115cb2ce71e23"
         },
         "additional_languages": [
-            {
-                "$oid": "535bdff5dc1d670ab4cfc250"
-            }
+            "en"
         ],
         "avatar": "images/paco.persist.jpg",
         "birth_date": {
@@ -317,9 +313,7 @@
             "$oid": "533fbca586c9bdaca925fee6"
         },
         "additional_languages": [
-            {
-                "$oid": "535bdff5dc1d670ab4cfc250"
-            }
+            "es"
         ],
         "avatar": "images/tomas.persist.jpg",
         "birth_date": null,
@@ -411,9 +405,7 @@
             "$oid": "53412d1e18085d03fc51b72e"
         },
         "additional_languages": [
-            {
-                "$oid": "535bdff5dc1d670ab4cfc250"
-            }
+            "en"
         ],
         "avatar": "images/mario.persist.jpg",
         "birth_date": {

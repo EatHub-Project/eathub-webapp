@@ -1,7 +1,7 @@
 import json
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from webapp.models import Recipe, Step, Picture, Time, Savour, Comment
+from webapp.models import Recipe, Step, Picture, Time, Savour, Comment, Profile
 
 
 class FullImageField(serializers.ImageField):
@@ -11,16 +11,18 @@ class FullImageField(serializers.ImageField):
             return request.build_absolute_uri(value.url)
 
 
-class UserSerializer(serializers.Serializer):
-    class Meta:
-        model = User
-        fields = ('username', 'email')
-
-
 class EmbeddedUserSerializer(serializers.Serializer):
     username = serializers.CharField()
     display_name = serializers.CharField(source="profile.get.display_name")
     avatar = FullImageField(source="profile.get.avatar")
+
+
+class EmbeddedRecipeSerializer(serializers.ModelSerializer):
+    author = EmbeddedUserSerializer()
+
+    class Meta:
+        model = Recipe
+        fields = ('id', 'title', 'author')
 
 
 class StepSerializer(serializers.ModelSerializer):
@@ -59,12 +61,28 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = ('text', 'create_date', 'user_own')
 
 
-class EmbeddedRecipeSerializer(serializers.ModelSerializer):
-    author = EmbeddedUserSerializer()
+class FollowingSerializer(serializers.Serializer):
+    username = serializers.CharField(source='user.username')
+    display_name = serializers.CharField(source="user.profile.get.display_name")
+    avatar = FullImageField(source="user.profile.get.avatar")
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    avatar = FullImageField()
+    #tastes = SavoursSerializer()
+    following = FollowingSerializer(many=True)
 
     class Meta:
-        model = Recipe
-        fields = ('id', 'title', 'author')
+        model = Profile
+        fields = ['display_name', 'avatar', 'main_language', 'additional_languages', 'website', 'location', 'karma', 'gender', 'tastes', 'following']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'profile']
 
 
 class RecipeSerializer(serializers.Serializer):
