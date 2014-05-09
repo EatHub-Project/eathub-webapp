@@ -646,5 +646,31 @@
             "$oid": "53558c1dc54d2d43ef5211cc"
         },
         "website": ""
+    },
+    {
+        "_id": {
+            "$oid": "536d1aa4c54d2d1f68edd978"
+        },
+        "additional_languages": [],
+        "avatar": "images/icon_hires.png",
+        "birth_date": null,
+        "display_name": "EatHub",
+        "following": [],
+        "gender": "unknown",
+        "karma": 6,
+        "location": "",
+        "main_language": "es",
+        "modification_date": null,
+        "tastes": {
+            "bitter": 50,
+            "salty": 50,
+            "sour": 50,
+            "spicy": 50,
+            "sweet": 50
+        },
+        "user_id": {
+            "$oid": "536d1aa4c54d2d1f68edd977"
+        },
+        "website": ""
     }
 ]

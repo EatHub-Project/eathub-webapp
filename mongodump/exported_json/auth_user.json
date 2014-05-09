@@ -245,5 +245,24 @@
         "last_name": "",
         "password": "pbkdf2_sha256$10000$fNG7AF2AiiYs$vWqmE3mGcZF4T3wdRYPp5B3B2K73pMhXYc6mZ2q3Yzs=",
         "username": "Ana"
+    },
+    {
+        "_id": {
+            "$oid": "536d1aa4c54d2d1f68edd977"
+        },
+        "date_joined": {
+            "$date": "2014-05-09T22:12:52.041+0200"
+        },
+        "email": "eathub.contact@gmail.com",
+        "first_name": "",
+        "is_active": true,
+        "is_staff": true,
+        "is_superuser": true,
+        "last_login": {
+            "$date": "2014-05-09T22:13:44.075+0200"
+        },
+        "last_name": "",
+        "password": "pbkdf2_sha256$10000$XfMAOQIwTP3F$Pc/8Wi96uwFLq1I0pygxwO69rUSrBGo0/d6/78s5pj4=",
+        "username": "admin"
     }
 ]
