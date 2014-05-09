@@ -593,5 +593,5 @@ def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
     return {'is_new': False,'user':u}
 
 
-def our_group(request):
-    return render(request, 'webapp/ourgroup.html')
+def about_team(request):
+    return render(request, 'webapp/about_team.html')
