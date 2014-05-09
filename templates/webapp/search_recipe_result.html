@@ -157,7 +157,7 @@
                        data-slider-value="[{{ form.salty.value | default_if_none:'0,99' }}]"
                        data-slider-tooltip="hide"
                        data-slider-id="salty"
-                       value="{{ form.salty.value | default_if_none:'50' }}"
+                       value="{{ form.salty.value | default_if_none:'0,99' }}"
                         >
             </div>
 
@@ -170,7 +170,7 @@
                        data-slider-value="[{{ form.sour.value | default_if_none:'0,99' }}]"
                        data-slider-tooltip="hide"
                        data-slider-id="sour"
-                       value="{{ form.sour.value | default_if_none:'50' }}"
+                       value="{{ form.sour.value | default_if_none:'0,99' }}"
                         >
             </div>
 
@@ -183,7 +183,7 @@
                        data-slider-value="[{{ form.bitter.value | default_if_none:'0,99' }}]"
                        data-slider-tooltip="hide"
                        data-slider-id="bitter"
-                       value="{{ form.bitter.value | default_if_none:'50' }}"
+                       value="{{ form.bitter.value | default_if_none:'0,99' }}"
                         >
             </div>
 
@@ -196,7 +196,7 @@
                        data-slider-value="[{{ form.sweet.value | default_if_none:'0,99' }}]"
                        data-slider-tooltip="hide"
                        data-slider-id="sweet"
-                       value="{{ form.sweet.value | default_if_none:'50' }}"
+                       value="{{ form.sweet.value | default_if_none:'0,99' }}"
                         >
             </div>
 
@@ -209,7 +209,7 @@
                        data-slider-value="[{{ form.spicy.value | default_if_none:'0,99' }}]"
                        data-slider-tooltip="hide"
                        data-slider-id="spicy"
-                       value="{{ form.spicy.value | default_if_none:'50' }}"
+                       value="{{ form.spicy.value | default_if_none:'0,99' }}"
                         >
             </div>
         </div>
