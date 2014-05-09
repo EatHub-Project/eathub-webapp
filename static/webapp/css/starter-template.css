@@ -1362,7 +1362,40 @@ header .container {
     padding-right: 5px;
 }
 
+.main-picture-padding-team {
+    height: 400px;
+    padding: 10px;
+    position: relative;
+}
+
+.main-picture-padding-team img {
+   height: 100%;
+   width: 100%;
+}
+
+.team-more-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.team-more-title {
+    color: #696969;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.team-more-parent {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
 .contact-about-us-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.team-panel-title {
     color: #CC3E27;
     margin: 5px 0 10px;
 }
@@ -1383,6 +1416,32 @@ header .container {
 .contact-more-parent {
     padding-left: 0;
     padding-right: 5px;
+}
+
+.team-tastes-parent{
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.group-description p {
+    text-align: center;
+    font-size: 16px;
+    margin: 5px 20px;
+}
+
+.team-image {
+    height: auto;
+    width: 125px;
+}
+
+.group-div-descrption {
+    float: right;
+    width: 66%;
+}
+
+.group-div-image {
+    float: left;
+    width: 33%;
 }
 
 #container {

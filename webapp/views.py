@@ -647,3 +647,7 @@ def terms_and_conditions(request):
 
 def contact(request):
     return render(request, 'webapp/contact.html')
+
+
+def about_team(request):
+    return render(request, 'webapp/about_team.html')

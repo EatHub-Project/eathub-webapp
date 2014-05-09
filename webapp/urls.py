@@ -26,4 +26,5 @@ urlpatterns = patterns('',
     url(r'^termsandconditions/$', views.terms_and_conditions, name='terms_and_conditions'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^search/$' , views.search, name='search'),
+    url(r'^about/team$', views.about_team, name='about_team'),
 )
