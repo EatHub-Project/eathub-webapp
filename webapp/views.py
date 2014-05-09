@@ -571,7 +571,7 @@ def comment(request, recipe_id):
 
 
 @login_required
-def banned_comment(request, recipe_id, comment_id):
+def ban_comment(request, recipe_id, comment_id):
     if request.method == 'GET':
         u = request.user
         if u.is_staff:
@@ -582,7 +582,7 @@ def banned_comment(request, recipe_id, comment_id):
 
 
 @login_required
-def unbanned_comment(request, recipe_id, comment_id):
+def unban_comment(request, recipe_id, comment_id):
     if request.method == 'GET':
         u = request.user
         if u.is_staff:

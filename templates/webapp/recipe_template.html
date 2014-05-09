@@ -348,10 +348,10 @@
                                     >{{ comment.text|linebreaks }}</p>
                             {% if user.is_staff %}
                                 {% if comment.is_banned %}
-                                    <a href="{% url 'unbanned' receta.id forloop.counter0 %}"
-                                       class="plus btn btn-default">{% trans "Unbanned Comment" %}</a>
+                                    <a href="{% url 'unban' receta.id forloop.counter0 %}"
+                                       class="plus btn btn-default">{% trans "Unban Comment" %}</a>
                                 {% else %}
-                                    <a href="{% url 'banned' receta.id forloop.counter0 %}"
+                                    <a href="{% url 'ban' receta.id forloop.counter0 %}"
                                        class="plus btn btn-default">{% trans "Ban comment" %}</a>
                                 {% endif %}
                             {% elif comment.user_own == user and comment.is_banned %}
