@@ -153,25 +153,6 @@
     },
     {
         "_id": {
-            "$oid": "535130eab88bbe140cb839e5"
-        },
-        "date_joined": {
-            "$date": "2014-04-18T18:04:26.756+0200"
-        },
-        "email": "jualoppaz@alum.us.es",
-        "first_name": "",
-        "is_active": true,
-        "is_staff": false,
-        "is_superuser": false,
-        "last_login": {
-            "$date": "2014-04-18T18:04:26.756+0200"
-        },
-        "last_name": "",
-        "password": "pbkdf2_sha256$10000$3aXIGUZNLyMp$m/yDVmygIAM8/+NmqfcQUBnLNsB3MvOLdjzNFTKJ2mU=",
-        "username": "prueba"
-    },
-    {
-        "_id": {
             "$oid": "5352390a18085d15c08181ce"
         },
         "date_joined": {
