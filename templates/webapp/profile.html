@@ -303,7 +303,6 @@
             var $follow = $("#btn-follow");
             var $unfollow = $("#btn-unfollow");
             $follow.click(function (e) {
-                //$follow.attr("disabled", true);
                 var data = {"username": '{{ profile.user.username }}'};
 
                 $.ajax({
@@ -312,8 +311,6 @@
                     data: data,
                     dataType: "json",
                     success: function (jqXHR, textStatus, errorThrown) {
-                        //$follow.html("{% trans 'Follow' %}");
-                        //$follow.attr("disabled", true);
 
                         var $error = $("#error-follow");
                         $error.hide();
@@ -323,15 +320,8 @@
 
                         sleep(1000);
 
-                        //Poner el boton para no seguir a alguien tras 1 segundo de espera.
-
                         $follow.hide();
                         $unfollow.show();
-
-                        //$follow.html("{% trans 'Unfollow' %}");
-                        //$follow.attr("disabled", false);
-                        //TODO: cambiar css y cambiar id
-                        //$follow.attr("id", "btn-unfollow");
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         var result = $.parseJSON(jqXHR.responseText);
@@ -349,7 +339,6 @@
             });
 
             $unfollow.click(function (e) {
-                //$unfollow.attr("disabled", true);
                 var data = {"username": '{{ profile.user.username }}'};
                 $.ajax({
                     type: "POST",
@@ -357,8 +346,6 @@
                     data: data,
                     dataType: "json",
                     success: function (jqXHR, textStatus, errorThrown) {
-                        //$unfollow.html("{% trans 'Unfollow' %}");
-                        //$unfollow.attr("disabled", true);
 
                         var $error = $("#error-follow");
                         $error.hide();
@@ -368,15 +355,8 @@
 
                         sleep(1000);
 
-                        //Poner el boton para poder volver a seguir un segundo despues.
-
                         $follow.show();
                         $unfollow.hide();
-
-                        //$unfollow.html("{% trans 'Follow' %}");
-                        //$unfollow.attr("disabled", false);
-                        //TODO: cambiar css y cambiar id
-                        //$unfollow.attr("id", "btn-follow");
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         var result = $.parseJSON(jqXHR.responseText);
