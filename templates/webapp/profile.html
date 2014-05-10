@@ -24,12 +24,18 @@
                         href="{% url 'following' profile.user.username %}">{% trans "Following" %}</a></li>
             </ul>
             <br/>
-            {% if profile.user.id == user.id %}
-                <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
-            {% elif following %}
-                <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
+            {% if user.is_authenticated %}
+                {% if profile.user.id == user.id %}
+                    <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
+                {% elif following %}
+                    <a id="btn-follow" class="btn btn-default btn-block btn-follow" style="display: none;">{% trans "Follow" %}</a>
+                    <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
+                {% else %}
+                    <a id="btn-follow" class="btn btn-default btn-block btn-follow">{% trans "Follow" %}</a>
+                    <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow" style="display: none;">{% trans "Unfollow" %}</a>
+                {% endif %}
             {% else %}
-                <a id="btn-follow" class="btn btn-default btn-block btn-follow">{% trans "Follow" %}</a>
+                <a class="btn btn-default btn-block btn-follow disabled">{% trans "Register to follow " %} {{ profile.display_name }}</a>
             {% endif %}
             <!-- Alert boxes-->
             <div id="error-follow" class="alert alert-dismissable alert-danger alert-follow">
@@ -295,8 +301,9 @@
 
         $().ready(function () {
             var $follow = $("#btn-follow");
+            var $unfollow = $("#btn-unfollow");
             $follow.click(function (e) {
-                $follow.attr("disabled", true);
+                //$follow.attr("disabled", true);
                 var data = {"username": '{{ profile.user.username }}'};
 
                 $.ajax({
@@ -305,14 +312,26 @@
                     data: data,
                     dataType: "json",
                     success: function (jqXHR, textStatus, errorThrown) {
-                        $follow.html("Following");
-                        $follow.attr("disabled", true);
+                        //$follow.html("{% trans 'Follow' %}");
+                        //$follow.attr("disabled", true);
 
                         var $error = $("#error-follow");
                         $error.hide();
 
                         var $ok = $("#ok-follow");
                         $ok.show();
+
+                        sleep(1000);
+
+                        //Poner el boton para no seguir a alguien tras 1 segundo de espera.
+
+                        $follow.hide();
+                        $unfollow.show();
+
+                        //$follow.html("{% trans 'Unfollow' %}");
+                        //$follow.attr("disabled", false);
+                        //TODO: cambiar css y cambiar id
+                        //$follow.attr("id", "btn-unfollow");
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         var result = $.parseJSON(jqXHR.responseText);
@@ -329,9 +348,8 @@
                 })
             });
 
-            var $unfollow = $("#btn-unfollow");
             $unfollow.click(function (e) {
-                $unfollow.attr("disabled", true);
+                //$unfollow.attr("disabled", true);
                 var data = {"username": '{{ profile.user.username }}'};
                 $.ajax({
                     type: "POST",
@@ -339,14 +357,26 @@
                     data: data,
                     dataType: "json",
                     success: function (jqXHR, textStatus, errorThrown) {
-                        $unfollow.html("Unfollowed");
-                        $unfollow.attr("disabled", true);
+                        //$unfollow.html("{% trans 'Unfollow' %}");
+                        //$unfollow.attr("disabled", true);
 
                         var $error = $("#error-follow");
                         $error.hide();
 
                         var $ok = $("#ok-follow");
                         $ok.show();
+
+                        sleep(1000);
+
+                        //Poner el boton para poder volver a seguir un segundo despues.
+
+                        $follow.show();
+                        $unfollow.hide();
+
+                        //$unfollow.html("{% trans 'Follow' %}");
+                        //$unfollow.attr("disabled", false);
+                        //TODO: cambiar css y cambiar id
+                        //$unfollow.attr("id", "btn-follow");
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         var result = $.parseJSON(jqXHR.responseText);
@@ -363,6 +393,15 @@
                 })
             })
         });
+
+        function sleep(milliseconds) {
+          var start = new Date().getTime();
+          for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds){
+              break;
+            }
+          }
+        }
 
         function getCookie(name) {
             var cookieValue = null;
