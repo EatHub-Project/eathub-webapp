@@ -179,6 +179,10 @@ def new_account_done(request, username):
     except User.DoesNotExist:
         raise Http404
 
+    #TODO: esto hay que cambiarlo para que se haga por post, y que muestre un mensaje mas concreto. De momento asi estaria eliminado el bug.
+    if user.is_active:
+        return HttpResponseRedirect(reverse('main'))
+
     ts = time.time()
     now_datetime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
