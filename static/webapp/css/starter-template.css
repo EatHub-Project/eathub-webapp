@@ -1460,7 +1460,7 @@ html, body {
 
 footer {
     background-color: #333333;
-    height: 60px;
+    /*height: 60px;*/
     width: 100%;
     position: absolute;
     bottom: 0;
