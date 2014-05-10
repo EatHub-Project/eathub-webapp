@@ -132,9 +132,10 @@
                 </div>
 
                 <div class="recipe-votes-buttons">
-                    <a id="btn-positive" class="btn btn-default recipe-votes-like-btn"><i
-                            class="fa fa-thumbs-up"></i> {% trans "Like" %}</a>
-                    <a id="btn-negative" class="btn btn-default recipe-votes-like-btn"><i class="fa fa-thumbs-down"></i></a>
+                    <a id="btn-positive" class="btn btn-default recipe-votes-like-btn" {% if not user.is_authenticated %} disabled="disabled" {% endif %}><i
+                            class="fa fa-thumbs-up" ></i> {% trans "Like" %}</a>
+                    <a id="btn-negative" class="btn btn-default recipe-votes-like-btn" {% if not user.is_authenticated %} disabled="disabled" {% endif %}><i
+                            class="fa fa-thumbs-down"></i></a>
                 </div>
             </div>
         </div>
