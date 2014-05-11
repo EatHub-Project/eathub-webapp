@@ -318,8 +318,6 @@
                         var $ok = $("#ok-follow");
                         $ok.show();
 
-                        sleep(1000);
-
                         $follow.hide();
                         $unfollow.show();
                     },
@@ -353,8 +351,6 @@
                         var $ok = $("#ok-follow");
                         $ok.show();
 
-                        sleep(1000);
-
                         $follow.show();
                         $unfollow.hide();
                     },
@@ -373,15 +369,6 @@
                 })
             })
         });
-
-        function sleep(milliseconds) {
-          var start = new Date().getTime();
-          for (var i = 0; i < 1e7; i++) {
-            if ((new Date().getTime() - start) > milliseconds){
-              break;
-            }
-          }
-        }
 
         function getCookie(name) {
             var cookieValue = null;
