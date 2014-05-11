@@ -24,12 +24,18 @@
                         href="{% url 'following' profile.user.username %}">{% trans "Following" %}</a></li>
             </ul>
             <br/>
-            {% if profile.user.id == user.id %}
-                <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
-            {% elif following %}
-                <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
+            {% if user.is_authenticated %}
+                {% if profile.user.id == user.id %}
+                    <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
+                {% elif following %}
+                    <a id="btn-follow" class="btn btn-default btn-block btn-follow" style="display: none;">{% trans "Follow" %}</a>
+                    <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
+                {% else %}
+                    <a id="btn-follow" class="btn btn-default btn-block btn-follow">{% trans "Follow" %}</a>
+                    <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow" style="display: none;">{% trans "Unfollow" %}</a>
+                {% endif %}
             {% else %}
-                <a id="btn-follow" class="btn btn-default btn-block btn-follow">{% trans "Follow" %}</a>
+                <a class="btn btn-default btn-block btn-follow disabled">{% trans "Register to follow " %} {{ profile.display_name }}</a>
             {% endif %}
             <!-- Alert boxes-->
             <div id="error-follow" class="alert alert-dismissable alert-danger alert-follow">
@@ -295,8 +301,8 @@
 
         $().ready(function () {
             var $follow = $("#btn-follow");
+            var $unfollow = $("#btn-unfollow");
             $follow.click(function (e) {
-                $follow.attr("disabled", true);
                 var data = {"username": '{{ profile.user.username }}'};
 
                 $.ajax({
@@ -305,14 +311,15 @@
                     data: data,
                     dataType: "json",
                     success: function (jqXHR, textStatus, errorThrown) {
-                        $follow.html("Following");
-                        $follow.attr("disabled", true);
 
                         var $error = $("#error-follow");
                         $error.hide();
 
                         var $ok = $("#ok-follow");
                         $ok.show();
+
+                        $follow.hide();
+                        $unfollow.show();
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         var result = $.parseJSON(jqXHR.responseText);
@@ -329,9 +336,7 @@
                 })
             });
 
-            var $unfollow = $("#btn-unfollow");
             $unfollow.click(function (e) {
-                $unfollow.attr("disabled", true);
                 var data = {"username": '{{ profile.user.username }}'};
                 $.ajax({
                     type: "POST",
@@ -339,14 +344,15 @@
                     data: data,
                     dataType: "json",
                     success: function (jqXHR, textStatus, errorThrown) {
-                        $unfollow.html("Unfollowed");
-                        $unfollow.attr("disabled", true);
 
                         var $error = $("#error-follow");
                         $error.hide();
 
                         var $ok = $("#ok-follow");
                         $ok.show();
+
+                        $follow.show();
+                        $unfollow.hide();
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         var result = $.parseJSON(jqXHR.responseText);
