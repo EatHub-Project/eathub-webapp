@@ -1315,28 +1315,23 @@ header .container {
     text-align: center;
 }
 
+.panel-goals-container{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.panel-goals {
+    /*margin: 3px*/
+}
+
 .goals-title {
-    max-height: 120px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin-bottom: 20px;
     color: #CC3E27;
-    font-size: 3em;
-}
-
-.goals-main-title {
-    color: #CC3E27;
-    font-size: 48px;
-    margin: 5px 0 10px;
-}
-
-.goals-panel-title {
-    color: #CC3E27;
-    margin: 5px 0 10px;
+    margin-top: 5px;
 }
 
 .goals-thumbnail {
     text-align: center;
+    width: 100%;
+    height: auto;
 }
 
 .goals-content-title {
@@ -1344,25 +1339,11 @@ header .container {
     margin: 5px 0 10px;
 }
 
-.goals-description p {
+p.goals-description  {
     font-size: 16px;
-    margin: 5px 20px;
-}
-
-.goals-text-soft {
-    margin-right: 20px;
-    padding-right: 20px;
     text-align: justify;
-    word-wrap: break-word;
-    color: #5a5a5a;
 }
 
-.goals-jumbotron{
-    padding:30px;
-    margin-bottom:30px;
-    color:inherit;
-    background-color:#fff
-}
 
 #container {
     position: relative;
