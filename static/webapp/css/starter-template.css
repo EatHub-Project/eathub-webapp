@@ -90,10 +90,23 @@ header .container {
     border-color: #cc3e27;
 }
 
+.plus-bar {
+    margin: 8px;
+    color: #fff;
+    background-color: #a23422;
+    border-color: #b65252;
+}
+
 .plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
     color: #cc3e27;
     background-color: #fff;
     border-color: #cc3e27;
+}
+
+.plus-bar.btn.btn-default:hover, .plus-bar.btn.btn-default:focus, .plus-bar.btn.btn-default:active {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .divider-vertical {
@@ -112,10 +125,26 @@ header .container {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+.input-group-btn-red > .btn {
+    background-color: #a23422;
+    color: #fff;
+    border-left-width: 0;
+    left: -2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    border-color: #b65252;
+}
+
 .input-group-btn > .btn:hover {
     color: #CC3E27;
     background-color: #fff;
     border-color: #D66552;
+}
+
+.input-group-btn-red > .btn:hover {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #b65252;
 }
 
 .input-group .form-control:focus {
@@ -1487,4 +1516,49 @@ footer {
 .password-recovery-image{
     height: inherit;
     width: inherit;
+}
+
+.navbar-red {
+    background-color: #cc3e27 !important;
+    box-shadow: 2px 2px 5px #999 !important;
+}
+
+.navbar-nav>li>a{
+    color: #fff !important;
+}
+
+.navbar-nav>.active>a{
+    font-weight: bold !important;
+}
+
+.text-white{
+    color: #fff !important;
+}
+
+.btn-eathub-red {
+    color: #fff;
+    background-color: #a23422;
+    border-color: #b65252;
+}
+
+.btn-eathub-red.btn.btn-default:hover, .btn-eathub-red.btn.btn-default:focus, .btn-eathub-red.btn.btn-default:active {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
+}
+
+.btn-eathub-inverted-red {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
+}
+
+.btn-eathub-inverted-red.btn.btn-default:hover, .btn-eathub-inverted-red.btn.btn-default:focus, .btn-eathub-inverted-red.btn.btn-default:active {
+    color: #fff;
+    background-color: #a23422;
+    border-color: #b65252;
+}
+
+.navbar .btn-eathub-red, .navbar .btn-eathub-inverted-red {
+    margin: 8px;
 }
