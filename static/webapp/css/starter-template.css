@@ -1357,6 +1357,13 @@ header .container {
     color: #5a5a5a;
 }
 
+.goals-jumbotron{
+    padding:30px;
+    margin-bottom:30px;
+    color:inherit;
+    background-color:#fff
+}
+
 #container {
     position: relative;
     min-height: 100%;
