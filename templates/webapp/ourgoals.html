@@ -8,25 +8,53 @@
  </STYLE>
 
 {% block container %}
-    <div class="panel panel-default">
-        <div class="container demo">
-            <div class="panel-body" id="goals">
-                <h1 class="goals-title">{% trans "Our goals" %}</h1>
-                <p class="goals-text-soft">{% trans "The strategy of the company is going to be the differentiation by the developing of a product completely new in web sector, with the intention of becoming a reference  in the kitchen-related social networks." %}
-                    {% trans "There are a lot of recipes sites on the internet, most of them are blogs and there can be found a few of social networks. EatHub is framed in the second group, but making a difference between the rest and itself: the feature that makes EatHub special is also the base of the business model, the integration of a grocery list linked to online supermarkets. With this, a user can fill his “shopping cart” and then, buy it instead printing the list and going to a supermarket. This feature will also be a funding source by making economic agreements with supermarkets in order to use their services or promoting them." %}
-                    {% trans "The second funding source is the use of personalized ads. Ads will be displayed in function of the product shown.We want to implement this type of personalized advertising as we believe that is innovative in such service and we will obtain more incomes than using any other advertising service. An example would be:" %}</p>
-                <br>
-                <div align="center">
-                    <img src="{% static 'webapp/image/ad_example.png'  %}"> </img>
-                </div>
-                <br>
-                <p class="goals-text-soft">{%  trans "The last difference is that the application provides users with a ‘DNA’ the can edit. It is used as an affinity system and is modified every time they use the application. Users can watch a recipe as if they were another friend in order to know if this meal would like to him." %}
+    <div class="container">
+    <div class="panel panel-body row goals-description">
+        <div class="col-md-12 column">
+            <div class="jumbotron">
+                <h2 class="goals-main-title">What is EatHub?</h2>
+                <p>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
                 </p>
 
-
+            </div>
+        </div>
     </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h2 class="goals-panel-title">Create</h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <div class="goals-thumbnail">
+                </p><img alt="140x140" src="http://lorempixel.com/140/140/" class="img-rounded" />
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <h2 class="goals-panel-title">Improve</h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <div class="goals-thumbnail">
+                </p><img alt="140x140" src="http://lorempixel.com/140/140/" class="img-rounded" />
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <h2 class="goals-panel-title">Follow</h2>
+            <p>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            </p>
+            <div class="goals-thumbnail">
+                </p><img alt="140x140" src="http://lorempixel.com/140/140/" class="img-rounded" />
+            </div>
+        </div>
     </div>
+    <br>
+    <div class="panel panel-body row goals-description">
+        <h3 class="goals-panel-title">Affinity System</h3>
+        <p class="text-soft"> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.  </p>
     </div>
+</div>
 
 {% endblock %}
 

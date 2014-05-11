@@ -1324,9 +1324,29 @@ header .container {
     font-size: 3em;
 }
 
+.goals-main-title {
+    color: #CC3E27;
+    font-size: 48px;
+    margin: 5px 0 10px;
+}
+
+.goals-panel-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
+
+.goals-thumbnail {
+    text-align: center;
+}
+
 .goals-content-title {
     color: #CC3E27;
     margin: 5px 0 10px;
+}
+
+.goals-description p {
+    font-size: 16px;
+    margin: 5px 20px;
 }
 
 .goals-text-soft {
