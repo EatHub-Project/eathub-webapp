@@ -93,8 +93,8 @@ header .container {
 .plus-bar {
     margin: 8px;
     color: #fff;
-    background-color: #a23422;
-    border-color: #b65252;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
@@ -105,8 +105,8 @@ header .container {
 
 .plus-bar.btn.btn-default:hover, .plus-bar.btn.btn-default:focus, .plus-bar.btn.btn-default:active {
     color: #fff;
-    background-color: #cc3e27;
-    border-color: #a23422;
+    background-color: #a23422;
+    border-color: #b65252;
 }
 
 .divider-vertical {
@@ -126,13 +126,14 @@ header .container {
 }
 
 .input-group-btn-red > .btn {
-    background-color: #a23422;
     color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
     border-left-width: 0;
     left: -2px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    border-color: #b65252;
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);*/
+
 }
 
 .input-group-btn > .btn:hover {
@@ -142,8 +143,8 @@ header .container {
 }
 
 .input-group-btn-red > .btn:hover {
+    background-color: #a23422;
     color: #fff;
-    background-color: #cc3e27;
     border-color: #b65252;
 }
 
@@ -486,7 +487,7 @@ header .container {
 }
 
 .border-search {
-    border-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .border-default {
@@ -499,6 +500,10 @@ header .container {
 
 .border-white {
     border-color: #fff !important;
+}
+
+.border-rect-red{
+     border-radius: 2px !important;
 }
 
 .thumbnail, .panel, .btn, .border-rect, .badge, .progress {
@@ -1537,26 +1542,27 @@ footer {
 
 .btn-eathub-red {
     color: #fff;
-    background-color: #a23422;
-    border-color: #b65252;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .btn-eathub-red.btn.btn-default:hover, .btn-eathub-red.btn.btn-default:focus, .btn-eathub-red.btn.btn-default:active {
     color: #fff;
-    background-color: #cc3e27;
-    border-color: #a23422;
+    background-color: #a23422;
+    border-color: #b65252;
 }
 
 .btn-eathub-inverted-red {
     color: #fff;
-    background-color: #cc3e27;
-    border-color: #a23422;
+    background-color: #a23422;
+    border-color: #b65252;
+
 }
 
 .btn-eathub-inverted-red.btn.btn-default:hover, .btn-eathub-inverted-red.btn.btn-default:focus, .btn-eathub-inverted-red.btn.btn-default:active {
     color: #fff;
-    background-color: #a23422;
-    border-color: #b65252;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .navbar .btn-eathub-red, .navbar .btn-eathub-inverted-red {
