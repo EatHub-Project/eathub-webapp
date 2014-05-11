@@ -69,7 +69,7 @@ class FollowingSerializer(serializers.Serializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     avatar = FullImageField()
-    #tastes = SavoursSerializer()
+    tastes = SavoursSerializer()
     following = FollowingSerializer(many=True)
 
     class Meta:
@@ -78,7 +78,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer()
+    profile = ProfileSerializer(source='profile.get')
 
     class Meta:
         model = User
