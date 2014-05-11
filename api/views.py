@@ -35,6 +35,7 @@ def resize(request, url, width, height, quality, cached):
         if cached == "cached":
             return HttpResponseRedirect(im.url)
         else:
+            # Nota: no funciona si se usa como almacenamiento Amazon S3.
             uri = "." + im.url
             with open(uri, "rb") as f:
                 return HttpResponse(f.read(), mimetype="image/jpeg")

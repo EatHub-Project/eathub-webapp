@@ -150,6 +150,15 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
 )
 
+# Via http://djangotricks.blogspot.com.es/2013/12/how-to-store-your-media-files-in-amazon.html
+AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY')  # enter your access key id
+AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')  # enter your secret access key
+if AWS_S3_ACCESS_KEY_ID and AWS_S3_SECRET_ACCESS_KEY:
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    AWS_S3_SECURE_URLS = False  # use http instead of https
+    AWS_QUERYSTRING_AUTH = False  # don't add complex authentication-related query parameters for requests
+    AWS_STORAGE_BUCKET_NAME = 'eathub'
+
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
