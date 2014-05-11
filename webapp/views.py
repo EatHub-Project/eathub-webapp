@@ -41,8 +41,8 @@ def main(request):
     recipes = Recipe.objects.all().order_by('-creation_date')
     return render(request, 'webapp/main.html', {'recipes': recipes[:9]})
 
-def our_goals(request):
-        return render(request, 'webapp/ourgoals.html')
+def about(request):
+        return render(request, 'webapp/about.html')
 
 def new_account(request):
     if request.user.is_authenticated():

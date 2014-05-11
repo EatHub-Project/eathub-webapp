@@ -1315,31 +1315,31 @@ header .container {
     text-align: center;
 }
 
-.panel-goals-container{
+.panel-about-container{
     padding-left: 5px;
     padding-right: 5px;
 }
-.panel-goals {
+.panel-about {
     /*margin: 3px*/
 }
 
-.goals-title {
+.about-title {
     color: #CC3E27;
     margin-top: 5px;
 }
 
-.goals-thumbnail {
+.about-thumbnail {
     text-align: center;
     width: 100%;
     height: auto;
 }
 
-.goals-content-title {
+.about-content-title {
     color: #CC3E27;
     margin: 5px 0 10px;
 }
 
-p.goals-description  {
+p.about-description  {
     font-size: 16px;
     text-align: justify;
 }
