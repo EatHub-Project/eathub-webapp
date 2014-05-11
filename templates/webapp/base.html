@@ -49,7 +49,7 @@
                         <li><a class="" href="#">{% trans "Recipes" %}</a></li>
                         <li><a class="" href="#">{% trans "Explore" %}</a></li>
                         <li><div class="input-group navbar-input-group">
-                        <form class="navbar-form navbar-left" role="search" method="post" action="{% url 'search' %}">
+                        <form class="navbar-form navbar-left hidden-xs hidden-sm" role="search" method="post" action="{% url 'search' %}">
                             {% csrf_token %}
                             <div class="form-group">
                             <input type="text" class="form-control border-search border-rect" placeholder="Search..."
@@ -64,14 +64,14 @@
                         </form>
                     </div>
                     <!-- Button trigger modal -->
-                    <button class="plus btn btn-default" data-toggle="modal" data-target="#modalFeedback">
+                    <button class="plus btn btn-default hidden-xs hidden-sm" data-toggle="modal" data-target="#modalFeedback">
                         <i class="fa fa-comment"></i> Feedback
                     </button></li>
                     </ul>
 
 
 
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
                         {% if user.is_authenticated %}
                             <li><p class="navbar-text text-red">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
                             </li>

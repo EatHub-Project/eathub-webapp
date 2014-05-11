@@ -5,6 +5,33 @@
 {% block container %}
 
     <div class="row">
+
+        <div class="col-md-12 hidden-md hidden-lg">
+        <div class="panel panel-default panel-body text-center">
+            {% if user.is_authenticated %}
+                <div class="col-md-12 col-xs-12 hidden-md hidden-lg"><h2 class="navbar-text text-red text-center">{% trans "Hello" %}, {{ user.profile.get.display_name }}</h2></div>
+                <div class="col-md-4 col-xs-4 hidden-md hidden-lg"><a href="{% url 'profile' user.username %}">{% trans "Profile" %}</a></div>
+                <div class="col-md-4 col-xs-4 hidden-md hidden-lg"><a href="">Settings</a></div>
+                <div class="col-md-4 col-xs-4 hidden-md hidden-lg"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></div>
+
+                <br />
+
+                <div class="col-md-12 col-xs-12 hidden-md hidden-lg">
+                    <a type="button" class="plus btn btn-default" href="{% url 'newrecipe' %}">
+                        <span class="glyphicon glyphicon-plus"></span>{% trans "Add recipe" %}
+                    </a>
+                </div>
+            {% else %}
+                <br />
+
+                <div class="col-md-6 col-xs-6 hidden-md hidden-lg"><a class="btn btn-default btn-eathub" href="{% url 'login' %}"
+                   role="button">{% trans "Sign in" %}</a></div>
+                <div class="col-md-6 col-xs-6 hidden-md hidden-lg"><a class="btn btn-default btn-eathub-inverted"
+                   href="{% url 'newaccount' %}">{% trans "Create account" %}</a></div>
+            {% endif %}
+        </div>
+        </div>
+
         {% for recipe in recipes %}
             <div class="col-sm-6 col-md-4">
                 <div class="panel panel-body main-card">
