@@ -1328,10 +1328,15 @@ header .container {
     margin-top: 5px;
 }
 
-.about-thumbnail {
+.about-thumbnail  {
+    margin-top: 50px;
     text-align: center;
-    width: 100%;
-    height: auto;
+}
+
+.about-thumbnail i {
+    color: #CC3E27;
+    font-size: 1000%;
+    opacity: 0.8;
 }
 
 .about-content-title {

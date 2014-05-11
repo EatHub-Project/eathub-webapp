@@ -21,7 +21,10 @@
                         {% trans "En EatHub podr&aacute;s crear sus propias recetas y compartirlas con sus amigos. Explora comidas de otros usuarios, varíalas con tus propios gustos, ingredientes y métodos." %}
                     </p>
 
-                    <img src="{% static 'webapp/image/ourGoalsCreate.jpg' %}" class="img-rounded about-thumbnail"/>
+                    <div class="about-thumbnail">
+                        <i class="fa fa-edit"></i>
+                    </div>
+
                 </div>
             </div>
 
@@ -35,7 +38,9 @@
                         {% trans "Si le gusta alguna receta pero quiere añadir algún ingrediente o algún paso tiene la opción de mejorarla. De este modo se crear&aacute; un árbol genealógico de recetas en el que figurar&aacute; la jerarqu&iacute;a de las mismas." %}
                     </p>
 
-                    <img src="{% static 'webapp/image/ourGoalsImprove.jpg' %}" class="img-rounded about-thumbnail"/>
+                    <div class="about-thumbnail">
+                        <i class="fa fa-code-fork"></i>
+                    </div>
                 </div>
             </div>
 
@@ -48,7 +53,9 @@
                         {% trans "Los usuarios tienen su propio perfil, através del cual otros usuarios pueden ver tus recetas y actividad. Puedes seguir a otros usuarios para estar al día de su actividad." %}
                     </p>
 
-                    <img src="{% static 'webapp/image/ourGoalsFollow.jpg' %}" class="img-rounded about-thumbnail"/>
+                    <div class="about-thumbnail">
+                        <i class="fa fa-group"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +66,6 @@
             <p class="text-soft about-description">
                 {% trans "En su perfil podr&aacute; indicar sus sabores preferidos. Con dichos sabores le podremos recomendar multitud de recetas con par&aacute;metros similares." %}
             </p>
-
         </div>
     </div>
 {% endblock %}
@@ -96,4 +102,4 @@
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
         }
     </script>
-{% endblock %}
+    </div>{% endblock %}
