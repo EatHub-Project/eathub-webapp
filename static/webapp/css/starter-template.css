@@ -12,6 +12,7 @@ body {
 .navbar-logo {
     width: 50px;
     height: 41px;
+    padding: 2px;
 }
 
 .navbar .container .navbar-brand {
@@ -46,6 +47,7 @@ header .container {
 .profile-image img {
     width: 40px;
     height: 40px;
+    background-color: white;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
