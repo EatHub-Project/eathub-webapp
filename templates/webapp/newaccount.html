@@ -110,17 +110,6 @@
     <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    {% comment %}TODO: poner cada error en su campo {% endcomment %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">{{ error|escape }}</div>
-        {% endfor %}
-    {% endfor %}
-
-
-    {{ form.errors }}
-
-    {{ form.non_field_errors }}
 
     <legend>{% trans "Account information" %}</legend>
     <fieldset class="panel-body">
@@ -142,7 +131,15 @@
                        name="{{ form.username.name }}" id="id_{{ form.username.name }}"
                        value="{{ form.username.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.username.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.username.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
 
@@ -156,7 +153,15 @@
                        name="{{ form.email.name }}" id="id_{{ form.email.name }}"
                        value="{{ form.email.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.email.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.email.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
         <!-- Password -->
@@ -170,7 +175,15 @@
                        name="{{ form.password.name }}" id="id_{{ form.password.name }}"
                        value="{{ form.password.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.password.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.password.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
         <!-- Password repeat -->
@@ -184,7 +197,15 @@
                        name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password_repeat.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.password_repeat.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.password_repeat.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
     </fieldset>
 
