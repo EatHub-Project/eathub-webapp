@@ -3,5 +3,17 @@
 {% load i18n %}
 
 {% block container %}
-    500 error page!
+        <div class="panel col-md-8 col-md-offset-2 panel-body">
+        <!-- Image -->
+        <div id="image" class="col-md-4 password-recovery-image-div">
+            <img src="{% static 'webapp/image/logo_key_shaped.png' %}" class="password-recovery-image">
+	    </div>
+
+        <!-- Message -->
+        <div id="message" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
+            <strong>{% trans "500 error: server error"%}</strong> <br>
+            {% trans "Sorry! The server has suffered an error and couldn't serve your query" %}
+        </div>
+
+        </div>
 {% endblock %}
