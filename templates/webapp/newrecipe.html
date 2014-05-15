@@ -252,14 +252,15 @@
                     </div>
                 </div>
             </div>
-            {% if form.main_picture_id.errors %}
-                <span class="alert alert-danger">
+        </div>
+        {% if form.main_picture_id.errors %}
+            <div class="alert alert-danger">
                 {% for error in form.main_picture_id.errors %}
                     {{ error|escape }}
                 {% endfor %}
-            </span>
+            </div>
+            <br>
         {% endif %}
-        </div>
 
         <!-- Gallery -->
         {% if form.pictures_ids_json %}
@@ -303,11 +304,11 @@
                         >{{ form.description.value | default_if_none:'' }}</textarea>
             </div>
             {% if form.description.errors %}
-            <span class="alert alert-danger">
+            <div class="alert alert-danger">
                 {% for error in form.description.errors %}
                     {{ error|escape }}
                 {% endfor %}
-            </span>
+            </div>
         {% endif %}
         </div>
     </fieldset>
@@ -371,11 +372,11 @@
                     </div>
                 </div>
                 {% if form.ingredients_json.errors %}
-                    <span class="alert alert-danger">
+                    <div class="alert alert-danger">
                         {% for error in form.ingredients_json.errors %}
                             {{ error|escape }}
                         {% endfor %}
-                    </span>
+                    </div>
                 {% endif %}
             </div>
         </div>
@@ -460,11 +461,11 @@
                 </div>
                 {% comment %}TODO: colocar mejor el mensaje de error{% endcomment %}
                 {% if form.steps_json.errors %}
-                        <span class="alert alert-danger">
+                    <div class="alert alert-danger">
                         {% for error in form.steps_json.errors %}
                             {{ error|escape }}
                         {% endfor %}
-                    </span>
+                    </div>
                 {% endif %}
             </div>
         </div>
@@ -529,11 +530,11 @@
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
                         {% if form.prep_time.errors %}
-                            <span class="alert alert-danger">
+                            <div class="alert alert-danger">
                                 {% for error in form.prep_time.errors %}
                                     {{ error|escape }}
                                 {% endfor %}
-                            </span>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -552,16 +553,17 @@
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
                     </div>
-                    {% if form.cook_time.errors %}
-                        <span class="alert alert-danger">
+                </div>
+                {% if form.cook_time.errors %}
+                        <div class="alert alert-danger">
                             {% for error in form.cook_time.errors %}
                                 {{ error|escape }}
                             {% endfor %}
-                        </span>
+                        </div>
                     {% endif %}
-                </div>
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-sm-6">
