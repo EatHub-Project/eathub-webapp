@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-15 17:53+0200\n"
+"POT-Creation-Date: 2014-05-16 08:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgid ""
 "You -- or someone pretending to be you -- has requested a password reset on %"
 "(domain)s."
 msgstr ""
-"Tu -- o alguien haciéndose pasar por tí -- ha pedido resetear la contraseña "
+"Tú -- o alguien haciéndose pasar por tí -- ha pedido resetear la contraseña "
 "en %(domain)s."
 
 #: .\templates\password_reset\recovery_email.txt.py:5
@@ -64,7 +64,7 @@ msgid ""
 "If you don't want to reset your password, simply ignore this email and it "
 "will stay unchanged."
 msgstr ""
-"So no quieres resetear tu contraseña, simplemente ignora este email y no "
+"Si no quieres resetear tu contraseña, simplemente ignora este email y no "
 "será cambiada"
 
 #: .\templates\password_reset\recovery_email_subject.txt.py:1
@@ -86,7 +86,7 @@ msgstr "Nombre de usuario"
 
 #: .\templates\password_reset\recovery_form.html.py:18
 msgid "Recover my password"
-msgstr "Repítela"
+msgstr "Recuperar mi contraseña"
 
 #: .\templates\password_reset\reset.html.py:11
 #, python-format
@@ -94,11 +94,15 @@ msgid ""
 "Sorry, this password reset link is invalid. You can still <a href=\"%"
 "(recovery_url)s\">request a new one</a>."
 msgstr ""
+"Lo sentimos pero este link es inválido. Aún puedes <a href=\"%(recovery_url)s"
+"\">pedir una nueva contraseña</a>."
 
 #: .\templates\password_reset\reset.html.py:14
 #, python-format
 msgid "Hi, <strong>%(username)s</strong>. Please choose your new password."
 msgstr ""
+"Hola, <strong>%(username)s</strong>. Por favor, selecciona tu nueva "
+"contraseña"
 
 #: .\templates\password_reset\reset.html.py:22
 msgid "Password:"
@@ -110,7 +114,7 @@ msgstr "Repítela"
 
 #: .\templates\password_reset\reset.html.py:47
 msgid "Set new password"
-msgstr "Repítela"
+msgstr "Modificar mi contraseña"
 
 #: .\templates\password_reset\reset_sent.html.py:9
 #, python-format
@@ -118,6 +122,8 @@ msgid ""
 "An email was sent to <strong>%(email)s</strong> %(ago)s ago. Use the link in "
 "it to set a new password."
 msgstr ""
+"Se ha enviado un email a <strong>%(email)s</strong> hace %(ago)s. Usa el link "
+"provisto para cambiar tu contraseña"
 
 #: .\templates\webapp\about_team.html.py:13
 msgid ""
@@ -340,7 +346,7 @@ msgstr ""
 
 #: .\templates\webapp\login.html.py:43
 msgid "Username and password don't match."
-msgstr "Las contraseñas no coinciden"
+msgstr "Usuario o contraseña erróneos"
 
 #: .\templates\webapp\login.html.py:46
 msgid "You need to be logged-in to view this page."
@@ -431,7 +437,7 @@ msgstr "Idioma preferente"
 
 #: .\templates\webapp\newaccount.html.py:235
 msgid "Additional Language"
-msgstr "Notas adicionales"
+msgstr "Idioma adicional"
 
 #: .\templates\webapp\newaccount.html.py:257
 #: .\templates\webapp\profile.html.py:148

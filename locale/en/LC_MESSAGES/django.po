@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-15 17:53+0200\n"
+"POT-Creation-Date: 2014-05-16 08:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 #: .\templates\email\activation_email.txt.py:3
 #, python-format
 msgid "Hola %(username)s,"
-msgstr ""
+msgstr "Hello %(username)s,"
 
 #: .\templates\email\activation_email.txt.py:6
 msgid "Bienvenido a Eathub! Para activar su cuenta acceda a la siguiente url:"
-msgstr ""
+msgstr "Welcome to Eathub! To activate your account use this link:"
 
 #: .\templates\email\activation_email_subject.txt.py:1
 msgid "Activa tu cuenta de EatHub"
-msgstr ""
+msgstr "Activate your Eathub account"
 
 #: .\templates\password_reset\recovery_done.html.py:9
 msgid ""
