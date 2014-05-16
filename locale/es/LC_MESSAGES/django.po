@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-16 08:17+0200\n"
+"POT-Creation-Date: 2014-05-16 08:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,8 +122,8 @@ msgid ""
 "An email was sent to <strong>%(email)s</strong> %(ago)s ago. Use the link in "
 "it to set a new password."
 msgstr ""
-"Se ha enviado un email a <strong>%(email)s</strong> hace %(ago)s. Usa el link "
-"provisto para cambiar tu contraseña"
+"Se ha enviado un email a <strong>%(email)s</strong> hace %(ago)s. Usa el "
+"link provisto para cambiar tu contraseña"
 
 #: .\templates\webapp\about_team.html.py:13
 msgid ""
@@ -375,6 +375,10 @@ msgstr "Crea una cuenta"
 msgid "Forgot your password?"
 msgstr "¿Olvidaste tu contraseña?"
 
+#: .\templates\webapp\login.html.py:77
+msgid "Use any social network account"
+msgstr "Usa tu cuenta de alguna de las siguiente redes sociales"
+
 #: .\templates\webapp\logo.html.py:9
 msgid "This is a provisional starting page"
 msgstr "Esta es una página de inicio provisional"
@@ -437,7 +441,7 @@ msgstr "Idioma preferente"
 
 #: .\templates\webapp\newaccount.html.py:235
 msgid "Additional Language"
-msgstr "Idioma adicional"
+msgstr "Idioma(s) adicional(es)"
 
 #: .\templates\webapp\newaccount.html.py:257
 #: .\templates\webapp\profile.html.py:148
