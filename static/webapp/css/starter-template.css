@@ -1488,3 +1488,13 @@ footer {
     height: inherit;
     width: inherit;
 }
+
+.termsandcond {
+    color: #cc3e27;
+    font-weight: bold;
+}
+
+.termsandcond:hover {
+    color: #cc3e27;
+    font-weight: bold;
+}
