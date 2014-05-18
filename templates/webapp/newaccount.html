@@ -89,6 +89,16 @@
             }
             return cookieValue;
         }
+        function checkTermsAndConds(){
+            var check = $("#terms_conds").is(":checked");
+            if(!check){
+                //TODO: cuando se integre los errores del formulario en su sitio, pondre el error en su sitio.
+                //Momentaneamente pondre un windows alert.
+                alert("Por favor, acepte los terminos y condiciones.");
+                //Internacionalizar el mensaje tras añadir etiqueta trans cuando se haga bien.
+                return false;
+            }
+        }
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -107,7 +117,7 @@
 <div class="panel-body">
     <h1>{{ title }}</h1>
 
-    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
+    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return checkTermsAndConds();">
     {% csrf_token %}
 
     {% comment %}TODO: poner cada error en su campo {% endcomment %}
@@ -403,7 +413,7 @@
 
     <div class="checkbox">
         <label>
-            <input type="checkbox"> {% trans "I have read and I accept " %} <a class="termsandcond" href="{% url 'terms_and_conditions' %}"> {% trans "the terms and conditions" %} </a>
+            <input id="terms_conds" type="checkbox"> {% trans "I have read and I accept " %} <a class="termsandcond" href="{% url 'terms_and_conditions' %}"> {% trans "the terms and conditions" %} </a>
         </label>
     </div>
 
