@@ -181,17 +181,18 @@ class SearchRecipeForm(forms.Form):
     DIFFICULT = [(1, _("Easy")), (2, _("Medium")), (3, _("Hard"))]
 
     serves = forms.CharField(max_length=50, required=False)
+    srchterm = forms.CharField(max_length=100, required=False)
     language = forms.ChoiceField(required=False)
     temporality = forms.MultipleChoiceField(required=False)
     special_conditions = forms.MultipleChoiceField(required=False)
     difficult = forms.ChoiceField(choices=DIFFICULT, required=False)
     food_type = forms.ChoiceField(required=False)
 
-    salty = forms.CharField(required=False)
-    sour = forms.CharField(required=False)
-    bitter = forms.CharField(required=False)
-    sweet = forms.CharField(required=False)
-    spicy = forms.CharField(required=False)
+    salty = forms.CharField(required=False,initial="0,99")
+    sour = forms.CharField(required=False,initial="0,99")
+    bitter = forms.CharField(required=False,initial="0,99")
+    sweet = forms.CharField(required=False,initial="0,99")
+    spicy = forms.CharField(required=False,initial="0,99")
 
     def __init__(self, *args, **kwargs):
         super(SearchRecipeForm, self).__init__(*args, **kwargs)

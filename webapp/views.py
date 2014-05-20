@@ -44,52 +44,55 @@ import hashlib
 from pymongo import *
 
 def search_recipe(request):
+    results_recipes = dict()
     if request.method == 'GET':
-        terms = request.GET['srchterm']
-        client = MongoClient()
-
-        query = {"$text": {"$search" : terms}}
-
-        results_recipes = Recipe.objects.raw_query(query)
-        form = SearchRecipeForm()
-
-        return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
-    elif request.method == 'POST':
-        terms = request.GET['srchterm']
-        form = SearchRecipeForm(request.POST)
+        form = SearchRecipeForm(request.GET)
         if form.is_valid():
             data = form.cleaned_data
-
-            bitter = { "$lte": int(data['bitter'].split(',')[1]), "$gte": int(data['bitter'].split(',')[0])}
-            salty = { "$lte": int(data['salty'].split(',')[1]), "$gte": int(data['salty'].split(',')[0])}
-            sour = { "$lte": int(data['sour'].split(',')[1]), "$gte": int(data['sour'].split(',')[0])}
-            sweet = { "$lte": int(data['sweet'].split(',')[1]), "$gte": int(data['sweet'].split(',')[0])}
-            spicy = { "$lte": int(data['spicy'].split(',')[1]), "$gte": int(data['spicy'].split(',')[0])}
-
-            query = {"$text": {"$search" : terms}, "savours.bitter" : bitter, "savours.salty" : salty, "savours.sour" : sour, "savours.sweet" : sweet, "savours.spicy" : spicy }
-
-            if len(data['special_conditions'])!=0:
-                special=list()
-                for sp in data['special_conditions']:
-                    special.append({"special_conditions": sp})
-                query["$or"]=special
-            if len(data['temporality'])!=0:
-                temporal=list()
-                for sp in data['temporality']:
-                    temporal.append({"temporality": sp})
-                query["$or"]=temporal
+            query=dict()
+            queryFullText = ""
+            if data['bitter']!="":
+                bitter = { "$lte": int(data['bitter'].split(',')[1]), "$gte": int(data['bitter'].split(',')[0])}
+                query["savours.bitter"]=bitter
+            if data['salty']!="":
+                salty = { "$lte": int(data['salty'].split(',')[1]), "$gte": int(data['salty'].split(',')[0])}
+                query["savours.salty"]=salty
+            if data['sour']!="":
+                sour = { "$lte": int(data['sour'].split(',')[1]), "$gte": int(data['sour'].split(',')[0])}
+                query["savours.sour"]=sour
+            if data['sweet']!="":
+                sweet = { "$lte": int(data['sweet'].split(',')[1]), "$gte": int(data['sweet'].split(',')[0])}
+                query["savours.sweet"]=sweet
+            if data['spicy']!="":
+                spicy = { "$lte": int(data['spicy'].split(',')[1]), "$gte": int(data['spicy'].split(',')[0])}
+                query["savours.spicy"]=spicy
             if data['difficult']!="":
                 query["difficult"]=data['difficult']
             if data['language']!="":
                 query["language"] = data['language']
             if data['food_type']!="":
                 query["food_type"] = data['food_type']
+            if data['srchterm']!="":
+                queryFullText= queryFullText + data['srchterm']
+            if len(data['special_conditions'])!=0:
+                special=list()
+                for sp in data['special_conditions']:
+                    special.append(sp)
+                queryFullText = queryFullText + " ".join(special)
 
+            if queryFullText!="":
+                query["$text"] = {"$search" : queryFullText}
+
+            if len(data['temporality'])!=0:
+                temporal=list()
+                for sp in data['temporality']:
+                    temporal.append({"temporality": sp})
+                query["$or"] = temporal
             #"$or": [{"language": "spanish"},{"language": "english"}],
 
             results_recipes = Recipe.objects.raw_query(query)
 
-            return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
+    return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
 
 
 def search_profile(request, terms):

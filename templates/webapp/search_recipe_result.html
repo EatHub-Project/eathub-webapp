@@ -27,9 +27,20 @@
     <div class="panel panel-default">
     <div id="collapseTwo" class="panel-collapse collapse">
     <div class="panel-body">
-    <form role="form well well-lg" class="form-horizontal" id="search-form" method="post"
+    <form role="form well well-lg" class="form-horizontal" id="search-form" method="get"
           action="">
     <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"
+                       for="id_{{ form.srchterm.name }}">{% trans "Search" %}</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="{{ form.srchterm.name }}"
+                            id="id_{{ form.srchterm.name }}" value="{{ form.srchterm.value }}"/>
+                </div>
+            </div>
+        </div>
         <div class="col-sm-6">
             <div class="form-group">
                 <label class="col-sm-4 control-label"
