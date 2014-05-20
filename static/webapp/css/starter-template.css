@@ -1488,3 +1488,14 @@ footer {
     height: inherit;
     width: inherit;
 }
+
+.error-page-icon{
+    height: 106px;
+    width: 128px;
+
+    /* Using margin to fulfill the 200x200 px space*/
+    margin-right: 52px;
+    margin-left: 52px;
+    margin-top: 41px;
+    margin-bottom: 41px;
+}
