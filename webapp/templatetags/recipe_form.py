@@ -1,7 +1,9 @@
+import django
 from ajax.models import UploadedImage
 from django import template
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import DatabaseError
+from webapp.models import Food_Type, Special_Condition, Temporality
 
 register = template.Library()
 
@@ -11,7 +13,20 @@ def step_picture(context, form, token):
     context['stepimageid']=value
     return value
 
+@register.simple_tag
+def translate_food_type(food_type):
+    lang=django.utils.translation.get_language().split('-')[0]
+    return Food_Type.objects.get(code=food_type).name_dict.get(lang)
 
+@register.simple_tag
+def translate_special_conditions(special_conditions):
+    lang=django.utils.translation.get_language().split('-')[0]
+    return Special_Condition.objects.get(code=special_conditions).name_dict.get(lang)
+
+@register.simple_tag
+def translate_temporality(temporality):
+    lang=django.utils.translation.get_language().split('-')[0]
+    return Temporality.objects.get(code=temporality).name_dict.get(lang)
 
 @register.tag("picture_from_id")
 def do_picture_from_id(parser, token):

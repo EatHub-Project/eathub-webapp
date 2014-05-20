@@ -26,11 +26,14 @@ urlpatterns = patterns('',
     url(r'^recipe/(?P<recipe_id>\w+)/edit/$' , views.edit_receta, name='editrecipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/clone/$' , views.edit_receta, {"clone": True}, name='clonerecipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/$' , views.comment, name='comment'),
+
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/ban/$' , views.ban_comment, name='ban'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/(?P<comment_id>\w+)/unban/$' , views.unban_comment, name='unban'),
 
     # Search
-    url(r'^search/$' , views.search, name='search'),
+    # url(r'^search/$' , views.search, name='search'),
+    url(r'^search/person/(?P<terms>.+)$' , views.search_profile, name='search_person'),
+    url(r'^search/recipe/$' , views.search_recipe, name='search_recipe'),
 
     # About
     url(r'^about/$', views.about, name='about'),
