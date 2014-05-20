@@ -33,7 +33,8 @@ urlpatterns = patterns('',
     url(r'^search/$' , views.search, name='search'),
 
     # About
-    url(r'^termsandconditions/$', views.terms_and_conditions, name='terms_and_conditions'),
+    url(r'^about/$', views.about, name='about'),
     url(r'^about/contact/$', views.contact, name='contact'),
     url(r'^about/team/$', views.about_team, name='about_team'),
+    url(r'^about/terms/$', views.terms_and_conditions, name='terms_and_conditions'),
 )

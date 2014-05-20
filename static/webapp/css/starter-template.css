@@ -1395,6 +1395,34 @@ header .container {
     margin: 5px 0 10px;
 }
 
+.panel-about-container{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.panel-about {
+    /*margin: 3px*/
+}
+
+.about-title {
+    color: #CC3E27;
+    margin-top: 5px;
+}
+
+.about-thumbnail  {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.about-thumbnail i {
+    color: #CC3E27;
+    font-size: 1000%;
+    opacity: 0.8;
+}
+
+.about-content-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
 .team-panel-title {
     color: #CC3E27;
     margin: 5px 0 10px;
@@ -1442,6 +1470,11 @@ header .container {
 .group-div-image {
     float: left;
     width: 33%;
+}
+
+p.about-description  {
+    font-size: 16px;
+    text-align: justify;
 }
 
 #container {
