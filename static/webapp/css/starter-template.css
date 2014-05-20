@@ -96,7 +96,7 @@ header .container {
     margin: 8px;
     color: #fff;
     background-color: #cc3e27;
-    border-color: #a23422;
+    border-color: #cc3e27;
 }
 
 .plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
@@ -107,8 +107,8 @@ header .container {
 
 .plus-bar.btn.btn-default:hover, .plus-bar.btn.btn-default:focus, .plus-bar.btn.btn-default:active {
     color: #fff;
-    background-color: #a23422;
-    border-color: #b65252;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .divider-vertical {
@@ -1545,13 +1545,13 @@ footer {
 .btn-eathub-red {
     color: #fff;
     background-color: #cc3e27;
-    border-color: #a23422;
+    border-color: #cc3e27;
 }
 
 .btn-eathub-red.btn.btn-default:hover, .btn-eathub-red.btn.btn-default:focus, .btn-eathub-red.btn.btn-default:active {
     color: #fff;
-    background-color: #a23422;
-    border-color: #b65252;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .btn-eathub-inverted-red {
