@@ -100,9 +100,9 @@ header .container {
 }
 
 .plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
-    color: #cc3e27;
-    background-color: #fff;
-    border-color: #cc3e27;
+    color: white;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .plus-bar.btn.btn-default:hover, .plus-bar.btn.btn-default:focus, .plus-bar.btn.btn-default:active {
