@@ -1632,3 +1632,14 @@ footer {
     background-color: #cc3e27 !important;
     border-color: #a23422 !important;
 }
+
+
+ .termsandcond {
+     color: #cc3e27;
+     font-weight: bold;
+ }
+
+ .termsandcond:hover {
+     color: #cc3e27;
+     font-weight: bold;
+  }

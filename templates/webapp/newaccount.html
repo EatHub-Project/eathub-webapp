@@ -89,6 +89,13 @@
             }
             return cookieValue;
         }
+        function checkTermsAndConds(){
+             var check = $("#terms_conds").is(":checked");
+             if(!check){
+                 $("#error_terms_conds").show();
+                 return false;
+             }
+         }
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -107,7 +114,7 @@
 <div class="panel-body">
     <h1>{{ title }}</h1>
 
-    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
+    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return checkTermsAndConds();">
     {% csrf_token %}
 
 
@@ -477,6 +484,20 @@
             </div>
         </div>
     </fieldset>
+
+    <br />
+
+     {% if not edit %}
+     <div class="checkbox">
+         <label>
+             <input id="terms_conds" type="checkbox"> {% trans "I have read and I accept " %} <a class="termsandcond" href="{% url 'terms_and_conditions' %}"> {% trans "the terms and conditions" %} </a>
+            <span id="error_terms_conds" style="display: none;" class="alert alert-danger">{% trans "You must accept the terms and conditions" %}</span>
+         </label>
+     </div>
+
+     <br />
+     <br />
+    {% endif %}
 
     <!-- Submit Button -->
     <div class="form-group">
