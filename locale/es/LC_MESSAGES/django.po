@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-21 22:25+0200\n"
+"POT-Creation-Date: 2014-05-21 22:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -438,15 +438,15 @@ msgstr "¿Olvidaste tu contraseña?"
 
 #: .\templates\webapp\login.html.py:81
 msgid "Or use a shortcut"
-msgstr ""
+msgstr "Más rapido"
 
 #: .\templates\webapp\login.html.py:86
 msgid "Sign in with Google+"
-msgstr ""
+msgstr "Entrar con Google+"
 
 #: .\templates\webapp\login.html.py:99
 msgid "Sign in with Facebook"
-msgstr ""
+msgstr "Entrar con Facebook"
 
 #: .\templates\webapp\logo.html.py:9
 msgid "This is a provisional starting page"
@@ -602,7 +602,7 @@ msgstr "Picante"
 
 #: .\templates\webapp\newaccount.html.py:495
 msgid "I have read and I accept "
-msgstr ""
+msgstr "He leído y acepto los "
 
 #: .\templates\webapp\newaccount.html.py:495
 msgid "the terms and conditions"
@@ -610,7 +610,7 @@ msgstr "Términos y condiciones"
 
 #: .\templates\webapp\newaccount.html.py:496
 msgid "You must accept the terms and conditions"
-msgstr "Términos y condiciones"
+msgstr "Debes aceptar los Términos y condiciones"
 
 #: .\templates\webapp\newaccount.html.py:509
 msgid "Save changes"
