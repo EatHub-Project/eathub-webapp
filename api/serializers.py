@@ -1,3 +1,4 @@
+
 import json
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
@@ -19,10 +20,11 @@ class EmbeddedUserSerializer(serializers.Serializer):
 
 class EmbeddedRecipeSerializer(serializers.ModelSerializer):
     author = EmbeddedUserSerializer()
+    main_image = FullImageField()
 
     class Meta:
         model = Recipe
-        fields = ('id', 'title', 'author')
+        fields = ('id', 'title', 'author', 'main_image')
 
 
 class StepSerializer(serializers.ModelSerializer):
@@ -71,10 +73,11 @@ class ProfileSerializer(serializers.ModelSerializer):
     avatar = FullImageField()
     tastes = SavoursSerializer()
     following = FollowingSerializer(many=True)
+    recipes = EmbeddedRecipeSerializer(source='get_recipes', many=True)
 
     class Meta:
         model = Profile
-        fields = ['display_name', 'avatar', 'main_language', 'additional_languages', 'website', 'location', 'karma', 'gender', 'tastes', 'following']
+        fields = ['display_name', 'avatar', 'main_language', 'additional_languages', 'website', 'location', 'karma', 'gender', 'tastes', 'following', 'recipes']
 
 
 class UserSerializer(serializers.ModelSerializer):

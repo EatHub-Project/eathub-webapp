@@ -90,6 +90,9 @@ class Profile(models.Model):
     def translate_to_lengague(self,lang):
         self.main_language=Language.objects.get(code=self.main_language).name_dict.get(lang)
 
+    def get_recipes(self):
+        return Recipe.objects.filter(author=self.user)
+
 
 class Following(models.Model):
     display_name = models.CharField(max_length=50, blank=False)

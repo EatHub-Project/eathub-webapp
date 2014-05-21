@@ -276,7 +276,7 @@
                    class="col-sm-2 control-label">{% trans "Additional Language" %}</label>
 
             <div class="col-sm-3">
-                <select class="form-control show-tick" multiple data-live-search="true"
+                <select class="form-control show-tick" multiple data-live-search="true" title="{% trans "None selected" %}"
                         id="id_{{ form.additional_languages.name }}" name="{{ form.additional_languages.name }}">
                     {% for choice in form.additional_languages.field.choices %}
                         <option value="{{ choice.0 }}"
