@@ -704,3 +704,6 @@ def contact(request):
 def about_team(request):
     return render(request, 'webapp/about_team.html')
 
+def handle500(request):
+    return render(request, '500.html')
+

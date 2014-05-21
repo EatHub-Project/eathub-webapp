@@ -9,6 +9,8 @@ from webapp.models import Recipe
 
 admin.autodiscover()
 
+handler500 = 'webapp.views.handle500'
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'eathub.views.home', name='home'),
