@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-21 16:11+0200\n"
+"POT-Creation-Date: 2014-05-21 16:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,11 +147,13 @@ msgid ""
 "podr&aacute; preparar su comida favorita de otra forma y otras comidas de "
 "cualquier parte del mundo."
 msgstr ""
+"Eathub is a social network where you can share recipes, improve your "
+"friend's and relation with others. You'd prepare your favourite food and "
+"other countries recipes!"
 
 #: .\templates\webapp\about.html.py:18
-#, fuzzy
 msgid "Create"
-msgstr "Create account"
+msgstr ""
 
 #: .\templates\webapp\about.html.py:21
 msgid ""
@@ -159,6 +161,9 @@ msgid ""
 "amigos. Explora comidas de otros usuarios, varíalas con tus propios gustos, "
 "ingredientes y métodos."
 msgstr ""
+"You will be able to create recipes and share with your friends. Explore "
+"other user's recipes, change them regarding your own tastes, ingredients and "
+"methods."
 
 #: .\templates\webapp\about.html.py:35
 msgid "Improve"
@@ -171,6 +176,9 @@ msgid ""
 "genealógico de recetas en el que figurar&aacute; la jerarqu&iacute;a de las "
 "mismas."
 msgstr ""
+"If you like a recipe but you want to add any ingredient or step, you can "
+"improve it. This way you will create a genealogic tree of recipes where you "
+"will see all the relatives that a recipe has."
 
 #: .\templates\webapp\about.html.py:50
 msgid "Social"
@@ -182,6 +190,9 @@ msgid ""
 "ver tus recetas y actividad. Puedes seguir a otros usuarios para estar al "
 "día de su actividad."
 msgstr ""
+"Users have their own profil, through this, all users can watch their recipes "
+"and activities. You can follow other people in order to know what are they "
+"cooking!"
 
 #: .\templates\webapp\about.html.py:64
 msgid "Recommendations and affinity"
@@ -192,6 +203,8 @@ msgid ""
 "En su perfil podr&aacute; indicar sus sabores preferidos. Con dichos sabores "
 "le podremos recomendar multitud de recetas con par&aacute;metros similares."
 msgstr ""
+"In your profile you'll be able to mark your preferred savours. With this, we "
+"will recommend you a lot of recipes with similar parameters."
 
 #: .\templates\webapp\about_team.html.py:13
 msgid ""
