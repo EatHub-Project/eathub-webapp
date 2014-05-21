@@ -603,7 +603,7 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.temporality.name }}">{% trans "Occasions" %}</label>
 
                     <div class="col-sm-8">
-                        <select class="form-control show-tick" data-live-search="true" multiple
+                        <select class="form-control show-tick" data-live-search="true" multiple title="{% trans "None selected" %}"
                                 name="{{ form.temporality.name }}" id="id_{{ form.temporality.name }}">
                             {% for choice in form.temporality.field.choices %}
                                 <option value="{{ choice.0 }}"
@@ -645,7 +645,7 @@
                     <label class="col-sm-4 control-label" for="id_{{ form.special_conditions.name }}">{% trans "Special conditions" %}</label>
 
                     <div class="col-sm-8">
-                        <select class="form-control show-tick" data-live-search="true" multiple
+                        <select class="form-control show-tick" data-live-search="true" multiple title="{% trans "None selected" %}"
                                 name="{{ form.special_conditions.name }}" id="id_{{ form.special_conditions.name }}">
                             {% for choice in form.special_conditions.field.choices %}
                                 <option value="{{ choice.0 }}"
