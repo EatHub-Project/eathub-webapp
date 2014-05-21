@@ -150,7 +150,17 @@ def new_account(request):
                 errors = form._errors.setdefault("username", ErrorList())
                 output = _("Username alerady taken")
                 errors.append(unicode(output))
-            #todo: validar email único también
+
+            try:
+                valid_email = User.objects.get(email=email)
+            except :
+                valid_email = False
+
+            if valid_email:
+                errors = form._errors.setdefault("email", ErrorList())
+                output = _("Email alerady exists")
+                errors.append(unicode(output))
+
             else:
                 u = User.objects.create_user(username, email, password)
                 t = Tastes(salty=data['salty'],
