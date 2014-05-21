@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-21 16:43+0200\n"
+"POT-Creation-Date: 2014-05-21 22:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,7 +264,7 @@ msgstr "Logout"
 msgid "Add recipe"
 msgstr "Add recipe"
 
-#: .\templates\webapp\base.html.py:121 .\templates\webapp\login.html.py:65
+#: .\templates\webapp\base.html.py:121 .\templates\webapp\login.html.py:68
 #: .\templates\webapp\main.html.py:28
 msgid "Sign in"
 msgstr "Sign in"
@@ -393,38 +393,50 @@ msgstr ""
 "their variations, create and customize your own food, and collaborate to "
 "find the best recipes in the world!"
 
-#: .\templates\webapp\login.html.py:43
+#: .\templates\webapp\login.html.py:44
 #, fuzzy
 msgid "Username and password don't match."
 msgstr "Passwords don't match"
 
-#: .\templates\webapp\login.html.py:46
+#: .\templates\webapp\login.html.py:47
 msgid "You need to be logged-in to view this page."
 msgstr "You need to be logged-in to view this page."
 
-#: .\templates\webapp\login.html.py:53
+#: .\templates\webapp\login.html.py:54
 msgid "Please sign in"
 msgstr "Please sign in"
 
-#: .\templates\webapp\login.html.py:56
+#: .\templates\webapp\login.html.py:58
 #: .\templates\webapp\newaccount.html.py:127
 #: .\templates\webapp\newaccount.html.py:130
 msgid "Username"
 msgstr "Username"
 
-#: .\templates\webapp\login.html.py:61
+#: .\templates\webapp\login.html.py:64
 #: .\templates\webapp\newaccount.html.py:178
 msgid "Password"
 msgstr "Password"
 
-#: .\templates\webapp\login.html.py:69
+#: .\templates\webapp\login.html.py:72
 #, fuzzy
 msgid "Create an account"
 msgstr "Create an account"
 
-#: .\templates\webapp\login.html.py:72
+#: .\templates\webapp\login.html.py:75
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
+
+#: .\templates\webapp\login.html.py:81
+msgid "Or use a shortcut"
+msgstr ""
+
+#: .\templates\webapp\login.html.py:86
+msgid "Sign in with Google+"
+msgstr ""
+
+#: .\templates\webapp\login.html.py:99
+msgid "Sign in with Facebook"
+msgstr ""
 
 #: .\templates\webapp\logo.html.py:9
 msgid "This is a provisional starting page"
@@ -496,6 +508,12 @@ msgstr "Language"
 
 #: .\templates\webapp\newaccount.html.py:278
 msgid "Additional Language"
+msgstr ""
+
+#: .\templates\webapp\newaccount.html.py:281
+#: .\templates\webapp\newrecipe.html.py:609
+#: .\templates\webapp\newrecipe.html.py:651
+msgid "None selected"
 msgstr ""
 
 #: .\templates\webapp\newaccount.html.py:307
@@ -753,11 +771,11 @@ msgstr ""
 msgid "Save as draft"
 msgstr ""
 
-#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:591
+#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:601
 msgid "Followers"
 msgstr "Followers"
 
-#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:574
+#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:584
 msgid "Following"
 msgstr "Following"
 
@@ -1258,7 +1276,7 @@ msgstr ""
 msgid "Hard"
 msgstr ""
 
-#: .\webapp\views.py:146 .\webapp\views.py:408
+#: .\webapp\views.py:146 .\webapp\views.py:418
 msgid "Passwords don't match"
 msgstr "Passwords don't match"
 
@@ -1267,7 +1285,11 @@ msgstr "Passwords don't match"
 msgid "Username alerady taken"
 msgstr "Username aleready taken"
 
-#: .\webapp\views.py:206
+#: .\webapp\views.py:161
+msgid "Email alerady exists"
+msgstr ""
+
+#: .\webapp\views.py:216
 msgid "Your account has been successfully activated. You can log in now."
 msgstr ""
 

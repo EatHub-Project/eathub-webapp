@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-21 16:44+0200\n"
+"POT-Creation-Date: 2014-05-21 22:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,7 +166,7 @@ msgstr ""
 
 #: .\templates\webapp\about.html.py:35
 msgid "Improve"
-msgstr ""
+msgstr "Mejorar"
 
 #: .\templates\webapp\about.html.py:38
 msgid ""
@@ -258,7 +258,7 @@ msgstr "Cerrar sesión"
 msgid "Add recipe"
 msgstr "Añadir receta"
 
-#: .\templates\webapp\base.html.py:121 .\templates\webapp\login.html.py:65
+#: .\templates\webapp\base.html.py:121 .\templates\webapp\login.html.py:68
 #: .\templates\webapp\main.html.py:28
 msgid "Sign in"
 msgstr "Entrar"
@@ -405,36 +405,48 @@ msgstr ""
 "sus variaciones, crea y personaliza tu propia comida, y colabora para "
 "encontrar las mejores recetas en el mundo."
 
-#: .\templates\webapp\login.html.py:43
+#: .\templates\webapp\login.html.py:44
 msgid "Username and password don't match."
 msgstr "Usuario o contraseña erróneos"
 
-#: .\templates\webapp\login.html.py:46
+#: .\templates\webapp\login.html.py:47
 msgid "You need to be logged-in to view this page."
 msgstr "Debes estar registrado para ver esta página."
 
-#: .\templates\webapp\login.html.py:53
+#: .\templates\webapp\login.html.py:54
 msgid "Please sign in"
 msgstr "Inicia sesión"
 
-#: .\templates\webapp\login.html.py:56
+#: .\templates\webapp\login.html.py:58
 #: .\templates\webapp\newaccount.html.py:127
 #: .\templates\webapp\newaccount.html.py:130
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: .\templates\webapp\login.html.py:61
+#: .\templates\webapp\login.html.py:64
 #: .\templates\webapp\newaccount.html.py:178
 msgid "Password"
 msgstr "Contraseña"
 
-#: .\templates\webapp\login.html.py:69
+#: .\templates\webapp\login.html.py:72
 msgid "Create an account"
 msgstr "Crea una cuenta"
 
-#: .\templates\webapp\login.html.py:72
+#: .\templates\webapp\login.html.py:75
 msgid "Forgot your password?"
 msgstr "¿Olvidaste tu contraseña?"
+
+#: .\templates\webapp\login.html.py:81
+msgid "Or use a shortcut"
+msgstr ""
+
+#: .\templates\webapp\login.html.py:86
+msgid "Sign in with Google+"
+msgstr ""
+
+#: .\templates\webapp\login.html.py:99
+msgid "Sign in with Facebook"
+msgstr ""
 
 #: .\templates\webapp\logo.html.py:9
 msgid "This is a provisional starting page"
@@ -504,6 +516,12 @@ msgstr "Idioma preferente"
 #: .\templates\webapp\newaccount.html.py:278
 msgid "Additional Language"
 msgstr "Idioma(s) adicional(es)"
+
+#: .\templates\webapp\newaccount.html.py:281
+#: .\templates\webapp\newrecipe.html.py:609
+#: .\templates\webapp\newrecipe.html.py:651
+msgid "None selected"
+msgstr "Nada seleccionado"
 
 #: .\templates\webapp\newaccount.html.py:307
 #: .\templates\webapp\profile.html.py:148
@@ -756,11 +774,11 @@ msgstr ""
 msgid "Save as draft"
 msgstr "Guardar como borrador"
 
-#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:591
+#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:601
 msgid "Followers"
 msgstr "Seguidores"
 
-#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:574
+#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:584
 msgid "Following"
 msgstr "Siguiendo"
 
@@ -1439,7 +1457,7 @@ msgstr "Media"
 msgid "Hard"
 msgstr "Difícil"
 
-#: .\webapp\views.py:146 .\webapp\views.py:408
+#: .\webapp\views.py:146 .\webapp\views.py:418
 msgid "Passwords don't match"
 msgstr "Las contraseñas no coinciden"
 
@@ -1447,7 +1465,11 @@ msgstr "Las contraseñas no coinciden"
 msgid "Username alerady taken"
 msgstr "Ese nombre de usuario ya está en uso"
 
-#: .\webapp\views.py:206
+#: .\webapp\views.py:161
+msgid "Email alerady exists"
+msgstr "El email ya existe"
+
+#: .\webapp\views.py:216
 msgid "Your account has been successfully activated. You can log in now."
 msgstr "Tu cuenta ha sido activada satisfactoriamente. Ahora, Puedes logearte."
 
