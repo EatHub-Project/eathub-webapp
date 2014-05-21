@@ -14,11 +14,11 @@ urlpatterns = patterns('',
     url(r'^newaccount_done/(?P<username>.+)/$', views.new_account_done, name='newaccount_done'),
 
     # Profile
-    url(r'^profile/(?P<username>\w+)/$', views.profile, name='profile'),
-    url(r'^profile/(?P<username>\w+)/edit/$', views.modification_account, name='profile_edit'),
-    url(r'^profile/(?P<username>\w+)/following/$', views.following, name='following'),
-    url(r'^profile/(?P<username>\w+)/followers/$', views.followers, name='followers'),
-    url(r'^profile/(?P<username>\w+)/recipes/$' , views.recipes, name='recipes'),
+    url(r'^profile/(?P<username>[.\w]+)/$', views.profile, name='profile'),
+    url(r'^profile/(?P<username>[.\w]+)/edit/$', views.modification_account, name='profile_edit'),
+    url(r'^profile/(?P<username>[.\w]+)/following/$', views.following, name='following'),
+    url(r'^profile/(?P<username>[.\w]+)/followers/$', views.followers, name='followers'),
+    url(r'^profile/(?P<username>[.\w]+)/recipes/$' , views.recipes, name='recipes'),
 
     # Recipes
     url(r'^newrecipe', views.new_recipe, name='newrecipe'),
