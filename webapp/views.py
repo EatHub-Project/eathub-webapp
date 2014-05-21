@@ -1,9 +1,12 @@
 # coding=utf-8
+import string
 import urllib2
 from urlparse import urlparse
 import django
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
+from django.db.models import Q
+from django.db.models.query import RawQuerySet
 from django.forms import ImageField
 from django.templatetags.static import static
 from pip._vendor import requests
@@ -21,7 +24,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
 from django.shortcuts import render
 
-from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment
+from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment, SearchRecipeForm
 from django.forms.util import ErrorList
 import time, datetime
 
@@ -40,37 +43,66 @@ import hashlib
 #full-text
 from pymongo import *
 
-def search(request):
-    if request.method == 'POST':
-        terms = request.POST['srch-term']
+def search_recipe(request):
+    results_recipes = dict()
+    if request.method == 'GET':
+        form = SearchRecipeForm(request.GET)
+        if form.is_valid():
+            data = form.cleaned_data
+            query=dict()
+            queryFullText = ""
+            if data['bitter']!="":
+                bitter = { "$lte": int(data['bitter'].split(',')[1]), "$gte": int(data['bitter'].split(',')[0])}
+                query["savours.bitter"]=bitter
+            if data['salty']!="":
+                salty = { "$lte": int(data['salty'].split(',')[1]), "$gte": int(data['salty'].split(',')[0])}
+                query["savours.salty"]=salty
+            if data['sour']!="":
+                sour = { "$lte": int(data['sour'].split(',')[1]), "$gte": int(data['sour'].split(',')[0])}
+                query["savours.sour"]=sour
+            if data['sweet']!="":
+                sweet = { "$lte": int(data['sweet'].split(',')[1]), "$gte": int(data['sweet'].split(',')[0])}
+                query["savours.sweet"]=sweet
+            if data['spicy']!="":
+                spicy = { "$lte": int(data['spicy'].split(',')[1]), "$gte": int(data['spicy'].split(',')[0])}
+                query["savours.spicy"]=spicy
+            if data['difficult']!="":
+                query["difficult"]=data['difficult']
+            if data['language']!="":
+                query["language"] = data['language']
+            if data['food_type']!="":
+                query["food_type"] = data['food_type']
+            if data['srchterm']!="":
+                queryFullText= queryFullText + data['srchterm']
+            if len(data['special_conditions'])!=0:
+                special=list()
+                for sp in data['special_conditions']:
+                    special.append(sp)
+                queryFullText = queryFullText + " ".join(special)
+
+            if queryFullText!="":
+                query["$text"] = {"$search" : queryFullText}
+
+            if len(data['temporality'])!=0:
+                temporal=list()
+                for sp in data['temporality']:
+                    temporal.append({"temporality": sp})
+                query["$or"] = temporal
+            #"$or": [{"language": "spanish"},{"language": "english"}],
+
+            results_recipes = Recipe.objects.raw_query(query)
+
+    return render(request, 'webapp/search_recipe_result.html', {'matches_recipe': results_recipes, 'results': len(results_recipes), 'form': form})
+
+
+def search_profile(request, terms):
+    if request.method == 'GET':
 
         client = MongoClient()
 
-        text_results_recipes = client.eathub.command('text', 'webapp_recipe', search=terms, language="spanish")
-        doc_matches_recipes = (res['obj'] for res in text_results_recipes['results'])
-        text_results_profile = client.eathub.command('text', 'webapp_profile', search=terms, language="spanish")
-        doc_matches_profiles = (res['obj'] for res in text_results_profile['results'])
+        results_profiles = Profile.objects.raw_query({"$text": {"$search" : terms}})
 
-        results_recipes = list()
-        for item in doc_matches_recipes:
-            r=Recipe()
-            r.id=item['_id']
-            r.title=item['title']
-            r.main_image=item['main_image']
-
-            results_recipes.append(r)
-
-        #TODO: hay que solucionar el problema al obtener los perfiles, ya que el campo user es un objectId.
-        results_profiles = list()
-        """for item in doc_matches_profiles:
-            p=Profile()
-            p.id=item['_id']
-            p.display_name=item['display_name']
-            p.user.username=item['user']
-            results_profiles.append(Profile(
-                                            ))"""
-
-        return render(request, 'webapp/search_result.html', {'matches_recipe': results_recipes, 'matches_profile': results_profiles})
+        return render(request, 'webapp/search_person_result.html', {'matches_profile': results_profiles})
 
 def main(request):
     if request.user.is_authenticated():
@@ -129,7 +161,7 @@ def new_account(request):
                 p = Profile(display_name=display_name, main_language=main_language, user=u,
                             additional_languages=additional_languages, gender=gender,
                             location=location, website=website,
-                            birth_date=birth_date, tastes=t)
+                            birth_date=birth_date, tastes=t, username=username)
                 #TODO capturar cualquier error de validación y meterlo como error en el formulario
 
                 #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
@@ -625,7 +657,11 @@ def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
         return
     u = User.objects.create_user(fields.get('username'), email=fields.get('email'))
     t = Tastes(salty=50, sour=50, bitter=50, sweet=50, spicy=50)
-    p = Profile(display_name=fields.get('first_name'), user=u, tastes=t)
+    p = Profile()
+    p.display_name=fields.get('first_name')
+    p.user=u
+    p.tastes=t
+    p.main_language='es'
 
     if fields.get('location'):
         p.location=fields.get('location').get('name')

@@ -80,6 +80,7 @@ class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profile", unique=True)
     following = ListField(EmbeddedModelField('Following'))
     karma = models.IntegerField(default=6)
+    username = models.CharField(max_length=50, blank=False)
 
     objects = MongoDBManager()
 
@@ -199,15 +200,6 @@ class Recipe(models.Model):
         return Recipe.objects.filter(parent=self.id)
 
     def translate_to_language(self, lang):
-        for index, sc in enumerate(self.special_conditions):
-            self.special_conditions[index]=Special_Condition.objects.get(code=sc).name_dict.get(lang)
-        if self.food_type != "":
-            self.food_type=Food_Type.objects.get(code=self.food_type).name_dict.get(lang)
-        else:
-            self.food_type
-        for index,sc in enumerate(self.temporality):
-            self.temporality[index]=Temporality.objects.get(code=sc).name_dict.get(lang)
-
         self.language=Language.objects.get(code=self.language).name_dict.get(lang)
 
 

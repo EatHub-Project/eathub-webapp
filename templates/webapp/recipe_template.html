@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load tags %}
+{% load recipe_form %}
 
 {% block container %}
     <!-- Start Recipe -->
@@ -240,31 +241,31 @@
                 {% if receta.temporality %}
                     <div class="recipe-more-title">{% trans "Occasions" %}:</div>
                     {% for occasion in receta.temporality %}
-                        <span><a class="recipe-tag" href="#">{{ occasion }}</a></span>
+                        <span><a class="recipe-tag" href="{% url 'search_recipe' %}?temporality={{ ocasion }}">{% translate_temporality occasion %}</a></span>
                     {% endfor %}
                 {% endif %}
 
                 {% if receta.food_type %}
                     <div class="recipe-more-title">{% trans "Food Type" %}:</div>
-                    <span><a class="recipe-tag" href="#">{{ receta.food_type }}</a></span>
+                    <span><a class="recipe-tag" href="{% url 'search_recipe' %}?food_type={{ receta.food_type }}">{% translate_food_type receta.food_type %}</a></span>
                 {% endif %}
 
                 {% if receta.special_conditions %}
                     <div class="recipe-more-title">{% trans "Suitable for" %}:</div>
                     {% for condition in receta.special_conditions %}
-                        <span><a class="recipe-tag" href="#">{{ condition }}</a></span>
+                        <span><a class="recipe-tag" href="{% url 'search_recipe' %}?special_conditions={{ condition }}">{% translate_special_conditions condition %}</a></span>
                     {% endfor %}
                 {% endif %}
 
                 {% if receta.nationality %}
                     <div class="recipe-more-title">{% trans "Nationality" %}:</div>
-                    <span><a class="recipe-tag" href="#">{{ receta.nationality }}</a></span>
+                    <span><a class="recipe-tag" href="{% url 'search_recipe' %}?srchterm={{ receta.nationality }}">{{ receta.nationality }}</a></span>
                 {% endif %}
 
                 {% if receta.tags %}
                     <div class="recipe-more-title">{% trans "Tags" %}:</div>
                     {% for tag in receta.tags %}
-                        <span><a class="recipe-tag" href="#">{{ tag }}</a></span>
+                        <span><a class="recipe-tag" href="{% url 'search_recipe' %}?srchterm={{ tag }}">{{ tag }}</a></span>
                     {% endfor %}
                 {% endif %}
 
