@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 {% block custom_css %}
-    <link href="{% static 'webapp/css/social-buttons-3.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/bootstrap-social.css' %}" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 {% endblock %}
 
@@ -38,74 +38,109 @@
 
     <div class="col-md-6 login-form">
         <div class="col-md-9 col-md-offset-2">
-            <form class="panel panel-body" role="form" action="{% url 'login' %}" method="post">
-                {% if form.errors %}
-                    <div class="alert alert-danger">{% trans "Username and password don't match." %}</div>
-                {% endif %}
-                {% if next %}
-                    <div class="alert alert-warning">{% trans "You need to be logged-in to view this page." %}</div>
-                {% endif %}
-                <div class="form-group">
-                    {% csrf_token %}
-                    {% if next %}
-                        <input type="hidden" name="next" value="{{ next }}"/>
-                    {% endif %}
-                    <h2 class="login-form-heading">{% trans "Please sign in" %}</h2>
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" id="username" name="username" placeholder="{% trans "Username" %}"
-                           required
-                           autofocus>
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="password" name="password" id="password" placeholder="{% trans "Password" %}"
-                           required>
-                </div>
-                <button class="btn btn-lg btn-default btn-eathub login-form-submit" type="submit">
-                    {% trans "Sign in" %}
-                </button>
-
-                <div class="login-form-signup">
-                    <a href="{% url 'newaccount' %}">{% trans "Create an account" %}</a>
-                </div>
-                <div class="login-form-forgot">
-                    <a href="{% url "password_reset_recover" %}">{% trans "Forgot your password?" %}</a>
-                </div>
-            </form>
             <div class="panel panel-body">
-                <div class="form-group">
-                    <p class="text-corp">Usa tu cuenta de alguna de las siguiente redes sociales</p>
-                </div>
-                <div class="form-group text-center">
-                     <form id="google-plus" method="post" action="{% url 'social:complete' "google-plus" %}">
+                <form role="form" action="{% url 'login' %}" method="post">
+                    {% if form.errors %}
+                        <div class="alert alert-danger">{% trans "Username and password don't match." %}</div>
+                    {% endif %}
+                    {% if next %}
+                        <div class="alert alert-warning">{% trans "You need to be logged-in to view this page." %}</div>
+                    {% endif %}
+                    <div class="form-group">
                         {% csrf_token %}
-                        <input id="at" type="hidden" name="access_token" value="" />
-                        <input id="code" type="hidden" name="code" value="" />
-                    </form>
-                    <div id="signinButton">
-                        <span class="g-signin"
-                              data-scope="https://www.googleapis.com/auth/plus.login
-                              https://www.googleapis.com/auth/userinfo.email"
-                              data-clientid="1064237235002-4h80pv6pq4q0hjji74p5mu3a11ot11f1.apps.googleusercontent.com"
-                              data-redirecturi="postmessage"
-                              data-accesstype="offline"
-                              data-approvalprompt="force"
-                              data-cookiepolicy="single_host_origin"
-                              data-callback="signInCallback">
-                        </span>
+                        {% if next %}
+                            <input type="hidden" name="next" value="{{ next }}"/>
+                        {% endif %}
+                        <h2 class="login-form-heading">{% trans "Please sign in" %}</h2>
                     </div>
-                </div>
-                <div class="form-group text-center">
-                    <a class="btn btn-facebook" href="{% url 'social:begin' 'facebook' %}?next={% url 'main' %}"><i class="fa fa-facebook"></i> | Login with Facebook</a>
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="username" name="username"
+                               placeholder="{% trans "Username" %}"
+                               required
+                               autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" id="password"
+                               placeholder="{% trans "Password" %}"
+                               required>
+                    </div>
+                    <button class="btn btn-lg btn-default btn-eathub login-form-submit" type="submit">
+                        {% trans "Sign in" %}
+                    </button>
+
+                    <div class="login-form-signup">
+                        <a href="{% url 'newaccount' %}">{% trans "Create an account" %}</a>
+                    </div>
+                    <div class="login-form-forgot">
+                        <a href="{% url "password_reset_recover" %}">{% trans "Forgot your password?" %}</a>
+                    </div>
+                </form>
+                <hr>
+                <!-- Social -->
+                <div class="form-group">
+                    <h3 class="login-form-heading">{% trans "Or use a shortcut" %}</h3>
+                    <!-- Google+ -->
+                    <div class="form-group text-center">
+                        <div id="googleBtn">
+                            <a class="btn btn-social btn-google-plus">
+                                <i class="fa fa-google-plus"></i>{% trans "Sign in with Google+" %}</a>
+                        </div>
+                    </div>
+                    <form id="google-plus" method="post" action="{% url 'social:complete' "google-plus" %}"
+                          style="display: none">
+                        {% csrf_token %}
+                        <input id="at" type="hidden" name="access_token" value=""/>
+                        <input id="code" type="hidden" name="code" value=""/>
+                    </form>
+                    <!-- Facebook -->
+                    <div class="form-group text-center">
+                        <a class="btn btn-social btn-facebook"
+                           href="{% url 'social:begin' 'facebook' %}?next={% url 'main' %}">
+                            <i class="fa fa-facebook"></i>{% trans "Sign in with Facebook" %}</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4"></div>
-        </div>
+    </div>
 
 {% endblock %}
 
 {% block custom_js %}
+    <script>
+        (function () {
+            var po = document.createElement('script');
+            po.type = 'text/javascript';
+            po.async = true;
+            po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+
+        function render() {
+            gapi.signin.render('googleBtn', {
+                'callback': 'signinCallback',
+                'clientid': "1064237235002-4h80pv6pq4q0hjji74p5mu3a11ot11f1.apps.googleusercontent.com",
+                'cookiepolicy': 'single_host_origin',
+                'requestvisibleactions': 'http://schemas.google.com/AddActivity',
+                'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
+                //'approvalprompt': 'force'
+
+            });
+        }
+
+        var signinCallback = function (result) {
+            if (result['g-oauth-window']) {
+                if (result['error']) {
+                    alert('Google+ sign-in - An error happened:', result['error']);
+                } else {
+                    $('#code').attr('value', result['code']);
+                    $('#at').attr('value', result['access_token']);
+                    $('#google-plus').submit();
+                }
+            }
+        };
+    </script>
     <script>
         $().ready(function () {
             $("#logo").animate({"stroke-dashoffset": 0}, 3000, function () {
@@ -116,25 +151,5 @@
                 $("#logo").find("path").animate({"stroke-width": 0});
             });
         });
-    </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-    <script id="script" type="text/javascript">
-        (function () {
-        var po = document.createElement('script');
-        po.type = 'text/javascript';
-        po.async = true;
-        po.src = 'https://plus.google.com/js/client:plusone.js?onload=start';
-        var s = document.getElementById('script');
-        s.parentNode.insertBefore(po, s);
-    })();
-    var signInCallback = function (result) {
-            if (result['error']) {
-                alert('An error happened:', result['error']);
-            } else {
-                $('#code').attr('value', result['code']);
-                $('#at').attr('value', result['access_token']);
-                $('#google-plus').submit();
-            }
-        };
     </script>
 {% endblock %}
