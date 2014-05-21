@@ -216,17 +216,6 @@
     <form role="form well well-lg" id="recipe-form" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    {% comment %}TODO: poner cada error en su campo
-    {% endcomment %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">{{ error|escape }}</div>
-        {% endfor %}
-    {% endfor %}
-
-    {{ form.non_field_errors }}
-    {{ form.errors }}
-
     <h3 class="col-lg-offset-1">{% trans "Basic information" %}</h3>
     <fieldset class="col-sm-10 col-sm-offset-1" style="padding: 20px 100px">
 
@@ -239,6 +228,13 @@
                        value="{{ form.title.value | default_if_none:'' }}">
             </div>
         </div>
+        {% if form.title.errors %}
+            <span class="alert alert-danger">
+                {% for error in form.title.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            </span>
+        {% endif %}
 
         <!-- Main Image -->
         <input type="hidden" id="id_{{ form.main_picture_id.name }}" name="{{ form.main_picture_id.name }}"
@@ -257,6 +253,14 @@
                 </div>
             </div>
         </div>
+        {% if form.main_picture_id.errors %}
+            <div class="alert alert-danger">
+                {% for error in form.main_picture_id.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            </div>
+            <br>
+        {% endif %}
 
         <!-- Gallery -->
         {% if form.pictures_ids_json %}
@@ -299,6 +303,13 @@
                           name="{{ form.description.name }}" id="id_{{ form.description.name }}"
                         >{{ form.description.value | default_if_none:'' }}</textarea>
             </div>
+            {% if form.description.errors %}
+            <div class="alert alert-danger">
+                {% for error in form.description.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            </div>
+        {% endif %}
         </div>
     </fieldset>
 
@@ -360,6 +371,13 @@
                         <span class="form-control repeatable-add">{% trans "Add an ingredient..." %}</span>
                     </div>
                 </div>
+                {% if form.ingredients_json.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.ingredients_json.errors %}
+                            {{ error|escape }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
 
@@ -441,6 +459,14 @@
                                 ></textarea>
                     </div>
                 </div>
+                {% comment %}TODO: colocar mejor el mensaje de error{% endcomment %}
+                {% if form.steps_json.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.steps_json.errors %}
+                            {{ error|escape }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
 
@@ -503,6 +529,13 @@
                             <span class="input-group-addon"><span
                                     class="glyphicon glyphicon-time"></span> </span>
                         </div>
+                        {% if form.prep_time.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.prep_time.errors %}
+                                    {{ error|escape }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -521,8 +554,16 @@
                         </div>
                     </div>
                 </div>
+                {% if form.cook_time.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.cook_time.errors %}
+                                {{ error|escape }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-sm-6">

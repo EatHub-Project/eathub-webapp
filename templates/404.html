@@ -1,0 +1,19 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block container %}
+    <div class="panel col-md-8 col-md-offset-2 panel-body">
+        <!-- Image -->
+        <div id="image" class="col-md-4 error-page-icon">
+            <img src="{% static 'webapp/image/logo_big.png' %}" class="password-recovery-image">
+	    </div>
+
+        <!-- Message -->
+        <div id="message" class="col-mf-4 col-md-offset-4 panel-body-password-recovery">
+            <strong>{% trans "404 error: not found"%}</strong> <br>
+            {% trans "Sorry! The page that you requested cannot be found at this moment" %}
+        </div>
+
+    </div>
+{% endblock %}

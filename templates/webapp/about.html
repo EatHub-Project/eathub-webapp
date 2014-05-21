@@ -1,0 +1,105 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block container %}
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row panel panel-body panel-about">
+            <h1 class="about-title">{% trans "What is EatHub?" %}</h1>
+
+            <p class="text-soft about-description">
+                {% trans "EatHub es una red social en la que podr&aacute; compartir sus recetas, mejorar las de sus amigos y relacionarse con los dem&aacute;s. De este modo, podr&aacute; preparar su comida favorita de otra forma y otras comidas de cualquier parte del mundo." %}
+            </p>
+        </div>
+
+        <div class="row">
+            <!-- panel -->
+            <div class="col-md-4 panel-about-container">
+                <div class=" panel-body panel-about">
+                    <h2 class="about-title">{% trans "Create" %}</h2>
+
+                    <p class="text-soft about-description">
+                        {% trans "En EatHub podr&aacute;s crear sus propias recetas y compartirlas con sus amigos. Explora comidas de otros usuarios, varíalas con tus propios gustos, ingredientes y métodos." %}
+                    </p>
+
+                    <div class="about-thumbnail">
+                        <i class="fa fa-edit"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- panel -->
+            <div class="col-md-4 panel-about-container">
+                <div class=" panel-body panel-about">
+                    <h2 class="about-title">{% trans "Improve" %}</h2>
+
+                    <p class="text-soft about-description">
+                        {% trans "Si le gusta alguna receta pero quiere añadir algún ingrediente o algún paso tiene la opción de mejorarla. De este modo se crear&aacute; un árbol genealógico de recetas en el que figurar&aacute; la jerarqu&iacute;a de las mismas." %}
+                    </p>
+
+                    <div class="about-thumbnail">
+                        <i class="fa fa-code-fork"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- panel -->
+            <div class="col-md-4 panel-about-container">
+                <div class=" panel-body panel-about">
+                    <h2 class="about-title">{% trans "Social" %}</h2>
+
+                    <p class="text-soft about-description">
+                        {% trans "Los usuarios tienen su propio perfil, através del cual otros usuarios pueden ver tus recetas y actividad. Puedes seguir a otros usuarios para estar al día de su actividad." %}
+                    </p>
+
+                    <div class="about-thumbnail">
+                        <i class="fa fa-group"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row panel panel-body panel-about">
+            <h2 class="about-title">{% trans "Recommendations and affinity" %}</h2>
+
+            <p class="text-soft about-description">
+                {% trans "En su perfil podr&aacute; indicar sus sabores preferidos. Con dichos sabores le podremos recomendar multitud de recetas con par&aacute;metros similares." %}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        var csrftoken = getCookie('csrftoken');
+        $.ajaxSetup({
+            crossDomain: false, // obviates need for sameOrigin test
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+    </script>
+    </div>{% endblock %}

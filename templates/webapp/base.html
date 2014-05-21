@@ -27,7 +27,7 @@
 <header>
     {% block navbar %}
         {% load tags %}
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-red" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="{% url 'main' %}">
-                        <img class="navbar-logo" src="{% static 'webapp/image/logo_big.png' %}"/>
+                        <img class="navbar-logo" src="{% static 'webapp/image/logo_white.png' %}"/>
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,11 +52,11 @@
                         <form class="navbar-form navbar-left hidden-xs hidden-sm" role="search" method="post" action="{% url 'search' %}">
                             {% csrf_token %}
                             <div class="form-group">
-                            <input type="text" class="form-control border-search border-rect" placeholder="Search..."
+                            <input type="text" class="form-control border-search border-rect-red" placeholder="Search..."
                                    name="srch-term"
                                    id="srch-term">
-                                <span class="input-group-btn navbar-input-group-btn">
-                                    <button class="btn btn-default border-default" type="submit">
+                                <span class="input-group-btn-red navbar-input-group-btn">
+                                    <button class="btn btn-default" type="submit">
                                         <i class="glyphicon glyphicon-search"></i>
                                     </button>
                                 </span>
@@ -64,7 +64,9 @@
                         </form>
                     </div>
                     <!-- Button trigger modal -->
+
                     <button class="plus btn btn-default hidden-xs hidden-sm" data-toggle="modal" data-target="#modalFeedback">
+
                         <i class="fa fa-comment"></i> Feedback
                     </button></li>
                     </ul>
@@ -73,7 +75,7 @@
 
                     <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
                         {% if user.is_authenticated %}
-                            <li><p class="navbar-text text-red">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
+                            <li><p class="navbar-text text-white">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
                             </li>
                             <li class="dropdown">
                                 <a class="profile-image dropdown-toggle" data-toggle="dropdown"
@@ -90,16 +92,14 @@
                             </li>
                             <li>
                                 <div>
-                                    <a type="button" class="plus btn btn-default" href="{% url 'newrecipe' %}">
+                                    <a type="button" class="plus-bar btn btn-default" href="{% url 'newrecipe' %}">
                                         <span class="glyphicon glyphicon-plus"></span>{% trans "Add recipe" %}
                                     </a>
                                 </div>
                             </li>
                         {% else %}
-                            <a class="btn btn-default btn-eathub" href="{% url 'login' %}"
+                            <a class="btn btn-default btn-eathub-red" href="{% url 'login' %}"
                                role="button">{% trans "Sign in" %}</a>
-                            <a class="btn btn-default btn-eathub-inverted"
-                               href="{% url 'newaccount' %}">{% trans "Create account" %}</a>
                         {% endif %}
 
 
@@ -163,7 +163,7 @@
         <div class="col-md-8 footer-content">
             <div class="row">
                 <div class="col-md-2 text-center"><a href="{% url 'terms_and_conditions' %}" class="footer-link">{%  trans "Terms & conditions" %}</a></div>
-                <div class="col-md-2 text-center"><a href="#" class="footer-link">{%  trans "Our goals" %}</a></div>
+                <div class="col-md-2 text-center"><a href="{% url 'about' %}" class="footer-link">{% trans 'About us' %}</a></div>
                 <div class="col-md-2 text-center"><a href="{% url 'about_team'%}" class="footer-link">The team</a></div>
                 <div class="col-md-2 text-center"><a href="{% url 'contact' %}" class="footer-link">{%  trans "Contact" %}</a></div>
             </div>

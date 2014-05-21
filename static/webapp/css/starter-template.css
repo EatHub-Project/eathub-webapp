@@ -12,6 +12,7 @@ body {
 .navbar-logo {
     width: 50px;
     height: 41px;
+    padding: 2px;
 }
 
 .navbar .container .navbar-brand {
@@ -46,6 +47,7 @@ header .container {
 .profile-image img {
     width: 40px;
     height: 40px;
+    background-color: white;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -90,10 +92,23 @@ header .container {
     border-color: #cc3e27;
 }
 
-.plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
-    color: #cc3e27;
-    background-color: #fff;
+.plus-bar {
+    margin: 8px;
+    color: #fff;
+    background-color: #cc3e27;
     border-color: #cc3e27;
+}
+
+.plus.btn.btn-default:hover, .plus.btn.btn-default:focus, .plus.btn.btn-default:active {
+    color: white;
+    background-color: #cc3e27;
+    border-color: #a23422;
+}
+
+.plus-bar.btn.btn-default:hover, .plus-bar.btn.btn-default:focus, .plus-bar.btn.btn-default:active {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .divider-vertical {
@@ -112,10 +127,27 @@ header .container {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+.input-group-btn-red > .btn {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
+    border-left-width: 0;
+    left: -2px;
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);*/
+
+}
+
 .input-group-btn > .btn:hover {
     color: #CC3E27;
     background-color: #fff;
     border-color: #D66552;
+}
+
+.input-group-btn-red > .btn:hover {
+    background-color: #a23422;
+    color: #fff;
+    border-color: #b65252;
 }
 
 .input-group .form-control:focus {
@@ -457,7 +489,7 @@ header .container {
 }
 
 .border-search {
-    border-color: #cc3e27;
+    border-color: #a23422;
 }
 
 .border-default {
@@ -470,6 +502,10 @@ header .container {
 
 .border-white {
     border-color: #fff !important;
+}
+
+.border-rect-red{
+     border-radius: 2px !important;
 }
 
 .thumbnail, .panel, .btn, .border-rect, .badge, .progress {
@@ -1395,6 +1431,34 @@ header .container {
     margin: 5px 0 10px;
 }
 
+.panel-about-container{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.panel-about {
+    /*margin: 3px*/
+}
+
+.about-title {
+    color: #CC3E27;
+    margin-top: 5px;
+}
+
+.about-thumbnail  {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.about-thumbnail i {
+    color: #CC3E27;
+    font-size: 1000%;
+    opacity: 0.8;
+}
+
+.about-content-title {
+    color: #CC3E27;
+    margin: 5px 0 10px;
+}
 .team-panel-title {
     color: #CC3E27;
     margin: 5px 0 10px;
@@ -1444,6 +1508,11 @@ header .container {
     width: 33%;
 }
 
+p.about-description  {
+    font-size: 16px;
+    text-align: justify;
+}
+
 #container {
     position: relative;
     min-height: 100%;
@@ -1488,3 +1557,89 @@ footer {
     height: inherit;
     width: inherit;
 }
+
+
+.error-page-icon{
+    height: 106px;
+    width: 128px;
+
+    /* Using margin to fulfill the 200x200 px space*/
+    margin-right: 52px;
+    margin-left: 52px;
+    margin-top: 41px;
+    margin-bottom: 41px;
+}
+
+.navbar-red {
+    background-color: #cc3e27 !important;
+    box-shadow: 2px 2px 5px #999 !important;
+}
+
+.navbar-nav>li>a{
+    color: #fff !important;
+}
+
+.navbar-nav>.active>a{
+    font-weight: bold !important;
+}
+
+.text-white{
+    color: #fff !important;
+}
+
+.btn-eathub-red {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #cc3e27;
+}
+
+.btn-eathub-red.btn.btn-default:hover, .btn-eathub-red.btn.btn-default:focus, .btn-eathub-red.btn.btn-default:active {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
+}
+
+.btn-eathub-inverted-red {
+    color: #fff;
+    background-color: #a23422;
+    border-color: #b65252;
+}
+
+.btn-eathub-inverted-red.btn.btn-default:hover, .btn-eathub-inverted-red.btn.btn-default:focus, .btn-eathub-inverted-red.btn.btn-default:active {
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #a23422;
+}
+
+.navbar .btn-eathub-red, .navbar .btn-eathub-inverted-red {
+    margin: 8px;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: #cc3e27 !important;
+}
+
+.navbar-default:hover .navbar-toggle:hover{
+    background-color: #cc3e27 !important;
+    border-color: #a23422 !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: white !important;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #cc3e27 !important;
+    border-color: #a23422 !important;
+}
+
+
+ .termsandcond {
+     color: #cc3e27;
+     font-weight: bold;
+ }
+
+ .termsandcond:hover {
+     color: #cc3e27;
+     font-weight: bold;
+  }

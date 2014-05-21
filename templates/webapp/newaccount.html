@@ -89,6 +89,13 @@
             }
             return cookieValue;
         }
+        function checkTermsAndConds(){
+             var check = $("#terms_conds").is(":checked");
+             if(!check){
+                 $("#error_terms_conds").show();
+                 return false;
+             }
+         }
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -107,20 +114,9 @@
 <div class="panel-body">
     <h1>{{ title }}</h1>
 
-    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
+    <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data" onsubmit="return checkTermsAndConds();">
     {% csrf_token %}
 
-    {% comment %}TODO: poner cada error en su campo {% endcomment %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">{{ error|escape }}</div>
-        {% endfor %}
-    {% endfor %}
-
-
-    {{ form.errors }}
-
-    {{ form.non_field_errors }}
 
     <legend>{% trans "Account information" %}</legend>
     <fieldset class="panel-body">
@@ -142,7 +138,15 @@
                        name="{{ form.username.name }}" id="id_{{ form.username.name }}"
                        value="{{ form.username.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.username.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.username.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
 
@@ -156,7 +160,15 @@
                        name="{{ form.email.name }}" id="id_{{ form.email.name }}"
                        value="{{ form.email.value | default_if_none:'' }}" {% if edit %} disabled {% endif %}>
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.email.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.email.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
         <!-- Password -->
@@ -170,7 +182,15 @@
                        name="{{ form.password.name }}" id="id_{{ form.password.name }}"
                        value="{{ form.password.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.password.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.password.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
         <!-- Password repeat -->
@@ -184,7 +204,15 @@
                        name="{{ form.password_repeat.name }}" id="id_{{ form.password_repeat.name }}"
                        value="{{ form.password_repeat.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.password_repeat.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.password_repeat.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
     </fieldset>
 
@@ -201,7 +229,15 @@
                        name="{{ form.display_name.name }}" id="id_{{ form.display_name.name }}"
                        value="{{ form.display_name.value | default_if_none:'' }}">
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.display_name.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.display_name.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
         <!-- Main Language -->
@@ -223,7 +259,15 @@
                     {% endfor %}
                 </select>
             </div>
-            <span class="help-block">{% trans "Required" %}</span>
+            {% if form.main_language.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.main_language.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% else %}
+                <span class="help-block">{% trans "Required" %}</span>
+            {% endif %}
         </div>
 
         <!-- Additional languages -->
@@ -246,6 +290,13 @@
                     {% endfor %}
                 </select>
             </div>
+            {% if form.additional_languages.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.additional_languages.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% endif %}
         </div>
 
         <!-- Gender -->
@@ -265,6 +316,13 @@
                     {% endfor %}
                 </select>
             </div>
+            {% if form.gender.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.gender.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% endif %}
         </div>
 
         <!-- Location -->
@@ -278,6 +336,13 @@
                        name="{{ form.location.name }}" id="id_{{ form.location.name }}"
                        value="{{ form.location.value | default_if_none:'' }}">
             </div>
+            {% if form.location.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.location.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% endif %}
         </div>
 
         <!-- Website -->
@@ -291,6 +356,13 @@
                        name="{{ form.website.name }}" id="id_{{ form.website.name }}"
                        value="{{ form.website.value | default_if_none:'' }}">
             </div>
+            {% if form.website.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.website.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% endif %}
         </div>
 
         <!-- Birth Date -->
@@ -303,6 +375,13 @@
                        name="{{ form.birth_date.name }}" id="id_{{ form.birth_date.name }}"
                        value="{{ form.birth_date.value.year }}-{% if form.birth_date.value.month < 10 %}0{% endif %}{{ form.birth_date.value.month }}-{% if form.birth_date.value.day < 10 %}0{% endif %}{{ form.birth_date.value.day }}">
             </div>
+            {% if form.birth_date.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.birth_date.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% endif %}
         </div>
 
         <!-- Avatar -->
@@ -320,6 +399,13 @@
                     <input type="hidden" id="id_{{ form.avatar_id.name }}" name="{{ form.avatar_id.name }}">
                 </div>
             </div>
+            {% if form.avatar.errors %}
+                <span class="alert alert-danger">
+                    {% for error in form.avatar.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                </span>
+            {% endif %}
         </div>
 
     </fieldset>
@@ -398,6 +484,20 @@
             </div>
         </div>
     </fieldset>
+
+    <br />
+
+     {% if not edit %}
+     <div class="checkbox">
+         <label>
+             <input id="terms_conds" type="checkbox"> {% trans "I have read and I accept " %} <a class="termsandcond" href="{% url 'terms_and_conditions' %}"> {% trans "the terms and conditions" %} </a>
+            <span id="error_terms_conds" style="display: none;" class="alert alert-danger">{% trans "You must accept the terms and conditions" %}</span>
+         </label>
+     </div>
+
+     <br />
+     <br />
+    {% endif %}
 
     <!-- Submit Button -->
     <div class="form-group">
