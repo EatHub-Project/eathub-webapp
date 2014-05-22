@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-22 07:29+0200\n"
+"POT-Creation-Date: 2014-05-22 12:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Error 500: error del servidor :_("
 
 #: .\templates\500.html.py:15
 msgid "Sorry! The server has suffered an error and couldn't serve your query"
-msgstr "¡Lo sentimos! Es servido acaba de sufrir un error :("
+msgstr "¡Lo sentimos! El servidor acaba de sufrir un error :("
 
 #: .\templates\email\activation_email.txt.py:3
 #, python-format
@@ -233,14 +233,30 @@ msgstr "Cambiar la navegación"
 msgid "Home"
 msgstr "Inicio"
 
-#: .\templates\webapp\base.html.py:50 .\templates\webapp\profile.html.py:20
-#: .\templates\webapp\recipes.html.py:7
+#: .\templates\webapp\base.html.py:50 .\templates\webapp\base.html.py:65
+#: .\templates\webapp\profile.html.py:20 .\templates\webapp\recipes.html.py:7
 msgid "Recipes"
 msgstr "Recetas"
 
 #: .\templates\webapp\base.html.py:51
 msgid "Explore"
 msgstr "Explora"
+
+#: .\templates\webapp\base.html.py:55
+msgid "Search..."
+msgstr "Buscar..."
+
+#: .\templates\webapp\base.html.py:69
+msgid "Search recipes"
+msgstr "Buscar recetas"
+
+#: .\templates\webapp\base.html.py:73
+msgid "People"
+msgstr "Gente"
+
+#: .\templates\webapp\base.html.py:77
+msgid "Search people"
+msgstr "Buscar gente"
 
 #: .\templates\webapp\base.html.py:97 .\templates\webapp\main.html.py:12
 msgid "Hello"
@@ -249,6 +265,10 @@ msgstr "Hola"
 #: .\templates\webapp\base.html.py:106 .\templates\webapp\main.html.py:13
 msgid "Profile"
 msgstr "Perfil"
+
+#: .\templates\webapp\base.html.py:107
+msgid "Settings"
+msgstr "Configuración"
 
 #: .\templates\webapp\base.html.py:109 .\templates\webapp\main.html.py:15
 msgid "Logout"
@@ -261,7 +281,7 @@ msgstr "Añadir receta"
 #: .\templates\webapp\base.html.py:121 .\templates\webapp\login.html.py:68
 #: .\templates\webapp\main.html.py:28
 msgid "Sign in"
-msgstr "Entrar"
+msgstr "Acceder"
 
 #: .\templates\webapp\base.html.py:157
 msgid "This web is under development by the members of fifth group of ISPP."
@@ -294,6 +314,10 @@ msgstr "Términos y condiciones"
 #: .\templates\webapp\base.html.py:185 .\templates\webapp\contact.html.py:15
 msgid "About us"
 msgstr "Sobre nosotros"
+
+#: .\templates\webapp\base.html.py:186
+msgid "The team"
+msgstr "El equipo"
 
 #: .\templates\webapp\base.html.py:187
 msgid "Contact"
@@ -442,11 +466,11 @@ msgstr "Más rapido"
 
 #: .\templates\webapp\login.html.py:86
 msgid "Sign in with Google+"
-msgstr "Entrar con Google+"
+msgstr "Acceder con Google+"
 
 #: .\templates\webapp\login.html.py:99
 msgid "Sign in with Facebook"
-msgstr "Entrar con Facebook"
+msgstr "Acceder con Facebook"
 
 #: .\templates\webapp\logo.html.py:9
 msgid "This is a provisional starting page"
@@ -770,6 +794,10 @@ msgstr ""
 "modopodemos recomendar mejor tu receta a los gustos personales de cada "
 "persona. Los valores de estos sabores son evidentemente relativos"
 
+#: .\templates\webapp\newrecipe.html.py:802
+msgid "Publish recipe"
+msgstr "Publicar receta"
+
 #: .\templates\webapp\newrecipe.html.py:805
 msgid "Save as draft"
 msgstr "Guardar como borrador"
@@ -796,7 +824,7 @@ msgstr "Dejar de seguir"
 
 #: .\templates\webapp\profile.html.py:38
 msgid "Register to follow "
-msgstr "Regístrate para seguirle"
+msgstr "Regístrate para seguir a"
 
 #: .\templates\webapp\profile.html.py:43
 msgid "Unknown error"
@@ -1478,9 +1506,6 @@ msgstr "Tu cuenta ha sido activada satisfactoriamente. Ahora, Puedes logearte."
 
 #~ msgid "Use any social network account"
 #~ msgstr "Usa tu cuenta de alguna de las siguiente redes sociales"
-
-#~ msgid "The team"
-#~ msgstr "El equipo"
 
 #~ msgid "English"
 #~ msgstr "Inglés"

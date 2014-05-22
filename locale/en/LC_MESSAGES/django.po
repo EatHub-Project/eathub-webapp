@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-22 07:29+0200\n"
+"POT-Creation-Date: 2014-05-22 12:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,14 +239,32 @@ msgstr "Toggle navigation"
 msgid "Home"
 msgstr "Home"
 
-#: .\templates\webapp\base.html.py:50 .\templates\webapp\profile.html.py:20
-#: .\templates\webapp\recipes.html.py:7
+#: .\templates\webapp\base.html.py:50 .\templates\webapp\base.html.py:65
+#: .\templates\webapp\profile.html.py:20 .\templates\webapp\recipes.html.py:7
 msgid "Recipes"
 msgstr "Recipes"
 
 #: .\templates\webapp\base.html.py:51
 msgid "Explore"
 msgstr "Explore"
+
+#: .\templates\webapp\base.html.py:55
+msgid "Search..."
+msgstr ""
+
+#: .\templates\webapp\base.html.py:69
+#, fuzzy
+msgid "Search recipes"
+msgstr "No recipes yet"
+
+#: .\templates\webapp\base.html.py:73
+#, fuzzy
+msgid "People"
+msgstr "Profile"
+
+#: .\templates\webapp\base.html.py:77
+msgid "Search people"
+msgstr ""
 
 #: .\templates\webapp\base.html.py:97 .\templates\webapp\main.html.py:12
 msgid "Hello"
@@ -255,6 +273,10 @@ msgstr "Hello"
 #: .\templates\webapp\base.html.py:106 .\templates\webapp\main.html.py:13
 msgid "Profile"
 msgstr "Profile"
+
+#: .\templates\webapp\base.html.py:107
+msgid "Settings"
+msgstr ""
 
 #: .\templates\webapp\base.html.py:109 .\templates\webapp\main.html.py:15
 msgid "Logout"
@@ -293,6 +315,10 @@ msgstr ""
 
 #: .\templates\webapp\base.html.py:185 .\templates\webapp\contact.html.py:15
 msgid "About us"
+msgstr ""
+
+#: .\templates\webapp\base.html.py:186
+msgid "The team"
 msgstr ""
 
 #: .\templates\webapp\base.html.py:187
@@ -766,6 +792,11 @@ msgid ""
 "you know. Savours are measured in a relative way, of course. For more "
 "information, check Wikipedia or something, dude."
 msgstr ""
+
+#: .\templates\webapp\newrecipe.html.py:802
+#, fuzzy
+msgid "Publish recipe"
+msgstr "Add recipe"
 
 #: .\templates\webapp\newrecipe.html.py:805
 msgid "Save as draft"

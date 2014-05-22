@@ -52,7 +52,7 @@
                         <li><div class="input-group navbar-input-group fbSearch">
                         <form id="search-form" class="navbar-form navbar-left hidden-xs hidden-sm" role="search" method="get" action="{% url 'search_recipe'%}">
                             <div class="form-group">
-                                <input type="text" class="form-control border-search border-rect-red" placeholder="Search..." name="srchterm"
+                                <input type="text" class="form-control border-search border-rect-red" placeholder="{% trans "Search..." %}" name="srchterm"
                                    id="srchterm">
                                 <span class="input-group-btn-red navbar-input-group-btn">
                                     <button class="btn btn-default" type="submit">
@@ -62,19 +62,19 @@
                             </div>
                         <div class="suggest">
                             <ul>
-                            <li class="header"><span class="text">Recipes</span></li>
+                            <li class="header"><span class="text">{% trans "Recipes" %}</span></li>
                                 <li>
                                     <a href="{% url 'search_recipe'%}">
                                         <span class="glyphicon glyphicon-search"></span>
-                                        <span class="text">Search recipes</span>
+                                        <span class="text">{% trans "Search recipes"%} </span>
                                         <span class="category"></span>
                                     </a>
                                 </li>
-                                <li class="header"><span class="text">People</span></li>
+                                <li class="header"><span class="text">{% trans "People" %}</span></li>
                                 <li>
                                     <a href="{% url 'search_person' ' ' %}">
                                         <span class="glyphicon glyphicon-search"></span>
-                                        <span class="text">Search people</span>
+                                        <span class="text">{% trans "Search people" %}</span>
                                         <span class="category"></span>
                                     </a>
                                 </li>
@@ -104,7 +104,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'profile' user.username %}">{% trans "Profile" %}</a></li>
-                                    <li><a href="">Settings</a></li>
+                                    <li><a href="">{% trans "Settings" %}</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                                 </ul>
@@ -183,7 +183,7 @@
             <div class="row">
                 <div class="col-md-2 text-center"><a href="{% url 'terms_and_conditions' %}" class="footer-link">{%  trans "Terms & conditions" %}</a></div>
                 <div class="col-md-2 text-center"><a href="{% url 'about' %}" class="footer-link">{% trans 'About us' %}</a></div>
-                <div class="col-md-2 text-center"><a href="{% url 'about_team'%}" class="footer-link">The team</a></div>
+                <div class="col-md-2 text-center"><a href="{% url 'about_team'%}" class="footer-link">{% trans "The team" %}</a></div>
                 <div class="col-md-2 text-center"><a href="{% url 'contact' %}" class="footer-link">{%  trans "Contact" %}</a></div>
             </div>
         </div>
