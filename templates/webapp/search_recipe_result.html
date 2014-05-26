@@ -20,6 +20,12 @@
             $('.slider').slider();
         });
     </script>
+    <script src="{% static 'webapp/js/jquery.dotdotdot.min.js' %}"></script>
+    <script>
+        $().ready(function () {
+            $(".main-card-content").dotdotdot();
+        });
+    </script>
 {% endblock %}
 
 {% block container %}
