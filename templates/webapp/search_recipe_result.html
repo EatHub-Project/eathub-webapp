@@ -53,7 +53,7 @@
                        for="id_{{ form.difficult.name }}">{% trans "Difficulty" %}</label>
 
                 <div class="col-sm-6">
-                    <select class="form-control" name="{{ form.difficult.name }}"
+                    <select class="form-control" name="{{ form.difficult.name }}" title="{% trans "None selected" %}"
                             id="id_{{ form.difficult.name }}">
                         <option value=""></option>
                         {% for choice in form.difficult.field.choices %}
@@ -76,7 +76,7 @@
                        for="id_{{ form.temporality.name }}">{% trans "Occasions" %}</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control show-tick" data-live-search="true" multiple
+                    <select class="form-control show-tick" data-live-search="true" multiple title="{% trans "None selected" %}"
                             name="{{ form.temporality.name }}" id="id_{{ form.temporality.name }}">
                         {% for choice in form.temporality.field.choices %}
                             <option value="{{ choice.0 }}"
@@ -98,7 +98,7 @@
                        for="id_{{ form.food_type.name }}">{% trans "Food type" %}</label>
 
                 <div class="col-sm-6">
-                    <select class="form-control show-tick" name="{{ form.food_type.name }}"
+                    <select class="form-control show-tick" name="{{ form.food_type.name }}" title="{% trans "None selected" %}"
                             id="id_{{ form.food_type.name }}">
                         <option value=""></option>
                         {% for choice in form.food_type.field.choices %}
@@ -121,7 +121,7 @@
                        for="id_{{ form.special_conditions.name }}">{% trans "Special conditions" %}</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control show-tick" data-live-search="true" multiple
+                    <select class="form-control show-tick" data-live-search="true" multiple title="{% trans "None selected" %}"
                             name="{{ form.special_conditions.name }}"
                             id="id_{{ form.special_conditions.name }}">
                         {% for choice in form.special_conditions.field.choices %}
@@ -144,7 +144,7 @@
                        for="id_{{ form.languages.name }}">{% trans "Language" %}</label>
 
                 <div class="col-sm-6">
-                    <select class="form-control show-tick" name="{{ form.language.name }}"
+                    <select class="form-control show-tick" name="{{ form.language.name }}" title="{% trans "None selected" %}"
                             id="id_{{ form.language.name }}">
                         <option value=""></option>
                         {% for choice in form.language.field.choices %}
