@@ -74,7 +74,7 @@
                                 <ul>
                                     {% for friend in following %}
                                         <li class="list-affinity">
-                                            <div class="col-md-10 panel follow-list-item">
+                                            <div class="col-md-10 panel follow-list-item"><a class="get-affinity" href="{% url 'affinity' friend.user.username %}">
                                                 <div class="col-md-10">
                                                     <span><img class="img-rounded"
                                                          src="{% avatar friend.user.profile.get.avatar %}"/>
@@ -82,9 +82,9 @@
                                                     {{ friend.display_name }}</h3></span>
                                                 </div>
                                                 <div class="col-md-2 ">
-                                                    <a href="{% url 'affinity' friend.user.username %}" class="get-affinity"><span class="glyphicon glyphicon-chevron-right affinity-right"></span></a>
+                                                    <span class="glyphicon glyphicon-chevron-right affinity-right"></span>
                                                 </div>
-                                            </div>
+                                            </a></div>
                                         </li>
                                     {% endfor %}
                                 </ul>
