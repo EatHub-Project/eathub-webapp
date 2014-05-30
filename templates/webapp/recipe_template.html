@@ -59,7 +59,7 @@
     {% if user.is_authenticated %}
          <div class="recipe-affinity">
                     <a data-toggle="modal" data-target=".recipe-modal-affinity" class="btn btn-default recipe-fork-clone">
-                        {% trans "Show affinity" %}
+                        {% trans "Affinity" %}
                     </a>
             </div>
             <div class="modal fade recipe-modal-affinity" tabindex="-1" role="dialog" aria-hidden="true">
@@ -75,14 +75,14 @@
                                     {% for friend in following %}
                                         <li class="list-affinity">
                                             <div class="col-md-10 panel follow-list-item">
-                                                <div class="col-md-2">
-                                                    <input id="terms_conds" class="check-affinity" type="checkbox" />
-                                                </div>
                                                 <div class="col-md-10">
                                                     <span><img class="img-rounded"
-                                                         src="{% avatar friend.avatar %}"/>
+                                                         src="{% avatar friend.user.profile.get.avatar %}"/>
                                                     <h3 class="user-name-affinity">
                                                     {{ friend.display_name }}</h3></span>
+                                                </div>
+                                                <div class="col-md-2 ">
+                                                    <a href="" class="get-affinity"><span class="glyphicon glyphicon-chevron-right affinity-right"></span></a>
                                                 </div>
                                             </div>
                                         </li>

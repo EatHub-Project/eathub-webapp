@@ -1666,3 +1666,20 @@ footer {
     margin-top: 38px !important;
     color: #cc3e27;
 }
+
+.affinity-right {
+    margin-top: 38px !important;
+    margin-left: 35px !important;
+    width: 15%;
+    /*opacity: .5;*/
+    /*filter: alpha(opacity=50);*/
+    font-size: 20px;
+}
+
+.get-affinity{
+    color: #cc3e27;
+}
+
+.get-affinity:hover{
+    color: #b65252;
+}
