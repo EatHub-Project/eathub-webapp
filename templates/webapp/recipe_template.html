@@ -56,6 +56,57 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </div>
+    {% if user.is_authenticated %}
+         <div class="recipe-affinity">
+                    <a data-toggle="modal" data-target=".recipe-modal-affinity" class="btn btn-default recipe-fork-clone">
+                        {% trans "Show affinity" %}
+                    </a>
+            </div>
+            <div class="modal fade recipe-modal-affinity" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">{% trans "Select the users: " %}</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% if following %}
+                                <ul>
+                                    {% for friend in following %}
+                                        <li class="list-affinity">
+                                            <div class="col-md-10 panel follow-list-item">
+                                                <div class="col-md-2">
+                                                    <input id="terms_conds" class="check-affinity" type="checkbox" />
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <span><img class="img-rounded"
+                                                         src="{% avatar friend.avatar %}"/>
+                                                    <h3 class="user-name-affinity">
+                                                    {{ friend.display_name }}</h3></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+
+                                <div class="recipe-modal-children-empty">
+                                <div>
+                                        <a href=""
+                                           class="btn btn-default btn-eathub"><i
+                                                class="fa fa-code-fork"></i> {% trans "Calculate affinity" %}</a>
+                                </div>
+                                </div>
+                            {% else %}
+                                <div class="recipe-modal-children-empty">
+                                    <span>{% trans "You do not have any friend yet." %}</span>
+                                </div>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {% endif %}
 
         <!-- Fork overlay -->
         {% with children=receta.get_child_recipes %}

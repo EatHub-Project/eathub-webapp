@@ -1643,3 +1643,26 @@ footer {
      color: #cc3e27;
      font-weight: bold;
   }
+
+ .recipe-affinity {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    color: #CC3E27;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+
+.list-affinity{
+    list-style:none;
+}
+
+.check-affinity{
+    margin-top: 38px !important;
+}
+
+.user-name-affinity{
+    margin-top: 38px !important;
+    color: #cc3e27;
+}
