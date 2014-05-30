@@ -501,6 +501,22 @@ def logout_user(request):
     # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
     return views.logout(request, next_page=reverse('main'))
 
+#TODO: mover a otro fichero e importar
+def calculate_affinity(friend_profile, my_profile):
+    ret_affinity = 0
+
+    ret_affinity = (
+        abs(friend_profile.tastes.bitter - my_profile.tastes.bitter) +
+        abs(friend_profile.tastes.salty - my_profile.tastes.salty) +
+        abs(friend_profile.tastes.sour - my_profile.tastes.sour) +
+        abs(friend_profile.tastes.spicy - my_profile.tastes.spicy) +
+        abs(friend_profile.tastes.sweet - my_profile.tastes.sweet)
+                   )/5
+
+    return ret_affinity
+    #return abs(friend_profile.tastes.bitter - my_profile.tastes.bitter)
+
+
 def affinity(request, username):
     try:
         user = User.objects.get(username=username)
@@ -514,8 +530,7 @@ def affinity(request, username):
 
     user_profile = Profile.objects.get(user=user)
 
-    #TODO: algoritmo que calcula la afinidad
-    affinity = 10;
+    affinity = calculate_affinity(user_profile, my_profile)
 
     return render(request, 'webapp/affinity.html', {'my_profile': my_profile,'friend': user_profile, 'affinity': affinity})
 
