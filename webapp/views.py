@@ -501,8 +501,47 @@ def logout_user(request):
     # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
     return views.logout(request, next_page=reverse('main'))
 
+#TODO: mover a otro fichero e importar
+def calculate_affinity(friend_profile, my_profile):
+    ret_affinity = 0
+
+    ret_affinity = (
+        abs(friend_profile.tastes.bitter - my_profile.tastes.bitter) +
+        abs(friend_profile.tastes.salty - my_profile.tastes.salty) +
+        abs(friend_profile.tastes.sour - my_profile.tastes.sour) +
+        abs(friend_profile.tastes.spicy - my_profile.tastes.spicy) +
+        abs(friend_profile.tastes.sweet - my_profile.tastes.sweet)
+                   )/5
+
+    return 100-ret_affinity
+
+def affinity(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    if request.user.is_authenticated():
+        my_profile = request.user.profile.get()
+    else:
+        raise Http404
+
+    user_profile = Profile.objects.get(user=user)
+
+    affinity = calculate_affinity(user_profile, my_profile)
+
+    return render(request, 'webapp/affinity.html', {'my_profile': my_profile,'friend': user_profile, 'affinity': affinity})
+
 
 def receta(request, recipe_id):
+
+    following = None
+    if request.user.is_authenticated():
+        #username = request.user.username
+        #user = User.objects.get(username=username)
+        my_profile = request.user.profile.get()
+        following = my_profile.following
+
     recipe = Recipe.objects.get(id=recipe_id)
 
     total_votos = len(recipe.positives) + len(recipe.negatives)
@@ -523,7 +562,8 @@ def receta(request, recipe_id):
         dificultad = "Media"
 
     return render(request, 'webapp/recipe_template.html', {'receta': recipe, 'total_votos': total_votos, 'difficult_value': dificultad,
-                                                           'por_pos': int(porcentaje_positivos), 'por_neg': int(porcentaje_negativos)})
+                                                           'por_pos': int(porcentaje_positivos), 'por_neg': int(porcentaje_negativos),
+                                                           'following': following})
 
 
 def profile(request, username):
