@@ -82,7 +82,7 @@
                                                     {{ friend.display_name }}</h3></span>
                                                 </div>
                                                 <div class="col-md-2 ">
-                                                    <a href="" class="get-affinity"><span class="glyphicon glyphicon-chevron-right affinity-right"></span></a>
+                                                    <a href="{% url 'affinity' friend.user.username %}" class="get-affinity"><span class="glyphicon glyphicon-chevron-right affinity-right"></span></a>
                                                 </div>
                                             </div>
                                         </li>

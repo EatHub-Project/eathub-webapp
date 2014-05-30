@@ -1,0 +1,29 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load tags %}
+{% load recipe_form %}
+
+{% block container %}
+    <!-- Start Recipe -->
+    <!-- Column Left -->
+
+    <!-- Title -->
+    <div class="col-md-8 col-md-offset-2">
+        <h1 class="recipe-name">{% trans "The affinity is: " %}</h1>
+
+        <div class="panel panel-body row">
+            <div class="col-md-2 recipe-data">
+
+            </div>
+            <div class="col-md-8 recipe-data">
+                <p>You ({{ my_profile.display_name }}){% trans " has an affinity of" %} {{ affinity }} % {% trans "with " %}{{ friend.display_name }}
+                {% trans "in the selected recipe" %}</p>
+            </div>
+            <div class="col-md-2 recipe-data">
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

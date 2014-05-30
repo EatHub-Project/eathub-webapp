@@ -501,6 +501,24 @@ def logout_user(request):
     # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
     return views.logout(request, next_page=reverse('main'))
 
+def affinity(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404
+
+    if request.user.is_authenticated():
+        my_profile = request.user.profile.get()
+    else:
+        raise Http404
+
+    user_profile = Profile.objects.get(user=user)
+
+    #TODO: algoritmo que calcula la afinidad
+    affinity = 10;
+
+    return render(request, 'webapp/affinity.html', {'my_profile': my_profile,'friend': user_profile, 'affinity': affinity})
+
 
 def receta(request, recipe_id):
 

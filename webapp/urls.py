@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^profile/(?P<username>[.\w]+)/followers/$', views.followers, name='followers'),
     url(r'^profile/(?P<username>[.\w]+)/recipes/$' , views.recipes, name='recipes'),
 
+    url(r'^profile/(?P<username>[.\w]+)/affinity/$' , views.affinity, name='affinity'),
+
     # Recipes
     url(r'^newrecipe', views.new_recipe, name='newrecipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/$' , views.receta, name='recipe'),
