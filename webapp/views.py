@@ -513,7 +513,7 @@ def calculate_affinity(friend_profile, my_profile):
         abs(friend_profile.tastes.sweet - my_profile.tastes.sweet)
                    )/5
 
-    return ret_affinity
+    return 100-ret_affinity
 
 def affinity(request, username):
     try:
