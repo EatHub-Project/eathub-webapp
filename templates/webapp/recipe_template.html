@@ -160,7 +160,7 @@
                          src="{% avatar receta.author.profile.get.avatar %}">
                 </div>
             </div>
-            <h5 class="recipe-author recipe-author-name">By {{ receta.author.profile.get.display_name }}</h5>
+            <h5 class="recipe-author recipe-author-name">{% trans "By" %} {{ receta.author.profile.get.display_name }}</h5>
         </a>
 
         <!-- Votes overaly -->

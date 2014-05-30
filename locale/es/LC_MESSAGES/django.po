@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 15:05+0200\n"
+"POT-Creation-Date: 2014-05-30 16:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,6 +224,26 @@ msgstr "Analista y encargado de pruebas"
 #: .\templates\webapp\about_team.html.py:113
 msgid "Developer Lead"
 msgstr "Líder de desarroladores"
+
+#: .\templates\webapp\affinity.html.py:13
+msgid "The affinity is: "
+msgstr "La afinidad es: "
+
+#: .\templates\webapp\affinity.html.py:20
+msgid "You"
+msgstr "Tú"
+
+#: .\templates\webapp\affinity.html.py:20
+msgid " have an affinity of"
+msgstr " tienes una afinidad de"
+
+#: .\templates\webapp\affinity.html.py:20
+msgid "with "
+msgstr "con "
+
+#: .\templates\webapp\affinity.html.py:21
+msgid "in the selected recipe"
+msgstr "en la receta seleccionada"
 
 #: .\templates\webapp\base.html.py:36
 msgid "Toggle navigation"
@@ -588,7 +608,7 @@ msgstr "Gustos"
 #: .\templates\webapp\newaccount.html.py:422
 #: .\templates\webapp\newrecipe.html.py:720
 #: .\templates\webapp\profile.html.py:237
-#: .\templates\webapp\recipe_template.html.py:281
+#: .\templates\webapp\recipe_template.html.py:332
 #: .\templates\webapp\search_recipe_result.html.py:167
 msgid "Salty"
 msgstr "Salado"
@@ -596,7 +616,7 @@ msgstr "Salado"
 #: .\templates\webapp\newaccount.html.py:437
 #: .\templates\webapp\newrecipe.html.py:735
 #: .\templates\webapp\profile.html.py:246
-#: .\templates\webapp\recipe_template.html.py:291
+#: .\templates\webapp\recipe_template.html.py:342
 #: .\templates\webapp\search_recipe_result.html.py:182
 msgid "Sour"
 msgstr "Agrio"
@@ -604,7 +624,7 @@ msgstr "Agrio"
 #: .\templates\webapp\newaccount.html.py:450
 #: .\templates\webapp\newrecipe.html.py:748
 #: .\templates\webapp\profile.html.py:255
-#: .\templates\webapp\recipe_template.html.py:301
+#: .\templates\webapp\recipe_template.html.py:352
 #: .\templates\webapp\search_recipe_result.html.py:195
 msgid "Bitter"
 msgstr "Amargo"
@@ -612,7 +632,7 @@ msgstr "Amargo"
 #: .\templates\webapp\newaccount.html.py:463
 #: .\templates\webapp\newrecipe.html.py:761
 #: .\templates\webapp\profile.html.py:264
-#: .\templates\webapp\recipe_template.html.py:311
+#: .\templates\webapp\recipe_template.html.py:362
 #: .\templates\webapp\search_recipe_result.html.py:208
 msgid "Sweet"
 msgstr "Dulce"
@@ -620,7 +640,7 @@ msgstr "Dulce"
 #: .\templates\webapp\newaccount.html.py:476
 #: .\templates\webapp\newrecipe.html.py:774
 #: .\templates\webapp\profile.html.py:273
-#: .\templates\webapp\recipe_template.html.py:321
+#: .\templates\webapp\recipe_template.html.py:372
 #: .\templates\webapp\search_recipe_result.html.py:221
 msgid "Spicy"
 msgstr "Picante"
@@ -744,7 +764,7 @@ msgid "Difficulty"
 msgstr "Dificultad"
 
 #: .\templates\webapp\newrecipe.html.py:606
-#: .\templates\webapp\recipe_template.html.py:242
+#: .\templates\webapp\recipe_template.html.py:293
 #: .\templates\webapp\search_recipe_result.html.py:76
 msgid "Occasions"
 msgstr "Ocasiones"
@@ -774,12 +794,12 @@ msgid "Comma separated tags"
 msgstr "Etiquetas separadas por comas"
 
 #: .\templates\webapp\newrecipe.html.py:702
-#: .\templates\webapp\recipe_template.html.py:261
+#: .\templates\webapp\recipe_template.html.py:312
 msgid "Nationality"
 msgstr "Nacionalidad"
 
 #: .\templates\webapp\newrecipe.html.py:716
-#: .\templates\webapp\recipe_template.html.py:277
+#: .\templates\webapp\recipe_template.html.py:328
 #: .\templates\webapp\search_recipe_result.html.py:163
 msgid "Savours"
 msgstr "Sabores"
@@ -803,11 +823,11 @@ msgstr "Publicar receta"
 msgid "Save as draft"
 msgstr "Guardar como borrador"
 
-#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:601
+#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:641
 msgid "Followers"
 msgstr "Seguidores"
 
-#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:584
+#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:624
 msgid "Following"
 msgstr "Siguiendo"
 
@@ -871,109 +891,129 @@ msgstr "Perfil de sabores"
 msgid "Cloned from:"
 msgstr "Clonada de ésta:"
 
-#: .\templates\webapp\recipe_template.html.py:67
+#: .\templates\webapp\recipe_template.html.py:62
+msgid "Affinity"
+msgstr "Afinidad"
+
+#: .\templates\webapp\recipe_template.html.py:70
+msgid "Select the users: "
+msgstr "Selecciona los usuarios: "
+
+#: .\templates\webapp\recipe_template.html.py:96
+msgid "Calculate affinity"
+msgstr "Calcula la afinidad"
+
+#: .\templates\webapp\recipe_template.html.py:101
+msgid "You do not have any friend yet."
+msgstr "Aún no tienes amigos :'("
+
+#: .\templates\webapp\recipe_template.html.py:118
 msgid "Clone"
 msgstr "Clonar"
 
-#: .\templates\webapp\recipe_template.html.py:74
+#: .\templates\webapp\recipe_template.html.py:125
 msgid "Recipes derived from this:"
 msgstr "Recetas derivadas de:"
 
-#: .\templates\webapp\recipe_template.html.py:87
+#: .\templates\webapp\recipe_template.html.py:138
 msgid "No derived recipes yet"
 msgstr "Aún no hay recetas derivadas de ésta"
 
-#: .\templates\webapp\recipe_template.html.py:92
+#: .\templates\webapp\recipe_template.html.py:143
 msgid "Clone it yourself"
 msgstr "Clónala"
 
-#: .\templates\webapp\recipe_template.html.py:137
+#: .\templates\webapp\recipe_template.html.py:163
+msgid "By"
+msgstr "Por"
+
+#: .\templates\webapp\recipe_template.html.py:188
 msgid "Like"
 msgstr "Me gusta"
 
-#: .\templates\webapp\recipe_template.html.py:149
+#: .\templates\webapp\recipe_template.html.py:200
 msgid "Edit recipe"
 msgstr "Editar receta"
 
-#: .\templates\webapp\recipe_template.html.py:153
+#: .\templates\webapp\recipe_template.html.py:204
 msgid "Delete recipe"
 msgstr "Eliminar receta"
 
-#: .\templates\webapp\recipe_template.html.py:166
+#: .\templates\webapp\recipe_template.html.py:217
 msgid "prep + cook time"
 msgstr "Tiempo de preparación + Cocinado"
 
-#: .\templates\webapp\recipe_template.html.py:168
-#: .\templates\webapp\recipe_template.html.py:171
+#: .\templates\webapp\recipe_template.html.py:219
+#: .\templates\webapp\recipe_template.html.py:222
 msgid "min"
 msgstr "mínimo"
 
-#: .\templates\webapp\recipe_template.html.py:169
-#: .\templates\webapp\recipe_template.html.py:172
+#: .\templates\webapp\recipe_template.html.py:220
+#: .\templates\webapp\recipe_template.html.py:223
 msgid "prep time"
 msgstr "Tiempo de preparación"
 
-#: .\templates\webapp\recipe_template.html.py:178
+#: .\templates\webapp\recipe_template.html.py:229
 msgid "difficulty"
 msgstr "Dificultad"
 
-#: .\templates\webapp\recipe_template.html.py:183
+#: .\templates\webapp\recipe_template.html.py:234
 msgid "serves"
 msgstr "Comensales"
 
-#: .\templates\webapp\recipe_template.html.py:190
+#: .\templates\webapp\recipe_template.html.py:241
 msgid "Ingredients"
 msgstr "Ingredientes"
 
-#: .\templates\webapp\recipe_template.html.py:202
+#: .\templates\webapp\recipe_template.html.py:253
 msgid "Notes"
 msgstr "Notas"
 
-#: .\templates\webapp\recipe_template.html.py:239
+#: .\templates\webapp\recipe_template.html.py:290
 msgid "More information"
 msgstr "Más información"
 
-#: .\templates\webapp\recipe_template.html.py:249
+#: .\templates\webapp\recipe_template.html.py:300
 msgid "Food Type"
 msgstr "Tipo de comida"
 
-#: .\templates\webapp\recipe_template.html.py:254
+#: .\templates\webapp\recipe_template.html.py:305
 msgid "Suitable for"
 msgstr "Adecuada para"
 
-#: .\templates\webapp\recipe_template.html.py:266
+#: .\templates\webapp\recipe_template.html.py:317
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: .\templates\webapp\recipe_template.html.py:336
+#: .\templates\webapp\recipe_template.html.py:387
 msgid "Comments"
 msgstr "Comentarios"
 
-#: .\templates\webapp\recipe_template.html.py:354
+#: .\templates\webapp\recipe_template.html.py:405
 msgid "Unban Comment"
 msgstr "Deshacer baneo"
 
-#: .\templates\webapp\recipe_template.html.py:357
+#: .\templates\webapp\recipe_template.html.py:408
 msgid "Ban comment"
 msgstr "Banear comentario"
 
-#: .\templates\webapp\recipe_template.html.py:360
+#: .\templates\webapp\recipe_template.html.py:411
 msgid "This comment has been banned."
 msgstr "Este comentario ha sido baneado"
 
-#: .\templates\webapp\recipe_template.html.py:368
+#: .\templates\webapp\recipe_template.html.py:419
 msgid "No comments yet. Be the first!"
 msgstr "¡Sé el primero en comentar!"
 
-#: .\templates\webapp\recipe_template.html.py:380
+#: .\templates\webapp\recipe_template.html.py:431
 msgid "Write a comment about the recipe…"
 msgstr "Escribe un comentario sobre la receta..."
 
-#: .\templates\webapp\recipe_template.html.py:381
+#: .\templates\webapp\recipe_template.html.py:432
 msgid "Send"
 msgstr "Enviar"
 
-#: .\templates\webapp\recipe_template.html.py:387
+#: .\templates\webapp\recipe_template.html.py:438
 #, python-format
 msgid "Want to comment? <a href=\"%(the_url)s\">Log in</a> first."
 msgstr "¿Quieres comentar algo? <a href=\"%(the_url)s\">Entra</a> primero."
