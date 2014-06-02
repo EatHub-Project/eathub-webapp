@@ -526,7 +526,7 @@ def affinity(request, username, recipe_id):
 
     affinity = calculate_affinity(user_profile, recipe)
 
-    return render(request, 'webapp/affinity.html', {'user_profile': user_profile,'friend': user_profile, 'affinity': affinity})
+    return render(request, 'webapp/affinity.html', {'user_profile': user_profile,'recipe': recipe, 'affinity': affinity})
 
 
 def receta(request, recipe_id):
