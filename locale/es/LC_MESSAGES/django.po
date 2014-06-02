@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-02 08:44+0200\n"
+"POT-Creation-Date: 2014-06-02 16:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,7 +294,7 @@ msgstr "Cerrar sesión"
 msgid "Add recipe"
 msgstr "Añadir receta"
 
-#: .\templates\webapp\base.html.py:117 .\templates\webapp\login.html.py:68
+#: .\templates\webapp\base.html.py:117 .\templates\webapp\login.html.py:72
 #: .\templates\webapp\main.html.py:27
 msgid "Sign in"
 msgstr "Acceder"
@@ -445,46 +445,46 @@ msgstr ""
 "sus variaciones, crea y personaliza tu propia comida, y colabora para "
 "encontrar las mejores recetas en el mundo."
 
-#: .\templates\webapp\login.html.py:44
+#: .\templates\webapp\login.html.py:48
 msgid "Username and password don't match."
 msgstr "Usuario o contraseña erróneos"
 
-#: .\templates\webapp\login.html.py:47
+#: .\templates\webapp\login.html.py:51
 msgid "You need to be logged-in to view this page."
 msgstr "Debes estar registrado para ver esta página."
 
-#: .\templates\webapp\login.html.py:54
+#: .\templates\webapp\login.html.py:58
 msgid "Please sign in"
 msgstr "Inicia sesión"
 
-#: .\templates\webapp\login.html.py:58
+#: .\templates\webapp\login.html.py:62
 #: .\templates\webapp\newaccount.html.py:127
 #: .\templates\webapp\newaccount.html.py:130
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: .\templates\webapp\login.html.py:64
+#: .\templates\webapp\login.html.py:68
 #: .\templates\webapp\newaccount.html.py:178
 msgid "Password"
 msgstr "Contraseña"
 
-#: .\templates\webapp\login.html.py:72
+#: .\templates\webapp\login.html.py:76
 msgid "Create an account"
 msgstr "Crea una cuenta"
 
-#: .\templates\webapp\login.html.py:75
+#: .\templates\webapp\login.html.py:79
 msgid "Forgot your password?"
 msgstr "¿Olvidaste tu contraseña?"
 
-#: .\templates\webapp\login.html.py:81
+#: .\templates\webapp\login.html.py:85
 msgid "Or use a shortcut"
 msgstr "Más rapido"
 
-#: .\templates\webapp\login.html.py:86
+#: .\templates\webapp\login.html.py:90
 msgid "Sign in with Google+"
 msgstr "Acceder con Google+"
 
-#: .\templates\webapp\login.html.py:99
+#: .\templates\webapp\login.html.py:103
 msgid "Sign in with Facebook"
 msgstr "Acceder con Facebook"
 
@@ -888,8 +888,8 @@ msgid "Savours profile"
 msgstr "Perfil de sabores"
 
 #: .\templates\webapp\recipe_template.html.py:16
-msgid "Cloned from:"
-msgstr "Clonada de ésta:"
+msgid "Made from "
+msgstr "Retocada de"
 
 #: .\templates\webapp\recipe_template.html.py:62
 msgid "Affinity"
@@ -901,11 +901,11 @@ msgstr "Selecciona los usuarios: "
 
 #: .\templates\webapp\recipe_template.html.py:98
 msgid "You do not have any friend yet."
-msgstr "Aún no tienes amigos :'("
+msgstr "Aún no tienes amigos."
 
 #: .\templates\webapp\recipe_template.html.py:115
-msgid "Clone"
-msgstr "Clonar"
+msgid "Make it your way"
+msgstr "Dale tu toque"
 
 #: .\templates\webapp\recipe_template.html.py:122
 msgid "Recipes derived from this:"
@@ -1537,6 +1537,12 @@ msgstr "El email ya existe"
 #: .\webapp\views.py:216
 msgid "Your account has been successfully activated. You can log in now."
 msgstr "Tu cuenta ha sido activada satisfactoriamente. Ahora, Puedes logearte."
+
+#~ msgid "Cloned from:"
+#~ msgstr "Clonada de ésta:"
+
+#~ msgid "Clone"
+#~ msgstr "Clonar"
 
 #~ msgid "Calculate affinity"
 #~ msgstr "Calcula la afinidad"
