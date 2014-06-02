@@ -36,7 +36,12 @@
                         before_remove: null,
                         after_remove: null,
                         after_add: function (container, new_row) {
-                            new_row.find(".ingredient-input").focus();
+                            if(new_row.hasClass("ingredient-item")){
+                                new_row.find(".ingredient-input").focus();
+                            }else if(new_row.hasClass("step-item")){
+                                new_row.find(".step-input").focus();
+                            }
+
                         }
                     });
                 });
@@ -334,6 +339,7 @@
                                 <input type="text" class="form-control ingredient-input"
                                        name="ingredient_{row-count-placeholder}"
                                        id="id_ingredient_{row-count-placeholder}"
+                                       autofocus="autofocus"
                                         >
                             <span class="input-group-btn ingredient-remove">
                                 <button class="btn btn-default repeatable-remove" type="button"><span
@@ -387,17 +393,18 @@
             <div class="form-group repeatable-wrapper step-list">
                 <div class="repeatable-container">
                     <!-- Step item -->
-                    <div class="repeatable-row repeatable-template">
+                    <div class="repeatable-row repeatable-template step-item">
                         <div class="form-group step">
                             <div class="col-sm-1">
                                 <span>{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
-                                {% trans "What is the step?…" as step_description %}
+                                {% trans "Describe this step..." as step_description %}
                                 <textarea class="form-control input-lg step-input"
                                           placeholder="{{ step_description }}"
                                           rows="4"
                                           name="step_{row-count-placeholder}" id="id_step_{row-count-placeholder}"
+                                          autofocus="autofocus"
                                         ></textarea>
                             </div>
                             <div class="col-sm-2 step-picture" data-step-index="{row-count-placeholder}">
@@ -418,7 +425,7 @@
                                     <span>{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
-                                    {% trans "What are we doing now?" as the_description %}
+                                    {% trans "Describe this step..." as the_description %}
                                     <textarea class="form-control input-lg step-input"
                                               placeholder="{{ the_description }}"
                                               rows="4"
@@ -450,7 +457,7 @@
                         <span>+</span>
                     </div>
                     <div class="col-sm-9">
-                        {% trans "What are we doing now?" as the_new_desc %}
+                        {% trans "Next step?" as the_new_desc %}
                         <textarea class="form-control input-lg repeatable-add"
                                   placeholder="{{ the_new_desc }}"
                                   rows="4"

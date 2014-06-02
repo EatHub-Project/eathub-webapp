@@ -56,10 +56,10 @@
 
 					var new_row = $(row_template).show().appendTo(container);
 
-					if(typeof settings.after_add === 'function') {
-						settings.after_add(container, new_row);
-					}
                     after_add(container, new_row)
+                    if(typeof settings.after_add === 'function') {
+                        settings.after_add(container, new_row);
+                    }
 
 					// The new row might have it's own repeatable field wrappers so initialize them too
 					initialize(new_row);
