@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-02 08:34+0200\n"
+"POT-Creation-Date: 2014-06-02 08:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: .\templates\404.html.py:14
 msgid "404 error: not found"
-msgstr "Error 404: No encontrado :("
+msgstr "Error 404: No encontrado"
 
 #: .\templates\404.html.py:15
 msgid "Sorry! The page that you requested cannot be found at this moment"
@@ -28,11 +28,11 @@ msgstr "¡Lo sentimos! Esta página no está disponible en este momento"
 
 #: .\templates\500.html.py:14
 msgid "500 error: server error"
-msgstr "Error 500: error del servidor :_("
+msgstr "Error 500: error del servidor"
 
 #: .\templates\500.html.py:15
 msgid "Sorry! The server has suffered an error and couldn't serve your query"
-msgstr "¡Lo sentimos! El servidor acaba de sufrir un error :("
+msgstr "¡Lo sentimos! El servidor acaba de sufrir un error"
 
 #: .\templates\email\activation_email.txt.py:3
 #, python-format
@@ -51,7 +51,7 @@ msgstr "Activate your Eathub account"
 msgid ""
 "Your password has successfully been reset. You can use it right now on the "
 "login page."
-msgstr "Tu contraseña se ha reseteado. Ahora puede usarla para logearse"
+msgstr "Tu contraseña se ha reseteado. Ahora puedes usarla para logearte."
 
 #: .\templates\password_reset\recovery_done.html.py:10
 msgid "Go to the login page."
@@ -73,7 +73,7 @@ msgstr ""
 
 #: .\templates\password_reset\recovery_email.txt.py:5
 msgid "You can set your new password by following this link:"
-msgstr "Puedes cambiar la contraseña a través de este enlace: "
+msgstr "Puedes cambiar la contraseña a través de este enlace:"
 
 #: .\templates\password_reset\recovery_email.txt.py:9
 msgid ""
@@ -748,7 +748,7 @@ msgstr "minutos"
 
 #: .\templates\webapp\newrecipe.html.py:547
 msgid "Cooking time"
-msgstr "Tiempo cocinándolo"
+msgstr "Tiempo cocinando"
 
 #: .\templates\webapp\newrecipe.html.py:574
 msgid "Serves"
@@ -811,9 +811,9 @@ msgid ""
 "you know. Savours are measured in a relative way, of course. For more "
 "information, check Wikipedia or something, dude."
 msgstr ""
-"Los niveles de los sabores definen el sabor de tu receta. De este "
-"modo podemos recomendar mejor tu receta a los gustos personales de cada "
-"persona. Los valores de estos sabores son evidentemente relativos"
+"Los niveles de los sabores definen el sabor de tu receta. De este modo "
+"podemos recomendar mejor tu receta a los gustos personales de cada persona. "
+"Los valores de estos sabores son evidentemente relativos"
 
 #: .\templates\webapp\newrecipe.html.py:802
 msgid "Publish recipe"
