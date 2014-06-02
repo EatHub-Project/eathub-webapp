@@ -74,7 +74,7 @@
                                 <ul>
                                     {% for friend in following %}
                                         <li class="list-affinity">
-                                            <div class="col-md-10 panel follow-list-item"><a class="get-affinity" href="{% url 'affinity' friend.user.username %}">
+                                            <div class="col-md-10 panel follow-list-item"><a class="get-affinity" href="{% url 'affinity' friend.user.username receta.id %}">
                                                 <div class="col-md-10">
                                                     <span><img class="img-rounded"
                                                          src="{% avatar friend.user.profile.get.avatar %}"/>

@@ -502,35 +502,31 @@ def logout_user(request):
     return views.logout(request, next_page=reverse('main'))
 
 #TODO: mover a otro fichero e importar
-def calculate_affinity(friend_profile, my_profile):
+def calculate_affinity(friend_profile, recipe):
     ret_affinity = 0
 
     ret_affinity = (
-        abs(friend_profile.tastes.bitter - my_profile.tastes.bitter) +
-        abs(friend_profile.tastes.salty - my_profile.tastes.salty) +
-        abs(friend_profile.tastes.sour - my_profile.tastes.sour) +
-        abs(friend_profile.tastes.spicy - my_profile.tastes.spicy) +
-        abs(friend_profile.tastes.sweet - my_profile.tastes.sweet)
+        abs(friend_profile.tastes.bitter - recipe.savours.bitter) +
+        abs(friend_profile.tastes.salty - recipe.savours.salty) +
+        abs(friend_profile.tastes.sour - recipe.savours.sour) +
+        abs(friend_profile.tastes.spicy - recipe.savours.spicy) +
+        abs(friend_profile.tastes.sweet - recipe.savours.sweet)
                    )/5
 
     return 100-ret_affinity
 
-def affinity(request, username):
+def affinity(request, username, recipe_id):
     try:
         user = User.objects.get(username=username)
+        recipe = Recipe.objects.get(id=recipe_id)
     except User.DoesNotExist:
-        raise Http404
-
-    if request.user.is_authenticated():
-        my_profile = request.user.profile.get()
-    else:
         raise Http404
 
     user_profile = Profile.objects.get(user=user)
 
-    affinity = calculate_affinity(user_profile, my_profile)
+    affinity = calculate_affinity(user_profile, recipe)
 
-    return render(request, 'webapp/affinity.html', {'my_profile': my_profile,'friend': user_profile, 'affinity': affinity})
+    return render(request, 'webapp/affinity.html', {'user_profile': user_profile,'friend': user_profile, 'affinity': affinity})
 
 
 def receta(request, recipe_id):
