@@ -43,7 +43,7 @@
 
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="{{ form.srchterm.name }}"
-                            id="id_{{ form.srchterm.name }}" value="{{ form.srchterm.value }}"/>
+                            id="id_{{ form.srchterm.name }}" value="{{ form.srchterm.value| default_if_none:'' }}"/>
                 </div>
             </div>
         </div>
