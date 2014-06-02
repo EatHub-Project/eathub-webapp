@@ -13,7 +13,7 @@
     <h1 class="recipe-name">{{ receta.title }}</h1>
     {% if receta.parent %}
         <h5 class="recipe-parent"><a href="{% url 'recipe' receta.parent.id %}"><i
-                class="fa fa-code-fork"></i> {% trans "Cloned from:" %} <span
+                class="fa fa-code-fork"></i> {% trans "Made from " %} <span
                 class="recipe-parent-name">{{ receta.parent.author.profile.get.display_name }} - {{ receta.parent.title }}</span></a>
         </h5>
     {% endif %}
@@ -112,7 +112,7 @@
                         class="fa fa-code-fork"></i> {{ children|length }}</a>
                 {% if user.is_authenticated %}
                     <a href="{% url 'clonerecipe' receta.id %}" class="btn btn-default recipe-fork-clone">
-                        {% trans "Clone" %}
+                        {% trans "Make it your way" %}
                     </a>{% endif %}
             </div>
             <div class="modal fade recipe-modal-children" tabindex="-1" role="dialog" aria-hidden="true">
