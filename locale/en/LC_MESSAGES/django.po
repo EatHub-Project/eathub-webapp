@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-02 17:50+0200\n"
+"POT-Creation-Date: 2014-06-02 18:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -236,17 +236,12 @@ msgid "The affinity is: "
 msgstr ""
 
 #: .\templates\webapp\affinity.html.py:20
-msgid " have an affinity of"
+msgid " has an affinity of"
 msgstr ""
 
 #: .\templates\webapp\affinity.html.py:20
 msgid "with "
 msgstr ""
-
-#: .\templates\webapp\affinity.html.py:21
-#, fuzzy
-msgid "in the selected recipe"
-msgstr "Add recipe"
 
 #: .\templates\webapp\base.html.py:36
 msgid "Toggle navigation"
@@ -1358,6 +1353,10 @@ msgstr ""
 #: .\webapp\views.py:216
 msgid "Your account has been successfully activated. You can log in now."
 msgstr ""
+
+#, fuzzy
+#~ msgid "in the selected recipe"
+#~ msgstr "Add recipe"
 
 #, fuzzy
 #~ msgid "Clone"

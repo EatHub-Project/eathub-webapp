@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-02 17:50+0200\n"
+"POT-Creation-Date: 2014-06-02 18:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -230,16 +230,12 @@ msgid "The affinity is: "
 msgstr "La afinidad es: "
 
 #: .\templates\webapp\affinity.html.py:20
-msgid " have an affinity of"
-msgstr " tiene una afinidad de"
+msgid " has an affinity of"
+msgstr " tiene una afinidad del"
 
 #: .\templates\webapp\affinity.html.py:20
 msgid "with "
 msgstr "con "
-
-#: .\templates\webapp\affinity.html.py:21
-msgid "in the selected recipe"
-msgstr "en la receta seleccionada"
 
 #: .\templates\webapp\base.html.py:36
 msgid "Toggle navigation"
@@ -1533,6 +1529,9 @@ msgstr "El email ya existe"
 #: .\webapp\views.py:216
 msgid "Your account has been successfully activated. You can log in now."
 msgstr "Tu cuenta ha sido activada satisfactoriamente. Ahora, Puedes logearte."
+
+#~ msgid "in the selected recipe"
+#~ msgstr "en la receta seleccionada"
 
 #~ msgid "You"
 #~ msgstr "Tú"
