@@ -243,12 +243,12 @@ LOCALE_PATHS = (
 
 #Configuration for django.core.mail.sendmail
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'eathub.contact@gmail.com'
-EMAIL_HOST_PASSWORD = 'aospispp'
+EMAIL_HOST_USER = os.environ['DJANGO_EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['DJANGO_EMAIL_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_SUBJECT_PREFIX = 'eat-hub: '
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'eathub.contact@gmail.com'
+DEFAULT_FROM_EMAIL = os.environ['DJANGO_EMAIL']
 
 
 REST_FRAMEWORK = {
