@@ -2,6 +2,11 @@ from django.contrib.auth.models import User
 from django.http.response import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from requests import HTTPError
 from rest_framework import viewsets
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import authentication, permissions
 from api.serializers import UserSerializer, RecipeSerializer
 from sorl.thumbnail import get_thumbnail
 from webapp.models import Recipe
@@ -19,6 +24,14 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 class RecipeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Recipe.objects.all().order_by('-creation_date')
     serializer_class = RecipeSerializer
+
+@api_view(['GET'])
+@permission_classes((IsAuthenticated,))
+def login(request, format=None):
+    serializer = UserSerializer(request.user)
+
+    return Response(serializer.data)
+
 
 
 def resize(request, url, width, height, quality, cached):
