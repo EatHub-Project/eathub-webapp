@@ -26,17 +26,44 @@
 
                 </div>
 
-                <div class="text-center">
+                <div class="profile-status-height">
 
-                    <span><a href="{% url 'recipes' profile.user.username %}">{% trans "Recipes" %}</a></span><span class="profile-bold"> {{ recipes|length }}</span>
+                    <div class="col-md-4">
+                        <a href="{% url 'recipes' profile.user.username %}">
+                        <span class="DashboardProfileCard-statLabel">{% trans "Recipes" %}</span>
+                        <span class="DashboardProfileCard-statValue">{{ recipes|length }}</span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'followers' profile.user.username %}">
+                        <span class="DashboardProfileCard-statLabel">{% trans "Followers" %}</span>
+                        <span class="DashboardProfileCard-statValue">{{ followers_list|length }}</span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'following' profile.user.username %}">
+                        <span class="DashboardProfileCard-statLabel">{% trans "Following" %}</span>
+                        <span class="DashboardProfileCard-statValue">{{ profile.following|length }}</span>
+                        </a>
+                    </div>
+
+                </div>
+
+
+
+                <!--<div class="text-center">
+
+                    <span><a class="bold" href="{% url 'recipes' profile.user.username %}">{% trans "Recipes" %}</a></span><span class="profile-bold"> {{ recipes|length }}</span>
 
                 </div>
 
                 <div class="text-center">
 
-                    <span><a href="{% url 'followers' profile.user.username %}">{% trans "Followers" %}</a></span><span class="profile-bold"> {{ followers_list|length }}</span> | <span><a href="{% url 'following' profile.user.username %}">{% trans "Following" %}</a></span><span class="profile-bold"> {{ profile.following|length }}</span>
+                    <span><a class="bold" href="{% url 'followers' profile.user.username %}">{% trans "Followers" %}</a></span><span class="profile-bold"> {{ followers_list|length }}</span> | <span><a class="bold" href="{% url 'following' profile.user.username %}">{% trans "Following" %}</a></span><span class="profile-bold"> {{ profile.following|length }}</span>
 
-                </div>
+                </div>-->
 
                 <br />
 
@@ -219,20 +246,44 @@
                 <h3>Ultimos comentarios</h3>
 
                 <div class="row">
-                <div class="col-md-4 panel follow-list-item recipe-max-height">
-                    <img class="img-rounded" src="/media/images/piru_limon.persist.jpg">
+                <div class="col-md-4 panel follow-list-item comment-max-height">
+
 
                     <div class="limit-text recipe-title-max-height">
                         <h3 class="user-name"><a href="/recipe/53567d30c54d2d14f943ad33/">
                             Piruletas caseras de limón</a></h3>
+
+
                     </div>
 
-                    <br>
+                    <br />
 
-                    <div class="recipe-list-time panel-body pull-right">
-                        <span class="glyphicon glyphicon-time"></span>
-                        <span>10</span>
+                    <p>
+                        Me encantan, voy a modifica...
+                    </p>
+
+                    <!--<p class="location">
+                        <span class="glyphicon glyphicon-map-marker"></span><span></span>
+                    </p>-->
+
+                    <!--<p class="extra-info">Aún no hay recetas</p>-->
+                </div>
+                <div class="col-md-4 panel follow-list-item comment-max-height">
+
+
+                    <div class="limit-text recipe-title-max-height">
+                        <h3 class="user-name"><a href="/recipe/53567d30c54d2d14f943ad33/">
+                            Piruletas caseras de limón</a></h3>
+
+
                     </div>
+
+                    <br />
+
+                    <p>
+                        Me encantan, voy a modifica...
+                    </p>
+
                     <!--<p class="location">
                         <span class="glyphicon glyphicon-map-marker"></span><span></span>
                     </p>-->
