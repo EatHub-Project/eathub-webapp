@@ -11,7 +11,7 @@ echo "Starting $NAME as `whoami`"
  
 # Activate the virtual environment
 cd $DJANGODIR
-source /venv/bin/activate
+source /eathub/eathub-webapp/venv/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
  
