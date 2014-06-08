@@ -1687,3 +1687,21 @@ footer {
 .get-affinity:hover{
     color: #b65252;
 }
+
+.profile-name {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+    margin-left: 30px;
+}
+
+.profile-bold{
+    font-weight: bold;
+}
+
+.profile-margin-top{
+    margin-top: 86px !important;
+}
