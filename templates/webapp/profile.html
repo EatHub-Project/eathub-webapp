@@ -3,287 +3,150 @@
 {% load i18n %}
 
 {% block container %}
-    <div class="panel panel-default">
-    <div class="container demo">
 
-    <div class="panel-body">
-    <div class="col-md-4">
-        <!-- Thumbnails -->
 
-        <div class="thumbnail border-white">
-            <img alt="" src="{% if profile.avatar %}{{ profile.avatar.url }}
-                                    {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
 
-            <br/>
-            <ul class="list-group custom-set">
-                <li class="list-group-item"><span class="badge">{{ recipes|length }}</span><a
-                        href="{% url 'recipes' profile.user.username %}">{% trans "Recipes" %}</a></li>
-                <li class="list-group-item"><span class="badge">{{ followers_list|length }}</span><a
-                        href="{% url 'followers' profile.user.username %}">{% trans "Followers" %}</a></li>
-                <li class="list-group-item"><span class="badge">{{ profile.following|length }}</span><a
-                        href="{% url 'following' profile.user.username %}">{% trans "Following" %}</a></li>
-            </ul>
-            <br/>
-            {% if user.is_authenticated %}
-                {% if profile.user.id == user.id %}
-                    <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
-                {% elif following %}
-                    <a id="btn-follow" class="btn btn-default btn-block btn-follow" style="display: none;">{% trans "Follow" %}</a>
-                    <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
+    <div class="container">
+
+
+
+        <div class="col-md-4">
+
+            <h1 class="profile-name">{{ profile.display_name }}</h1>
+
+            <div class="panel panel-default panel-body">
+
+                <div class="thumbnail border-white">
+                    <img alt="" src="{% if profile.avatar %}{{ profile.avatar.url }} {% else %}{% static 'webapp/image/profile_pic_anon.png' %}{% endif %}">
+                </div>
+
+                <div class="text-center">
+
+                    <p>{{ profile.main_language }}, {{ profile.location }}</p>
+
+                </div>
+
+                <div class="profile-status-height">
+
+                    <div class="col-md-4">
+                        <a href="{% url 'recipes' profile.user.username %}">
+                        <span class="DashboardProfileCard-statLabel">{% trans "Recipes" %}</span>
+                        <span class="DashboardProfileCard-statValue">{{ recipes|length }}</span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'followers' profile.user.username %}">
+                        <span class="DashboardProfileCard-statLabel">{% trans "Followers" %}</span>
+                        <span class="DashboardProfileCard-statValue">{{ followers_list|length }}</span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{% url 'following' profile.user.username %}">
+                        <span class="DashboardProfileCard-statLabel">{% trans "Following" %}</span>
+                        <span class="DashboardProfileCard-statValue">{{ profile.following|length }}</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <br />
+
+                {% if user.is_authenticated %}
+                    {% if profile.user.id == user.id %}
+                        <a class="btn btn-default btn-block btn-follow disabled">{% trans "That's you!" %}</a>
+                    {% elif following %}
+                        <a id="btn-follow" class="btn btn-default btn-block btn-follow" style="display: none;">{% trans "Follow" %}</a>
+                        <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow">{% trans "Unfollow" %}</a>
+                    {% else %}
+                        <a id="btn-follow" class="btn btn-default btn-block btn-follow">{% trans "Follow" %}</a>
+                        <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow" style="display: none;">{% trans "Unfollow" %}</a>
+                    {% endif %}
                 {% else %}
-                    <a id="btn-follow" class="btn btn-default btn-block btn-follow">{% trans "Follow" %}</a>
-                    <a id="btn-unfollow" class="btn btn-default btn-block btn-unfollow" style="display: none;">{% trans "Unfollow" %}</a>
+                    <a class="btn btn-default btn-block btn-follow disabled">{% trans "Register to follow " %} {{ profile.display_name }}</a>
                 {% endif %}
-            {% else %}
-                <a class="btn btn-default btn-block btn-follow disabled">{% trans "Register to follow " %} {{ profile.display_name }}</a>
-            {% endif %}
-            <!-- Alert boxes-->
-            <div id="error-follow" class="alert alert-dismissable alert-danger alert-follow">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Opps!</strong> <span>{% trans "Unknown error" %}</span></div>
-            <div id="ok-follow" class="alert alert-dismissable alert-success alert-follow">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>{% trans "Done!" %}</strong> <span></span></div>
+
+            </div>
+
         </div>
-        <!-- /Thumbnails -->
-        {% if profile.user.id == user.id %}
-            <a href="{% url 'profile_edit' user.username %}">{% trans "Edit profile" %}</a>
-        {% endif %}
-    </div>
-    <div class="col-md-8 left-block">
-    <div class="info-block">
-    <div class="recipe-name">
-        <h1>{{ profile.display_name }}</h1>
-    </div>
+        <div class="col-md-8 card-left">
 
-    <legend>{% trans "Basic info" %}</legend>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4>{% trans "Email" %}</h4>
-            </div>
-            <div class="col-md-10">
+            <div class="panel panel-default panel-body">
 
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4>{% trans "Language" %}</h4>
-            </div>
-            <div class="col-md-10">
+                {% if is_owner %}
+                    <p><span class="profile-bold">{% trans "Email" %}</span> {{ profile.user.email }}</p
+                {% endif %}
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>{{ profile.user.email }}</p>
-            </div>
-            <div class="col-md-10">
+                {% if profile.karma %}
+                    <p><span class="profile-bold">Karma:</span> {{ profile.karma }}</p>
+                {% endif %}
 
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>
+                {% if profile.user.date_joined.date %}
+                    <p><span class="profile-bold">{% trans "Check-in date" %}:</span> {{ profile.user.date_joined.date }}</p>
+                {% endif %}
 
-                {{ profile.main_language }}<p>
-            </div>
-            <div class="col-md-10">
+                {% if profile.gender == "f" %}
+                    <p><span class="profile-bold">{% trans "Gender" %}:</span> {% trans "Female" %}</p>
+                {% elif profile.gender == "m" %}
+                    <p><span class="profile-bold">{% trans "Gender" %}:</span> {% trans "Male" %}</p>
+                {% endif %}
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4>{% trans "Check-in date" %}</h4>
-            </div>
-            <div class="col-md-10">
+                {% if profile.website %}
+                    <p><span class="profile-bold">{% trans "website" %}:</span> {{ profile.website }}</p>
+                {% endif %}
 
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4></h4>
-            </div>
-            <div class="col-md-10">
+                <br />
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>{{ profile.user.date_joined.date }}</p>
-            </div>
-            <div class="col-md-10">
+                <div class="recipe-taste">
+                    <h5>{% trans "Salty" %}</h5>
 
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>
-
-                <p>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-    </div>
-    <legend>{% trans "User info" %}</legend>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4>{% trans "website" %}</h4>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4>{% trans "Gender" %}</h4>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>{{ profile.website }}</p>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>{{ profile.gender }}</p>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <h4>Karma</h4>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="col-md-10">
-                <p>{{ profile.karma }}</p>
-            </div>
-            <div class="col-md-10">
-
-            </div>
-        </div>
-    </div>
-    {% if is_owner %}
-        <legend>{% trans "Personal info" %}</legend>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="col-md-10">
-                    <h4>{% trans "Bith date" %}</h4>
+                    <div class="progress">
+                        <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                             aria-valuemax="100" style="width: {{ profile.tastes.salty }}%;">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-10">
+                <div class="recipe-taste">
+                    <h5>{% trans "Sour" %}</h5>
 
+                    <div class="progress">
+                        <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                             aria-valuemax="100" style="width: {{ profile.tastes.sour }}%;">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="col-md-10">
-                    <h4>{% trans "Last login" %}</h4>
+                <div class="recipe-taste">
+                    <h5>{% trans "Bitter" %}</h5>
+
+                    <div class="progress">
+                        <div class="progress-bar" id="bitter" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                             aria-valuemax="100" style="width: {{ profile.tastes.bitter }}%;">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-10">
+                <div class="recipe-taste">
+                    <h5>{% trans "Sweet" %}</h5>
 
+                    <div class="progress">
+                        <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                             aria-valuemax="100" style="width: {{ profile.tastes.sweet }}%;">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="col-md-10">
-                    <p>{{ profile.birth_date }}</p>
+                <div class="recipe-taste">
+                    <h5>{% trans "Spicy" %}</h5>
+
+                    <div class="progress">
+                        <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                             aria-valuemax="100" style="width: {{ profile.tastes.spicy }}%;">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-10">
 
-                </div>
             </div>
-            <div class="col-md-6">
-                <div class="col-md-10">
-                    <p>
 
-                    <p>
-                </div>
-                <div class="col-md-10">
-
-                </div>
-            </div>
         </div>
-    {% endif %}
-
-    <legend>{% trans "Savours profile" %}</legend>
-    <div class="recipe-taste">
-        <h5>{% trans "Salty" %}</h5>
-
-        <div class="progress">
-            <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                 aria-valuemax="100" style="width: {{ profile.tastes.salty }}%;">
-            </div>
-        </div>
-    </div>
-    <div class="recipe-taste">
-        <h5>{% trans "Sour" %}</h5>
-
-        <div class="progress">
-            <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                 aria-valuemax="100" style="width: {{ profile.tastes.sour }}%;">
-            </div>
-        </div>
-    </div>
-    <div class="recipe-taste">
-        <h5>{% trans "Bitter" %}</h5>
-
-        <div class="progress">
-            <div class="progress-bar" id="bitter" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                 aria-valuemax="100" style="width: {{ profile.tastes.bitter }}%;">
-            </div>
-        </div>
-    </div>
-    <div class="recipe-taste">
-        <h5>{% trans "Sweet" %}</h5>
-
-        <div class="progress">
-            <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                 aria-valuemax="100" style="width: {{ profile.tastes.sweet }}%;">
-            </div>
-        </div>
-    </div>
-    <div class="recipe-taste">
-        <h5>{% trans "Spicy" %}</h5>
-
-        <div class="progress">
-            <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                 aria-valuemax="100" style="width: {{ profile.tastes.spicy }}%;">
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    </div>
-    </div>
-    </div>
 
 {% endblock %}
 

@@ -1687,3 +1687,59 @@ footer {
 .get-affinity:hover{
     color: #b65252;
 }
+
+.profile-name {
+    max-height: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 20px;
+    color: #CC3E27;
+    font-size: 3em;
+    margin-left: 30px;
+}
+
+.profile-bold{
+    font-weight: bold;
+}
+
+.profile-margin-top{
+    margin-top: 86px !important;
+}
+
+.comment-max-height {
+    height: 75px;
+}
+
+.comment-text{
+    font-style: italic;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.DashboardProfileCard-statLabel {
+    color: black;
+    font-size: 10px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    overflow: hidden;
+
+}
+
+.DashboardProfileCard-statValue {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #cc3e27;
+}
+
+.profile-status-height{
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.card-left{
+    margin-top: 86px;
+}

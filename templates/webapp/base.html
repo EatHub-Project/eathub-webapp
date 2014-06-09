@@ -101,6 +101,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'profile' user.username %}">{% trans "Profile" %}</a></li>
+                                    <li><a href="{% url 'profile_edit' user.username %}">{% trans "Edit profile" %}</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                                 </ul>
