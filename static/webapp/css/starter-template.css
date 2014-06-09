@@ -1724,6 +1724,7 @@ footer {
     letter-spacing: .02em;
     text-transform: uppercase;
     overflow: hidden;
+
 }
 
 .DashboardProfileCard-statValue {
@@ -1737,4 +1738,8 @@ footer {
     height: 40px;
     margin-top: 10px;
     margin-left: 10px;
+}
+
+.card-left{
+    margin-top: 86px;
 }
