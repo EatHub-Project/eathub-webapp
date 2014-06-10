@@ -3,13 +3,17 @@ import json
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from webapp.models import Recipe, Step, Picture, Time, Savour, Comment, Profile
+from django.conf import settings
 
 
 class FullImageField(serializers.ImageField):
     def to_native(self, value):
-        request = self.context.get('request', None)
-        if request and value:
-            return request.build_absolute_uri(value.url)
+        if settings.DEBUG:
+            request = self.context.get('request', None)
+            if request and value:
+                return request.build_absolute_uri(value.url)
+        else:
+            return value.url
 
 
 class EmbeddedUserSerializer(serializers.Serializer):
