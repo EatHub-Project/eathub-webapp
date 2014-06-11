@@ -13,7 +13,8 @@ class FullImageField(serializers.ImageField):
             if request and value:
                 return request.build_absolute_uri(value.url)
         else:
-            return value.url
+            if value:
+                return value.url
 
 
 class EmbeddedUserSerializer(serializers.Serializer):
