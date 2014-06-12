@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-03 11:17+0200\n"
+"POT-Creation-Date: 2014-06-12 11:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,15 +37,15 @@ msgstr "¡Lo sentimos! El servidor acaba de sufrir un error"
 #: .\templates\email\activation_email.txt.py:3
 #, python-format
 msgid "Hola %(username)s,"
-msgstr "Hello %(username)s,"
+msgstr ""
 
 #: .\templates\email\activation_email.txt.py:6
 msgid "Bienvenido a Eathub! Para activar su cuenta acceda a la siguiente url:"
-msgstr "Welcome to Eathub! To activate your account use this link:"
+msgstr ""
 
 #: .\templates\email\activation_email_subject.txt.py:1
 msgid "Activa tu cuenta de EatHub"
-msgstr "Activate your Eathub account"
+msgstr ""
 
 #: .\templates\password_reset\recovery_done.html.py:9
 msgid ""
@@ -208,7 +208,7 @@ msgstr ""
 
 #: .\templates\webapp\about_team.html.py:26
 msgid "Project Manager"
-msgstr "Jefe del Proyecto"
+msgstr "Jefe de Proyecto"
 
 #: .\templates\webapp\about_team.html.py:39
 #: .\templates\webapp\about_team.html.py:85
@@ -246,7 +246,7 @@ msgid "Home"
 msgstr "Inicio"
 
 #: .\templates\webapp\base.html.py:50 .\templates\webapp\base.html.py:65
-#: .\templates\webapp\profile.html.py:20 .\templates\webapp\recipes.html.py:7
+#: .\templates\webapp\profile.html.py:33 .\templates\webapp\recipes.html.py:7
 msgid "Recipes"
 msgstr "Recetas"
 
@@ -278,26 +278,31 @@ msgstr "Hola"
 msgid "Profile"
 msgstr "Perfil"
 
-#: .\templates\webapp\base.html.py:105 .\templates\webapp\main.html.py:14
+#: .\templates\webapp\base.html.py:104
+#: .\templates\webapp\newaccount.html.py:109
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: .\templates\webapp\base.html.py:106 .\templates\webapp\main.html.py:14
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: .\templates\webapp\base.html.py:111 .\templates\webapp\main.html.py:20
+#: .\templates\webapp\base.html.py:112 .\templates\webapp\main.html.py:20
 msgid "Add recipe"
 msgstr "Añadir receta"
 
-#: .\templates\webapp\base.html.py:117 .\templates\webapp\login.html.py:72
+#: .\templates\webapp\base.html.py:118 .\templates\webapp\login.html.py:68
 #: .\templates\webapp\main.html.py:27
 msgid "Sign in"
 msgstr "Acceder"
 
-#: .\templates\webapp\base.html.py:153
+#: .\templates\webapp\base.html.py:154
 msgid "This web is under development by the members of fifth group of ISPP."
 msgstr ""
 "Esta web se encuentra en desarrollo por parte de los miembros del grupo 5 de "
 "la asignatura de Ingeniería del Software y Práctica Profesional."
 
-#: .\templates\webapp\base.html.py:156
+#: .\templates\webapp\base.html.py:157
 msgid ""
 "Any feedback, suggestion, bug reports or similar given from you is "
 "appretiated, so please use the following button to contact us."
@@ -307,27 +312,27 @@ msgstr ""
 "<b>eathub.contact@gmail.com</b> o pulse el botón de la parte inferior donde "
 "se abrirá su cliente de correo y podrá enviarnos su feedback."
 
-#: .\templates\webapp\base.html.py:160
+#: .\templates\webapp\base.html.py:161
 msgid "Thank you for your feedback"
 msgstr "Gracias por su feedback"
 
-#: .\templates\webapp\base.html.py:165 .\templates\webapp\contact.html.py:48
+#: .\templates\webapp\base.html.py:166 .\templates\webapp\contact.html.py:48
 msgid "Send email"
 msgstr "Enviar correo"
 
-#: .\templates\webapp\base.html.py:180
+#: .\templates\webapp\base.html.py:181
 msgid "Terms & conditions"
 msgstr "Términos y condiciones"
 
-#: .\templates\webapp\base.html.py:181 .\templates\webapp\contact.html.py:15
+#: .\templates\webapp\base.html.py:182 .\templates\webapp\contact.html.py:15
 msgid "About us"
 msgstr "Sobre nosotros"
 
-#: .\templates\webapp\base.html.py:182
+#: .\templates\webapp\base.html.py:183
 msgid "The team"
 msgstr "El equipo"
 
-#: .\templates\webapp\base.html.py:183
+#: .\templates\webapp\base.html.py:184
 msgid "Contact"
 msgstr "Contacto"
 
@@ -437,46 +442,46 @@ msgstr ""
 "sus variaciones, crea y personaliza tu propia comida, y colabora para "
 "encontrar las mejores recetas en el mundo."
 
-#: .\templates\webapp\login.html.py:48
+#: .\templates\webapp\login.html.py:44
 msgid "Username and password don't match."
 msgstr "Usuario o contraseña erróneos"
 
-#: .\templates\webapp\login.html.py:51
+#: .\templates\webapp\login.html.py:47
 msgid "You need to be logged-in to view this page."
 msgstr "Debes estar registrado para ver esta página."
 
-#: .\templates\webapp\login.html.py:58
+#: .\templates\webapp\login.html.py:54
 msgid "Please sign in"
 msgstr "Inicia sesión"
 
-#: .\templates\webapp\login.html.py:62
+#: .\templates\webapp\login.html.py:58
 #: .\templates\webapp\newaccount.html.py:127
 #: .\templates\webapp\newaccount.html.py:130
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: .\templates\webapp\login.html.py:68
+#: .\templates\webapp\login.html.py:64
 #: .\templates\webapp\newaccount.html.py:178
 msgid "Password"
 msgstr "Contraseña"
 
-#: .\templates\webapp\login.html.py:76
+#: .\templates\webapp\login.html.py:72
 msgid "Create an account"
 msgstr "Crea una cuenta"
 
-#: .\templates\webapp\login.html.py:79
+#: .\templates\webapp\login.html.py:75
 msgid "Forgot your password?"
 msgstr "¿Olvidaste tu contraseña?"
 
-#: .\templates\webapp\login.html.py:85
+#: .\templates\webapp\login.html.py:81
 msgid "Or use a shortcut"
 msgstr "Más rapido"
 
-#: .\templates\webapp\login.html.py:90
+#: .\templates\webapp\login.html.py:86
 msgid "Sign in with Google+"
 msgstr "Acceder con Google+"
 
-#: .\templates\webapp\login.html.py:103
+#: .\templates\webapp\login.html.py:99
 msgid "Sign in with Facebook"
 msgstr "Acceder con Facebook"
 
@@ -487,11 +492,6 @@ msgstr "Esta es una página de inicio provisional"
 #: .\templates\webapp\logo.html.py:11
 msgid "Under construction"
 msgstr "En construcción"
-
-#: .\templates\webapp\newaccount.html.py:109
-#: .\templates\webapp\profile.html.py:50
-msgid "Edit profile"
-msgstr "Editar perfil"
 
 #: .\templates\webapp\newaccount.html.py:111
 #: .\templates\webapp\newaccount.html.py:511
@@ -512,7 +512,7 @@ msgid "Required"
 msgstr "Requerido"
 
 #: .\templates\webapp\newaccount.html.py:156
-#: .\templates\webapp\profile.html.py:63
+#: .\templates\webapp\profile.html.py:78
 msgid "Email"
 msgstr "Email"
 
@@ -561,7 +561,7 @@ msgid "None selected"
 msgstr "Nada seleccionado"
 
 #: .\templates\webapp\newaccount.html.py:307
-#: .\templates\webapp\profile.html.py:148
+#: .\templates\webapp\profile.html.py:90 .\templates\webapp\profile.html.py:92
 msgid "Gender"
 msgstr "Género"
 
@@ -599,7 +599,7 @@ msgstr "Gustos"
 
 #: .\templates\webapp\newaccount.html.py:422
 #: .\templates\webapp\newrecipe.html.py:726
-#: .\templates\webapp\profile.html.py:237
+#: .\templates\webapp\profile.html.py:102
 #: .\templates\webapp\recipe_template.html.py:329
 #: .\templates\webapp\search_recipe_result.html.py:167
 msgid "Salty"
@@ -607,7 +607,7 @@ msgstr "Salado"
 
 #: .\templates\webapp\newaccount.html.py:437
 #: .\templates\webapp\newrecipe.html.py:741
-#: .\templates\webapp\profile.html.py:246
+#: .\templates\webapp\profile.html.py:111
 #: .\templates\webapp\recipe_template.html.py:339
 #: .\templates\webapp\search_recipe_result.html.py:182
 msgid "Sour"
@@ -615,7 +615,7 @@ msgstr "Agrio"
 
 #: .\templates\webapp\newaccount.html.py:450
 #: .\templates\webapp\newrecipe.html.py:754
-#: .\templates\webapp\profile.html.py:255
+#: .\templates\webapp\profile.html.py:120
 #: .\templates\webapp\recipe_template.html.py:349
 #: .\templates\webapp\search_recipe_result.html.py:195
 msgid "Bitter"
@@ -623,7 +623,7 @@ msgstr "Amargo"
 
 #: .\templates\webapp\newaccount.html.py:463
 #: .\templates\webapp\newrecipe.html.py:767
-#: .\templates\webapp\profile.html.py:264
+#: .\templates\webapp\profile.html.py:129
 #: .\templates\webapp\recipe_template.html.py:359
 #: .\templates\webapp\search_recipe_result.html.py:208
 msgid "Sweet"
@@ -631,7 +631,7 @@ msgstr "Dulce"
 
 #: .\templates\webapp\newaccount.html.py:476
 #: .\templates\webapp\newrecipe.html.py:780
-#: .\templates\webapp\profile.html.py:273
+#: .\templates\webapp\profile.html.py:138
 #: .\templates\webapp\recipe_template.html.py:369
 #: .\templates\webapp\search_recipe_result.html.py:221
 msgid "Spicy"
@@ -772,7 +772,6 @@ msgid "Special conditions"
 msgstr "Condiciones especiales"
 
 #: .\templates\webapp\newrecipe.html.py:675
-#: .\templates\webapp\profile.html.py:71
 #: .\templates\webapp\search_recipe_result.html.py:144
 msgid "Language"
 msgstr "Idioma"
@@ -811,69 +810,45 @@ msgstr ""
 msgid "Publish recipe"
 msgstr "Publicar receta"
 
-#: .\templates\webapp\profile.html.py:22 .\webapp\views.py:637
+#: .\templates\webapp\profile.html.py:40 .\webapp\views.py:637
 msgid "Followers"
 msgstr "Seguidores"
 
-#: .\templates\webapp\profile.html.py:24 .\webapp\views.py:620
+#: .\templates\webapp\profile.html.py:47 .\webapp\views.py:620
 msgid "Following"
 msgstr "Siguiendo"
 
-#: .\templates\webapp\profile.html.py:29
+#: .\templates\webapp\profile.html.py:58
 msgid "That's you!"
 msgstr "¡Este eres tú!"
 
-#: .\templates\webapp\profile.html.py:31 .\templates\webapp\profile.html.py:34
+#: .\templates\webapp\profile.html.py:60 .\templates\webapp\profile.html.py:63
 msgid "Follow"
 msgstr "Seguir"
 
-#: .\templates\webapp\profile.html.py:32 .\templates\webapp\profile.html.py:35
+#: .\templates\webapp\profile.html.py:61 .\templates\webapp\profile.html.py:64
 msgid "Unfollow"
 msgstr "Dejar de seguir"
 
-#: .\templates\webapp\profile.html.py:38
+#: .\templates\webapp\profile.html.py:67
 msgid "Register to follow "
 msgstr "Regístrate para seguir a"
 
-#: .\templates\webapp\profile.html.py:43
-msgid "Unknown error"
-msgstr "Error desconocido"
-
-#: .\templates\webapp\profile.html.py:46
-msgid "Done!"
-msgstr "¡Hecho!"
-
-#: .\templates\webapp\profile.html.py:59
-msgid "Basic info"
-msgstr "Información básica"
-
-#: .\templates\webapp\profile.html.py:101
+#: .\templates\webapp\profile.html.py:86
 msgid "Check-in date"
 msgstr "Fecha de registro"
 
-#: .\templates\webapp\profile.html.py:136
-msgid "User info"
-msgstr "Información del usuario"
+#: .\templates\webapp\profile.html.py:90 .\webapp\forms.py:10
+msgid "Female"
+msgstr "Mujer"
 
-#: .\templates\webapp\profile.html.py:140
+#: .\templates\webapp\profile.html.py:92 .\webapp\forms.py:10
+msgid "Male"
+msgstr "Hombre"
+
+#: .\templates\webapp\profile.html.py:96
 msgid "website"
 msgstr "Sitio web"
-
-#: .\templates\webapp\profile.html.py:194
-msgid "Personal info"
-msgstr "Información personal"
-
-#: .\templates\webapp\profile.html.py:198
-msgid "Bith date"
-msgstr "Fecha de nacimiento"
-
-#: .\templates\webapp\profile.html.py:206
-msgid "Last login"
-msgstr "Último login"
-
-#: .\templates\webapp\profile.html.py:235
-msgid "Savours profile"
-msgstr "Perfil de sabores"
 
 #: .\templates\webapp\recipe_template.html.py:16
 msgid "Made from "
@@ -924,8 +899,8 @@ msgid "Delete recipe"
 msgstr "Eliminar receta"
 
 #: .\templates\webapp\recipe_template.html.py:214
-msgid "prep + cook time"
-msgstr "Tiempo de preparación + Cocinado"
+msgid "Prep + Cook time"
+msgstr "Tiempo de preparación + cocinado"
 
 #: .\templates\webapp\recipe_template.html.py:216
 #: .\templates\webapp\recipe_template.html.py:219
@@ -1494,14 +1469,6 @@ msgstr ""
 msgid "Unspecified"
 msgstr "Sin especificar"
 
-#: .\webapp\forms.py:10
-msgid "Male"
-msgstr "Hombre"
-
-#: .\webapp\forms.py:10
-msgid "Female"
-msgstr "Mujer"
-
 #: .\webapp\forms.py:43 .\webapp\forms.py:183
 msgid "Easy"
 msgstr "Fácil"
@@ -1529,6 +1496,30 @@ msgstr "El email ya existe"
 #: .\webapp\views.py:216
 msgid "Your account has been successfully activated. You can log in now."
 msgstr "Tu cuenta ha sido activada satisfactoriamente. Ahora, Puedes logearte."
+
+#~ msgid "Unknown error"
+#~ msgstr "Error desconocido"
+
+#~ msgid "Done!"
+#~ msgstr "¡Hecho!"
+
+#~ msgid "Basic info"
+#~ msgstr "Información básica"
+
+#~ msgid "User info"
+#~ msgstr "Información del usuario"
+
+#~ msgid "Personal info"
+#~ msgstr "Información personal"
+
+#~ msgid "Bith date"
+#~ msgstr "Fecha de nacimiento"
+
+#~ msgid "Last login"
+#~ msgstr "Último login"
+
+#~ msgid "Savours profile"
+#~ msgstr "Perfil de sabores"
 
 #~ msgid "What is the step?…"
 #~ msgstr "¿Qúe hacemos ahora?"

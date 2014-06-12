@@ -211,7 +211,7 @@
         <div class="col-md-4 recipe-data">
             {% if receta.time.prep_time and receta.time.cook_time %}
                 <p>{{ receta.time.prep_time }} + {{ receta.time.cook_time }} min</p>
-                <p class="recipe-data-secondary">{% trans "prep + cook time" %}</p>
+                <p class="recipe-data-secondary">{% trans "Prep + Cook time" %}</p>
             {% elif receta.time.prep_time %}
                 <p>{{ receta.time.prep_time }} {% trans "min" %}</p>
                 <p class="recipe-data-secondary">{% trans "prep time" %}</p>
