@@ -1743,3 +1743,13 @@ footer {
 .card-left{
     margin-top: 86px;
 }
+
+.hr-eathub{
+    border-color:#EDBCB4;
+}
+
+/* Eathub and eathub android version logos style*/
+.corporativeImages{
+    width: 140px;
+    margin-left: 50px;
+}

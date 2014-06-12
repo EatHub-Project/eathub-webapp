@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,15 +10,247 @@
 
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 
+    <link href="{% static 'webapp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/lightbox.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapp/css/style-search.css' %}" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 
-    {% block custom_css %}
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    {% endblock %}
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
 
-WEB CORPORATIVA
+<!-- nav bar superior -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-red" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="navbar-logo" src="{% static 'webapp/image/logo_white.png' %}"/>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About us</a>
+                    </li>
+                    <li><a class="" href="#">Our team</a></li>
+                    </form>
+                </ul>
+            </div>
+                <!-- Button trigger modal -->
 
+            </li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="panel col-md-10 col-md-offset-1 panel-body">
+        <h1 class="about-title">&iquest;Qui&eacute;nes somos?</h1>
+
+        <p class="text-soft about-description">
+            Somos una empresa joven e innovadora que busca crear su propio espacio dentro del mercado actual gracias a fundamentos
+            basados en la calidad y la experiencia visual. Nuestra filosofía es la de mejorar continuamente nuestros productos
+            para ofrecer un aspecto cuidado y muy atractivo para el consumidor.
+        </p>
+    </div>
+
+    <div class="panel col-md-10 col-md-offset-1 panel-body">
+        <h1 class="about-title">EatHub</h1>
+
+        <p class="text-soft about-description">
+            EatHub es un servicio con características sociales en el que podrá compartir sus recetas, mejorar las de sus amigos
+            y relacionarse con los demás. De este modo, podrá preparar su comida favorita de otra forma así como otras de
+            cualquier parte del mundo
+            <br><br>
+            La idea que origin&oacute; el desarrollo de Eathub fue que las recetas no son algo inamovible. Cambian, se adaptan a tus gustos personales o, quiz&aacute;s, alguien te da un consejo para ellas; as&iacute; que decidimos que ser&iacute;a buena idea permitirte controlar la evoluci&oacute;n de tus recetas tal y como pasa en la vida real. Por tanto, puedes mejorar las recetas de tus amigos, copiarlas y darle tu toque personal... Es simple: Creas una receta, la compartes, todo el mundo contribuye y la comunidad en general se beneficia.
+        </p>
+
+        <hr class="hr-eathub">
+
+        <p class="text-soft about-description">
+            Con EatHub podr&aacute;s...
+        </p>
+
+        <div class="row">
+            <!-- panel -->
+            <div class="col-md-4 panel-about-container">
+                <div class=" panel-body panel-about">
+                    <h2 class="about-title">Crear</h2>
+
+                    <p class="text-soft about-description">
+                        En EatHub podr&aacute;s crear sus propias recetas y compartirlas con sus amigos. Explora comidas de otros usuarios, varíalas con tus propios gustos, ingredientes y métodos.
+                    </p>
+
+                    <div class="about-thumbnail">
+                        <i class="fa fa-edit"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- panel -->
+            <div class="col-md-4 panel-about-container">
+                <div class=" panel-body panel-about">
+                    <h2 class="about-title">Mejorar</h2>
+
+                    <p class="text-soft about-description">
+                        Si le gusta alguna receta pero quiere añadir algún ingrediente o algún paso tiene la opción de mejorarla. De este modo se crear&aacute; un árbol genealógico de recetas en el que figurar&aacute; la jerarqu&iacute;a de las mismas.
+                    </p>
+
+                    <div class="about-thumbnail">
+                        <i class="fa fa-code-fork"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- panel -->
+            <div class="col-md-4 panel-about-container">
+                <div class=" panel-body panel-about">
+                    <h2 class="about-title">Social</h2>
+
+                    <p class="text-soft about-description">
+                        Los usuarios tienen su propio perfil, através del cual otros usuarios pueden ver tus recetas y actividad. Puedes seguir a otros usuarios para estar al día de su actividad.
+                    </p>
+
+                    <div class="about-thumbnail">
+                        <i class="fa fa-group"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="hr-eathub">
+        <div class="row">
+            <div class="col-md-4 panel-about-container ">
+                <p class="text-soft about-description">
+                    <img class="corporativeImages" src="{% static 'webapp/image/eathub_android.png' %}"/>
+                    <img class="corporativeImages" src="{% static 'webapp/image/logo_big.png' %}"/>
+                </p>
+            </div>
+            <div class="col-md-7 panel-about-container">
+                <h2 class="about-title">En tu ordenador y tu smartphone</h2>
+                <p class="text-soft about-description">
+                    Llega a las personas all&iacute; donde se encuentren.
+                    <br>
+                    Podr&aacute;s disfrutar de EatHub tanto en la aplicaci&oacute;n web como
+                    en la aplicaci&oacute;n android.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel col-md-10 col-md-offset-1 panel-body">
+        <h1 class="about-title">El Equipo</h1>
+
+        <div class="row">
+            <div class="col-md-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/sergiog.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">Sergio García</h3>
+
+                    <div class="team-more-title">Jefe de proyecto</div>
+                    <div class="team-more-title">sergaralo@eathub.me</div>
+                </div>
+            </div>
+            <div class="col-md-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/david.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">David González</h3>
+
+                    <div class="team-more-title">Desarrollador</div>
+                    <div class="team-more-title">jesgonbel@eathub.me</div>
+                </div>
+            </div>
+            <div class="col-md-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/arturo.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">Arturo Jiménez</h3>
+
+                    <div class="team-more-title">Analista y tester</div>
+                    <div class="team-more-title">artjimlop@eathub.me</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/antonio.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">Antonio León</h3>
+
+                    <div class="team-more-title">Analista y tester</div>
+                    <div class="team-more-title">antleocar1@eathub.me</div>
+                </div>
+            </div>
+            <div class="col-md-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/juanma.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">Juan Manuel López</h3>
+
+                    <div class="team-more-title">Desarrollador</div>
+                    <div class="team-more-title">jualoppaz@eathub.me</div>
+                </div>
+            </div>
+            <div class="col-md-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/sergior.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">Sergio Rodríguez</h3>
+
+                    <div class="team-more-title">Desarrollador</div>
+                    <div class="team-more-title">serrodcal@eathub.me</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 panel-about-container">
+                <div class="group-div-image">
+                    <img class="team-image" src="{% static 'webapp/image/rafa.png' %}"> </img>
+                </div>
+                <div class="group-div-description">
+                    <h3 class="team-panel-title">Rafael V&aacute;zquez</h3>
+
+                    <div class="team-more-title">L&iacute;der del grupo de desarrollo</div>
+                    <div class="team-more-title">rafvazsan@eathub.me</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel col-md-10 col-md-offset-1 panel-body">
+
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'webapp/js/jquery.min.js' %}"></script>
+    <script src="{% static 'webapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'webapp/js/lightbox.min.js' %}"></script>
 </body>
 </html>
