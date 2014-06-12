@@ -743,3 +743,6 @@ def about_team(request):
 def handle500(request):
     return render(request, '500.html')
 
+def corporative(request):
+    return render(request, 'webapp/corporative.html')
+

@@ -42,4 +42,5 @@ urlpatterns = patterns('',
     url(r'^about/contact/$', views.contact, name='contact'),
     url(r'^about/team/$', views.about_team, name='about_team'),
     url(r'^about/terms/$', views.terms_and_conditions, name='terms_and_conditions'),
+    url(r'^corporative/$', views.corporative, name='corporative'),
 )
