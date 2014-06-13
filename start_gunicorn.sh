@@ -19,9 +19,6 @@ export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
 
-#Update dependency
-pip install -r requirements.txt
-
 # Collect static files
 python manage.py collectstatic --noinput
 
