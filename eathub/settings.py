@@ -113,7 +113,6 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'sslify.middleware.SSLifyMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,9 +122,6 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
-# Config needed for sslify app
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ROOT_URLCONF = 'eathub.urls'
 
@@ -267,7 +263,3 @@ REST_FRAMEWORK = {
 
     'DATETIME_FORMAT': ['%s']
 }
-
-# Disable SSLify if DEBUG is enabled.
-if DEBUG:
-    SSLIFY_DISABLE = True

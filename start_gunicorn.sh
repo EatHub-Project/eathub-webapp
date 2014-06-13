@@ -19,8 +19,11 @@ export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
 
+#Update dependency
+pip install -r requirements.txt
+
 # Collect static files
-python manage.py collectstatic --noinput;
+python manage.py collectstatic --noinput
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
