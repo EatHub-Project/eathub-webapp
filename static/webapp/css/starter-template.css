@@ -1502,7 +1502,7 @@ header .container {
     width: 125px;
 }
 
-.group-div-descrption {
+.group-div-description {
     float: right;
     width: 66%;
 }
@@ -1752,4 +1752,14 @@ footer {
 .corporativeImages{
     width: 140px;
     margin-left: 50px;
+}
+
+/* corporative team members description*/
+.corporative-team-more-parent{
+    padding:2em;
+}
+
+.linkedin-link-image{
+    width: 70%;
+    height: 35px;
 }
