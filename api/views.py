@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from rest_framework import authentication, permissions
 from api.serializers import UserSerializer, RecipeSerializer
 from sorl.thumbnail import get_thumbnail
+from webapp.forms import SearchRecipeForm
 from webapp.models import Recipe
 
 
@@ -54,3 +55,16 @@ def resize(request, url, width, height, quality, cached):
                 return HttpResponse(f.read(), mimetype="image/jpeg")
     except (HTTPError, IOError):
         return HttpResponseNotFound()
+
+@api_view(['GET'])
+def SearchView(request):
+    results_recipes = dict()
+    if request.method == 'GET':
+        form = SearchRecipeForm(request.GET)
+        if form.is_valid():
+            data = form.cleaned_data
+            results_recipes = Recipe.search_recipes(data)
+    serializer = RecipeSerializer(results_recipes)
+
+    return Response(serializer.data)
+
