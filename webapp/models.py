@@ -205,6 +205,52 @@ class Recipe(models.Model):
     def translate_to_language(self, lang):
         self.language=Language.objects.get(code=self.language).name_dict.get(lang)
 
+    @staticmethod
+    def search_recipes(data):
+        query=dict()
+        queryFullText = ""
+        if data['bitter']!="":
+            bitter = { "$lte": int(data['bitter'].split(',')[1]), "$gte": int(data['bitter'].split(',')[0])}
+            query["savours.bitter"]=bitter
+        if data['salty']!="":
+            salty = { "$lte": int(data['salty'].split(',')[1]), "$gte": int(data['salty'].split(',')[0])}
+            query["savours.salty"]=salty
+        if data['sour']!="":
+            sour = { "$lte": int(data['sour'].split(',')[1]), "$gte": int(data['sour'].split(',')[0])}
+            query["savours.sour"]=sour
+        if data['sweet']!="":
+            sweet = { "$lte": int(data['sweet'].split(',')[1]), "$gte": int(data['sweet'].split(',')[0])}
+            query["savours.sweet"]=sweet
+        if data['spicy']!="":
+            spicy = { "$lte": int(data['spicy'].split(',')[1]), "$gte": int(data['spicy'].split(',')[0])}
+            query["savours.spicy"]=spicy
+        if data['difficult']!="":
+            query["difficult"]=data['difficult']
+        if data['language']!="":
+            query["language"] = data['language']
+        if data['food_type']!="":
+            query["food_type"] = data['food_type']
+        if data['srchterm']!="":
+            queryFullText= queryFullText + data['srchterm']
+        if len(data['special_conditions'])!=0:
+            special=list()
+            for sp in data['special_conditions']:
+                special.append(sp)
+            queryFullText = queryFullText + " ".join(special)
+
+        if queryFullText!="":
+            query["$text"] = {"$search" : queryFullText}
+
+        if len(data['temporality'])!=0:
+            temporal=list()
+            for sp in data['temporality']:
+                temporal.append({"temporality": sp})
+            query["$or"] = temporal
+        #"$or": [{"language": "spanish"},{"language": "english"}],
+
+        results_recipes = Recipe.objects.raw_query(query)
+        return results_recipes
+
 
 #enum to entity
 
