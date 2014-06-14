@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^login/$', views.login),
     url(r'^resize/(?P<width>[0-9]+)/(?P<height>.+)/(?P<quality>[0-9]+)/(?P<cached>\w+)/(?P<url>.+)$', views.resize),
+    url(r'^search/recipe/$' , views.SearchView),
 )
