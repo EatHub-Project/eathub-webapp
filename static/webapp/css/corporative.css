@@ -32,7 +32,9 @@ h2 {
     height: 100%;
     min-height: 650px;
     color: #FFF;
-    background-color: #C55240;
+    /*background-color: #C55240;*/
+    background: url(../image/ensalada-desenfoque.jpg) no-repeat center;
+    /*background-size: 80px 60px;*/
     background-size: auto;
 }
 
