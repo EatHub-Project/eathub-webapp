@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>EatHub Corporative page</title>
-
     <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 
     <link href="{% static 'webapp/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'webapp/css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'webapp/css/corporative.css' %}" rel="stylesheet">
     <link href="{% static 'webapp/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'webapp/css/lightbox.css' %}" rel="stylesheet"/>
     <link href="{% static 'webapp/css/style-search.css' %}" rel="stylesheet"/>
@@ -40,9 +39,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">About us</a>
+                    <li><a href="#">Inicio</a>
                     </li>
-                    <li><a class="" href="#">Our team</a></li>
+                    <li><a class="" href="#">Nuestro equipo</a></li>
                     </form>
                 </ul>
             </div>
@@ -55,241 +54,128 @@
         </div>
     </nav>
 
-    <div class="panel col-md-10 col-md-offset-1 panel-body">
-        <h1 class="about-title">&iquest;Qui&eacute;nes somos?</h1>
-
-        <p class="text-soft about-description">
-            Somos una empresa joven e innovadora que busca crear su propio espacio dentro del mercado actual gracias a fundamentos
-            basados en la calidad y la experiencia visual. Nuestra filosofía es la de mejorar continuamente nuestros productos
-            para ofrecer un aspecto cuidado y muy atractivo para el consumidor.
-        </p>
-    </div>
-
-    <div class="panel col-md-10 col-md-offset-1 panel-body">
-        <h1 class="about-title">EatHub</h1>
-
-        <p class="text-soft about-description">
-            EatHub es un servicio con características sociales en el que podrá compartir sus recetas, mejorar las de sus amigos
-            y relacionarse con los demás. De este modo, podrá preparar su comida favorita de otra forma así como otras de
-            cualquier parte del mundo
-            <br><br>
-            La idea que origin&oacute; el desarrollo de Eathub fue que las recetas no son algo inamovible. Cambian, se adaptan a tus gustos personales o, quiz&aacute;s, alguien te da un consejo para ellas; as&iacute; que decidimos que ser&iacute;a buena idea permitirte controlar la evoluci&oacute;n de tus recetas tal y como pasa en la vida real. Por tanto, puedes mejorar las recetas de tus amigos, copiarlas y darle tu toque personal... Es simple: Creas una receta, la compartes, todo el mundo contribuye y la comunidad en general se beneficia.
-        </p>
-
-        <hr class="hr-eathub">
-
-        <p class="text-soft about-description">
-            Con EatHub podr&aacute;s...
-        </p>
-
-        <div class="row">
-            <!-- panel -->
-            <div class="col-md-4 panel-about-container">
-                <div class=" panel-body panel-about">
-                    <h2 class="about-title">Crear</h2>
-
-                    <p class="text-soft about-description">
-                        En EatHub podr&aacute;s crear sus propias recetas y compartirlas con sus amigos. Explora comidas de otros usuarios, varíalas con tus propios gustos, ingredientes y métodos.
-                    </p>
-
-                    <div class="about-thumbnail">
-                        <i class="fa fa-edit"></i>
-                    </div>
-
-                </div>
+<!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide carousel-corporative-margin-top" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="http://coastalinteractiveinc.com/coastalwp/wp-content/uploads/2013/11/Blog-3-900x500.jpg">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
             </div>
-
-
-            <!-- panel -->
-            <div class="col-md-4 panel-about-container">
-                <div class=" panel-body panel-about">
-                    <h2 class="about-title">Mejorar</h2>
-
-                    <p class="text-soft about-description">
-                        Si le gusta alguna receta pero quiere añadir algún ingrediente o algún paso tiene la opción de mejorarla. De este modo se crear&aacute; un árbol genealógico de recetas en el que figurar&aacute; la jerarqu&iacute;a de las mismas.
-                    </p>
-
-                    <div class="about-thumbnail">
-                        <i class="fa fa-code-fork"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- panel -->
-            <div class="col-md-4 panel-about-container">
-                <div class=" panel-body panel-about">
-                    <h2 class="about-title">Social</h2>
-
-                    <p class="text-soft about-description">
-                        Los usuarios tienen su propio perfil, através del cual otros usuarios pueden ver tus recetas y actividad. Puedes seguir a otros usuarios para estar al día de su actividad.
-                    </p>
-
-                    <div class="about-thumbnail">
-                        <i class="fa fa-group"></i>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <hr class="hr-eathub">
-        <div class="row">
-            <div class="col-md-4 panel-about-container ">
-                <p class="text-soft about-description">
-                    <img class="corporativeImages" src="{% static 'webapp/image/eathub_android.png' %}"/>
-                    <img class="corporativeImages" src="{% static 'webapp/image/logo_big.png' %}"/>
-                </p>
+        <div class="item">
+          <img src="http://coastalinteractiveinc.com/coastalwp/wp-content/uploads/2013/11/Blog-3-900x500.jpg">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
-            <div class="col-md-7 panel-about-container">
-                <h2 class="about-title">En tu ordenador y tu smartphone</h2>
-                <p class="text-soft about-description">
-                    Llega a las personas all&iacute; donde se encuentren.
-                    <br>
-                    Podr&aacute;s disfrutar de EatHub tanto en la aplicaci&oacute;n web como
-                    en la aplicaci&oacute;n android.
-                </p>
-            </div>
+          </div>
         </div>
-
-    </div>
-
-    <div class="panel col-md-10 col-md-offset-1 panel-body">
-        <h1 class="about-title">El Equipo</h1>
-        <p class="text-soft about-description">
-            Nuestro equipo est&aacute; formado por j&oacute;venes desarrolladores del software, todos ellos con competencias
-            y experiencia en el desarrollo de aplicaciones software.
-            <br>
-            En cont&iacute;nua expansi&oacute;n, acogemos siempre a nuevos miembros que permitan aportar un nuevo
-            punto de vista que nos permita afrontar los problemas de formas que antes no pod&iacute;mos.
-            <br>
-            &quot;La uni&oacute;n hace la fuerza&quot;.
-            <br><br>
-            Movidos por una inquietud constante experimentamos cont&iacute;nuamente con nuevas tecnolog&iacute;as para
-            mejorar como ingenieros y desarrolladores del software y basamos nuestra filosof&iacute;a de trabajo en
-            metodolog&iacute;as &aacute;giles, lo que nos permite crear nuevos productos velozmente, din&aacute;micamente
-            y perfectamente adaptados a los cont&iacute;nuos cambios.
-            <br><br>
-            Con una curiosidad por los avances tecnol&oacute;gicos y exigencia por mejorar innatos nuestro objetivo es el de
-            elaborar las aplicaciones m&aacute;s novedosas, &uacute;tiles, intuitivas y con el aspecto gr&aacute;fico
-            m&aacute;s cuidado del mercado: siempre orientados a satisfacer las necesidades de nuestros clientes y usuarios
-            ofreciendo la mayor calidad.
-        </p>
-        <hr class="hr-eathub">
-        <h2 class="about-title">Miembros</h2>
-        <div class="row">
-            <div class="col-md-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/sergiog.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">Sergio García</h3>
-
-                    <div class="team-more-title">Jefe de proyecto</div>
-                    <div class="team-more-title">sergaralo@eathub.me</div>
-                    <br>
-                    <a href="http://es.linkedin.com/pub/sergio-garcia-alonso/48/979/158/">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
+        <div class="item">
+          <img src="http://coastalinteractiveinc.com/coastalwp/wp-content/uploads/2013/11/Blog-3-900x500.jpg">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
-
-            <div class="col-md-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/david.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">David González</h3>
-
-                    <div class="team-more-title">Desarrollador</div>
-                    <div class="team-more-title">jesgonbel@eathub.me</div>
-                    <br>
-                    <a href="http://es.linkedin.com/pub/jes%C3%BAs-david-gonz%C3%A1lez-belda/72/88/b1a/">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/arturo.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">Arturo Jiménez</h3>
-
-                    <div class="team-more-title">Analista y tester</div>
-                    <div class="team-more-title">artjimlop@eathub.me</div>
-                    <br>
-                    <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fpub%2Farturo-jim%25C3%25A9nez-l%25C3%25B3pez%2F89%2Fa8%2F568&sa=D&sntz=1&usg=AFQjCNGUrhWC873pos0fdrLUnYC8u8-wMw">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
 
-        <div class="row">
-            <div class="col-md-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/antonio.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">Antonio León</h3>
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="about-thumbnail">
+                        <i class="fa fa-edit text-center"></i>
+          </div>
+          <h2>Crear</h2>
+          <p>En EatHub podrás crear sus propias recetas y compartirlas con sus amigos. Explora comidas de otros usuarios, varíalas con tus propios gustos, ingredientes y métodos.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="about-thumbnail">
+                        <i class="fa fa-code-fork text-center"></i>
+          </div>
+          <h2>Mejorar</h2>
+          <p>Si le gusta alguna receta pero quiere añadir algún ingrediente o algún paso tiene la opción de mejorarla. De este modo se creará un árbol genealógico de recetas en el que figurará la jerarquía de las mismas.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="about-thumbnail">
+                        <i class="fa fa-group text-center"></i>
+          </div>
+          <h2>Social</h2>
+          <p>Los usuarios tienen su propio perfil, através del cual otros usuarios pueden ver tus recetas y actividad. Puedes seguir a otros usuarios para estar al día de su actividad.</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
 
-                    <div class="team-more-title">Analista y tester</div>
-                    <div class="team-more-title">antleocar1@eathub.me</div>
-                    <br>
-                    <a href="http://es.linkedin.com/pub/antonio-león-carrillo/99/199/335/">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/juanma.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">Juan Manuel López</h3>
+     <!-- START THE FEATURETTES -->
 
-                    <div class="team-more-title">Desarrollador</div>
-                    <div class="team-more-title">jualoppaz@eathub.me</div>
-                    <br>
-                    <a href="http://es.linkedin.com/pub/juan-manuel-lopez-pazos/63/469/4a9/">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
-            </div>
+      <hr class="featurette-divider">
 
-            <div class="col-md-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/sergior.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">Sergio Rodríguez</h3>
-
-                    <div class="team-more-title">Desarrollador</div>
-                    <div class="team-more-title">serrodcal@eathub.me</div>
-                    <br>
-                    <a href="https://www.linkedin.com/pub/sergio-rodr%C3%ADguez-calvo/97/b79/38b">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
-            </div>
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
-
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4 panel-about-container corporative-team-more-parent">
-                <div class="group-div-image">
-                    <img class="team-image" src="{% static 'webapp/image/rafa.png' %}"> </img>
-                </div>
-                <div class="group-div-description">
-                    <h3 class="team-panel-title">Rafael V&aacute;zquez</h3>
-
-                    <div class="team-more-title">L&iacute;der del grupo de desarrollo</div>
-                    <div class="team-more-title">rafvazsan@eathub.me</div>
-                    <br>
-                    <a href="https://www.linkedin.com/in/sloydev">
-                        <img class="linkedin-link-image img-rounded" src="{% static 'webapp/image/linkedin-button-wide-blue.png' %}"> </img>
-                    </a>
-                </div>
-            </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Volver arriba</a></p>
+        <p>&copy; 2014 Eathub  &middot; <a href="#">T&eacute;rminos</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
     </div>
 
     <!-- Bootstrap core JavaScript

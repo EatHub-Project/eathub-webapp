@@ -1,0 +1,99 @@
+.carousel-corporative-margin-top{
+    margin-top: -39px !important;
+}
+
+.navbar-red {
+    background-color: #cc3e27 !important;
+    box-shadow: 2px 2px 5px #999 !important;
+}
+
+.navbar-logo {
+    width: 50px;
+    height: 41px;
+    padding: 2px;
+}
+
+.navbar .container .navbar-brand {
+    margin-left: 25px;
+    padding: 5px 10px 0 0;
+}
+
+.navbar-nav>li>a{
+    color: #fff !important;
+}
+
+.navbar-nav>.active>a{
+    font-weight: bold !important;
+}
+
+body {
+padding-bottom: 40px;
+color: #5a5a5a;
+}
+
+body {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #333;
+background-color: #fff;
+}
+
+body {
+margin: 0;
+}
+
+.carousel {
+height: 500px;
+margin-bottom: 60px;
+}
+
+.marketing .col-lg-4 p {
+margin-right: 10px;
+margin-left: 10px;
+}
+
+.marketing h2 {
+font-weight: normal;
+}
+
+.marketing .col-lg-4 {
+margin-bottom: 20px;
+text-align: center;
+}
+
+.about-thumbnail  {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.about-thumbnail i {
+    color: #CC3E27;
+    font-size: 1000%;
+    opacity: 0.8;
+}
+
+.featurette-heading {
+margin-top: 120px;
+}
+
+.featurette-heading {
+font-size: 50px;
+}
+
+.featurette-heading {
+font-weight: 300;
+line-height: 1;
+letter-spacing: -1px;
+}
+
+.lead {
+font-size: 21px;
+}
+
+.lead {
+margin-bottom: 20px;
+font-size: 16px;
+font-weight: 200;
+line-height: 1.4;
+}
