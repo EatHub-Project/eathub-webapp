@@ -147,6 +147,7 @@ p {
 
 .rol {
     font-weight: bold;
+    color: white;
 }
 
 .titulo {
@@ -169,4 +170,16 @@ div{
 .row-nuestro-equipo {
     margin-left: -15px;
     margin-right: -15px;
+}
+
+hr{
+    opacity: 0.3;
+}
+
+.email-white{
+    color: white;
+}
+
+.border{
+    border-radius: 50px;
 }
