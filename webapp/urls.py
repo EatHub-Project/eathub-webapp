@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^newrecipe', views.new_recipe, name='newrecipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/$' , views.receta, name='recipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/edit/$' , views.edit_receta, name='editrecipe'),
+    url(r'^recipe/(?P<recipe_id>\w+)/delete/$' , views.delete_receta, name='deleterecipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/clone/$' , views.edit_receta, {"clone": True}, name='clonerecipe'),
     url(r'^recipe/(?P<recipe_id>\w+)/comment/$' , views.comment, name='comment'),
 
