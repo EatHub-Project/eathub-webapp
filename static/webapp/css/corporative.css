@@ -1,0 +1,172 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-color: #FFF;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    font-family: 'latoregular', sans-serif;
+}
+
+#header .logo {
+    margin-top: 5%;
+}
+
+h1 {
+    font-family: 'latolight', sans-serif;
+    margin: 0.75em 0.75em 0.25em;
+    font-size: 2.70em;
+}
+
+h2 {
+    font-size: 2.70em;
+    line-height: 1.3em;
+    font-family: 'latolight', sans-serif;
+    margin-top: 0.33em;
+}
+
+#header {
+    width: 100%;
+    height: 100%;
+    min-height: 650px;
+    color: #FFF;
+    background-color: #C55240;
+    background-size: auto;
+}
+
+#header .picture {
+    position: relative;
+    z-index: 1;
+}
+
+img, object, embed {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    z-index: 999;
+    position: relative;
+    background: #FFF;
+}
+
+.cbp-so-scroller {
+    overflow: hidden;
+}
+
+.cbp-so-section:first-child {
+    margin-top: 25px;
+}
+
+.row {
+    width: 100%;
+    max-width: 940px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.row .seven.columns {
+    width: 57.44681%;
+}
+
+element.style {
+}
+.row .seven.columns {
+width: 57.44681%;
+}
+.cbp-so-init .cbp-so-side-left {
+    -webkit-transform: translateX(-80px);
+    -moz-transform: translateX(-80px);
+    transform: translateX(-80px);
+}
+
+.cbp-so-init .cbp-so-side {
+    opacity: 0;
+}
+
+.column:first-child, .columns:first-child, .alpha {
+    margin-left: 0px;
+}
+
+.cbp-so-side-left {
+    text-align: left;
+}
+
+.cbp-so-side {
+    width: 100%;
+    margin: 0;
+    padding: 3em 2%;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    -moz-transition: -moz-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.column, .columns {
+    margin-left: 2.12766%;
+    float: left;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: #C55240;
+    font: 2.2em 'latolight', sans-serif;
+    padding-bottom: 25px;
+    padding-top: 0px;
+}
+
+p {
+    color: #DA7465;
+}
+
+.nuestro-equipo {
+    background: #C55240;
+    color: #FFF;
+    padding: 60px 0 80px 0;
+    margin-top: 25px;
+    font-family: 'latoregular', sans-serif;
+}
+
+#footer {
+    padding: 25px 0;
+    background: #363f48;
+}
+
+.color-text-footer {
+    color: #9DA5AF;
+}
+
+.card{
+    background-color: #F1F1F1;
+}
+
+.rol {
+    font-weight: bold;
+}
+
+.titulo {
+   color: white;
+}
+
+.foto-miembro{
+    margin-bottom: 15px !important;
+}
+
+div{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+.row-nuestro-equipo {
+    margin-left: -15px;
+    margin-right: -15px;
+}
