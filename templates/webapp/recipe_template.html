@@ -197,7 +197,7 @@
                         class="fa fa-edit"></i> {% trans "Edit recipe" %} </a>
             </div>
             <div class="col-md-4 col-md-offset-2">
-                <a href="#" class="btn btn-default btn-block btn-danger"><i
+                <a href="{% url 'deleterecipe' receta.id %}" class="btn btn-default btn-block btn-danger"><i
                         class="fa fa-trash-o"></i> {% trans "Delete recipe" %} </a>
             </div>
         </div>

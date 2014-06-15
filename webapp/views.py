@@ -21,7 +21,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views
 
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
+from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed, HttpResponseForbidden
 from django.shortcuts import render
 
 from webapp.forms import NewAccountForm, EditAccountForm, RecipeForm, AddComment, SearchRecipeForm
@@ -273,11 +273,24 @@ def new_recipe(request):
 
 
 @login_required
+def delete_receta(request, recipe_id):
+    user = request.user
+    r = Recipe.objects.get(id=ObjectId(recipe_id))
+    if not user == r.author and not user.is_staff():
+        return HttpResponseForbidden()
+
+    r.delete()
+    # Establecer un mensaje y redirigir al inicio
+    messages.success(request, _("Recipe deleted"))
+    return HttpResponseRedirect(reverse('main'))
+
+
+@login_required
 def edit_receta(request, recipe_id, clone=False):
     user = request.user
     r = Recipe.objects.get(id=ObjectId(recipe_id))
 
-    if not clone and r.author != user:
+    if not clone and r.author != user and not user.is_staff():
         return HttpResponse('Unauthorized', status=401)
     if request.method == 'POST':
         form = RecipeForm(request.POST)
