@@ -60,14 +60,27 @@ img, object, embed {
 
 #container {
     background: #FFF;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .cbp-so-scroller {
     overflow: hidden;
 }
 
-.cbp-so-section:first-child {
-    margin-top: 25px;
+.feature {
+    margin-top: 35px;
+}
+
+.feature h3 {
+    color: #C55240;
+    font-size: 2.2em;
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+
+.feature .lead {
+    color: #5a5a5a;
 }
 
 .row {
@@ -123,16 +136,6 @@ width: 57.44681%;
     box-sizing: border-box;
 }
 
-h3 {
-    color: #C55240;
-    font: 2.2em 'latolight', sans-serif;
-    padding-bottom: 25px;
-    padding-top: 0px;
-}
-
-p {
-    color: #DA7465;
-}
 
 .space90 {
     margin-bottom: 90px;
