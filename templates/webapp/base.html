@@ -50,7 +50,7 @@
                         <li><a class="" href="#">{% trans "Recipes" %}</a></li>
                         <li><a class="" href="#">{% trans "Explore" %}</a></li>
                         <li><div class="input-group navbar-input-group fbSearch">
-                        <form id="search-form" class="navbar-form navbar-left hidden-xs hidden-sm" role="search" method="get" action="{% url 'search_recipe'%}">
+                        <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="{% url 'search_recipe'%}">
                             <div class="form-group">
                                 <input type="text" class="form-control border-search border-rect-red" placeholder="{% trans "Search..." %}" name="srchterm"
                                    id="srchterm">
@@ -89,7 +89,7 @@
 
 
 
-                    <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+                    <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
                             <li><p class="navbar-text text-white">{% trans "Hello" %}, {{ user.profile.get.display_name }}.</p>
                             </li>

@@ -208,7 +208,7 @@
     </div>
 
     <div class="panel panel-body row">
-        <div class="col-md-4 recipe-data">
+        <div class="col-xs-4 recipe-data">
             {% if receta.time.prep_time and receta.time.cook_time %}
                 <p>{{ receta.time.prep_time }} + {{ receta.time.cook_time }} min</p>
                 <p class="recipe-data-secondary">{% trans "prep + cook time" %}</p>
@@ -220,12 +220,12 @@
                 <p class="recipe-data-secondary">{% trans "prep time" %}</p>
             {% endif %}
         </div>
-        <div class="col-md-4 recipe-data">
+        <div class="col-xs-4 recipe-data">
             <p>{{ difficult_value }}</p>
 
             <p class="recipe-data-secondary">{% trans "difficulty" %}</p>
         </div>
-        <div class="col-md-4 recipe-data">
+        <div class="col-xs-4 recipe-data">
             <p>{{ receta.serves }}</p>
 
             <p class="recipe-data-secondary">{% trans "serves" %}</p>
@@ -233,7 +233,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 recipe-ingredients-parent {% if not receta.notes %}col-md-offset-3{% endif %}">
+        <div class="col-xs-6 recipe-ingredients-parent {% if not receta.notes %}col-md-offset-3{% endif %}">
             <div class="panel-body recipe-ingredients post-it-left">
                 <h3 class="recipe-panel-title">{% trans "Ingredients" %}</h3>
                 <ul>
@@ -245,7 +245,7 @@
         </div>
 
         {% if receta.notes %}
-            <div class="col-md-6 recipe-notes-parent">
+            <div class="col-xs-6 recipe-notes-parent">
                 <div class="panel-body recipe-notes postit">
                     <h3 class="recipe-panel-title">{% trans "Notes" %}</h3>
 
