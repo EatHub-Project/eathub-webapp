@@ -703,5 +703,70 @@ def handle500(request):
     return render(request, '500.html')
 
 def corporative(request):
-    return render(request, 'webapp/corporative.html')
+    team = [
+        {
+            "name": "Sergio García",
+            "position": "Jefe de proyecto",
+            "email": "sergaralo@eathub.me",
+            "picture": static('webapp/image/staff_sergiog.png'),
+            "linkedin": "https://es.linkedin.com/pub/sergio-garcia-alonso/48/979/158/",
+            "twitter": "http://twitter.com/sgavmp",
+            "gplus": "http://google.com/+SergioGarciaA",
+        },
+        {
+            "name": "David González",
+            "position": "Desarrollador",
+            "email": "jesgonbel@eathub.me",
+            "picture": static('webapp/image/staff_david.png'),
+            "linkedin": "https://www.linkedin.com/pub/jes%C3%BAs-david-gonz%C3%A1lez-belda/72/88/b1a",
+            "twitter": "http://twitter.com/adlebzelaznog",
+            "gplus": "https://plus.google.com/114599300485606375946",
+        },
+        {
+            "name": "Arturo Jiménez",
+            "position": "Analista y Tester",
+            "email": "artjimlop@eathub.me",
+            "picture": static('webapp/image/staff_arturo.png'),
+            "linkedin": "https://es.linkedin.com/pub/arturo-jim%C3%A9nez-l%C3%B3pez/89/a8/568",
+            "twitter": "http://twitter.com/arturoLehder",
+            "gplus": "https://plus.google.com/101478151145229223925",
+        },
+        {
+            "name": "Antonio León",
+            "position": "Analista y Tester",
+            "email": "antleocar@eathub.me",
+            "picture": static('webapp/image/staff_antonio.png'),
+            "linkedin": "https://es.linkedin.com/pub/antonio-león-carrillo/99/199/335/",
+            "twitter": "http://twitter.com/antbadija",
+            "gplus": "https://plus.google.com/+AntonioLeónMH",
+        },
+        {
+            "name": "Juan Manuel López",
+            "position": "Desarrollador",
+            "email": "jualoppaz@eathub.me",
+            "picture": static('webapp/image/staff_juanma.png'),
+            "linkedin": "https://es.linkedin.com/pub/juan-manuel-lopez-pazos/63/469/4a9",
+            "twitter": "http://twitter.com/LopezPazos14",
+            "gplus": "https://plus.google.com/116239751213274580087",
+        },
+        {
+            "name": "Sergio Rodríguez",
+            "position": "Desarrollador",
+            "email": "serrodcal@eathub.me",
+            "picture": static('webapp/image/staff_sergior.png'),
+            "linkedin": "https://es.linkedin.com/pub/sergio-rodr%C3%ADguez-calvo/97/b79/38b",
+            "twitter": "http://twitter.com/sergio_7rc",
+            "gplus": "http://google.com/+SergioRodriguezCalvo",
+        },
+        {
+            "name": "Rafael Vázquez",
+            "position": "Jefe de desarrollo",
+            "email": "rafvazsan@eathub.me",
+            "picture": static('webapp/image/staff_rafa.png'),
+            "linkedin": "https://es.linkedin.com/in/sloydev",
+            "twitter": "http://twitter.com/sloydev",
+            "gplus": "http://google.com/+RafaVazquez",
+        },
+    ]
+    return render(request, 'webapp/corporative.html', {"team": team})
 

@@ -147,269 +147,49 @@
 
         </div>
 
-    <div class="nuestro-equipo text-center">
+    <div class="equipo text-center">
 
-        <div class="row">
+        <div class="container">
 
-            <h3 class="titulo text-center">Nuestro equipo</h3>
+            <div class="row">
+                <div class="clearfix space30"></div>
+                <h3>Nuestro equipo</h3>
 
-            <br />
-            <br />
+                <p>Las personas detrás de EatHub que han hecho posible este proyecto.</p>
 
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
+                <div class="clearfix space30"></div>
 
-                <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    {% for staff in team %}
+                        <!-- Card -->
+                        <div class="col-md-4 {% if forloop.first %}col-md-offset-4{% endif %}">
+                            <div class="staff-content">
+                                <div class="staff-img">
+                                    <img src="{{ staff.picture }}"
+                                         class="img-responsive">
+                                </div>
+                                <h5>{{ staff.name }}</h5>
+                                <strong>{{ staff.position }}</strong>
 
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">Sergio Garc&iacute;a</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Jefe de proyecto y portavoz</p>
-
-                        <p class="email-white">sergaralo@eathub.me</p>
-
-                        <p><a href="es.linkedin.com/pub/sergio-garcia-alonso/48/979/158/"><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-                    <!-- Image from right -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/sergiog.png' %}">
-
-                    </div>
-
+                                <ul class="team-social">
+                                    <li><a class="sl-mail" target="_blank" href="mailto://{{ staff.email }}"><i
+                                            class="fa fa-envelope"></i></a></li>
+                                    <li><a class="sl-linkedin" target="_blank" href="{{ staff.linkedin }}"><i
+                                            class="fa fa-linkedin"></i></a></li>
+                                    <li><a class="sl-twitter" target="_blank" href="{{ staff.twitter }}"><i
+                                            class="fa fa-twitter"></i></a></li>
+                                    <li><a class="sl-google-plus" target="_blank" href="{{ staff.gplus }}"><i
+                                            class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Card -->
+                        {% if forloop.first %}
+                            <div class="clearfix"></div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-
-            </section>
-
-            <!-- END FIRST SECTION ############################################### -->
-
-            <br />
-            <br />
-            <hr />
-
-            <!-- SECOND SECTION ############################################### -->
-
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
-
-                <div class="row">
-
-                    <!-- Image from left -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/david.png' %}">
-
-                    </div>
-
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">David Gonz&aacute;lez</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Desarrollador</p>
-
-                        <p class="email-white">jesgonbel@eathub.me</p>
-
-                        <p><a href=""><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-
-
-                </div>
-
-            </section>
-
-            <br />
-            <br />
-            <hr />
-
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
-
-                <div class="row">
-
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">Arturo Jim&eacute;nez</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Analista, Tester y Secretario</p>
-
-                        <p class="email-white">artjimlop@eathub.me</p>
-
-                        <p><a href="es.linkedin.com/pub/arturo-jiménez-lópez/89/a8/568"><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-                    <!-- Image from right -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/arturo.png' %}">
-
-                    </div>
-            </section>
-
-            <br />
-            <br />
-            <hr />
-
-            <!-- SECOND SECTION ############################################### -->
-
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
-
-                <div class="row">
-
-                    <!-- Image from left -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/antonio.png' %}">
-
-                    </div>
-
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">Antonio Le&oacute;n</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Analista y Tester</p>
-
-                        <p class="email-white">antleocar@eathub.me</p>
-
-                        <p><a href=""><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-
-
-                </div>
-
-            </section>
-
-             <br />
-            <br />
-            <hr />
-
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
-
-                <div class="row">
-
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">Juan Manuel L&oacute;pez</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Desarrollador</p>
-
-                        <p class="email-white">jualoppaz@eathub.me</p>
-
-                        <p><a href="es.linkedin.com/pub/juan-manuel-lopez-pazos/63/469/4a9"><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-                    <!-- Image from right -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/juanma.png' %}">
-
-                    </div>
-            </section>
-
-            <br />
-            <br />
-            <hr />
-
-            <!-- SECOND SECTION ############################################### -->
-
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
-
-                <div class="row">
-
-                    <!-- Image from left -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/sergior.png' %}">
-
-                    </div>
-
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">Sergio Rodr&iacute;guez</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Desarrollador</p>
-
-                        <p class="email-white">serrodcal@eathub.me</p>
-
-                        <p><a href="es.linkedin.com/pub/sergio-rodríguez-calvo/97/b79/38b"><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-
-
-                </div>
-
-            </section>
-
-             <br />
-            <br />
-
-            <hr />
-
-            <section class="cbp-so-section cbp-so-init cbp-so-animate">
-
-                <div class="row">
-
-                    <div class="col-md-7">
-
-                        <!-- Title -->
-
-                        <h3 class="titulo">Rafael V&aacute;zquez</h3>
-
-                        <!-- Content -->
-
-                        <p class="rol">Jefe de desarrollo</p>
-
-                        <p class="email-white">rafvazsan@eathub.me</p>
-
-                        <p><a href="es.linkedin.com/in/sloydev"><img src="{% static 'webapp/image/linkedin-icon.png' %}"></a></p>
-
-                    </div>
-
-                    <!-- Image from right -->
-
-                    <div class="col-md-5">
-
-                        <img class="border" src="{% static 'webapp/image/rafa.png' %}">
-
-                    </div>
-            </section>
-
+            </div>
         </div>
 
     </div>
