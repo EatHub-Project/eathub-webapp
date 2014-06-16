@@ -12,6 +12,7 @@ body, html {
 
 #header .logo {
     margin-top: 5%;
+    width: 140px;
 }
 
 h1 {
@@ -41,6 +42,10 @@ h2 {
 #header .picture {
     position: relative;
     z-index: 1;
+}
+
+#header h1 {
+    text-shadow: -2px 1px #5d5d5d;
 }
 
 img, object, embed {
