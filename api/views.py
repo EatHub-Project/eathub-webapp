@@ -12,6 +12,10 @@ from sorl.thumbnail import get_thumbnail
 from webapp.forms import SearchRecipeForm
 from webapp.models import Recipe
 
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger("django")
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -34,8 +38,7 @@ def login(request, format=None):
     return Response(serializer.data)
 
 
-
-def resize(request, url, width, height, quality, cached):
+def resize(request, url, width, height, quality):
     try:
         if int(height) < 0:
             size = width
@@ -46,14 +49,9 @@ def resize(request, url, width, height, quality, cached):
             crop = "center"
             upscale = True
         im = get_thumbnail(url, size, crop=crop, quality=int(quality), upscale=upscale)
-        if cached == "cached":
-            return HttpResponseRedirect(im.url)
-        else:
-            # Nota: no funciona si se usa como almacenamiento Amazon S3.
-            uri = "." + im.url
-            with open(uri, "rb") as f:
-                return HttpResponse(f.read(), mimetype="image/jpeg")
+        return HttpResponseRedirect(im.url)
     except (HTTPError, IOError):
+        logger.error("Ha ocurrido un error al recuperar la imagen redimensionada")
         return HttpResponseNotFound()
 
 @api_view(['GET'])
