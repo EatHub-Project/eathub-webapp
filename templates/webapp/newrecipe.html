@@ -399,7 +399,7 @@
                                 <span>{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
-                                <span class="glyphicon glyphicon-remove-circle recipe-step-remove"></span>
+                                <span class="glyphicon glyphicon-remove-circle recipe-step-remove repeatable-remove"></span>
                                 {% trans "Describe this step..." as step_description %}
                                 <textarea class="form-control input-lg step-input"
                                           placeholder="{{ step_description }}"
@@ -426,6 +426,7 @@
                                     <span>{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
+                                    <span class="glyphicon glyphicon-remove-circle recipe-step-remove repeatable-remove"></span>
                                     {% trans "Describe this step..." as the_description %}
                                     <textarea class="form-control input-lg step-input"
                                               placeholder="{{ the_description }}"
