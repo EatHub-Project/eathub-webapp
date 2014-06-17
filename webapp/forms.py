@@ -120,7 +120,6 @@ class RecipeForm(forms.Form):
             'title': r.title,
             'description': r.description,
             'main_picture_id': UploadedImage.objects.get(image=r.main_image).id,
-            #todo modification?
             'serves': r.serves,
             'language': r.language,
             'temporality': r.temporality,

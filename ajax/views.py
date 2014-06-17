@@ -43,7 +43,6 @@ def follow(request):
         return HttpResponse(json.dumps({"message": "Invalid username"}), status=400)
 
     # Compruebo si ya está en mi lista de seguidos
-    #TODO: INEFICIENTE, habría que hacer una búsqueda de verdad en la bbdd, pero ahora mismo no sé cómo se haría
     following_now = my_profile.following
     for f in following_now:
         if f.user.id == who.id:
@@ -117,7 +116,6 @@ def vote_recipe(request):
     # Busco votos preexistentes del usuario a la receta y los elimino cuando sea necesario
     found = False   #used to control when the vote has to be looked for into the lists
 
-    #TODO: refactorizar! los dos bucles for son muy parecidos... se podria extraer un metodo para no repetir codigo?
     if not found:
         for vote in recipe.positives:
             if vote.user == ppal:

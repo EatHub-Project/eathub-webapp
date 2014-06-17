@@ -25,7 +25,6 @@ def validate_savour(savour):
         raise ValidationError("Value is not in range 0 to 99")
 
 
-#TODO: decidir que hacemos con la validacion de idiomas, si aqui o si en las vistas
 def validate_main_language(main_language):
     pass
 
@@ -68,7 +67,7 @@ class Tastes(models.Model):
 
 class Profile(models.Model):
     display_name = models.CharField(max_length=50, blank=False)
-    modification_date = models.DateTimeField(null=True)  #TODO: debe ser pasado, falta meter esta restriccion
+    modification_date = models.DateTimeField(null=True)
     main_language = models.CharField(max_length=50, validators=["""validate_main_language"""])
     additional_languages = ListField(validators=["""validate_additional_languages"""], null=True, blank=False)
     avatar = models.ImageField(upload_to='avatars/', null=True)

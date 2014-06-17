@@ -131,9 +131,7 @@ def new_account(request):
                             additional_languages=additional_languages, gender=gender,
                             location=location, website=website,
                             birth_date=birth_date, tastes=t, username=username)
-                #TODO capturar cualquier error de validación y meterlo como error en el formulario
 
-                #avatar.image.name = str(p.id) + '.png' # No vale así, hay que copiar el archivo en otro
                 if avatar_id != u'':
                     p.avatar = avatar.image
 
@@ -142,11 +140,10 @@ def new_account(request):
                 p.user.save()
 
                 p.clean()
-                p.save()  # TODO borrar el User si falla al guardar el perfil
+                p.save()
 
                 #Generar el codigo y meterlo en la BD.
 
-                #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
                 if avatar_id != u'':
                     avatar.persist = True
                     avatar.save()
@@ -182,7 +179,6 @@ def new_account_done(request, username):
     except User.DoesNotExist:
         raise Http404
 
-    #TODO: esto hay que cambiarlo para que se haga por post, y que muestre un mensaje mas concreto. De momento asi estaria eliminado el bug.
     if user.is_active:
         return HttpResponseRedirect(reverse('main'))
 
@@ -217,7 +213,6 @@ def new_account_done(request, username):
 
 @login_required
 def new_recipe(request):
-    #TODO if user is authenticated redirect to main
     if request.method == 'POST':
         # else -> render respone with the obtained form, with errors and stuff
         form = RecipeForm(request.POST)
@@ -360,13 +355,11 @@ def store_recipe(form, user, recipe=None, parent=None):
 
 @login_required
 def modification_account(request, username):
-    # todo: hay mucho código repetido con respecto a la vista new_account. ¿Se pueden simplificar?
     if request.method == 'POST':
         form = EditAccountForm(request.POST)
         if form.is_valid():  # else -> render respone with the obtained form, with errors and stuff
             valid = True
             # Extract the data from the form, validate, and update the current user
-            # TODO validar que el nombre de usuario sea único
             data = form.cleaned_data
             #username = data['username']
             #email = data['email']
@@ -384,7 +377,7 @@ def modification_account(request, username):
 
             avatar_id = data['avatar_id']
 
-            if password:  # todo comprobar también que sea válida en cuanto a caracteres y tal
+            if password:
                 if not password == password_repeat:
                     errors = form._errors.setdefault("password_repeat", ErrorList())
                     output = _("Passwords don't match")
@@ -417,18 +410,15 @@ def modification_account(request, username):
                 avatar = models_ajax.UploadedImage.objects.get(id=avatar_id)
                 if avatar.image:
                     p.avatar = avatar.image
-            # TODO capturar cualquier error de validación y meterlo como error en el formulario
 
             if valid:
                 u.save()
                 p.clean()
-                p.save()  # TODO borrar el User si falla al guardar el perfil
+                p.save()
 
-                #TODO marco de el UploadedImage para que no se borre. Pero lo mejor sería copiar la imagen a otro sitio
                 if avatar:
                     avatar.persist = True
                     avatar.save()
-                # TODO mandar a la misma página y mostrar un mensaje de éxito
 
                 if request.user.is_authenticated():
                     request.session['django_language']=main_language
@@ -470,10 +460,8 @@ def login_user(request):
 
 
 def logout_user(request):
-    # TODO: estaría bien mostrar una página de logout correcto, o un mensaje en la principal
     return views.logout(request, next_page=reverse('main'))
 
-#TODO: mover a otro fichero e importar
 def calculate_affinity(friend_profile, recipe):
     ret_affinity = 0
 
@@ -550,7 +538,6 @@ def profile(request, username):
     is_following = False
     if request.user.is_authenticated() and user.id != request.user.id:
         my_profile = request.user.profile.get()
-        #TODO: INEFICIENTE, habría que hacer una búsqueda de verdad en la bbdd, pero ahora mismo no sé cómo se haría
         following_now = my_profile.following
         for f in following_now:
             if f.user.id == user.id:

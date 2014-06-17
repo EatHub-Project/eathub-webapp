@@ -124,7 +124,6 @@ class RecipeSerializer(serializers.Serializer):
 
     child_recipes = EmbeddedRecipeSerializer(source='get_child_recipes', many=True)
 
-    #TODO: http://www.snip2code.com/Snippet/12518/Django-REST-framework-list-serializer
     def ingredients_list(self, obj):
         return obj.ingredients
 

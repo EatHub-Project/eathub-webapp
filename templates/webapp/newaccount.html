@@ -14,7 +14,7 @@
     <script src="{% static 'webapp/js/bootstrap-select.min.js' %}"></script>
     <script type="text/javascript">
         $().ready(function () {
-            $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
+            $('select').selectpicker();
             $('.slider').slider();
         })
     </script>
@@ -250,7 +250,6 @@
                 <select class="form-control show-tick"
                         id="id_{{ form.main_language.name }}" name="{{ form.main_language.name }}">
                     {% for choice in form.main_language.field.choices %}
-                        {% comment %}TODO Opción preseleccionada!!!{% endcomment %}
                         <option value="{{ choice.0 }}"
                                 {% ifequal form.main_language.value choice.0 %}
                                 selected
@@ -387,10 +386,6 @@
         <!-- Avatar -->
         <div class="form-group">
             <label for="id_{{ form.avatar.name }}" class="col-sm-2 control-label">{% trans "Profile picture" %}</label>
-            <!-- TODO alternativas para el estilo:
-                http://gregpike.net/demos/bootstrap-file-input/demo.html
-                http://markusslima.github.io/bootstrap-filestyle/
-                -->
             <div class="col-sm-3">
                 <div id="drop-target" class="drag-and-drop avatar-drop">
                     <img id="avatar-target" class="img-rounded img-responsive"

@@ -19,7 +19,7 @@
     <script type="text/javascript">
         var settings;
         $().ready(function () {
-            $('select').selectpicker(); //TODO ¿Poner esto en toda la web y ya está?
+            $('select').selectpicker();
             $('.slider').slider();
             jQuery(function () {
                 jQuery('.repeat').each(function () {
@@ -153,7 +153,6 @@
             // Drag&Drop for main picture
             activateDragAndDrop($("#main-picture"), "{% url 'upload' %}", function (returndata) {
                 var response = $.parseJSON(returndata);
-                //TODO validar y tal
                 setMainPicture(response.url);
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.main_picture_id.name }}";
@@ -168,7 +167,6 @@
 
                 // Guardar la info en un campo oculto
                 var input_id = "#id_{{ form.pictures_ids_list.name }}";
-                //TODO este campo es difícil de limpiar si se quiere quitar una foto de la lista
                 var current_val = $(input_id).val();
                 $(input_id).val(current_val + ";" + response.id);
 
@@ -279,7 +277,6 @@
         {% endif %}
         <input type="hidden" id="id_{{ form.pictures_ids_list.name }}" name="{{ form.pictures_ids_list.name }}"
                value="{{ form.pictures_ids_list.value |default:"" }}">
-        <!-- TODO con ciertos tamaños de imagen se buggea y la cuadrícula se va a tomar viento -->
         <div class="form-group">
             <div class="col-sm-12">
                 <div class="row gallery drop-target" id="gallery">
@@ -465,7 +462,6 @@
                                 ></textarea>
                     </div>
                 </div>
-                {% comment %}TODO: colocar mejor el mensaje de error{% endcomment %}
                 {% if form.steps_json.errors %}
                     <div class="alert alert-danger">
                         {% for error in form.steps_json.errors %}
