@@ -14,9 +14,7 @@ else:
 
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
+ADMINS = (('EatHub', 'eathub@eathub.me'),)
 
 MANAGERS = ADMINS
 
@@ -180,6 +178,12 @@ AUTHENTICATION_BACKENDS = (
       'django.contrib.auth.backends.ModelBackend',
 )
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
 #Configura la URL de retorno con HTTPS
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
@@ -210,25 +214,42 @@ SOCIAL_AUTH_PIPELINE = (
 # more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
     },
     'handlers': {
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
         'mail_admins': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
+            'class': 'django.utils.log.AdminEmailHandler',
         }
     },
     'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
-            'propagate': True,
+            'propagate': False,
         },
+        'eathub': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
     }
 }
 
