@@ -399,7 +399,6 @@
                                 <span>{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
-                                <span class="glyphicon glyphicon-remove-circle recipe-step-remove repeatable-remove"></span>
                                 {% trans "Describe this step..." as step_description %}
                                 <textarea class="form-control input-lg step-input"
                                           placeholder="{{ step_description }}"
@@ -407,6 +406,7 @@
                                           name="step_{row-count-placeholder}" id="id_step_{row-count-placeholder}"
                                           autofocus="autofocus"
                                         ></textarea>
+                                <span class="glyphicon glyphicon-remove recipe-step-remove repeatable-remove"></span>
                             </div>
                             <div class="col-sm-2 step-picture" data-step-index="{row-count-placeholder}">
                                 <a class="btn btn-default step-picture-add"><span
@@ -426,13 +426,13 @@
                                     <span>{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
-                                    <span class="glyphicon glyphicon-remove-circle recipe-step-remove repeatable-remove"></span>
                                     {% trans "Describe this step..." as the_description %}
                                     <textarea class="form-control input-lg step-input"
                                               placeholder="{{ the_description }}"
                                               rows="4"
                                               name="step_{{ forloop.counter0 }}" id="id_step_{{ forloop.counter0 }}"
                                             >{{ step.text }}</textarea>
+                                    <span class="glyphicon glyphicon-remove recipe-step-remove repeatable-remove"></span>
                                 </div>
                                 <div class="col-sm-2 step-picture" data-step-index="{{ forloop.counter0 }}">
                                     <input type="text" hidden name="step-picture-id_{{ forloop.counter0 }}"

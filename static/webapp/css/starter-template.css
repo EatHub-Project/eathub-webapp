@@ -384,6 +384,7 @@ div.gallery-item span {
     position: absolute;
     font-size: 200%;
     z-index: 1;
+    cursor: pointer;
 }
 
 .gallery-item div.alpha {
@@ -416,6 +417,10 @@ div.gallery-item span {
 .step span {
     font-size: 50px;
     color: #CC3E27;
+}
+
+.step textarea {
+    padding-left: 28px;
 }
 
 .step.next span {
@@ -1108,10 +1113,22 @@ div.gallery-item span {
 }
 
 span.recipe-step-remove {
-    font-size: 150%;
+    font-size: 100%;
     position: absolute;
-    margin-left: 90%;
-    margin-top: 1%;
+    top: 0px;
+    left: 15px;
+    cursor: pointer;
+    border: 1px solid;
+    padding: 3px;
+    border-top-left-radius: 7px;
+    color: #fff;
+    background-color: #cc3e27;
+    border-color: #cc3e27;
+}
+
+span.recipe-step-remove:hover {
+    color: #cc3e27;
+    background-color: #fff;
 }
 
 .recipe-tastes {
