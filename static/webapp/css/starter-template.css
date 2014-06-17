@@ -1107,6 +1107,13 @@ div.gallery-item span {
     width: auto;
 }
 
+span.recipe-step-remove {
+    font-size: 150%;
+    position: absolute;
+    margin-left: 90%;
+    margin-top: 1%;
+}
+
 .recipe-tastes {
 }
 
