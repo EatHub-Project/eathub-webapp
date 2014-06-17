@@ -76,11 +76,23 @@ img, object, embed {
     color: #C55240;
     font-size: 2.2em;
     padding-bottom: 10px;
-    padding-top: 0;
+    padding-top: 10px;
 }
 
 .feature .lead {
     color: #5a5a5a;
+}
+
+.feature img {
+    max-height: 270px;
+}
+
+.feature i {
+    color: #CC3E27;
+    font-size: 180px;
+    opacity: 0.8;
+    text-align: center;
+    width: 100%;
 }
 
 .row {
