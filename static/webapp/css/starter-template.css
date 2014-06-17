@@ -369,15 +369,34 @@ header .container {
     position: relative;
 }
 
-.gallery-item:hover input {
+.gallery-item:hover span {
     display: block;
 }
 
-div.gallery-item input {
+.gallery-item:hover div.alpha {
+    display: block;
+}
+
+div.gallery-item span {
     display: none;
     top: 0;
     left: 0;
     position: absolute;
+    font-size: 200%;
+    z-index: 1;
+}
+
+.gallery-item div.alpha {
+    height: 90%;
+    width: 90%;
+    background-color: #ffffff;
+    position: absolute;
+    display: none;
+
+    filter: alpha(opacity=50);  /* IE */
+    -moz-opacity: 0.75;         /* Firefox */
+    -webkit-opacity: 0.75;      /* Safari, webkit */
+    opacity: 0.75;              /* CSS standard */
 }
 
 .gallery-item img {
