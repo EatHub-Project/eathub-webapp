@@ -379,8 +379,8 @@ header .container {
 
 div.gallery-item span {
     display: none;
-    top: 0;
-    left: 0;
+    top: 40%;
+    left: 40%;
     position: absolute;
     font-size: 200%;
     z-index: 1;
