@@ -180,6 +180,12 @@ AUTHENTICATION_BACKENDS = (
       'django.contrib.auth.backends.ModelBackend',
 )
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
 #Configura la URL de retorno con HTTPS
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
