@@ -47,8 +47,7 @@
                     <ul class="nav navbar-nav">
                         <li class="{% navactive request 'main' %}"><a href="{% url 'main' %}">{% trans "Home" %}</a>
                         </li>
-                        <li><a class="" href="#">{% trans "Recipes" %}</a></li>
-                        <li><a class="" href="#">{% trans "Explore" %}</a></li>
+                        <li><a class="" href="/search/recipe/">{% trans "Explore" %}</a></li>
                         <li><div class="input-group navbar-input-group fbSearch">
                         <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="{% url 'search_recipe'%}">
                             <div class="form-group">
