@@ -34,7 +34,16 @@
                         is_sortable: true,
                         before_add: null,
                         before_remove: null,
-                        after_remove: null,
+                        after_remove: function (container) {
+                            if(container.hasClass("step-container")){
+                                var num = 1;
+                                $(".step-num").each(function(index, element) {
+                                    if (index!=0) {
+                                        $(element).html(num++);
+                                    }
+                                });
+                            }
+                        },
                         after_add: function (container, new_row) {
                             if(new_row.hasClass("ingredient-item")){
                                 new_row.find(".ingredient-input").focus();
@@ -58,7 +67,7 @@
         }
 
         function addGalleryPicture(url, id) {
-            $("#gallery").append('<div class="col-sm-3 gallery-item"><span class="glyphicon glyphicon-remove"></span><div class="alpha"></div><img class="img-rounded" src="' + url + '" data-picture-id="' + id + '"></div>');
+            $("#gallery").append('<div class="col-sm-3 gallery-item"><span class="glyphicon glyphicon-remove gallery-remove"></span><div class="alpha"></div><img class="img-rounded" src="' + url + '" data-picture-id="' + id + '"></div>');
         }
 
         function procesaFormularioInicial() {
@@ -209,6 +218,30 @@
 
                     $modal.modal("hide");
                 });
+            });
+
+            $(".gallery-remove").click( function (event) {
+                var galleryItem = $(this).parent();
+                var url = $(galleryItem).find("img").attr("src");
+                $(".step").each(function (index, element) {
+                    if (!$(element).hasClass("repeatable-template")) {
+                        var pictureId = $(element).find("img").attr("data-picture-id");
+                        if (pictureId==galleryArray[url]) {
+                            $(element).removeAttr("src");
+                            $(element).removeAttr("data-picture-id");
+                            $(element).find("img").hide();
+                            $(element).find("a").show();
+                        }
+                    }
+                });
+                $("#gallery").find("img").each(function (index, element) {
+                    var pictureId = $(element).attr("data-picture-id");
+                    if (pictureId==galleryArray[url]) {
+                        $(element).removeAttr("src");
+                        $(element).parent().remove();
+                    }
+                });
+                delete galleryArray[url];
             });
 
         });
@@ -391,12 +424,12 @@
 
         <div class="repeat">
             <div class="form-group repeatable-wrapper step-list">
-                <div class="repeatable-container">
+                <div class="repeatable-container step-container">
                     <!-- Step item -->
                     <div class="repeatable-row repeatable-template step-item">
                         <div class="form-group step">
                             <div class="col-sm-1">
-                                <span>{row-number-placeholder}</span>
+                                <span class="step-num">{row-number-placeholder}</span>
                             </div>
                             <div class="col-sm-9">
                                 {% trans "Describe this step..." as step_description %}
@@ -423,7 +456,7 @@
                         <div class="repeatable-row">
                             <div class="form-group step">
                                 <div class="col-sm-1">
-                                    <span>{{ forloop.counter }}</span>
+                                    <span class="step-num">{{ forloop.counter }}</span>
                                 </div>
                                 <div class="col-sm-9">
                                     {% trans "Describe this step..." as the_description %}
