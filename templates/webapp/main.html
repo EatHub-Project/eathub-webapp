@@ -6,7 +6,7 @@
 
     <div class="row">
 
-        <div class="col-md-12 hidden-md hidden-lg">
+        <div class="col-md-12 hidden-sm hidden-xs hidden-md hidden-lg">
         <div class="panel panel-default panel-body text-center">
             {% if user.is_authenticated %}
                 <div class="col-md-12 col-xs-12 hidden-md hidden-lg"><h2 class="navbar-text text-red text-center">{% trans "Hello" %}, {{ user.profile.get.display_name }}</h2></div>
