@@ -11,7 +11,7 @@
         {% for match in matches_profile %}
                 <div class="col-md-3 panel follow-list-item">
                     <img class="img-rounded"
-                         src="{{ match.avatar.url }}"/>
+                         src="{% avatar match.avatar %}"/>
 
                     <h3 class="user-name"><a href="{% url 'profile' match.username %}">
                         {{ match.display_name }}</a></h3>
