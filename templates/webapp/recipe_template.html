@@ -389,7 +389,7 @@
                     {% if not comment.is_banned or comment.is_banned and user.is_staff or comment.is_banned and comment.user_own == user %}
                         <div class="recipe-comment">
                             <img class="img-circle recipe-comment-picture"
-                                 src="{{ comment.user_own.profile.get.avatar.url }}">
+                                 src="{% avatar comment.user_own.profile.get.avatar.url %}">
 
                             <span class="recipe-comment-name">{{ comment.user_own.profile.get.display_name }}</span>
                             <span class="recipe-comment-date">{{ comment.create_date }}</span>
