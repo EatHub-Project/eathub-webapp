@@ -667,6 +667,7 @@ def create_user(strategy, details, user=None, is_new=False, *args, **kwargs):
     p.user=u
     p.tastes=t
     p.main_language='es'
+    p.username=u.username
 
     if fields.get('location'):
         p.location=fields.get('location').get('name')
