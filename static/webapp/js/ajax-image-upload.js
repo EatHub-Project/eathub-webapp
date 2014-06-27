@@ -13,8 +13,9 @@ function activateDragAndDrop(obj, url, callback) {
         $(this).removeClass("dropping")
         e.preventDefault();
         var files = e.originalEvent.dataTransfer.files;
-        //We need to send dropped files to Server
-        handleFileUpload(files, obj, url, callback);
+        $(files).each(function(index){
+            handleFileUpload(files[index], obj, url, callback);
+        });
     });
     // Control Drag&Drop fuera del objeto, no necesario pero sí mejor
     $(document).on('dragenter', function (e) {
@@ -34,7 +35,10 @@ function activateDragAndDrop(obj, url, callback) {
 
 function handleFileUpload(files, obj, url, callback) {
     var fd = new FormData($("#upload-form")[0]);
-    fd.append('image', files[0]);
+    if (files instanceof Array)
+        fd.append('image', files[0]);
+    else
+        fd.append('image', files);
     // Envía el csrf token con los datos de post, para que Django no lo interprete como un ataque
     // Visto en: https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#ajax
     var csrftoken = getCookie('csrftoken');
