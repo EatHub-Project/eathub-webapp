@@ -205,12 +205,12 @@
                     var url = $(this).find("img").attr("src");
                     var id = galleryArray[url];
 
-                    var $control = stepPicture.children(".step-picture-add");
-                    var $pic = stepPicture.children("img");
+                    var $control = stepPicture.find(".step-picture-add");
+                    var $pic = stepPicture.find("img");
 
                     $pic.attr("src", url);
                     $pic.attr("data-picture-id", id);
-                    $pic.show();
+                    $pic.parent().show();
 
                     $control.hide();
 
@@ -218,7 +218,44 @@
                 });
             });
 
-            $(".gallery-remove").click( function (event) {
+            $("#main-picture").click(function (event) {
+                $("#image").click();
+                $("#image").change(function (event){
+                    var files = $("#image")[0].files;
+
+                    handleFileUpload(files, $("#main-picture"), "{% url 'upload' %}", function (returndata) {
+                        var response = $.parseJSON(returndata);
+                        setMainPicture(response.url);
+                        // Guardar la info en un campo oculto
+                        var input_id = "#id_{{ form.main_picture_id.name }}";
+                        $(input_id).val(response.id);
+                    });
+                });
+            });
+
+            $("#gallery").click(function (event) {
+                $("#image").click();
+                $("#image").change(function (event){
+                    var files = $("#image")[0].files;
+                    $(files).each(function(index){
+                        handleFileUpload($(files)[index], $("#gallery"), "{% url 'upload' %}", function (returndata) {
+                            var response = $.parseJSON(returndata);
+                            addGalleryPicture(response.url, response.id)
+
+                            // Guardar la info en un campo oculto
+                            var input_id = "#id_{{ form.pictures_ids_list.name }}";
+                            var current_val = $(input_id).val();
+                            $(input_id).val(current_val + ";" + response.id);
+
+                            // Y en una variable global
+                            galleryArray[response.url] = response.id;
+                        });
+                    });
+                });
+            });
+
+            $("#gallery").on('click', '.gallery-remove', function (event) {
+                event.stopPropagation();
                 var galleryItem = $(this).parent();
                 var url = $(galleryItem).find("img").attr("src");
                 $(".step").each(function (index, element) {
@@ -227,7 +264,7 @@
                         if (pictureId==galleryArray[url]) {
                             $(element).removeAttr("src");
                             $(element).removeAttr("data-picture-id");
-                            $(element).find("img").hide();
+                            $(element).find("img").parent().hide();
                             $(element).find("a").show();
                         }
                     }
@@ -242,6 +279,19 @@
                 delete galleryArray[url];
             });
 
+            $(".step-list").on('click', ".gallery-remove", function (event) {
+                event.stopPropagation();
+                var galleryItem = $(this).parent();
+                var url = $(galleryItem).find("img").attr("src");
+                var img = $(galleryItem).find("img")
+                var step = $(galleryItem).parent();
+                $(img).removeAttr("src");
+                $(img).removeAttr("data-picture-id");
+                $(galleryItem).hide();
+                $(step).find("a").show();
+                delete galleryArray[url];
+                return false;
+            });
         });
     </script>
 {% endblock %}
@@ -441,8 +491,7 @@
                             <div class="col-sm-2 step-picture" data-step-index="{row-count-placeholder}">
                                 <a class="btn btn-default step-picture-add"><span
                                         class="glyphicon glyphicon-camera"></span></a>
-                                <img class="img-rounded"
-                                     src="" style="display: none">
+                                <div class="gallery-item" style="display: none"><span class="glyphicon glyphicon-remove gallery-remove"></span><img class="img-rounded" src=""></div>
                             </div>
                         </div>
                         <hr>
@@ -470,13 +519,12 @@
                                     {% if step.picture %}
                                         <a class="btn btn-default step-picture-add" style="display: none"><span
                                                 class="glyphicon glyphicon-camera"></span></a>
-                                        <img class="img-rounded" data-picture-id="{{ step.picture }}"
-                                             src="{% picture_from_id step.picture %}">
+                                        <div class="gallery-item"><span class="glyphicon glyphicon-remove gallery-remove"></span><img class="img-rounded" data-picture-id="{{ step.picture }}"
+                                             src="{% picture_from_id step.picture %}"></div>
                                     {% else %}
                                         <a class="btn btn-default step-picture-add"><span
                                                 class="glyphicon glyphicon-camera"></span></a>
-                                        <img class="img-rounded"
-                                             src="" style="display: none">
+                                        <div class="gallery-item" style="display: none"><span class="glyphicon glyphicon-remove gallery-remove"></span><img class="img-rounded" src="" style="display: none"></div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -842,6 +890,7 @@
     <!-- Ajax uploads -->
     <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data" id="upload-form"
           style="display: none">
+        <input type="file" multiple name="image" id="image" />
         {% csrf_token %}
     </form>
     </div>
