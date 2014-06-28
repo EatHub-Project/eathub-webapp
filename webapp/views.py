@@ -498,7 +498,14 @@ def receta(request, recipe_id):
         my_profile = request.user.profile.get()
         following = my_profile.following
 
-    recipe = Recipe.objects.get(id=recipe_id)
+    if not ObjectId.is_valid(recipe_id):
+        raise Http404
+    
+    try:
+        recipe = Recipe.objects.get(id=recipe_id)
+    except Recipe.DoesNotExist:
+        raise Http404
+
 
     total_votos = len(recipe.positives) + len(recipe.negatives)
     porcentaje_positivos = 50
