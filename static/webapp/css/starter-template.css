@@ -335,6 +335,11 @@ header .container {
     border-radius: 6px;
 }
 
+.drop-target:hover {
+    border: solid 2px #cc7466;
+    cursor: pointer;
+}
+
 .drop-target.dropping {
     border: solid 2px #cc7466;
 }
@@ -1075,6 +1080,10 @@ div.gallery-item span {
 .recipe-notes-parent{
     padding-left: 5px;
     padding-right: 0;
+}
+
+#modal-picture .modal-body {
+    overflow: hidden;
 }
 
 .recipe-step-list{
